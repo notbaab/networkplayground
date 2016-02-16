@@ -1,15 +1,15 @@
 //
-//  main.cpp
+//  test.cpp
 //  networkplayground
 //
 //  Created by Erik Parreira on 2/15/16.
 //  Copyright © 2016 Erik Parreira. All rights reserved.
 //
 
-#include <iostream>
+#include "test.hpp"
 
-int main(int argc, const char * argv[]) {
+int test() {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    std::cout << "in here";
     return 0;
 }
