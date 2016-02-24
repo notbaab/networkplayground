@@ -10,4 +10,9 @@
 #define calc__h
 
 
+int addition(int a, int b)
+{
+    return a + b;
+}
+
 #endif /* calc__h */

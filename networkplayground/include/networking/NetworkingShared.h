@@ -14,6 +14,8 @@
 	#include <netdb.h>
 	#include <errno.h>
 	#include <fcntl.h>
+	#include <stdio.h>
+    #include <iostream>
 	//typedef void* receiveBufer_t;
 	typedef int SOCKET;
 	const int NO_ERROR = 0;

@@ -1,23 +1,23 @@
-#include "RoboCatPCH.h"
+#include "Networking.h"
 
 #if !_WIN32
-extern const char** __argv;
-extern int __argc;
-void OutputDebugString( const char* inString )
-{
-	printf( "%s", inString );
-}
+//extern const char** __argv;
+//extern int __argc;
+//void OutputDebugString( const char* inString )
+//{
+//	printf( "%s", inString );
+//}
 #endif
 
-string StringUtils::GetCommandLineArg( int inIndex )
-{
-	if( inIndex < __argc )
-	{
-		return string( __argv[ inIndex ] );
-	}
-	
-	return string();
-}
+//string StringUtils::GetCommandLineArg( int inIndex )
+//{
+//	if( inIndex < __argc )
+//	{
+//		return string( __argv[ inIndex ] );
+//	}
+//	
+//	return string();
+//}
 
 
 string StringUtils::Sprintf( const char* inFormat, ... )
@@ -55,7 +55,7 @@ void StringUtils::Log( const char* inFormat, ... )
 #else
 	vsnprintf(temp, 4096, inFormat, args);
 #endif
-	OutputDebugString( temp );
-	OutputDebugString( "\n" );
+//	OutputDebugString( temp );
+//	OutputDebugString( "\n" );
 }
 

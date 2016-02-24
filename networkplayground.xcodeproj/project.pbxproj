@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E39CAE91C79812A00B3C0ED /* Networking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAE81C79812A00B3C0ED /* Networking.cpp */; };
+		7E39CAEA1C79812A00B3C0ED /* Networking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAE81C79812A00B3C0ED /* Networking.cpp */; };
+		7E39CAED1C7AAEC600B3C0ED /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAEB1C7AAEC600B3C0ED /* Server.cpp */; };
+		7E39CAF11C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */; };
+		7E39CAF21C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */; };
+		7E39CAFA1C7B90E300B3C0ED /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAF91C7B90E300B3C0ED /* main.cpp */; };
+		7E39CAFF1C7B923700B3C0ED /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E39CAFE1C7B923700B3C0ED /* gtest.framework */; };
+		7E39CB0D1C7BD19300B3C0ED /* MemoryBitStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */; };
+		7E4026591C797D030044C61E /* SocketAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E40264F1C797D030044C61E /* SocketAddress.cpp */; };
+		7E40265A1C797D030044C61E /* SocketAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E40264F1C797D030044C61E /* SocketAddress.cpp */; };
+		7E40265B1C797D030044C61E /* SocketAddressFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026501C797D030044C61E /* SocketAddressFactory.cpp */; };
+		7E40265C1C797D030044C61E /* SocketAddressFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026501C797D030044C61E /* SocketAddressFactory.cpp */; };
+		7E40265D1C797D030044C61E /* SocketUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026511C797D030044C61E /* SocketUtil.cpp */; };
+		7E40265E1C797D030044C61E /* SocketUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026511C797D030044C61E /* SocketUtil.cpp */; };
+		7E40265F1C797D030044C61E /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026521C797D030044C61E /* StringUtils.cpp */; };
+		7E4026601C797D030044C61E /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026521C797D030044C61E /* StringUtils.cpp */; };
+		7E4026611C797D030044C61E /* TCPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026531C797D030044C61E /* TCPSocket.cpp */; };
+		7E4026621C797D030044C61E /* TCPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026531C797D030044C61E /* TCPSocket.cpp */; };
+		7E4026631C797D030044C61E /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
+		7E4026641C797D030044C61E /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
 		7E7300B71C7278AC003DE60E /* networkplaygroundserver in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E73009E1C727471003DE60E /* networkplaygroundserver */; };
 		7E7300B81C7278B9003DE60E /* networkplaygroundclient in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E7300931C72742E003DE60E /* networkplaygroundclient */; };
 		FE1DE7391C72A51200ABF75D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE1DE7381C72A51200ABF75D /* main.cpp */; };
@@ -17,15 +37,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		7E39CAF51C7B90E300B3C0ED /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		7E7300911C72742E003DE60E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			dstPath = /Users/eparreira/xcode_out/networkplayground;
 			dstSubfolderSpec = 0;
 			files = (
 				7E7300B81C7278B9003DE60E /* networkplaygroundclient in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 		7E73009C1C727471003DE60E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -40,6 +69,29 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7E39CAE61C7980B900B3C0ED /* NetworkingShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingShared.h; sourceTree = "<group>"; };
+		7E39CAE71C7980DF00B3C0ED /* Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
+		7E39CAE81C79812A00B3C0ED /* Networking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Networking.cpp; sourceTree = "<group>"; };
+		7E39CAEB1C7AAEC600B3C0ED /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Server.cpp; sourceTree = "<group>"; };
+		7E39CAEC1C7AAEC600B3C0ED /* Server.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Server.hpp; sourceTree = "<group>"; };
+		7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemoryBitStream.cpp; path = IO/MemoryBitStream.cpp; sourceTree = "<group>"; };
+		7E39CAF71C7B90E300B3C0ED /* unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E39CAF91C7B90E300B3C0ED /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7E39CAFE1C7B923700B3C0ED /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
+		7E39CB041C7B995400B3C0ED /* calc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = calc.h; sourceTree = "<group>"; };
+		7E39CB0F1C7BD1BF00B3C0ED /* MemoryBitStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemoryBitStream.h; path = IO/MemoryBitStream.h; sourceTree = "<group>"; };
+		7E40264F1C797D030044C61E /* SocketAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketAddress.cpp; sourceTree = "<group>"; };
+		7E4026501C797D030044C61E /* SocketAddressFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketAddressFactory.cpp; sourceTree = "<group>"; };
+		7E4026511C797D030044C61E /* SocketUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketUtil.cpp; sourceTree = "<group>"; };
+		7E4026521C797D030044C61E /* StringUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtils.cpp; sourceTree = "<group>"; };
+		7E4026531C797D030044C61E /* TCPSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TCPSocket.cpp; sourceTree = "<group>"; };
+		7E4026541C797D030044C61E /* UDPSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UDPSocket.cpp; sourceTree = "<group>"; };
+		7E4026671C797D140044C61E /* SocketAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketAddress.h; sourceTree = "<group>"; };
+		7E4026681C797D140044C61E /* SocketAddressFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketAddressFactory.h; sourceTree = "<group>"; };
+		7E4026691C797D140044C61E /* SocketUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketUtil.h; sourceTree = "<group>"; };
+		7E40266A1C797D140044C61E /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
+		7E40266B1C797D140044C61E /* TCPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPSocket.h; sourceTree = "<group>"; };
+		7E40266C1C797D140044C61E /* UDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPSocket.h; sourceTree = "<group>"; };
 		7E7300931C72742E003DE60E /* networkplaygroundclient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = networkplaygroundclient; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E73009E1C727471003DE60E /* networkplaygroundserver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = networkplaygroundserver; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE1DE7381C72A51200ABF75D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -51,6 +103,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7E39CAF41C7B90E300B3C0ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E39CAFF1C7B923700B3C0ED /* gtest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7E7300901C72742E003DE60E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,6 +128,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E39CAEE1C7AB02900B3C0ED /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */,
+				7E39CB0F1C7BD1BF00B3C0ED /* MemoryBitStream.h */,
+			);
+			name = IO;
+			sourceTree = "<group>";
+		};
+		7E39CAF81C7B90E300B3C0ED /* unit_tests */ = {
+			isa = PBXGroup;
+			children = (
+				7E39CAF91C7B90E300B3C0ED /* main.cpp */,
+				7E39CB041C7B995400B3C0ED /* calc.h */,
+			);
+			path = unit_tests;
+			sourceTree = "<group>";
+		};
+		7E5B94771C762D64007E8198 /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				7E39CAE81C79812A00B3C0ED /* Networking.cpp */,
+				7E40264F1C797D030044C61E /* SocketAddress.cpp */,
+				7E4026501C797D030044C61E /* SocketAddressFactory.cpp */,
+				7E4026511C797D030044C61E /* SocketUtil.cpp */,
+				7E4026521C797D030044C61E /* StringUtils.cpp */,
+				7E4026531C797D030044C61E /* TCPSocket.cpp */,
+				7E4026541C797D030044C61E /* UDPSocket.cpp */,
+			);
+			path = networking;
+			sourceTree = "<group>";
+		};
+		7E5B947C1C762DD1007E8198 /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				7E39CAE71C7980DF00B3C0ED /* Networking.h */,
+				7E39CAE61C7980B900B3C0ED /* NetworkingShared.h */,
+				7E4026671C797D140044C61E /* SocketAddress.h */,
+				7E4026681C797D140044C61E /* SocketAddressFactory.h */,
+				7E4026691C797D140044C61E /* SocketUtil.h */,
+				7E40266A1C797D140044C61E /* StringUtils.h */,
+				7E40266B1C797D140044C61E /* TCPSocket.h */,
+				7E40266C1C797D140044C61E /* UDPSocket.h */,
+			);
+			path = networking;
+			sourceTree = "<group>";
+		};
 		7E7300941C72742E003DE60E /* networkplaygroundclient */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,9 +215,11 @@
 		7ECC44F61C72715A00A2710D = {
 			isa = PBXGroup;
 			children = (
+				7E39CAFE1C7B923700B3C0ED /* gtest.framework */,
 				7E7300A91C7275F7003DE60E /* networkplayground */,
 				7E7300941C72742E003DE60E /* networkplaygroundclient */,
 				7E73009F1C727472003DE60E /* networkplaygroundserver */,
+				7E39CAF81C7B90E300B3C0ED /* unit_tests */,
 				7ECC45001C72715A00A2710D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,6 +229,7 @@
 			children = (
 				7E7300931C72742E003DE60E /* networkplaygroundclient */,
 				7E73009E1C727471003DE60E /* networkplaygroundserver */,
+				7E39CAF71C7B90E300B3C0ED /* unit_tests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				FE1DE7381C72A51200ABF75D /* main.cpp */,
+				7E39CAEB1C7AAEC600B3C0ED /* Server.cpp */,
+				7E39CAEC1C7AAEC600B3C0ED /* Server.hpp */,
 			);
 			name = src;
 			path = include/src;
@@ -167,6 +279,7 @@
 		FE1DE7431C72A61400ABF75D /* include */ = {
 			isa = PBXGroup;
 			children = (
+				7E5B947C1C762DD1007E8198 /* networking */,
 				FE1DE7441C72A61400ABF75D /* test.hpp */,
 			);
 			path = include;
@@ -175,6 +288,8 @@
 		FE1DE7451C72A61400ABF75D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7E39CAEE1C7AB02900B3C0ED /* IO */,
+				7E5B94771C762D64007E8198 /* networking */,
 				FE1DE7461C72A61400ABF75D /* test.cpp */,
 			);
 			path = src;
@@ -190,6 +305,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7E39CAF61C7B90E300B3C0ED /* unit_tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E39CAFB1C7B90E300B3C0ED /* Build configuration list for PBXNativeTarget "unit_tests" */;
+			buildPhases = (
+				7E39CAF31C7B90E300B3C0ED /* Sources */,
+				7E39CAF41C7B90E300B3C0ED /* Frameworks */,
+				7E39CAF51C7B90E300B3C0ED /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = unit_tests;
+			productName = unit_tests;
+			productReference = 7E39CAF71C7B90E300B3C0ED /* unit_tests */;
+			productType = "com.apple.product-type.tool";
+		};
 		7E7300921C72742E003DE60E /* networkplaygroundclient */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E7300971C72742E003DE60E /* Build configuration list for PBXNativeTarget "networkplaygroundclient" */;
@@ -233,6 +365,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Erik Parreira";
 				TargetAttributes = {
+					7E39CAF61C7B90E300B3C0ED = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					7E7300921C72742E003DE60E = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -255,16 +390,34 @@
 			targets = (
 				7E7300921C72742E003DE60E /* networkplaygroundclient */,
 				7E73009D1C727471003DE60E /* networkplaygroundserver */,
+				7E39CAF61C7B90E300B3C0ED /* unit_tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7E39CAF31C7B90E300B3C0ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E39CB0D1C7BD19300B3C0ED /* MemoryBitStream.cpp in Sources */,
+				7E39CAFA1C7B90E300B3C0ED /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7E73008F1C72742E003DE60E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E40265F1C797D030044C61E /* StringUtils.cpp in Sources */,
+				7E40265B1C797D030044C61E /* SocketAddressFactory.cpp in Sources */,
+				7E4026631C797D030044C61E /* UDPSocket.cpp in Sources */,
+				7E4026591C797D030044C61E /* SocketAddress.cpp in Sources */,
 				FE1DE7421C72A5CF00ABF75D /* main.cpp in Sources */,
+				7E40265D1C797D030044C61E /* SocketUtil.cpp in Sources */,
+				7E39CAF11C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */,
+				7E39CAE91C79812A00B3C0ED /* Networking.cpp in Sources */,
+				7E4026611C797D030044C61E /* TCPSocket.cpp in Sources */,
 				FE1DE7481C72A61400ABF75D /* test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,15 +426,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E4026601C797D030044C61E /* StringUtils.cpp in Sources */,
+				7E40265C1C797D030044C61E /* SocketAddressFactory.cpp in Sources */,
+				7E39CAEA1C79812A00B3C0ED /* Networking.cpp in Sources */,
+				7E4026641C797D030044C61E /* UDPSocket.cpp in Sources */,
+				7E39CAF21C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */,
 				FE1DE7391C72A51200ABF75D /* main.cpp in Sources */,
+				7E40265A1C797D030044C61E /* SocketAddress.cpp in Sources */,
 				FE1DE73D1C72A5A400ABF75D /* tests.cpp in Sources */,
+				7E40265E1C797D030044C61E /* SocketUtil.cpp in Sources */,
+				7E4026621C797D030044C61E /* TCPSocket.cpp in Sources */,
 				FE1DE7491C72A61400ABF75D /* test.cpp in Sources */,
+				7E39CAED1C7AAEC600B3C0ED /* Server.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		7E39CAFC1C7B90E300B3C0ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /Library/Frameworks;
+			};
+			name = Debug;
+		};
+		7E39CAFD1C7B90E300B3C0ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /Library/Frameworks;
+			};
+			name = Release;
+		};
 		7E7300981C72742E003DE60E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -392,6 +578,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7E39CAFB1C7B90E300B3C0ED /* Build configuration list for PBXNativeTarget "unit_tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E39CAFC1C7B90E300B3C0ED /* Debug */,
+				7E39CAFD1C7B90E300B3C0ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7E7300971C72742E003DE60E /* Build configuration list for PBXNativeTarget "networkplaygroundclient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -10,7 +10,7 @@
 #include "test.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
+    // Connect to server
     std::cout << "Hello, World!\n";
     return 0;
 }

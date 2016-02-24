@@ -7,9 +7,14 @@
 		<key>networkplaygroundclient.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>networkplaygroundserver.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>unit_tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
@@ -17,6 +22,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>7E39CAF61C7B90E300B3C0ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7E7300921C72742E003DE60E</key>
 		<dict>
 			<key>primary</key>

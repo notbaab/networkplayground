@@ -6,9 +6,30 @@
 //  Copyright © 2016 Erik Parreira. All rights reserved.
 //
 
-#ifndef Server_hpp
-#define Server_hpp
+class Server //: public Engine
+{
+public:
 
-#include <stdio.h>
-
-#endif /* Server_hpp */
+    // Allow only one Server instance
+    static bool StaticInit();
+    
+    // Simulate a frame of gameplay
+    virtual void DoFrame() override;
+    
+    // 
+    virtual int Run();
+    
+    void HandleNewClient( ClientProxyPtr inClientProxy );
+    void HandleLostClient( ClientProxyPtr inClientProxy );
+    
+    RoboCatPtr	GetCatForPlayer( int inPlayerId );
+    void	SpawnCatForPlayer( int inPlayerId );
+    
+    
+private:
+    Server();
+    
+    bool	InitNetworkManager();
+    void	SetupWorld();
+    
+};
