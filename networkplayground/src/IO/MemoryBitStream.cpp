@@ -6,7 +6,7 @@
 //  Copyright © 2016 Erik Parreira. All rights reserved.
 //
 
-#include "MemoryBitStream.h"
+#include "IO/MemoryBitStream.h"
 
 using std::cout;
 using std::endl;

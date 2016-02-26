@@ -9,7 +9,7 @@
 
 #include <cstdint>
 #include <cstdlib>
-#include <string>
+#include <string.h>
 #include <stdio.h>
 #include <iostream>
 

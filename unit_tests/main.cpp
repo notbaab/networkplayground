@@ -9,7 +9,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "gtest/gtest.h"
-#include "MemoryBitStream.h"
+#include "IO/MemoryBitStream.h"
 
 using std::cout;
 using std::endl;
@@ -100,9 +100,9 @@ TEST (OutputMemoryBitStream, TestScratch)
 }
 
 
-
-int main(int argc, char * argv[])
-{
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+// TODO: This was needed for xcode testing but not the command line
+// int main(int argc, char * argv[])
+// {
+//     ::testing::InitGoogleTest(&argc, argv);
+//     return RUN_ALL_TESTS();
+// }

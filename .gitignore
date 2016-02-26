@@ -29,3 +29,6 @@
 
 # Stuff in my bin directory
 bin/
+
+# Ignore .vagrant
+.vagrant/
