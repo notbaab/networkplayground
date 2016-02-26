@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# Stuff in my bin directory
+bin/
