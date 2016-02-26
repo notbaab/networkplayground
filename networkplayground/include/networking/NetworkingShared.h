@@ -11,11 +11,13 @@
 	#include <sys/socket.h>
 	#include <netinet/in.h>
 	#include <sys/types.h>
+	#include <string.h>
 	#include <netdb.h>
 	#include <errno.h>
 	#include <fcntl.h>
 	#include <stdio.h>
     #include <iostream>
+    #include <unistd.h>
 	//typedef void* receiveBufer_t;
 	typedef int SOCKET;
 	const int NO_ERROR = 0;
