@@ -1,0 +1,1768 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"game",
+				"gameObject	GameObject ν"
+			],
+			[
+				"up",
+				"updateMessage	UpdateMessage ν"
+			],
+			[
+				"New",
+				"NewVector	core_lib.Vector2D ƒ"
+			],
+			[
+				"pn",
+				"physicsComponenet	core_lib.PhysicsComponent ν"
+			],
+			[
+				"se",
+				"SendMessage	error ƒ"
+			],
+			[
+				"cli",
+				"clientData	*Client ν"
+			],
+			[
+				"raw",
+				"rawJsonData	 ν"
+			],
+			[
+				"rec",
+				"rectData	core_lib.BaseRectData ν"
+			],
+			[
+				"phy",
+				"physicsSpace	core_lib.PhysicsSpace ν"
+			],
+			[
+				"print",
+				"Printf	 ƒ"
+			],
+			[
+				"P",
+				"PhysicsComponent	struct ʈ"
+			],
+			[
+				"Ph",
+				"PhysicsSpace	struct ʈ"
+			],
+			[
+				"gameO",
+				"gameObj	*PhysicsComponent ν"
+			],
+			[
+				"gam",
+				"gameObj	*PhysicsComponent ν"
+			],
+			[
+				"floa",
+				"float64	built-in ʈ"
+			],
+			[
+				"flo",
+				"float64	built-in ʈ"
+			],
+			[
+				"ca",
+				"canvasHeight〔variable〕"
+			],
+			[
+				"sett",
+				"settings〔variable〕"
+			],
+			[
+				"pla",
+				"player〔variable〕"
+			],
+			[
+				"par",
+				"parseNetworkGameObject"
+			],
+			[
+				"obj",
+				"object〔variable〕"
+			],
+			[
+				"fun",
+				"function〔keyword〕"
+			],
+			[
+				"conn",
+				"connectionData〔argument〕"
+			],
+			[
+				"ne",
+				"network	 package ρ"
+			],
+			[
+				"s",
+				"string	built-in ʈ"
+			],
+			[
+				"clien",
+				"clientData	network.ClientData ν"
+			],
+			[
+				"prin",
+				"Printf	 ƒ"
+			],
+			[
+				"lo",
+				"logger	 package ρ"
+			],
+			[
+				"p",
+				"Panicf	 ƒ"
+			],
+			[
+				"pa",
+				"Panicf	 ƒ"
+			],
+			[
+				"Conn",
+				"MakeConnectionMessage	Message ƒ"
+			],
+			[
+				"con",
+				"connectionMessage	network.Message ν"
+			],
+			[
+				"make",
+				"MakeConnectionMessage	Message ƒ"
+			],
+			[
+				"clin",
+				"clientData	 ν"
+			],
+			[
+				"sen",
+				"SendToClient	error ƒ"
+			],
+			[
+				"client",
+				"clientData	 ν"
+			],
+			[
+				"clie",
+				"clientData	*network.ClientData ν"
+			],
+			[
+				"Me",
+				"Message	struct ʈ"
+			],
+			[
+				"Mess",
+				"MessageQueue	struct ʈ"
+			],
+			[
+				"new",
+				"newClient	ClientData ν"
+			],
+			[
+				"in",
+				"InputQueue	[]Message ν"
+			],
+			[
+				"Cli",
+				"ClientData	struct ʈ"
+			],
+			[
+				"Prin",
+				"Println	 ƒ"
+			],
+			[
+				"web",
+				"websockethandler	 package ρ"
+			],
+			[
+				"Ad",
+				"AddNewPlayer	Player ƒ"
+			],
+			[
+				"m",
+				"message	Message ν"
+			],
+			[
+				"gae",
+				"gameObjects	map[string]GameObject ν"
+			],
+			[
+				"ba",
+				"BaseRectMessage	struct ʈ"
+			],
+			[
+				"build",
+				"buildBaseRectData	MessageRectData ƒ"
+			],
+			[
+				"Oj",
+				"ObjectRectData	struct ʈ"
+			],
+			[
+				"ob",
+				"ObjectRectData	struct ʈ"
+			],
+			[
+				"Ob",
+				"ObjectRectData	struct ʈ"
+			],
+			[
+				"event",
+				"eventMessage	Message ν"
+			],
+			[
+				"broa",
+				"broadcastMessages	[]Message ν"
+			],
+			[
+				"syn",
+				"syncDataBytes	[]byte ν"
+			],
+			[
+				"mess",
+				"message2	Message ν"
+			],
+			[
+				"sy",
+				"syncDataBytes	[]byte ν"
+			],
+			[
+				"mes",
+				"messageJson	[]byte ν"
+			],
+			[
+				"bro",
+				"broadcastBytes	[]byte ν"
+			],
+			[
+				"br",
+				"broadcastBytes	[]byte ν"
+			],
+			[
+				"even",
+				"event	Message ν"
+			],
+			[
+				"add",
+				"addBytes	[]byte ν"
+			],
+			[
+				"upda",
+				"UpdateMessage	struct ʈ"
+			],
+			[
+				"update",
+				"updateBytes	[]byte ν"
+			],
+			[
+				"eventa",
+				"eventName	string ν"
+			],
+			[
+				"UPdate",
+				"UpdateMessage	struct ʈ"
+			],
+			[
+				"test",
+				"testSlice	[]Test ν"
+			],
+			[
+				"Tes",
+				"Tester	struct ʈ"
+			],
+			[
+				"g",
+				"GameObjects	map[string]GameObject ν"
+			],
+			[
+				"i",
+				"sourceId	int ν"
+			],
+			[
+				"eve",
+				"eventSourceId	int ν"
+			],
+			[
+				"c",
+				"client	*websocket.Conn ν"
+			],
+			[
+				"cl",
+				"clients	map[*websocket.Conn]ClientData ν"
+			],
+			[
+				"pro",
+				"ProcessObjectEvents	string ƒ"
+			],
+			[
+				"Pr",
+				"Printf	 ƒ"
+			],
+			[
+				"Syn",
+				"SyncMessage	struct ʈ"
+			],
+			[
+				"ru",
+				"runHttpServer	 ƒ"
+			],
+			[
+				"run",
+				"runInteractiveMode	 ƒ"
+			],
+			[
+				"err",
+				"Error	*log.Logger ν"
+			],
+			[
+				"a",
+				"RemoteAddr	net.Addr ƒ"
+			],
+			[
+				"set",
+				"SetOutput	 ƒ"
+			],
+			[
+				"Upd",
+				"UpdateMessage	struct ʈ"
+			],
+			[
+				"Add",
+				"AddRequest	struct ʈ"
+			],
+			[
+				"Up",
+				"UpdateMessage	struct ʈ"
+			],
+			[
+				"updat",
+				"updateBytes	[]byte ν"
+			],
+			[
+				"json",
+				"jsonData	 ν"
+			],
+			[
+				"Co",
+				"channelCoordinator	ComunicationChannels ν"
+			],
+			[
+				"time",
+				"timeStep	float64 ν"
+			],
+			[
+				"ph",
+				"PhysicsLoop	 ƒ"
+			],
+			[
+				"Tick",
+				"Ticker	struct ʈ"
+			],
+			[
+				"pr",
+				"Println	n int, err error ƒ"
+			],
+			[
+				"move",
+				"moveChannel	chan MoveRequest ν"
+			],
+			[
+				"Read",
+				"ReadCreatePlayerEvent	Player ƒ"
+			],
+			[
+				"data",
+				"dataMessage	AddRequest ν"
+			],
+			[
+				"Move",
+				"MoveRequest	struct ʈ"
+			],
+			[
+				"Moev",
+				"MoveRequest	struct ʈ"
+			],
+			[
+				"Cle",
+				"ClientMessage	struct ʈ"
+			],
+			[
+				"ini",
+				"initializeConnectionData	 ƒ"
+			],
+			[
+				"imp",
+				"import	import (...) ʂ"
+			],
+			[
+				"Make",
+				"MakePlayerObjectFromJson	Player ƒ"
+			],
+			[
+				"Play",
+				"PlayerControlledObject	interface ¡"
+			],
+			[
+				"pl",
+				"PlayerControlledObject	interface ¡"
+			],
+			[
+				"Game",
+				"GameObject	interface ¡"
+			],
+			[
+				"Physi",
+				"PhysicsComponent	struct ʈ"
+			],
+			[
+				"Bas",
+				"BasePhysicsObjData	struct ʈ"
+			],
+			[
+				"PLay",
+				"PlayerControlledObject	interface ¡"
+			],
+			[
+				"send",
+				"sendMoveEvent"
+			],
+			[
+				"key",
+				"keyListener"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"Mo",
+				"MovableObject	struct ʈ"
+			],
+			[
+				"x",
+				"XVel	int ν"
+			],
+			[
+				"no",
+				"Now	time.Time ƒ"
+			],
+			[
+				"debu",
+				"debugNetwork"
+			],
+			[
+				"de",
+				"debugDraw"
+			],
+			[
+				"frame",
+				"frameId"
+			],
+			[
+				"this",
+				"thisFrameFPS"
+			],
+			[
+				"fram",
+				"frameId"
+			],
+			[
+				"last",
+				"lastDrawUpdate"
+			],
+			[
+				"drawF",
+				"drawingFps"
+			],
+			[
+				"do",
+				"document"
+			],
+			[
+				"Ni",
+				"NeighborServerList	struct ʈ"
+			],
+			[
+				"ser",
+				"serverToFilter	ClientServer ν"
+			],
+			[
+				"server",
+				"serverList	ClientServerList ν"
+			],
+			[
+				"sere",
+				"serverList	ClientServerList ν"
+			],
+			[
+				"Nei",
+				"NeighborServerList	struct ʈ"
+			],
+			[
+				"Clien",
+				"ClientServerList	struct ʈ"
+			],
+			[
+				"serv",
+				"serverMap	map[bool]ClientServer ν"
+			],
+			[
+				"re",
+				"RemoteAddr	string ν"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "#include \"RoboCatPCH.h\"\n\nvoid OutputMemoryBitStream::WriteBits( uint8_t inData,\n                                      uint32_t inBitCount )\n{\n    uint32_t nextBitHead = mBitHead + static_cast< uint32_t >( inBitCount );\n    \n    if( nextBitHead > mBitCapacity )\n    {\n        ReallocBuffer( std::max( mBitCapacity * 2, nextBitHead ) );\n    }\n    \n    //calculate the byteOffset into our buffer\n    //by dividing the head by 8\n    //and the bitOffset by taking the last 3 bits\n    uint32_t byteOffset = mBitHead >> 3;\n    uint32_t bitOffset = mBitHead & 0x7;\n    \n    uint8_t currentMask = ~( 0xff << bitOffset );\n    mBuffer[ byteOffset ] = ( mBuffer[ byteOffset ] & currentMask ) | ( inData << bitOffset );\n    \n    //calculate how many bits were not yet used in\n    //our target byte in the buffer\n    uint32_t bitsFreeThisByte = 8 - bitOffset;\n    \n    //if we needed more than that, carry to the next byte\n    if( bitsFreeThisByte < inBitCount )\n    {\n        //we need another byte\n        mBuffer[ byteOffset + 1 ] = inData >> bitsFreeThisByte;\n    }\n    \n    mBitHead = nextBitHead;\n}\n\nvoid OutputMemoryBitStream::WriteBits( const void* inData, uint32_t inBitCount )\n{\n    const char* srcByte = static_cast< const char* >( inData );\n    //write all the bytes\n    while( inBitCount > 8 )\n    {\n        WriteBits( *srcByte, 8 );\n        ++srcByte;\n        inBitCount -= 8;\n    }\n    //write anything left\n    if( inBitCount > 0 )\n    {\n        WriteBits( *srcByte, inBitCount );\n    }\n}\n\nvoid OutputMemoryBitStream::Write( const Vector3& inVector )\n{\n    Write( inVector.mX );\n    Write( inVector.mY );\n    Write( inVector.mZ );\n}\n\nvoid InputMemoryBitStream::Read( Vector3& outVector )\n{\n    Read( outVector.mX );\n    Read( outVector.mY );\n    Read( outVector.mZ );\n}\n\nvoid OutputMemoryBitStream::Write( const Quaternion& inQuat )\n{\n    float precision = ( 2.f / 65535.f );\n    Write( ConvertToFixed( inQuat.mX, -1.f, precision ), 16 );\n    Write( ConvertToFixed( inQuat.mY, -1.f, precision ), 16 );\n    Write( ConvertToFixed( inQuat.mZ, -1.f, precision ), 16 );\n    Write( inQuat.mW < 0 );\n}\n\n\n\nvoid OutputMemoryBitStream::ReallocBuffer( uint32_t inNewBitLength )\n{\n    if( mBuffer == nullptr )\n    {\n        //just need to memset on first allocation\n        mBuffer = static_cast<char*>( std::malloc( inNewBitLength >> 3 ) );\n        memset( mBuffer, 0, inNewBitLength >> 3 );\n    }\n    else\n    {\n        //need to memset, then copy the buffer\n        char* tempBuffer = static_cast<char*>( std::malloc( inNewBitLength >> 3 ) );\n        memset( tempBuffer, 0, inNewBitLength >> 3 );\n        memcpy( tempBuffer, mBuffer, mBitCapacity >> 3 );\n        std::free( mBuffer );\n        mBuffer = tempBuffer;\n    }\n    \n    //handle realloc failure\n    //...\n    mBitCapacity = inNewBitLength;\n}\n\n\nvoid test1()\n{\n    OutputMemoryBitStream mbs;\n    \n    mbs.WriteBits( 11, 5 );\n    mbs.WriteBits( 52, 6 );\n}\n\nvoid InputMemoryBitStream::ReadBits( uint8_t& outData, uint32_t inBitCount )\n{\n    uint32_t byteOffset = mBitHead >> 3;\n    uint32_t bitOffset = mBitHead & 0x7;\n    \n    outData = static_cast< uint8_t >( mBuffer[ byteOffset ] ) >> bitOffset;\n    \n    uint32_t bitsFreeThisByte = 8 - bitOffset;\n    if( bitsFreeThisByte < inBitCount )\n    {\n        //we need another byte\n        outData |= static_cast< uint8_t >( mBuffer[ byteOffset + 1 ] ) << bitsFreeThisByte;\n    }\n    \n    //don't forget a mask so that we only read the bit we wanted...\n    outData &= ( ~( 0x00ff << inBitCount ) );\n    \n    mBitHead += inBitCount;\n}\n\nvoid InputMemoryBitStream::ReadBits( void* outData, uint32_t inBitCount )\n{\n    uint8_t* destByte = reinterpret_cast< uint8_t* >( outData );\n    //write all the bytes\n    while( inBitCount > 8 )\n    {\n        ReadBits( *destByte, 8 );\n        ++destByte;\n        inBitCount -= 8;\n    }\n    //write anything left\n    if( inBitCount > 0 )\n    {\n        ReadBits( *destByte, inBitCount );\n    }\n}\n\nvoid InputMemoryBitStream::Read( Quaternion& outQuat )\n{\n    float precision = ( 2.f / 65535.f );\n    \n    uint32_t f = 0;\n    \n    Read( f, 16 );\n    outQuat.mX = ConvertFromFixed( f, -1.f, precision );\n    Read( f, 16 );\n    outQuat.mY = ConvertFromFixed( f, -1.f, precision );\n    Read( f, 16 );\n    outQuat.mZ = ConvertFromFixed( f, -1.f, precision );\n    \n    outQuat.mW = sqrtf( 1.f -\n                       outQuat.mX * outQuat.mX +\n                       outQuat.mY * outQuat.mY +\n                       outQuat.mZ * outQuat.mZ );\n    bool isNegative;\n    Read( isNegative );\n    \n    if( isNegative )\n    {\n        outQuat.mW *= -1;\n    }\n}\n.\\",
+			"settings":
+			{
+				"buffer_size": 4578,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"last_filter": "set c+",
+		"selected_items":
+		[
+			[
+				"set c+",
+				"Set Syntax: C++"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"gosu",
+				"GoSublime: Run build command"
+			],
+			[
+				"nrew",
+				"File: New File Relative to Current View"
+			],
+			[
+				"set c++",
+				"Set Syntax: C++"
+			],
+			[
+				"renam",
+				"File: Rename"
+			],
+			[
+				"uper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"todo",
+				"TodoReview: Project Files"
+			],
+			[
+				"gosub",
+				"GoSublime: Activate 9o"
+			],
+			[
+				"go",
+				"GoSublime: Open Error Log"
+			],
+			[
+				"tdo",
+				"TodoReview: Open Files"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"ren",
+				"Preferences: Settings - Default"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"waka",
+				"WakaTime: Open Dashboard"
+			],
+			[
+				"trail",
+				"Trailing Spaces: Toggle Trailing Spaces Highlighting"
+			],
+			[
+				"ke",
+				"Keymaps: Cheat Sheet"
+			],
+			[
+				"html",
+				"HTMLBeautify"
+			],
+			[
+				"dele",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"sync",
+				"Package Syncing: Pull Settings"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"disb",
+				"Package Control: Disable Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"htmlr",
+				"Set Syntax: HTML (Erlang)"
+			],
+			[
+				"h",
+				"HTMLBeautify"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"go ",
+				"GoSublime: Open Error Log"
+			],
+			[
+				"gosett",
+				"GoSublime: User Settings"
+			],
+			[
+				"insal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/erikparreira/Dropbox/Programming/networkplayground",
+		"/Users/erikparreira/Dropbox/Programming/networkplayground/networkplayground",
+		"/Users/erikparreira/Dropbox/Programming/networkplayground/networkplayground/include",
+		"/Users/erikparreira/Dropbox/Programming/networkplayground/networkplayground/include/networking",
+		"/Users/erikparreira/Dropbox/Programming/networkplayground/networkplayground/src",
+		"/Users/erikparreira/Dropbox/Programming/networkplayground/networkplayground/src/networking"
+	],
+	"file_history":
+	[
+		"/Users/erikparreira/Dropbox/Programming/networkplayground/networkplayground/include/networking/SocketAddress.h",
+		"/Users/erikparreira/Library/Application Support/Sublime Text 3/Packages/GoSublime/CHANGELOG.md",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/game/client_handlers.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/core_lib/game_objs.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/web/js/game.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/core_lib/basic_physics.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/game/client_messages.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/game/game.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/network/clients.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/game/game_loop.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/game/game_objs.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/web/js/simple_actor.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/backend/main.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/communication_layer.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/network/messages.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/network/websockethandler.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/core_lib/utils.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/game.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/web/index.html",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/game_loop.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/web/js/connection.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/web/js/settings.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/game_objs.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/core_lib.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/core_lib/core_lib.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/messages.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/logger/logger.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/server_handlers.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/websockethandler/websockethandler.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/build.sh",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/web/js/ws_events_dispatcher.js",
+		"/Users/erikparreira/Library/Application Support/Sublime Text 3/Packages/User/GoSublime.sublime-settings",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/client_handlers.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/core/physics_component.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/core/game_objs.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/websockethandler.go/websockethandler.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/falcon/core/core_lib.go",
+		"/Users/erikparreira/Library/Application Support/Sublime Text 3/Packages/GoSublime/GoSublime.sublime-settings",
+		"/Users/erikparreira/Dropbox/go_env/install_go.sh",
+		"/Users/erikparreira/Downloads/Spending.csv",
+		"/Users/erikparreira/Dropbox/goStuff/vagrant-golang/Vagrantfile",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/message_structure.md",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/messaging_notes.md",
+		"/Users/erikparreira/Dropbox/Programming/Silly shit/prank_scrips.sh",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/web/js/game.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/web/js/utils.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/web/js/simple_actor.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/web/js/ws_events_dispatcher.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/web/js/unit_manager.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/master_server/master_server.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/interactive_view.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/.gitignore",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/web/index.html",
+		"/Users/erikparreira/Dropbox/Generic_Card_Deck_Design.md",
+		"/Users/erikparreira/Dropbox/Tech_Things_To_Do.md",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/temp/test.go",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/logger.go",
+		"/Users/erikparreira/Downloads/TopApps-Starter/TopApps/DataManager.swift",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/design_doc.md",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/web/js/settings.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/sample.go",
+		"/Users/erikparreira/Desktop/test.go",
+		"/Users/erikparreira/Library/Application Support/Sublime Text 3/Packages/User/GoSublime/osx-x64/log.txt",
+		"/Users/erikparreira/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/master_server/server_list.json",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/game/game",
+		"/Users/erikparreira/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/master_server/master_server",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/unit_manager.js",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/ws_events_dispatcher.js",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/simple_actor.js",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/styles.css",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/globals.js",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/backend/game_objs.go",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/settings.js",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/backend/main.go",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/index.html",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/game_state.js",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/game.js",
+		"/Users/erikparreira/go/src/github.com/etinlb/go_game/backend/game_objs.go",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/unit.js",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/utility.js",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/README",
+		"/Users/erikparreira/Library/Application Support/Sublime Text 3/Packages/GoSublime/USAGE.md",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/connection.js",
+		"/Users/erikparreira/Dropbox/goStuff/websocket/main.go",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/web/index.html",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/backend/main.go",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/backend/game_objs.go",
+		"/Users/erikparreira/Dropbox/goStuff/go_experiment/web/js/game_old.js",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/web/js/globals.js",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/web/js/connection.js",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/web/js/simple_actor.js",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/web/js/game_state.js",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/web/chat.html",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/web/js/unit.js",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/main.go",
+		"/Users/erikparreira/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/erikparreira/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/.gitignore",
+		"/Users/erikparreira/Dropbox/goStuff/websocket/home.html",
+		"/Users/erikparreira/Dropbox/goStuff/chat_tutorial/web/test.html",
+		"/Users/erikparreira/Library/Application Support/Sublime Text 3/Packages/BracketHighlighter/bh_core.sublime-settings",
+		"/Users/erikparreira/Dropbox/Programming/sublime_sync/Package Control.sublime-settings",
+		"/Users/erikparreira/Dropbox/goStuff/Sandbox/channelTut.go",
+		"/Users/erikparreira/Dropbox/goStuff/Sandbox/goChatServer.go",
+		"/Users/erikparreira/Dropbox/goStuff/Sandbox/simple_server.go",
+		"/Users/erikparreira/Dropbox/goStuff/Sandbox/server_request.js",
+		"/Users/erikparreira/Dropbox/goStuff/Sandbox/static/view.html",
+		"/Users/erikparreira/Dropbox/goStuff/Sandbox/static/edit.html",
+		"/Users/erikparreira/Dropbox/goStuff/Sandbox/test.txt",
+		"/Users/erikparreira/Dropbox/goStuff/Sandbox/static/test.txt",
+		"/Users/erikparreira/Dropbox/goStuff/Sandbox/hub.go",
+		"/Users/erikparreira/Dropbox/goStuff/Sandbox/websocket_server.go"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"yAxis",
+			"X",
+			"messages",
+			"move",
+			"ReadAllInputMessages",
+			"Queueing",
+			"ReadAllInputMessages",
+			"NewQueue",
+			"clientIdMap",
+			"ReadAllInputMessages",
+			"messages",
+			"logger",
+			"fmt.print",
+			"print",
+			"Info",
+			"Printf",
+			"NewPlayer",
+			"Location",
+			"updatePositionFromPacket",
+			"updateRemoteObjects",
+			"veloctiy",
+			"Velocity",
+			"rectData",
+			"Events",
+			"conn",
+			"msg",
+			"conn",
+			"AddPhysicsComp",
+			"GameObject",
+			"object",
+			"player",
+			"Player",
+			"AddPlayerObjectToWorld",
+			"gameObjects",
+			"addChannel",
+			"rawClientData",
+			"client",
+			"location",
+			"Location",
+			"gameObjects",
+			"ReadMoveMessage",
+			"gameObjedct",
+			"core_lib",
+			"BaseGameObjData",
+			"core_lib",
+			"struct",
+			"Update",
+			"Move",
+			"BaseRectData",
+			"Printf",
+			"Before",
+			"Trace",
+			"gameObj",
+			"physicsComponents",
+			"gameObjects",
+			"Panicf",
+			"PhysicsComponent",
+			"core_lib",
+			"network",
+			"physicsComponents",
+			"comp",
+			"AddPhysicsComp",
+			"height",
+			"width",
+			"physicsComponents",
+			"physicsCompMap",
+			"physicsComponents",
+			"TickPhysics",
+			"network",
+			"NewPhysicsSpace",
+			"PhysicsComponent",
+			"Dimensions",
+			"PhysicsSpace",
+			"int",
+			"float64",
+			"AddPhysicsComp",
+			"physicsComponents",
+			"Dimensions",
+			"PhysicsSpace",
+			"Gravity",
+			"Dimensions",
+			"Force",
+			"network",
+			"Connection",
+			"ServerConnection",
+			"handleInitialConnection",
+			"connection",
+			"object",
+			"getting",
+			"xVel",
+			"location",
+			"x",
+			"PhysicsComp",
+			"game",
+			"Game",
+			"handleInitialConnection",
+			"InitLogger",
+			"createPlayer",
+			"client",
+			"AddClientDataToMap",
+			"network.",
+			"clientData",
+			"AddClientDataToMap",
+			"clientData",
+			"NetworkedGameObjects",
+			"fmt",
+			"UniqueShortId",
+			"Player",
+			"AddClientIdToMap",
+			"AddClientDataToMap",
+			"ClientId",
+			"int",
+			"AddClientDataToMap",
+			"clientIdMap",
+			"AddClientDataToMap",
+			"ClientId",
+			"UniqueShortId",
+			"rand",
+			"float64",
+			"Player{",
+			"Player",
+			"float64",
+			"Delete",
+			"ReadAllInputMessages",
+			"message",
+			"AddClientIdToMap",
+			"AddClientDataToMap",
+			"AddClientIdToMap"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4578,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3836,
+								3836
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"default_dir": "/Users/erikparreira/Dropbox/Programming/networkplayground",
+							"function_name_status_row": 139,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2140.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.9o:///Users/erikparreira/Dropbox/goStuff/Sandbox":
+	{
+		"height": 100.0
+	},
+	"output.9o:///Users/erikparreira/Dropbox/goStuff/go_experiment/backend":
+	{
+		"height": 100.0
+	},
+	"output.9o:///Users/erikparreira/go/src/github.com/etinlb/falcon/core":
+	{
+		"height": 124.0
+	},
+	"output.9o:///Users/erikparreira/go/src/github.com/etinlb/falcon/core_lib":
+	{
+		"height": 243.0
+	},
+	"output.9o:///Users/erikparreira/go/src/github.com/etinlb/falcon/game":
+	{
+		"height": 252.0
+	},
+	"output.9o:///Users/erikparreira/go/src/github.com/etinlb/falcon/logger":
+	{
+		"height": 124.0
+	},
+	"output.9o:///Users/erikparreira/go/src/github.com/etinlb/falcon/network":
+	{
+		"height": 189.0
+	},
+	"output.9o:///Users/erikparreira/go/src/github.com/etinlb/falcon/websockethandler":
+	{
+		"height": 124.0
+	},
+	"output.9o:///Users/erikparreira/go/src/github.com/etinlb/falcon/websockethandler.go":
+	{
+		"height": 124.0
+	},
+	"output.9o:///Users/erikparreira/go/src/github.com/etinlb/go_game/game":
+	{
+		"height": 280.0
+	},
+	"output.GoSublime-main-output":
+	{
+		"height": 124.0
+	},
+	"output.MarGo-output":
+	{
+		"height": 100.0
+	},
+	"output.exec":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "networkplayground.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"client",
+				"falcon/game/client_handlers.go"
+			],
+			[
+				"physics",
+				"falcon/core_lib/basic_physics.go"
+			],
+			[
+				"gameo",
+				"falcon/game/game_objs.go"
+			],
+			[
+				"clientha",
+				"falcon/game/client_handlers.go"
+			],
+			[
+				"game.go",
+				"falcon/game/game.go"
+			],
+			[
+				"game_loo",
+				"falcon/game/game_loop.go"
+			],
+			[
+				"gameloo",
+				"falcon/game/game_loop.go"
+			],
+			[
+				"game.js",
+				"falcon/web/js/game.js"
+			],
+			[
+				"client_me",
+				"falcon/game/client_messages.go"
+			],
+			[
+				"clie",
+				"falcon/game/client_handlers.go"
+			],
+			[
+				"mess",
+				"falcon/network/messages.go"
+			],
+			[
+				"game_ob",
+				"falcon/game/game_objs.go"
+			],
+			[
+				"gameobj",
+				"falcon/core_lib/game_objs.go"
+			],
+			[
+				"game_lo",
+				"falcon/game/game_loop.go"
+			],
+			[
+				"game_o",
+				"falcon/core_lib/game_objs.go"
+			],
+			[
+				"network",
+				"falcon/network/messages.go"
+			],
+			[
+				"game",
+				"falcon/game/game_loop.go"
+			],
+			[
+				"basi",
+				"falcon/core_lib/basic_physics.go"
+			],
+			[
+				"game.",
+				"go_game/game/game_loop.go"
+			],
+			[
+				"basic",
+				"falcon/core_lib/basic_physics.go"
+			],
+			[
+				"gameob",
+				"falcon/core_lib/game_objs.go"
+			],
+			[
+				"index",
+				"falcon/web/index.html"
+			],
+			[
+				"webso",
+				"falcon/network/websockethandler.go"
+			],
+			[
+				"clienth",
+				"falcon/game/client_handlers.go"
+			],
+			[
+				"inde",
+				"falcon/web/index.html"
+			],
+			[
+				"clei",
+				"falcon/network/clients.go"
+			],
+			[
+				"networ",
+				"falcon/network/clients.go"
+			],
+			[
+				"corli",
+				"go_game/game/core_lib.go"
+			],
+			[
+				"clients",
+				"falcon/network/clients.go"
+			],
+			[
+				"clien",
+				"falcon/game/client_handlers.go"
+			],
+			[
+				"web",
+				"falcon/network/websockethandler.go"
+			],
+			[
+				"",
+				"falcon/network/clients.go"
+			],
+			[
+				"gamelo",
+				"falcon/game/game_loop.go"
+			],
+			[
+				"gamel",
+				"falcon/game/game_loop.go"
+			],
+			[
+				"messages",
+				"go_game/game/messages.go"
+			],
+			[
+				"messages.go",
+				"game/messages.go"
+			],
+			[
+				"message",
+				"message_structure.md"
+			],
+			[
+				"comm",
+				"game/communication_layer.go"
+			],
+			[
+				"mes",
+				"game/messages.go"
+			],
+			[
+				"han",
+				"game/client_handlers.go"
+			],
+			[
+				"handle",
+				"game/client_handlers.go"
+			],
+			[
+				"handl",
+				"game/client_handlers.go"
+			],
+			[
+				"g",
+				"game/game.go"
+			],
+			[
+				"game_og",
+				"game/game_objs.go"
+			],
+			[
+				"me",
+				"game/messages.go"
+			],
+			[
+				"com",
+				"game/communication_layer.go"
+			],
+			[
+				"commu",
+				"game/communication_layer.go"
+			],
+			[
+				"ws",
+				"web/js/ws_events_dispatcher.js"
+			],
+			[
+				"units",
+				"web/js/unit_manager.js"
+			],
+			[
+				"simpl",
+				"web/js/simple_actor.js"
+			],
+			[
+				"master",
+				"master_server/master_server.go"
+			],
+			[
+				"gaemloo",
+				"game/game_loop.go"
+			],
+			[
+				"gam",
+				"game/game.go"
+			],
+			[
+				"gmae",
+				"game/game.go"
+			],
+			[
+				"simple",
+				"web/js/simple_actor.js"
+			],
+			[
+				"uti",
+				"web/js/utils.js"
+			],
+			[
+				"main",
+				"backend/main.go"
+			],
+			[
+				"index.",
+				"web/index.html"
+			],
+			[
+				"log",
+				"game/logger.go"
+			],
+			[
+				"game.sj",
+				"web/js/game.js"
+			],
+			[
+				"backen",
+				"backend/main.go"
+			],
+			[
+				"backe",
+				"backend/main.go"
+			],
+			[
+				"co",
+				"game/communication_layer.go"
+			],
+			[
+				"gmaeoj",
+				"game/game_objs.go"
+			],
+			[
+				"backend",
+				"backend/main.go"
+			],
+			[
+				"gameoj",
+				"game/game_objs.go"
+			],
+			[
+				"game_l",
+				"game/game_loop.go"
+			],
+			[
+				"back",
+				"backend/main.go"
+			],
+			[
+				"cl",
+				"game/client_handlers.go"
+			],
+			[
+				"w",
+				"web/js/ws_events_dispatcher.js"
+			],
+			[
+				"si",
+				"web/js/simple_actor.js"
+			],
+			[
+				"cli",
+				"game/client_handlers.go"
+			],
+			[
+				"messa",
+				"game/messages.go"
+			],
+			[
+				"settings",
+				"web/js/settings.js"
+			],
+			[
+				"server",
+				"game/server_handlers.go"
+			],
+			[
+				"clienthan",
+				"game/client_handlers.go"
+			],
+			[
+				"game_loop",
+				"game/game_loop.go"
+			],
+			[
+				"maser",
+				"master_server/master_server.go"
+			],
+			[
+				"rea",
+				"go_experiment/README.md"
+			],
+			[
+				"utisl",
+				"go_experiment/web/js/utility.js"
+			],
+			[
+				"uni",
+				"go_experiment/web/js/unit.js"
+			],
+			[
+				"sty",
+				"go_experiment/web/styles.css"
+			],
+			[
+				"games",
+				"go_experiment/web/js/game_state.js"
+			],
+			[
+				"style",
+				"go_experiment/web/styles.css"
+			],
+			[
+				"glo",
+				"chat_tutorial/web/js/globals.js"
+			],
+			[
+				"chat",
+				"chat_tutorial/web/chat.html"
+			],
+			[
+				"unit",
+				"chat_tutorial/web/js/unit.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 227.0,
+		"last_filter": "moveM",
+		"selected_items":
+		[
+			[
+				"moveM",
+				"MoveMessage"
+			],
+			[
+				"move",
+				"MoveMessage"
+			],
+			[
+				"player",
+				"Player"
+			],
+			[
+				"mes",
+				"Message"
+			],
+			[
+				"newPLa",
+				"NewPlayer"
+			],
+			[
+				"newPla",
+				"NewPlayer"
+			],
+			[
+				"addgame",
+				"AddGameObject"
+			],
+			[
+				"baseR",
+				"BaseRectMessage"
+			],
+			[
+				"Update",
+				"UpdateMessage"
+			],
+			[
+				"addphy",
+				"AddPhysicsComp"
+			],
+			[
+				"addph",
+				"AddPhysicsComp"
+			],
+			[
+				"newcli",
+				"NewClient"
+			],
+			[
+				"Netw",
+				"NetworkedGameObjects"
+			],
+			[
+				"Pl",
+				"Player"
+			],
+			[
+				"clie",
+				"ClientData"
+			],
+			[
+				"clei",
+				"ClientData"
+			],
+			[
+				"newBa",
+				"NewBackendController"
+			],
+			[
+				"syn",
+				"SyncClient"
+			],
+			[
+				"syc",
+				"SyncClient"
+			],
+			[
+				"message",
+				"Message"
+			],
+			[
+				"mess",
+				"Message"
+			],
+			[
+				"build",
+				"BuildAddMessage"
+			],
+			[
+				"clien",
+				"ClientData"
+			],
+			[
+				"addme",
+				"AddMessage"
+			],
+			[
+				"pro",
+				"ProcessEvents"
+			],
+			[
+				"baseagme",
+				"BaseGameObjData"
+			],
+			[
+				"buildup",
+				"BuildUpdateMessage"
+			],
+			[
+				"sync",
+				"SyncClient"
+			],
+			[
+				"addUn",
+				"addUnit: function( unit )"
+			],
+			[
+				"cleanup",
+				"cleanUpSocket"
+			],
+			[
+				"readBr",
+				"readBroadCastEvents"
+			],
+			[
+				"broa",
+				"broadCastGameObjects"
+			],
+			[
+				"CLIENT",
+				"ClientData"
+			],
+			[
+				"cli",
+				"ClientData"
+			],
+			[
+				"addRe",
+				"AddRequest"
+			],
+			[
+				"updateEve",
+				"UpdateEvent"
+			],
+			[
+				"updat",
+				"update: function()"
+			],
+			[
+				"client",
+				"ClientData"
+			],
+			[
+				"update",
+				"UpdateMessage"
+			],
+			[
+				"addre",
+				"AddRequest"
+			],
+			[
+				"ob",
+				"ObjectMessage"
+			],
+			[
+				"Obje",
+				"Object"
+			],
+			[
+				"makeO",
+				"MakeObjectFromJson"
+			],
+			[
+				"make",
+				"MakeObjectFromJson"
+			],
+			[
+				"read",
+				"ReadMoveMessage"
+			],
+			[
+				"exclu",
+				"ExcludeClient"
+			],
+			[
+				"newgame",
+				"NewGameObject"
+			]
+		],
+		"width": 568.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 237.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

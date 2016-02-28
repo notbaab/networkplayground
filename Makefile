@@ -20,8 +20,10 @@ GTEST_LIB=/opt/gtest/lib/gtest_main.a
 TESTS_MAIN=unit_tests/main.cpp
 TESTS_MAIN_OBJ=unit_tests/main.o
 TEST_FLAGS=-std=c++11 -I $(GTEST_INCLUDE) -pthread $(GTEST_LIB)
+TEST_BASE_FILES=$(shell find networkplayground/tests -name '*.cpp')
 
-CPP_BASE := $(shell find networkplayground -name '*.cpp')
+
+CPP_BASE := $(shell find networkplayground/src -name '*.cpp')
 # find all cpp files but exclude main.cpp, as we only want to compile the main
 # when running the client
 CPP_CLIENT := $(shell find networkplaygroundclient ! -path "$(CLIENT_MAIN)" -name '*.cpp')
@@ -39,7 +41,10 @@ client: $(BASE_OBJ_FILES) $(CLIENT_OBJ_FILES) $(CLIENT_MAIN_OBJ)
 server: $(BASE_OBJ_FILES) $(CLIENT_OBJ_FILES) $(CLIENT_MAIN_OBJ)
 	$(CC) $^ -o bin/$@
 
-tests: $(BASE_OBJ_FILES) $(CLIENT_OBJ_FILES) $(TESTS_MAIN_OBJ)
+run_tests: tests
+	bin/tests
+
+tests: $(BASE_OBJ_FILES) $(CLIENT_OBJ_FILES) $(TESTS_MAIN_OBJ) $(TEST_BASE_FILES)
 	$(CC) $(BASE_INC_FLAG) $(TEST_FLAGS) $^ -o bin/$@
 
 # TODO: Make this better?
