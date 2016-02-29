@@ -14,7 +14,7 @@ int UDPSocket::Bind( const SocketAddress& inBindAddress )
 
 int UDPSocket::SendTo( const void* inToSend, int inLength, const SocketAddress& inToAddress )
 {
-	int byteSentCount = sendto( mSocket,
+	int byteSentCount = (int)sendto( mSocket,
 							   static_cast< const char* >( inToSend ),
 							   inLength,
 							   0, &inToAddress.mSockAddr, inToAddress.GetSize() );
@@ -34,7 +34,7 @@ int UDPSocket::ReceiveFrom( void* inToReceive, int inMaxLength, SocketAddress& o
 {
 	socklen_t fromLength = outFromAddress.GetSize();
 	
-	int readByteCount = recvfrom( mSocket,
+	int readByteCount = (int)recvfrom( mSocket,
 								 static_cast< char* >( inToReceive ),
 								 inMaxLength,
 								 0, &outFromAddress.mSockAddr, &fromLength );
