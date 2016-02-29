@@ -30,6 +30,16 @@
 		7E4026641C797D030044C61E /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
 		7E7300B71C7278AC003DE60E /* networkplaygroundserver in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E73009E1C727471003DE60E /* networkplaygroundserver */; };
 		7E7300B81C7278B9003DE60E /* networkplaygroundclient in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E7300931C72742E003DE60E /* networkplaygroundclient */; };
+		7ED16CE11C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
+		7ED16CE21C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
+		7ED16CE31C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
+		7ED16CE41C84F34100E38DC4 /* Networking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAE81C79812A00B3C0ED /* Networking.cpp */; };
+		7ED16CE51C84F34100E38DC4 /* SocketAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E40264F1C797D030044C61E /* SocketAddress.cpp */; };
+		7ED16CE61C84F34100E38DC4 /* SocketAddressFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026501C797D030044C61E /* SocketAddressFactory.cpp */; };
+		7ED16CE71C84F34100E38DC4 /* SocketUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026511C797D030044C61E /* SocketUtil.cpp */; };
+		7ED16CE81C84F34100E38DC4 /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026521C797D030044C61E /* StringUtils.cpp */; };
+		7ED16CE91C84F34100E38DC4 /* TCPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026531C797D030044C61E /* TCPSocket.cpp */; };
+		7ED16CEA1C84F34100E38DC4 /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
 		FE1DE7391C72A51200ABF75D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE1DE7381C72A51200ABF75D /* main.cpp */; };
 		FE1DE7421C72A5CF00ABF75D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE1DE7401C72A5CF00ABF75D /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -93,6 +103,8 @@
 		7E40266C1C797D140044C61E /* UDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPSocket.h; sourceTree = "<group>"; };
 		7E7300931C72742E003DE60E /* networkplaygroundclient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = networkplaygroundclient; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E73009E1C727471003DE60E /* networkplaygroundserver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = networkplaygroundserver; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ED16CDF1C84E6A300E38DC4 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkManager.cpp; sourceTree = "<group>"; };
 		FE1DE7381C72A51200ABF75D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FE1DE7401C72A5CF00ABF75D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +170,7 @@
 				7E4026521C797D030044C61E /* StringUtils.cpp */,
 				7E4026531C797D030044C61E /* TCPSocket.cpp */,
 				7E4026541C797D030044C61E /* UDPSocket.cpp */,
+				7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -173,6 +186,7 @@
 				7E40266A1C797D140044C61E /* StringUtils.h */,
 				7E40266B1C797D140044C61E /* TCPSocket.h */,
 				7E40266C1C797D140044C61E /* UDPSocket.h */,
+				7ED16CDF1C84E6A300E38DC4 /* NetworkManager.h */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -420,6 +434,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED16CE41C84F34100E38DC4 /* Networking.cpp in Sources */,
+				7ED16CE51C84F34100E38DC4 /* SocketAddress.cpp in Sources */,
+				7ED16CE61C84F34100E38DC4 /* SocketAddressFactory.cpp in Sources */,
+				7ED16CE71C84F34100E38DC4 /* SocketUtil.cpp in Sources */,
+				7ED16CE81C84F34100E38DC4 /* StringUtils.cpp in Sources */,
+				7ED16CE91C84F34100E38DC4 /* TCPSocket.cpp in Sources */,
+				7ED16CEA1C84F34100E38DC4 /* UDPSocket.cpp in Sources */,
+				7ED16CE31C84F09C00E38DC4 /* NetworkManager.cpp in Sources */,
 				7E39CB0D1C7BD19300B3C0ED /* MemoryBitStream.cpp in Sources */,
 				7E39CAFA1C7B90E300B3C0ED /* main.cpp in Sources */,
 				7E3F507C1C8270100001F61E /* OutputMemoryBitStream_test.cpp in Sources */,
@@ -432,6 +454,7 @@
 			files = (
 				7E40265F1C797D030044C61E /* StringUtils.cpp in Sources */,
 				7E40265B1C797D030044C61E /* SocketAddressFactory.cpp in Sources */,
+				7ED16CE11C84F09C00E38DC4 /* NetworkManager.cpp in Sources */,
 				7E4026631C797D030044C61E /* UDPSocket.cpp in Sources */,
 				7E4026591C797D030044C61E /* SocketAddress.cpp in Sources */,
 				FE1DE7421C72A5CF00ABF75D /* main.cpp in Sources */,
@@ -453,6 +476,7 @@
 				7E39CAF21C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */,
 				FE1DE7391C72A51200ABF75D /* main.cpp in Sources */,
 				7E40265A1C797D030044C61E /* SocketAddress.cpp in Sources */,
+				7ED16CE21C84F09C00E38DC4 /* NetworkManager.cpp in Sources */,
 				7E40265E1C797D030044C61E /* SocketUtil.cpp in Sources */,
 				7E4026621C797D030044C61E /* TCPSocket.cpp in Sources */,
 				7E39CAED1C7AAEC600B3C0ED /* Server.cpp in Sources */,

@@ -58,3 +58,9 @@ class GameObject;
 #include "UDPSocket.h"
 #include "TCPSocket.h"
 #include "SocketUtil.h"
+
+// I don't know how headers work.
+#include "IO/MemoryBitStream.h"
+
+#include "NetworkManager.h"
+
