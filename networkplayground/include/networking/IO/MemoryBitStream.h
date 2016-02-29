@@ -123,6 +123,7 @@ public:
     const 	char*	GetBufferPtr()		const	{ return mBuffer; }
     uint32_t	GetRemainingBitCount() 	const { return mBitCapacity - mBitHead; }
     
+    
     void		ReadBits( uint8_t& outData, uint32_t inBitCount );
     void		ReadBits( void* outData, uint32_t inBitCount );
     
@@ -167,3 +168,5 @@ private:
     bool		mIsBufferOwner;
     
 };
+
+

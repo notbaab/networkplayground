@@ -78,6 +78,7 @@
 		7E39CAFE1C7B923700B3C0ED /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
 		7E3F50791C826FB20001F61E /* MemoryBitStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBitStream.h; sourceTree = "<group>"; };
 		7E3F507B1C8270100001F61E /* OutputMemoryBitStream_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutputMemoryBitStream_test.cpp; sourceTree = "<group>"; };
+		7E3F50891C8281890001F61E /* scratch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = scratch.cpp; sourceTree = "<group>"; };
 		7E40264F1C797D030044C61E /* SocketAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketAddress.cpp; sourceTree = "<group>"; };
 		7E4026501C797D030044C61E /* SocketAddressFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketAddressFactory.cpp; sourceTree = "<group>"; };
 		7E4026511C797D030044C61E /* SocketUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketUtil.cpp; sourceTree = "<group>"; };
@@ -216,6 +217,7 @@
 		7ECC44F61C72715A00A2710D = {
 			isa = PBXGroup;
 			children = (
+				7E3F50891C8281890001F61E /* scratch.cpp */,
 				7E39CAFE1C7B923700B3C0ED /* gtest.framework */,
 				7E7300A91C7275F7003DE60E /* networkplayground */,
 				7E7300941C72742E003DE60E /* networkplaygroundclient */,
