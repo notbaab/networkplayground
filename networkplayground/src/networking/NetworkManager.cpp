@@ -7,14 +7,27 @@
 //
 
 #include <networking/Networking.h>
+NetworkManager::NetworkManager() //:
+//mBytesSentThisFrame( 0 ),
+//mDropPacketChance( 0.f ),
+//mSimulatedLatency( 0.f )
+{
+}
+
+NetworkManager::~NetworkManager()
+{
+}
 
 bool NetworkManager::Init( uint16_t inPort )
 {
+    // Create the underlaying socket for this port
     mSocket = SocketUtil::CreateUDPSocket( INET );
+    
+    // Create a wildcard input address to bind to
     SocketAddress ownAddress( INADDR_ANY, inPort );
     mSocket->Bind( ownAddress );
     
-    LOG( "Initializing NetworkManager at port %d", inPort );
+    printf( "Initializing NetworkManager at port %d", inPort );
     
 //    mBytesReceivedPerSecond = WeightedTimedMovingAverage( 1.f );
 //    mBytesSentPerSecond = WeightedTimedMovingAverage( 1.f );
@@ -32,3 +45,80 @@ bool NetworkManager::Init( uint16_t inPort )
     
     return true;
 }
+
+// Wrapper for doing all the network related tasks
+void NetworkManager::ProcessIncomingPackages()
+{
+    ReadIncomingPacketsIntoQueue();
+//
+//    ProcessQueuedPackets();
+
+    // UpdateBytesSentLastFrame();
+
+}
+
+void NetworkManager::ReadIncomingPacketsIntoQueue()
+{
+    // 'byte' array to read each packet into
+    char packetMem[ 1500 ];
+    int packetSize = sizeof(packetMem);
+    int packetSizeInBits = packetSize * 8;
+    
+    // Stream we will read each packet into
+    InputMemoryBitStream inputStream( packetMem, packetSizeInBits );
+    
+    int totalPacketsRecieved = 0;
+//    int totalBytesRead = 0;
+    
+    SocketAddress fromAddress;
+    
+    // XXX: Hard code 10 total packets recieved for now
+    while (totalPacketsRecieved < 10)
+    {
+        int readByteCount = mSocket->ReceiveFrom( packetMem,
+                                                  packetSize,
+                                                  fromAddress );
+        
+        if (readByteCount == 0)
+        {
+            // nothing to read
+            break;
+        }
+        // For now, just output the packet data
+        for(int i = 0 ; i < readByteCount ; i ++ )
+        {
+            std::cout << packetMem[i] ;//Looping 5 times to print out [0],[1],[2],[3],[4]
+        }
+//        mPacketQueue.em
+    }
+    
+}
+
+void NetworkManager::SendPacket( const OutputMemoryBitStream &inOutputStream,
+                                 const SocketAddress &inFromAddress )
+{
+    int streamByteLength = inOutputStream.GetByteLength();
+    const void* packetDataToSend = inOutputStream.GetBufferPtr();
+    
+    int sentByteCount = mSocket->SendTo( packetDataToSend,
+                                         streamByteLength,
+                                         inFromAddress );
+    
+    if (sentByteCount )
+    {
+        // TODO: Keep track of how many bytes have been sent
+        // mBytesSentThisFrame += sentByteCount;
+        std::cout << "Sent " << sentByteCount << " bytes";
+    }
+}
+
+
+
+NetworkManager::ReceivedPacket::ReceivedPacket( float inReceivedTime,
+                                                InputMemoryBitStream& inInputMemoryBitStream,
+                                                const SocketAddress& inFromAddress ) :
+mRecievedTime( inReceivedTime ),
+mFromAddress( inFromAddress ),
+mPacketDataStream( inInputMemoryBitStream )
+{}
+

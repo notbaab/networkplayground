@@ -18,9 +18,40 @@ public:
     void ProcessIncomingPackages();
     
     void SendPacket( const OutputMemoryBitStream& inOutputStream, const SocketAddress& inFromAddress);
+    
+    void ReadIncomingPacketsIntoQueue();
+    void ReadIncomingPacket();
   
 private:
+
+    /**
+     * Inner class to represent a received packet
+     */
+    class ReceivedPacket
+    {
+    public:
+        ReceivedPacket( float inRecievedTime,
+                        InputMemoryBitStream& inInputMemoryBitStream,
+                        const SocketAddress& inAddress );
+
+        // get the address this packet came from
+        const SocketAddress& GetFromAddress() const { return mFromAddress; }
+
+        // When was this packet received
+        float GetRecievedTime() const { return mRecievedTime; }
+
+        // Get the stream of  packet data
+        InputMemoryBitStream& GetPacketBuffer() { return mPacketDataStream; }
+
+    private:
+        float                 mRecievedTime;
+        InputMemoryBitStream  mPacketDataStream;
+        SocketAddress         mFromAddress;
+    };
+
     UDPSocketPtr	mSocket;
+    //
+    queue< ReceivedPacket, list< ReceivedPacket > > mPacketQueue;
 //    WeightedTimedMovingAverage	mBytesReceivedPerSecond;
 //    WeightedTimedMovingAverage	mBytesSentPerSecond;
 };
