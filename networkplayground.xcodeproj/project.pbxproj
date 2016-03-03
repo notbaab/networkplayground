@@ -42,6 +42,7 @@
 		7ED16CEA1C84F34100E38DC4 /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
 		FE1DE7391C72A51200ABF75D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE1DE7381C72A51200ABF75D /* main.cpp */; };
 		FE1DE7421C72A5CF00ABF75D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE1DE7401C72A5CF00ABF75D /* main.cpp */; };
+		FEEEBAE61C88D87D006DE562 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E39CAFE1C7B923700B3C0ED /* gtest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,13 +67,13 @@
 		};
 		7E73009C1C727471003DE60E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			dstPath = /Users/erikparreira/xcode_out/networkplayground;
 			dstSubfolderSpec = 0;
 			files = (
 				7E7300B71C7278AC003DE60E /* networkplaygroundserver in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -86,7 +87,6 @@
 		7E39CAF71C7B90E300B3C0ED /* unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E39CAF91C7B90E300B3C0ED /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7E39CAFE1C7B923700B3C0ED /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
-		7E3F50791C826FB20001F61E /* MemoryBitStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBitStream.h; sourceTree = "<group>"; };
 		7E3F507B1C8270100001F61E /* OutputMemoryBitStream_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutputMemoryBitStream_test.cpp; sourceTree = "<group>"; };
 		7E3F50891C8281890001F61E /* scratch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = scratch.cpp; sourceTree = "<group>"; };
 		7E40264F1C797D030044C61E /* SocketAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketAddress.cpp; sourceTree = "<group>"; };
@@ -105,6 +105,7 @@
 		7E73009E1C727471003DE60E /* networkplaygroundserver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = networkplaygroundserver; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED16CDF1C84E6A300E38DC4 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkManager.cpp; sourceTree = "<group>"; };
+		7ED16CEC1C85540800E38DC4 /* MemoryBitStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MemoryBitStream.h; path = networkplayground/include/IO/MemoryBitStream.h; sourceTree = "<group>"; };
 		FE1DE7381C72A51200ABF75D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FE1DE7401C72A5CF00ABF75D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEEEBAE61C88D87D006DE562 /* gtest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +156,7 @@
 		7E3F50781C826FB20001F61E /* IO */ = {
 			isa = PBXGroup;
 			children = (
-				7E3F50791C826FB20001F61E /* MemoryBitStream.h */,
+				7ED16CEC1C85540800E38DC4 /* MemoryBitStream.h */,
 			);
 			name = IO;
 			path = networking/IO;
@@ -493,7 +495,7 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/networkplayground/include/**";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/networkplayground/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = /Library/Frameworks;
 			};
@@ -506,7 +508,7 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/networkplayground/include/**";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/networkplayground/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = /Library/Frameworks;
 			};
@@ -515,20 +517,42 @@
 		7E7300981C72742E003DE60E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/networkplayground/include",
+					"$(PROJECT_DIR)/networkplaygroundclient/include",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 			};
 			name = Debug;
 		};
 		7E7300991C72742E003DE60E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/networkplayground/include",
+					"$(PROJECT_DIR)/networkplaygroundclient/include",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 			};
 			name = Release;
 		};
 		7E7300A31C727472003DE60E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/networkplaygroundserver/include",
+					"$(PROJECT_DIR)/networkplayground/include",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -536,6 +560,10 @@
 		7E7300A41C727472003DE60E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/networkplaygroundserver/include",
+					"$(PROJECT_DIR)/networkplayground/include",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
