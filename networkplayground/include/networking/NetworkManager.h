@@ -16,11 +16,13 @@ public:
     
     bool Init( uint16_t inPort );
     void ProcessIncomingPackages();
+    virtual void ProcessPacket( InputMemoryBitStream& inInputStream, const SocketAddress& inFromAddress );
     
     void SendPacket( const OutputMemoryBitStream& inOutputStream, const SocketAddress& inFromAddress);
     
     void ReadIncomingPacketsIntoQueue();
     void ReadIncomingPacket();
+    void ProcessQueuedPackets();
   
 private:
 

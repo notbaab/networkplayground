@@ -7,10 +7,32 @@
 //
 
 #include <iostream>
-#include "test.hpp"
+#include <unistd.h>
+#include "networking/networking.h"
+
+const int port = 3200;
+
+// Some basic setup.
+int setup()
+{
+    setbuf(stdout, NULL);
+    return 0;
+}
+
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    setup();
+
+    // Start Server
+    NetworkManager nm = NetworkManager();
+    // TODO: Catch error
+    nm.Init(3200);
+
+    // std::cout << "Starting server on " << port << std::endl;
+    while (true) {
+        nm.ProcessIncomingPackages();
+        // std::cout << "blah" << std::endl;
+        // sleep(1);
+    }
     return 0;
 }

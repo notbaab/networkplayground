@@ -35,8 +35,8 @@ class OutputMemoryBitStream
 {
 public:
     OutputMemoryBitStream() :
-    mBitHead(0),
-    mBuffer(nullptr)
+    mBuffer(nullptr),
+    mBitHead(0)
     {
         ReallocBuffer( 1500 * 8 ); // init 1500 Byte size buffer
     }
@@ -102,13 +102,13 @@ public:
     
     InputMemoryBitStream( char* inBuffer, uint32_t inBitCount ) :
     mBuffer( inBuffer ),
-    mBitCapacity( inBitCount ),
     mBitHead( 0 ),
+    mBitCapacity( inBitCount ),
     mIsBufferOwner( false ) {}
     
     InputMemoryBitStream( const InputMemoryBitStream& inOther ) :
-    mBitCapacity( inOther.mBitCapacity ),
     mBitHead( inOther.mBitHead ),
+    mBitCapacity( inOther.mBitCapacity ),
     mIsBufferOwner( true )
     {
         //allocate buffer of right size
@@ -122,6 +122,7 @@ public:
     
     const 	char*	GetBufferPtr()		const	{ return mBuffer; }
     uint32_t	GetRemainingBitCount() 	const { return mBitCapacity - mBitHead; }
+    uint32_t    GetByteCapacity() const { return mBitCapacity >> 3; }
     
     void		ReadBits( uint8_t& outData, uint32_t inBitCount );
     void		ReadBits( void* outData, uint32_t inBitCount );
@@ -149,6 +150,7 @@ public:
     
     void		ResetToCapacity( uint32_t inByteCapacity )				{ mBitCapacity = inByteCapacity << 3; mBitHead = 0; }
     
+    // This seems...dumb
     void Read( std::string& inString )
     {
         uint32_t elementCount;

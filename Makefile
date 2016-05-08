@@ -32,17 +32,22 @@ CPP_SERVER := $(shell find networkplaygroundserver ! -path "$(SERVER_MAIN)" -nam
 # BASE_OBJ_FILES := $(addprefix obj/base/,$(notdir $(CPP_BASE:.cpp=.o)))
 BASE_OBJ_FILES := $(patsubst %.cpp,%.o,$(CPP_BASE))
 CLIENT_OBJ_FILES := $(patsubst %.cpp,%.o,$(CPP_CLIENT))
+SERVER_OBJ_FILES := $(patsubst %.cpp,%.o,$(CPP_CLIENT))
 
 # .SUFFIXES: .o .h .c .hpp .cpp
 
 client: $(BASE_OBJ_FILES) $(CLIENT_OBJ_FILES) $(CLIENT_MAIN_OBJ)
 	$(CC) $^ -o bin/$@
 
-server: $(BASE_OBJ_FILES) $(CLIENT_OBJ_FILES) $(CLIENT_MAIN_OBJ)
+server: $(BASE_OBJ_FILES) $(SERVER_OBJ_FILES) $(SERVER_MAIN_OBJ)
 	$(CC) $^ -o bin/$@
 
 run_tests: tests
 	bin/tests
+
+run_server: server
+	@echo "\033[0;36mStarting Server...\033[0m"
+	@bin/server
 
 tests: $(BASE_OBJ_FILES) $(CLIENT_OBJ_FILES) $(TESTS_MAIN_OBJ) $(TEST_BASE_FILES)
 	$(CC) $(BASE_INC_FLAG) $(TEST_FLAGS) $^ -o bin/$@
@@ -58,4 +63,7 @@ clean:
 	find . -name '*.o' -delete
 	rm bin/*
 
-# clang++ -v -Inetworkplayground/include/ networkplayground/src/test.cpp
+# list all targets in the make file
+.PHONY: list
+list:
+	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$' | xargs

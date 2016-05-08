@@ -6,13 +6,19 @@
 //  Copyright © 2016 Erik Parreira. All rights reserved.
 //
 
-#include <networking/Networking.h>
+#include "networking/Networking.h"
+#include <ctime>
+
+// TODO: Temp for now
+void printStream( InputMemoryBitStream &inInputStream );
+
 NetworkManager::NetworkManager() //:
-//mBytesSentThisFrame( 0 ),
+// mBytesSentThisFrame( 0 ),
 //mDropPacketChance( 0.f ),
 //mSimulatedLatency( 0.f )
 {
 }
+
 
 NetworkManager::~NetworkManager()
 {
@@ -27,7 +33,7 @@ bool NetworkManager::Init( uint16_t inPort )
     SocketAddress ownAddress( INADDR_ANY, inPort );
     mSocket->Bind( ownAddress );
     
-    printf( "Initializing NetworkManager at port %d", inPort );
+    printf( "Initializing NetworkManager at port %d\n", inPort );
     
 //    mBytesReceivedPerSecond = WeightedTimedMovingAverage( 1.f );
 //    mBytesSentPerSecond = WeightedTimedMovingAverage( 1.f );
@@ -50,11 +56,57 @@ bool NetworkManager::Init( uint16_t inPort )
 void NetworkManager::ProcessIncomingPackages()
 {
     ReadIncomingPacketsIntoQueue();
-//
-//    ProcessQueuedPackets();
+    ProcessQueuedPackets();
 
     // UpdateBytesSentLastFrame();
 
+}
+
+void NetworkManager::ProcessQueuedPackets()
+{
+    //look at the front packet...
+    while( !mPacketQueue.empty() )
+    {
+
+        ReceivedPacket& nextPacket = mPacketQueue.front();
+        // if( Timing::sInstance.GetTimef() > nextPacket.GetReceivedTime() )
+        // {
+        ProcessPacket( nextPacket.GetPacketBuffer(), nextPacket.GetFromAddress() );
+        mPacketQueue.pop();
+        // }
+        // else
+        // {
+        //     break;
+        // }
+    }
+}
+
+void NetworkManager::ProcessPacket(
+    InputMemoryBitStream &inInputStream,
+    const SocketAddress &inFromAddress
+)
+{
+    printStream(inInputStream);
+    std::cout << inFromAddress.ToString() << std::endl;
+    // For now, just output the packet data
+    // for(int i = 0 ; i < readByteCount ; i ++ )
+    // {
+    //     std::cout << packetMem[i] ;//Looping 5 times to print out [0],[1],[2],[3],[4]
+    // }
+
+}
+
+void printStream( InputMemoryBitStream &inInputStream )
+{
+    const char* streamBuffer = inInputStream.GetBufferPtr();
+    uint32_t bufferSize = inInputStream.GetByteCapacity();
+
+    std::cout << "Reading " << bufferSize << " Bytes" << std::endl;
+    for( int charIdx = 0; charIdx < bufferSize; charIdx++ )
+    {
+        std::cout << streamBuffer[charIdx];
+    }
+    std::cout << std::endl;
 }
 
 void NetworkManager::ReadIncomingPacketsIntoQueue()
@@ -68,11 +120,11 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
     InputMemoryBitStream inputStream( packetMem, packetSizeInBits );
     
     int totalPacketsRecieved = 0;
-//    int totalBytesRead = 0;
+    int totalBytesRead = 0;
     
     SocketAddress fromAddress;
     
-    // XXX: Hard code 10 total packets recieved for now
+    // XXX: Hard code 10 total packets received for now
     while (totalPacketsRecieved < 10)
     {
         int readByteCount = mSocket->ReceiveFrom( packetMem,
@@ -84,19 +136,32 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
             // nothing to read
             break;
         }
-        // For now, just output the packet data
-        for(int i = 0 ; i < readByteCount ; i ++ )
-        {
-            std::cout << packetMem[i] ;//Looping 5 times to print out [0],[1],[2],[3],[4]
-        }
-//        mPacketQueue.em
+        // Reset? How would that work with udp sockets?
+        // else if( readByteCount == -WSAECONNRESET )
+        // {
+        //     //port closed on other end, so DC this person immediately
+        //     HandleConnectionReset( fromAddress );
+        // }
+
+
+        // Resize input stream to the number of bytes
+        inputStream.ResetToCapacity( readByteCount );
+        ++totalPacketsRecieved;
+        totalBytesRead += readByteCount;
+
+        // TODO: Simulate dropping packet change and latency
+        float recievedTime = time(0);
+        // std::cout << recievedTime << std::endl;
+
+        // create a new RecievedPacket, copying the memory stream
+        mPacketQueue.emplace( recievedTime, inputStream, fromAddress );
     }
-    
 }
 
-void NetworkManager::SendPacket( const OutputMemoryBitStream &inOutputStream,
-                                 const SocketAddress &inFromAddress )
-{
+void NetworkManager::SendPacket(
+    const OutputMemoryBitStream &inOutputStream,
+    const SocketAddress &inFromAddress
+) {
     int streamByteLength = inOutputStream.GetByteLength();
     const void* packetDataToSend = inOutputStream.GetBufferPtr();
     
@@ -114,11 +179,13 @@ void NetworkManager::SendPacket( const OutputMemoryBitStream &inOutputStream,
 
 
 
-NetworkManager::ReceivedPacket::ReceivedPacket( float inReceivedTime,
-                                                InputMemoryBitStream& inInputMemoryBitStream,
-                                                const SocketAddress& inFromAddress ) :
-mRecievedTime( inReceivedTime ),
-mFromAddress( inFromAddress ),
-mPacketDataStream( inInputMemoryBitStream )
+NetworkManager::ReceivedPacket::ReceivedPacket(
+    float inReceivedTime,
+    InputMemoryBitStream& inInputMemoryBitStream,
+    const SocketAddress& inFromAddress
+) :
+    mRecievedTime( inReceivedTime ),
+    mPacketDataStream( inInputMemoryBitStream ),
+    mFromAddress( inFromAddress )
 {}
 
