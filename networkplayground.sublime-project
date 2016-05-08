@@ -4,5 +4,19 @@
 		{
 			"path": "."
 		}
-	]
+	],
+    "settings":{
+        "cc_include_options":
+        [
+            "-Inetworkplayground/networkplayground/include/",
+        ]
+    },
+  "build_systems":
+    [
+        {
+            "name": "Run Test",
+            "working_dir": "${project_path}",
+            "cmd": ["make",  "-j", "run_tests"]
+        }
+    ]
 }
