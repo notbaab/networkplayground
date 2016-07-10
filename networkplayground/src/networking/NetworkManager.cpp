@@ -6,7 +6,7 @@
 //  Copyright © 2016 Erik Parreira. All rights reserved.
 
 #include "networking/NetworkManager.h"
-#include "SocketUtil.h"
+#include "networking/SocketUtil.h"
 #include <ctime>
 
 // TODO: Temp for now

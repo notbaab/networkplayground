@@ -26,7 +26,7 @@ int main(int argc, const char * argv[]) {
     // Start Server
     NetworkManager nm = NetworkManager();
     // TODO: Catch error
-    nm.Init(3200);
+    nm.Init(port);
 
     // std::cout << "Starting server on " << port << std::endl;
     while (true) {

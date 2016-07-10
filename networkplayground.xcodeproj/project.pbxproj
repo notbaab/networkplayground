@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		7E3224AE1D242985008C54D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3224AC1D242985008C54D3 /* main.cpp */; };
 		7E3224AF1D242985008C54D3 /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3224AD1D242985008C54D3 /* Server.cpp */; };
-		7E39CAE91C79812A00B3C0ED /* Networking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAE81C79812A00B3C0ED /* Networking.cpp */; };
-		7E39CAEA1C79812A00B3C0ED /* Networking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAE81C79812A00B3C0ED /* Networking.cpp */; };
 		7E39CAF11C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */; };
 		7E39CAF21C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */; };
 		7E39CAFA1C7B90E300B3C0ED /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAF91C7B90E300B3C0ED /* main.cpp */; };
@@ -56,7 +54,6 @@
 		7ED16CE11C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
 		7ED16CE21C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
 		7ED16CE31C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
-		7ED16CE41C84F34100E38DC4 /* Networking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAE81C79812A00B3C0ED /* Networking.cpp */; };
 		7ED16CE51C84F34100E38DC4 /* SocketAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E40264F1C797D030044C61E /* SocketAddress.cpp */; };
 		7ED16CE61C84F34100E38DC4 /* SocketAddressFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026501C797D030044C61E /* SocketAddressFactory.cpp */; };
 		7ED16CE71C84F34100E38DC4 /* SocketUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026511C797D030044C61E /* SocketUtil.cpp */; };
@@ -103,8 +100,6 @@
 		7E3224AC1D242985008C54D3 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = networkplaygroundserver/src/main.cpp; sourceTree = SOURCE_ROOT; };
 		7E3224AD1D242985008C54D3 /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Server.cpp; path = networkplaygroundserver/src/Server.cpp; sourceTree = SOURCE_ROOT; };
 		7E39CAE61C7980B900B3C0ED /* NetworkingShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingShared.h; sourceTree = "<group>"; };
-		7E39CAE71C7980DF00B3C0ED /* Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
-		7E39CAE81C79812A00B3C0ED /* Networking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Networking.cpp; sourceTree = "<group>"; };
 		7E39CAEC1C7AAEC600B3C0ED /* Server.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Server.hpp; sourceTree = "<group>"; };
 		7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemoryBitStream.cpp; path = IO/MemoryBitStream.cpp; sourceTree = "<group>"; };
 		7E39CAF71C7B90E300B3C0ED /* unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,7 +209,6 @@
 		7E5B94771C762D64007E8198 /* networking */ = {
 			isa = PBXGroup;
 			children = (
-				7E39CAE81C79812A00B3C0ED /* Networking.cpp */,
 				7E40264F1C797D030044C61E /* SocketAddress.cpp */,
 				7E4026501C797D030044C61E /* SocketAddressFactory.cpp */,
 				7E4026511C797D030044C61E /* SocketUtil.cpp */,
@@ -229,7 +223,6 @@
 		7E5B947C1C762DD1007E8198 /* networking */ = {
 			isa = PBXGroup;
 			children = (
-				7E39CAE71C7980DF00B3C0ED /* Networking.h */,
 				7E39CAE61C7980B900B3C0ED /* NetworkingShared.h */,
 				7E4026671C797D140044C61E /* SocketAddress.h */,
 				7E4026681C797D140044C61E /* SocketAddressFactory.h */,
@@ -520,7 +513,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ED16CE41C84F34100E38DC4 /* Networking.cpp in Sources */,
 				7ED16CE51C84F34100E38DC4 /* SocketAddress.cpp in Sources */,
 				7ED16CE61C84F34100E38DC4 /* SocketAddressFactory.cpp in Sources */,
 				7ED16CE71C84F34100E38DC4 /* SocketUtil.cpp in Sources */,
@@ -551,7 +543,6 @@
 				FE1DE7421C72A5CF00ABF75D /* main.cpp in Sources */,
 				7E40265D1C797D030044C61E /* SocketUtil.cpp in Sources */,
 				7E39CAF11C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */,
-				7E39CAE91C79812A00B3C0ED /* Networking.cpp in Sources */,
 				7E559A701D2D64CA003B236A /* Vector3.cpp in Sources */,
 				7EA9EFAC1D32215400232486 /* World.cpp in Sources */,
 				7EA9EFA71D321FCF00232486 /* Engine.cpp in Sources */,
@@ -567,7 +558,6 @@
 				7E4026601C797D030044C61E /* StringUtils.cpp in Sources */,
 				7E40265C1C797D030044C61E /* SocketAddressFactory.cpp in Sources */,
 				7EA9EFAD1D32215400232486 /* World.cpp in Sources */,
-				7E39CAEA1C79812A00B3C0ED /* Networking.cpp in Sources */,
 				7E559A711D2D64CA003B236A /* Vector3.cpp in Sources */,
 				7EA9EFA81D321FCF00232486 /* Engine.cpp in Sources */,
 				7E4026641C797D030044C61E /* UDPSocket.cpp in Sources */,

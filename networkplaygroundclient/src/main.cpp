@@ -7,7 +7,6 @@
 //
 
 #include <iostream>
-#include "networking/networking.h"
 
 int main(int argc, const char * argv[]) {
     // Start a simple server

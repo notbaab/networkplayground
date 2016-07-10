@@ -1,6 +1,6 @@
 #include <string>
 
-#include "StringUtils.h"
+#include "networking/StringUtils.h"
 
 #if !_WIN32
 //extern const char** __argv;
