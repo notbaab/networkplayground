@@ -1,3 +1,19 @@
+#ifndef SocketAddress_h
+#define SocketAddress_h
+
+#include <sys/socket.h>
+#include <string>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <sys/types.h>
+#include <string>
+#include <netdb.h>
+
+#include <fcntl.h>
+#include <stdio.h>
+#include <iostream>
+//#include <unistd.h>
+
 class SocketAddress
 {
 public:
@@ -37,7 +53,7 @@ public:
 
 	uint32_t				GetSize()			const	{ return sizeof( sockaddr ); }
 
-	string					ToString()			const;
+	std::string					ToString()			const;
 
 private:
 	friend class UDPSocket;
@@ -57,7 +73,7 @@ private:
 
 };
 
-typedef shared_ptr< SocketAddress > SocketAddressPtr;
+typedef std::shared_ptr< SocketAddress > SocketAddressPtr;
 
 namespace std
 {
@@ -69,3 +85,5 @@ namespace std
 		}
 	};
 }
+
+#endif

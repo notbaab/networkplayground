@@ -1,4 +1,8 @@
-#include "networking/networking.h"
+#include <unistd.h>
+
+#include "networking/TCPSocket.h"
+#include "networking/SocketAddress.h"
+#include "networking/SocketUtil.h"
 
 int TCPSocket::Connect( const SocketAddress& inAddress )
 {

@@ -1,3 +1,7 @@
+#ifndef NetworkedData_h
+#define NetworkedData_h
+
+
 class NetworkedData
 {
 public:
@@ -12,3 +16,5 @@ public:
     // down the list of address size pairs ands reads from or writes to that
     // address
 };
+
+#endif

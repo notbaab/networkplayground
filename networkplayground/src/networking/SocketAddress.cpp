@@ -1,7 +1,8 @@
-#include "networking/networking.h"
+#include "SocketAddress.h"
 
 
-string	SocketAddress::ToString() const
+
+std::string	SocketAddress::ToString() const
 {
 #if _WIN32
 	const sockaddr_in* s = GetAsSockAddrIn();
@@ -12,7 +13,7 @@ string	SocketAddress::ToString() const
 								ntohs( s->sin_port ) );
 #else
 	//not implement on mac for now...
-	return string( "not implemented on mac for now" );
+    return std::string( "not implemented on mac for now" );
 #endif
 }
 

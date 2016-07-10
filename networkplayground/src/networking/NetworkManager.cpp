@@ -4,9 +4,9 @@
 //
 //  Created by Erik Parreira on 2/29/16.
 //  Copyright © 2016 Erik Parreira. All rights reserved.
-//
 
-#include "networking/Networking.h"
+#include "networking/NetworkManager.h"
+#include "SocketUtil.h"
 #include <ctime>
 
 // TODO: Temp for now

@@ -2,6 +2,15 @@
 //  NetworkManager.h
 //  networkplayground
 //
+#ifndef NetworkedManager_h
+#define NetworkedManager_h
+
+#include "IO/MemoryBitStream.h"
+#include "networking/SocketAddress.h"
+#include "networking/UDPSocket.h"
+
+#include "queue"
+#include "list"
 
 //typedef unordered_map< int, GameObjectPtr > IntToGameObjectMap;
 class NetworkManager
@@ -53,7 +62,9 @@ private:
 
     UDPSocketPtr	mSocket;
     //
-    queue< ReceivedPacket, list< ReceivedPacket > > mPacketQueue;
+    std::queue< ReceivedPacket, std::list< ReceivedPacket > > mPacketQueue;
 //    WeightedTimedMovingAverage	mBytesReceivedPerSecond;
 //    WeightedTimedMovingAverage	mBytesSentPerSecond;
 };
+
+#endif

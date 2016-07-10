@@ -1,4 +1,5 @@
-#include "networking/networking.h"
+#include "networking/UDPSocket.h"
+#include "networking/SocketUtil.h"
 
 int UDPSocket::Bind( const SocketAddress& inBindAddress )
 {
@@ -54,7 +55,7 @@ int UDPSocket::ReceiveFrom( void* inToReceive, int inMaxLength, SocketAddress& o
 		{
 			//this can happen if a client closed and we haven't DC'd yet.
 			//this is the ICMP message being sent back saying the port on that computer is closed
-			LOG( "Connection reset from %s", outFromAddress.ToString().c_str() );
+//			LOG( "Connection reset from %s", outFromAddress.ToString().c_str() );
 			return -WSAECONNRESET;
 		}
 		else

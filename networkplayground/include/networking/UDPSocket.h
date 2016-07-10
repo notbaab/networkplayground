@@ -1,3 +1,12 @@
+#ifndef UDPSocket_h
+#define UDPSocket_h
+
+#include <sys/socket.h>
+#include <memory>
+#include <unistd.h>
+
+#include "networking/SocketAddress.h"
+#include "networking/SocketConsts.h"
 
 
 class UDPSocket
@@ -24,4 +33,6 @@ private:
 
 };
 
-typedef shared_ptr< UDPSocket >	UDPSocketPtr;
+typedef std::shared_ptr< UDPSocket >	UDPSocketPtr;
+
+#endif

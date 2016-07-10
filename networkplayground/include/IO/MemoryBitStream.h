@@ -6,6 +6,9 @@
  * Based on https://github.com/MultiplayerBook/MultiplayerBook.git
  *
  */
+#ifndef MemoryBitStream_h
+#define MemoryBitStream_h
+
 
 #include <cstdint>
 #include <cstdlib>
@@ -169,3 +172,5 @@ private:
     bool		mIsBufferOwner;
     
 };
+
+#endif

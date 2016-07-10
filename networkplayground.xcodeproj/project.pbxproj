@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E3224AE1D242985008C54D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3224AC1D242985008C54D3 /* main.cpp */; };
+		7E3224AF1D242985008C54D3 /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3224AD1D242985008C54D3 /* Server.cpp */; };
 		7E39CAE91C79812A00B3C0ED /* Networking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAE81C79812A00B3C0ED /* Networking.cpp */; };
 		7E39CAEA1C79812A00B3C0ED /* Networking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAE81C79812A00B3C0ED /* Networking.cpp */; };
-		7E39CAED1C7AAEC600B3C0ED /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAEB1C7AAEC600B3C0ED /* Server.cpp */; };
 		7E39CAF11C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */; };
 		7E39CAF21C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */; };
 		7E39CAFA1C7B90E300B3C0ED /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E39CAF91C7B90E300B3C0ED /* main.cpp */; };
@@ -28,8 +29,30 @@
 		7E4026621C797D030044C61E /* TCPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026531C797D030044C61E /* TCPSocket.cpp */; };
 		7E4026631C797D030044C61E /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
 		7E4026641C797D030044C61E /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
+		7E559A701D2D64CA003B236A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E559A6F1D2D64CA003B236A /* Vector3.cpp */; };
+		7E559A711D2D64CA003B236A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E559A6F1D2D64CA003B236A /* Vector3.cpp */; };
+		7E559A721D2D64CA003B236A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E559A6F1D2D64CA003B236A /* Vector3.cpp */; };
+		7E64FB381D2856A900562700 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E64FB361D2856A900562700 /* GameObject.cpp */; };
+		7E64FB391D2856A900562700 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E64FB361D2856A900562700 /* GameObject.cpp */; };
 		7E7300B71C7278AC003DE60E /* networkplaygroundserver in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E73009E1C727471003DE60E /* networkplaygroundserver */; };
 		7E7300B81C7278B9003DE60E /* networkplaygroundclient in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E7300931C72742E003DE60E /* networkplaygroundclient */; };
+		7EA9EF9D1D2D655600232486 /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EF9C1D2D655600232486 /* Vector3.h */; };
+		7EA9EF9E1D2D655600232486 /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EF9C1D2D655600232486 /* Vector3.h */; };
+		7EA9EFA01D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EF9F1D2EB50E00232486 /* GameObjectRegistry.cpp */; };
+		7EA9EFA11D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EF9F1D2EB50E00232486 /* GameObjectRegistry.cpp */; };
+		7EA9EFA21D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EF9F1D2EB50E00232486 /* GameObjectRegistry.cpp */; };
+		7EA9EFA41D2EB52300232486 /* GameObjectRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFA31D2EB52300232486 /* GameObjectRegistry.h */; };
+		7EA9EFA51D2EB52300232486 /* GameObjectRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFA31D2EB52300232486 /* GameObjectRegistry.h */; };
+		7EA9EFA71D321FCF00232486 /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFA61D321FCF00232486 /* Engine.cpp */; };
+		7EA9EFA81D321FCF00232486 /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFA61D321FCF00232486 /* Engine.cpp */; };
+		7EA9EFA91D321FCF00232486 /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFA61D321FCF00232486 /* Engine.cpp */; };
+		7EA9EFAC1D32215400232486 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFAB1D32215400232486 /* World.cpp */; };
+		7EA9EFAD1D32215400232486 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFAB1D32215400232486 /* World.cpp */; };
+		7EA9EFAE1D32215400232486 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFAB1D32215400232486 /* World.cpp */; };
+		7EA9EFB01D32216000232486 /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFAF1D32216000232486 /* World.h */; };
+		7EA9EFB11D32216000232486 /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFAF1D32216000232486 /* World.h */; };
+		7EA9EFB31D322BB100232486 /* SocketConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFB21D322BB100232486 /* SocketConsts.h */; };
+		7EA9EFB41D322BB100232486 /* SocketConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFB21D322BB100232486 /* SocketConsts.h */; };
 		7ED16CE11C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
 		7ED16CE21C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
 		7ED16CE31C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
@@ -40,7 +63,6 @@
 		7ED16CE81C84F34100E38DC4 /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026521C797D030044C61E /* StringUtils.cpp */; };
 		7ED16CE91C84F34100E38DC4 /* TCPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026531C797D030044C61E /* TCPSocket.cpp */; };
 		7ED16CEA1C84F34100E38DC4 /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
-		FE1DE7391C72A51200ABF75D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE1DE7381C72A51200ABF75D /* main.cpp */; };
 		FE1DE7421C72A5CF00ABF75D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE1DE7401C72A5CF00ABF75D /* main.cpp */; };
 		FEEEBAE61C88D87D006DE562 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E39CAFE1C7B923700B3C0ED /* gtest.framework */; };
 /* End PBXBuildFile section */
@@ -78,10 +100,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7E3224AC1D242985008C54D3 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = networkplaygroundserver/src/main.cpp; sourceTree = SOURCE_ROOT; };
+		7E3224AD1D242985008C54D3 /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Server.cpp; path = networkplaygroundserver/src/Server.cpp; sourceTree = SOURCE_ROOT; };
 		7E39CAE61C7980B900B3C0ED /* NetworkingShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingShared.h; sourceTree = "<group>"; };
 		7E39CAE71C7980DF00B3C0ED /* Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		7E39CAE81C79812A00B3C0ED /* Networking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Networking.cpp; sourceTree = "<group>"; };
-		7E39CAEB1C7AAEC600B3C0ED /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Server.cpp; sourceTree = "<group>"; };
 		7E39CAEC1C7AAEC600B3C0ED /* Server.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Server.hpp; sourceTree = "<group>"; };
 		7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemoryBitStream.cpp; path = IO/MemoryBitStream.cpp; sourceTree = "<group>"; };
 		7E39CAF71C7B90E300B3C0ED /* unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,12 +124,22 @@
 		7E40266A1C797D140044C61E /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		7E40266B1C797D140044C61E /* TCPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPSocket.h; sourceTree = "<group>"; };
 		7E40266C1C797D140044C61E /* UDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPSocket.h; sourceTree = "<group>"; };
+		7E559A6F1D2D64CA003B236A /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
+		7E64FB361D2856A900562700 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
+		7E64FB3C1D28571800562700 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		7E7300931C72742E003DE60E /* networkplaygroundclient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = networkplaygroundclient; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E73009E1C727471003DE60E /* networkplaygroundserver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = networkplaygroundserver; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EA9EF9C1D2D655600232486 /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
+		7EA9EF9F1D2EB50E00232486 /* GameObjectRegistry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectRegistry.cpp; sourceTree = "<group>"; };
+		7EA9EFA31D2EB52300232486 /* GameObjectRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectRegistry.h; sourceTree = "<group>"; };
+		7EA9EFA61D321FCF00232486 /* Engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Engine.cpp; sourceTree = "<group>"; };
+		7EA9EFAA1D32200600232486 /* Engine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
+		7EA9EFAB1D32215400232486 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		7EA9EFAF1D32216000232486 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		7EA9EFB21D322BB100232486 /* SocketConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketConsts.h; sourceTree = "<group>"; };
 		7ED16CDF1C84E6A300E38DC4 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkManager.cpp; sourceTree = "<group>"; };
 		7ED16CEC1C85540800E38DC4 /* MemoryBitStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MemoryBitStream.h; path = networkplayground/include/IO/MemoryBitStream.h; sourceTree = "<group>"; };
-		FE1DE7381C72A51200ABF75D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FE1DE7401C72A5CF00ABF75D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +195,22 @@
 			path = networking/IO;
 			sourceTree = "<group>";
 		};
+		7E559A6D1D2D64AB003B236A /* math */ = {
+			isa = PBXGroup;
+			children = (
+				7E559A6F1D2D64CA003B236A /* Vector3.cpp */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
+		7E559A6E1D2D64B6003B236A /* math */ = {
+			isa = PBXGroup;
+			children = (
+				7EA9EF9C1D2D655600232486 /* Vector3.h */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
 		7E5B94771C762D64007E8198 /* networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,8 +238,31 @@
 				7E40266B1C797D140044C61E /* TCPSocket.h */,
 				7E40266C1C797D140044C61E /* UDPSocket.h */,
 				7ED16CDF1C84E6A300E38DC4 /* NetworkManager.h */,
+				7EA9EFB21D322BB100232486 /* SocketConsts.h */,
 			);
 			path = networking;
+			sourceTree = "<group>";
+		};
+		7E64FB351D28567D00562700 /* gameobjects */ = {
+			isa = PBXGroup;
+			children = (
+				7E64FB361D2856A900562700 /* GameObject.cpp */,
+				7EA9EF9F1D2EB50E00232486 /* GameObjectRegistry.cpp */,
+				7EA9EFA61D321FCF00232486 /* Engine.cpp */,
+				7EA9EFAB1D32215400232486 /* World.cpp */,
+			);
+			path = gameobjects;
+			sourceTree = "<group>";
+		};
+		7E64FB3B1D28570400562700 /* gameobjects */ = {
+			isa = PBXGroup;
+			children = (
+				7E64FB3C1D28571800562700 /* GameObject.h */,
+				7EA9EFA31D2EB52300232486 /* GameObjectRegistry.h */,
+				7EA9EFAA1D32200600232486 /* Engine.h */,
+				7EA9EFAF1D32216000232486 /* World.h */,
+			);
+			path = gameobjects;
 			sourceTree = "<group>";
 		};
 		7E7300941C72742E003DE60E /* networkplaygroundclient */ = {
@@ -226,6 +298,7 @@
 		7E7300B21C727857003DE60E /* include */ = {
 			isa = PBXGroup;
 			children = (
+				7E39CAEC1C7AAEC600B3C0ED /* Server.hpp */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -256,9 +329,8 @@
 		FE1DE7371C72A51200ABF75D /* src */ = {
 			isa = PBXGroup;
 			children = (
-				FE1DE7381C72A51200ABF75D /* main.cpp */,
-				7E39CAEB1C7AAEC600B3C0ED /* Server.cpp */,
-				7E39CAEC1C7AAEC600B3C0ED /* Server.hpp */,
+				7E3224AC1D242985008C54D3 /* main.cpp */,
+				7E3224AD1D242985008C54D3 /* Server.cpp */,
 			);
 			name = src;
 			path = include/src;
@@ -296,6 +368,8 @@
 		FE1DE7431C72A61400ABF75D /* include */ = {
 			isa = PBXGroup;
 			children = (
+				7E559A6E1D2D64B6003B236A /* math */,
+				7E64FB3B1D28570400562700 /* gameobjects */,
 				7E3F50781C826FB20001F61E /* IO */,
 				7E5B947C1C762DD1007E8198 /* networking */,
 			);
@@ -305,6 +379,8 @@
 		FE1DE7451C72A61400ABF75D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7E559A6D1D2D64AB003B236A /* math */,
+				7E64FB351D28567D00562700 /* gameobjects */,
 				7E39CAEE1C7AB02900B3C0ED /* IO */,
 				7E5B94771C762D64007E8198 /* networking */,
 			);
@@ -326,6 +402,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EA9EFB01D32216000232486 /* World.h in Headers */,
+				7EA9EFA41D2EB52300232486 /* GameObjectRegistry.h in Headers */,
+				7EA9EF9D1D2D655600232486 /* Vector3.h in Headers */,
+				7EA9EFB31D322BB100232486 /* SocketConsts.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +413,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EA9EFB11D32216000232486 /* World.h in Headers */,
+				7EA9EFA51D2EB52300232486 /* GameObjectRegistry.h in Headers */,
+				7EA9EF9E1D2D655600232486 /* Vector3.h in Headers */,
+				7EA9EFB41D322BB100232486 /* SocketConsts.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +530,10 @@
 				7ED16CE31C84F09C00E38DC4 /* NetworkManager.cpp in Sources */,
 				7E39CB0D1C7BD19300B3C0ED /* MemoryBitStream.cpp in Sources */,
 				7E39CAFA1C7B90E300B3C0ED /* main.cpp in Sources */,
+				7E559A721D2D64CA003B236A /* Vector3.cpp in Sources */,
+				7EA9EFAE1D32215400232486 /* World.cpp in Sources */,
+				7EA9EFA91D321FCF00232486 /* Engine.cpp in Sources */,
+				7EA9EFA21D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */,
 				7E3F507C1C8270100001F61E /* OutputMemoryBitStream_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +544,7 @@
 			files = (
 				7E40265F1C797D030044C61E /* StringUtils.cpp in Sources */,
 				7E40265B1C797D030044C61E /* SocketAddressFactory.cpp in Sources */,
+				7E64FB381D2856A900562700 /* GameObject.cpp in Sources */,
 				7ED16CE11C84F09C00E38DC4 /* NetworkManager.cpp in Sources */,
 				7E4026631C797D030044C61E /* UDPSocket.cpp in Sources */,
 				7E4026591C797D030044C61E /* SocketAddress.cpp in Sources */,
@@ -463,6 +552,10 @@
 				7E40265D1C797D030044C61E /* SocketUtil.cpp in Sources */,
 				7E39CAF11C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */,
 				7E39CAE91C79812A00B3C0ED /* Networking.cpp in Sources */,
+				7E559A701D2D64CA003B236A /* Vector3.cpp in Sources */,
+				7EA9EFAC1D32215400232486 /* World.cpp in Sources */,
+				7EA9EFA71D321FCF00232486 /* Engine.cpp in Sources */,
+				7EA9EFA01D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */,
 				7E4026611C797D030044C61E /* TCPSocket.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,15 +566,20 @@
 			files = (
 				7E4026601C797D030044C61E /* StringUtils.cpp in Sources */,
 				7E40265C1C797D030044C61E /* SocketAddressFactory.cpp in Sources */,
+				7EA9EFAD1D32215400232486 /* World.cpp in Sources */,
 				7E39CAEA1C79812A00B3C0ED /* Networking.cpp in Sources */,
+				7E559A711D2D64CA003B236A /* Vector3.cpp in Sources */,
+				7EA9EFA81D321FCF00232486 /* Engine.cpp in Sources */,
 				7E4026641C797D030044C61E /* UDPSocket.cpp in Sources */,
+				7EA9EFA11D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */,
 				7E39CAF21C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */,
-				FE1DE7391C72A51200ABF75D /* main.cpp in Sources */,
 				7E40265A1C797D030044C61E /* SocketAddress.cpp in Sources */,
 				7ED16CE21C84F09C00E38DC4 /* NetworkManager.cpp in Sources */,
 				7E40265E1C797D030044C61E /* SocketUtil.cpp in Sources */,
+				7E64FB391D2856A900562700 /* GameObject.cpp in Sources */,
+				7E3224AE1D242985008C54D3 /* main.cpp in Sources */,
 				7E4026621C797D030044C61E /* TCPSocket.cpp in Sources */,
-				7E39CAED1C7AAEC600B3C0ED /* Server.cpp in Sources */,
+				7E3224AF1D242985008C54D3 /* Server.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

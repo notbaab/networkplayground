@@ -1,4 +1,4 @@
-#include "networking/networking.h"
+#include "networking/SocketUtil.h"
 
 
 bool SocketUtil::StaticInit()
@@ -42,7 +42,7 @@ void SocketUtil::ReportError( const char* inOperationDesc )
 	
 	LOG( "Error %s: %d- %s", inOperationDesc, errorNum, lpMsgBuf );
 #else
-	LOG( "Error: %hs", inOperationDesc );
+//	LOG( "Error: %hs", inOperationDesc );
 #endif
 }
 
@@ -86,7 +86,7 @@ TCPSocketPtr SocketUtil::CreateTCPSocket( SocketAddressFamily inFamily )
 	}
 }
 
-fd_set* SocketUtil::FillSetFromVector( fd_set& outSet, const vector< TCPSocketPtr >* inSockets, int& ioNaxNfds )
+fd_set* SocketUtil::FillSetFromVector( fd_set& outSet, const std::vector< TCPSocketPtr >* inSockets, int& ioNaxNfds )
 {
 	if( inSockets )
 	{
@@ -107,7 +107,7 @@ fd_set* SocketUtil::FillSetFromVector( fd_set& outSet, const vector< TCPSocketPt
 	}
 }
 
-void SocketUtil::FillVectorFromSet( vector< TCPSocketPtr >* outSockets, const vector< TCPSocketPtr >* inSockets, const fd_set& inSet )
+void SocketUtil::FillVectorFromSet( std::vector< TCPSocketPtr >* outSockets, const std::vector< TCPSocketPtr >* inSockets, const fd_set& inSet )
 {
 	if( inSockets && outSockets )
 	{
@@ -122,12 +122,12 @@ void SocketUtil::FillVectorFromSet( vector< TCPSocketPtr >* outSockets, const ve
 	}
 }
 
-int SocketUtil::Select( const vector< TCPSocketPtr >* inReadSet,
-					   vector< TCPSocketPtr >* outReadSet,
-					   const vector< TCPSocketPtr >* inWriteSet,
-					   vector< TCPSocketPtr >* outWriteSet,
-					   const vector< TCPSocketPtr >* inExceptSet,
-					   vector< TCPSocketPtr >* outExceptSet )
+int SocketUtil::Select( const std::vector< TCPSocketPtr >* inReadSet,
+					   std::vector< TCPSocketPtr >* outReadSet,
+					   const std::vector< TCPSocketPtr >* inWriteSet,
+					   std::vector< TCPSocketPtr >* outWriteSet,
+					   const std::vector< TCPSocketPtr >* inExceptSet,
+					   std::vector< TCPSocketPtr >* outExceptSet )
 {
 	//build up some sets from our vectors
 	fd_set read, write, except;

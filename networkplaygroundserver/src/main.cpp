@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <unistd.h>
-#include "networking/networking.h"
+#include "Networking/NetworkManager.h"
 
 const int port = 3200;
 
@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
     while (true) {
         nm.ProcessIncomingPackages();
         // std::cout << "blah" << std::endl;
-        // sleep(1);
+        sleep(1);
     }
     return 0;
 }

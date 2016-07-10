@@ -1,11 +1,14 @@
-#include "networking/networking.h"
+#include <string>
 
+#include "networking/SocketAddress.h"
+#include "networking/SocketAddressFactory.h"
+#include "networking/SocketUtil.h"
 
-SocketAddressPtr SocketAddressFactory::CreateIPv4FromString( const string& inString )
+SocketAddressPtr SocketAddressFactory::CreateIPv4FromString( const std::string& inString )
 {
 	auto pos = inString.find_last_of( ':' );
-	string host, service;
-	if( pos != string::npos )
+	std::string host, service;
+	if( pos != std::string::npos )
 	{
 		host = inString.substr( 0, pos );
 		service = inString.substr( pos + 1 );
@@ -24,7 +27,7 @@ SocketAddressPtr SocketAddressFactory::CreateIPv4FromString( const string& inStr
 	int error = getaddrinfo( host.c_str(), service.c_str(), &hint, &result );
 	if( error != 0 && result != nullptr )
 	{
-		SocketUtil::ReportError( "SocketAddressFactory::CreateIPv4FromString" );
+//		SocketUtil::ReportError( "SocketAddressFactory::CreateIPv4FromString" );
 		return nullptr;
 	}
 	

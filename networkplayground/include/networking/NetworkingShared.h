@@ -1,3 +1,7 @@
+#ifndef NetworkingShared_h
+#define NetworkingShared_h
+
+
 #ifdef _WIN32
 	#define WIN32_LEAN_AND_MEAN
 	#define NOMINMAX
@@ -64,3 +68,5 @@ class GameObject;
 
 #include "NetworkManager.h"
 
+
+#endif NetworkingShared_h /* */ 
