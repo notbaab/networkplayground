@@ -13,20 +13,20 @@
 
 class Engine
 {
-public:
+  public:
     virtual ~Engine();
-    static std::unique_ptr< Engine > sIntance;
-    
+    static std::unique_ptr<Engine> sIntance;
+
     virtual int Run();
-    
-//    virtual void HandleEvent( SDL_)
-    
-protected:
+
+    //    virtual void HandleEvent( SDL_)
+
+  protected:
     Engine();
-    
+
     virtual void DoFrame();
-    
-private:
+
+  private:
     int DoRunLoop();
 };
 

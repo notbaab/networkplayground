@@ -13,11 +13,11 @@ void WriteSignedBinaryValue( OutputMemoryBitStream& inOutputStream,
 {
     bool isNonZero = ( inValue != 0.f );
     inOutputStream.Write( isNonZero );
-    
-    if( isNonZero )
+
+    if ( isNonZero )
     {
         // False if the value is negative, true if positive
-        inOutputStream.Write( inValue > 0.f);
+        inOutputStream.Write( inValue > 0.f );
     }
 }
 
@@ -26,13 +26,13 @@ void ReadSignedBinaryValue( InputMemoryBitStream& inInputStream,
 {
     bool isNonZero;
     inInputStream.Read( isNonZero );
-    
-    if( !isNonZero )
+
+    if ( !isNonZero )
     {
         outValue = 0.f;
         return;
     }
-    
+
     // assign outvalue 1 or -1
     bool isPositive;
     inInputStream.Read( isPositive );
@@ -45,14 +45,14 @@ bool InputState::Write( OutputMemoryBitStream& inOutputStream ) const
     WriteSignedBinaryValue( inOutputStream, GetDesiredHorizontalDelta() );
     // write out the vertical input state
     WriteSignedBinaryValue( inOutputStream, GetDesiredVerticalDelta() );
-    
+
     return false;
 }
 
 bool InputState::Read( InputMemoryBitStream& inInputStream )
 {
     // write out the horizontal input state
-    ReadSignedBinaryValue( inInputStream,  mRightAmount );
+    ReadSignedBinaryValue( inInputStream, mRightAmount );
     // write out the vertical input state
     ReadSignedBinaryValue( inInputStream, mForwardAmount );
 

@@ -9,37 +9,37 @@
 #ifndef GameObjectRegistry_h
 #define GameObjectRegistry_h
 
-#include <stdio.h>
 #include <memory>
+#include <stdio.h>
 #include <unordered_map>
 
 #include "gameobjects/GameObject.h"
 
 typedef GameObjectPtr ( *GameObjectCreationFunc )();
 
-typedef void (* addToWorldFunction)(GameObjectPtr);
+typedef void ( *addToWorldFunction )( GameObjectPtr );
 
 class GameObjectRegistry
 {
-public:
+  public:
     // Takes a function that should be called after the object is created
     static void StaticInit( addToWorldFunction worldAddFunction );
-    
+
     // Singleton instance
-    static std::unique_ptr< GameObjectRegistry > sInstance;
-    
+    static std::unique_ptr<GameObjectRegistry> sInstance;
+
     void RegisterCreationFunction( uint32_t inCCName,
                                    GameObjectCreationFunc inCreationFuntion );
-    
-    GameObjectPtr CreateGameObject ( uint32_t inCCName );
-    
-private:
+
+    GameObjectPtr CreateGameObject( uint32_t inCCName );
+
+  private:
     GameObjectRegistry();
-    
+
     addToWorldFunction mAddToWorldFunction;
-    
-    std::unordered_map< uint32_t, GameObjectCreationFunc > mNameToCreationFunction;
-    
+
+    std::unordered_map<uint32_t, GameObjectCreationFunc>
+        mNameToCreationFunction;
 };
 
 #endif /* GameObjectRegistry_h */

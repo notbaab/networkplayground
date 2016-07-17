@@ -8,7 +8,8 @@
 
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
+int main( int argc, const char* argv[] )
+{
     // Start a simple server
     // insert code here...
     std::cout << "Hello, World!\n";

@@ -11,5 +11,4 @@
 ClientProxy::ClientProxy( const SocketAddress& inSocketAddress,
                           const std::string& inName, int inPlayerId )
 {
-    
 }

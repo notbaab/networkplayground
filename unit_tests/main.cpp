@@ -12,13 +12,12 @@
 // start the tests with RUN_ALL_TESTS. One day I learn static libraries vs
 // frameworks
 #ifdef __APPLE__
-    int main(int argc, char * argv[])
-    {
-        ::testing::InitGoogleTest(&argc, argv);
-        std::cout << "Starting Tests" << std::endl;
-        int testSuccessful = RUN_ALL_TESTS();
-        std::cout << "Finished" << std::endl;
-        return testSuccessful;
-    }
+int main( int argc, char* argv[] )
+{
+    ::testing::InitGoogleTest( &argc, argv );
+    std::cout << "Starting Tests" << std::endl;
+    int testSuccessful = RUN_ALL_TESTS();
+    std::cout << "Finished" << std::endl;
+    return testSuccessful;
+}
 #endif
-

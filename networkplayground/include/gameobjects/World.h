@@ -14,26 +14,25 @@
 
 #include "GameObject.h"
 
-
 class World
 {
-public:
+  public:
     static void StaticInit();
-    
-    static std::unique_ptr< World > sInstance;
-    
+
+    static std::unique_ptr<World> sInstance;
+
     void AddGameObject( GameObjectPtr inGameObject );
     void RemoveGameObject( GameObjectPtr inGameObject );
-    
+
     void Update();
-    
-    const std::vector< GameObjectPtr >& GetGameObjects();
-    
-private:
+
+    const std::vector<GameObjectPtr>& GetGameObjects();
+
+  private:
     World();
-    
+
     int GetIndexOfGameObject( GameObjectPtr inGameObject );
-    std::vector< GameObjectPtr > mGameObjects;
+    std::vector<GameObjectPtr> mGameObjects;
 };
 
 #endif /* Header_h */

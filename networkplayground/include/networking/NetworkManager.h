@@ -9,38 +9,39 @@
 #include "networking/SocketAddress.h"
 #include "networking/UDPSocket.h"
 
-#include "queue"
 #include "list"
+#include "queue"
 
-//typedef unordered_map< int, GameObjectPtr > IntToGameObjectMap;
+// typedef unordered_map< int, GameObjectPtr > IntToGameObjectMap;
 class NetworkManager
 {
-public:
-     // 4 byte message identifier
-    static const uint32_t   kHelloCC = 'HELO'; // client connect message
-    static const uint32_t   kWelcomeCC = 'WLCM'; // server welcome message
-    
+  public:
+    // 4 byte message identifier
+    static const uint32_t kHelloCC = 'HELO';   // client connect message
+    static const uint32_t kWelcomeCC = 'WLCM'; // server welcome message
+
     NetworkManager();
     virtual ~NetworkManager();
-    
+
     bool Init( uint16_t inPort );
     void ProcessIncomingPackages();
-    virtual void ProcessPacket( InputMemoryBitStream& inInputStream, const SocketAddress& inFromAddress );
-    
-    void SendPacket( const OutputMemoryBitStream& inOutputStream, const SocketAddress& inFromAddress);
-    
+    virtual void ProcessPacket( InputMemoryBitStream& inInputStream,
+                                const SocketAddress& inFromAddress );
+
+    void SendPacket( const OutputMemoryBitStream& inOutputStream,
+                     const SocketAddress& inFromAddress );
+
     void ReadIncomingPacketsIntoQueue();
     void ReadIncomingPacket();
     void ProcessQueuedPackets();
-  
-private:
 
+  private:
     /**
      * Inner class to represent a received packet
      */
     class ReceivedPacket
     {
-    public:
+      public:
         ReceivedPacket( float inRecievedTime,
                         InputMemoryBitStream& inInputMemoryBitStream,
                         const SocketAddress& inAddress );
@@ -54,17 +55,17 @@ private:
         // Get the stream of  packet data
         InputMemoryBitStream& GetPacketBuffer() { return mPacketDataStream; }
 
-    private:
-        float                 mRecievedTime;
-        InputMemoryBitStream  mPacketDataStream;
-        SocketAddress         mFromAddress;
+      private:
+        float mRecievedTime;
+        InputMemoryBitStream mPacketDataStream;
+        SocketAddress mFromAddress;
     };
 
-    UDPSocketPtr	mSocket;
+    UDPSocketPtr mSocket;
     //
-    std::queue< ReceivedPacket, std::list< ReceivedPacket > > mPacketQueue;
-//    WeightedTimedMovingAverage	mBytesReceivedPerSecond;
-//    WeightedTimedMovingAverage	mBytesSentPerSecond;
+    std::queue<ReceivedPacket, std::list<ReceivedPacket>> mPacketQueue;
+    //    WeightedTimedMovingAverage	mBytesReceivedPerSecond;
+    //    WeightedTimedMovingAverage	mBytesSentPerSecond;
 };
 
 #endif

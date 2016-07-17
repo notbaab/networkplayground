@@ -17,7 +17,6 @@
 
 //     float GetFrameStartTime() const { return mFrameStartTimef; }
 
-
 //     static Timing sInstance;
 
 // private:

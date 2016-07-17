@@ -15,20 +15,20 @@
 
 class ClientProxy
 {
-public:
+  public:
     ClientProxy( const SocketAddress& inSocketAddres, const std::string& inName,
                  int inPlayerId );
-    
+
     const SocketAddress& GetSocketAddress() const { return mSocketAddress; }
 
-private:
+  private:
     SocketAddress mSocketAddress;
     std::string mName;
     int mPlayerId;
-    
+
     float mLastPacketFromClientTime;
-    
-//    MoveList mUnprocessedMoveList;
+
+    //    MoveList mUnprocessedMoveList;
 };
 
 #endif /* ClientProxy_h */
