@@ -56,16 +56,17 @@ struct ReplicationCommand
 
   private:
     uint32_t mDirtyState;
-    ReplicationCommand mAction;
+    ReplicationAction mAction;
 };
 
 inline void ReplicationCommand::ClearDirtyState( uint32_t inStateToClear )
 {
     mDirtyState &= ~inStateToClear;
 
-    if ( mAction == RA_Destroy )
+    if ( mAction == RA_DESTROY )
     {
-        mAction = RA_Update;
+        // Don't destroy the object if we want to clear it's state
+        mAction = RA_UPDATE;
     }
 }
 
