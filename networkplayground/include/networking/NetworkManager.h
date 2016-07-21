@@ -6,11 +6,12 @@
 #define NetworkedManager_h
 
 #include "IO/MemoryBitStream.h"
+#include "gameobjects/GameObject.h"
 #include "networking/SocketAddress.h"
 #include "networking/UDPSocket.h"
-
-#include "list"
-#include "queue"
+#include <list>
+#include <queue>
+#include <unordered_map>
 
 // typedef unordered_map< int, GameObjectPtr > IntToGameObjectMap;
 class NetworkManager
@@ -34,6 +35,14 @@ class NetworkManager
     void ReadIncomingPacketsIntoQueue();
     void ReadIncomingPacket();
     void ProcessQueuedPackets();
+
+    // TODO: Does this need game object knowledge? Can we abstract it?
+    inline GameObjectPtr GetGameObject( int inNetworkId ) const;
+    void AddToNetworkIdToGameObjectMap( GameObjectPtr inGameObject );
+    void RemoveFromNetworkIdToGameObjectMap( GameObjectPtr inGameObject );
+
+  protected:
+    std::unordered_map<int, GameObjectPtr> mNetworkIdToGameObjectMap;
 
   private:
     /**
@@ -67,5 +76,18 @@ class NetworkManager
     //    WeightedTimedMovingAverage	mBytesReceivedPerSecond;
     //    WeightedTimedMovingAverage	mBytesSentPerSecond;
 };
+
+inline GameObjectPtr NetworkManager::GetGameObject( int inNetworkId ) const
+{
+    auto gameObjectIt = mNetworkIdToGameObjectMap.find( inNetworkId );
+    if ( gameObjectIt != mNetworkIdToGameObjectMap.end() )
+    {
+        return gameObjectIt->second;
+    }
+    else
+    {
+        return GameObjectPtr();
+    }
+}
 
 #endif

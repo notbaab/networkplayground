@@ -6,7 +6,6 @@
 //  Copyright © 2016 Erik Parreira. All rights reserved.
 
 #include "networking/NetworkManager.h"
-#include "gameobjects/GameObject.h"
 #include "networking/SocketUtil.h"
 #include <ctime>
 
@@ -173,4 +172,15 @@ NetworkManager::ReceivedPacket::ReceivedPacket(
     : mRecievedTime( inReceivedTime ),
       mPacketDataStream( inInputMemoryBitStream ), mFromAddress( inFromAddress )
 {
+}
+
+void NetworkManager::AddToNetworkIdToGameObjectMap( GameObjectPtr inGameObject )
+{
+    mNetworkIdToGameObjectMap[inGameObject->GetNetworkId()] = inGameObject;
+}
+
+void NetworkManager::RemoveFromNetworkIdToGameObjectMap(
+    GameObjectPtr inGameObject )
+{
+    mNetworkIdToGameObjectMap.erase( inGameObject->GetNetworkId() );
 }
