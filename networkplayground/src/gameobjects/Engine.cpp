@@ -38,7 +38,18 @@ int Engine::Run() { return DoRunLoop(); }
 //    ( void )inEvent;
 //}
 
-int Engine::DoRunLoop() { return 0; }
+int Engine::DoRunLoop()
+{
+    // Usually overridden by the child class
+    //    while (!quit && mShouldKeepRunning) {
+    while ( true )
+    {
+        DoFrame();
+    }
+
+    return 0;
+}
+
 void Engine::DoFrame()
 {
     //    World::sInstance->Update();

@@ -6,11 +6,11 @@
 //  Copyright © 2016 Erik Parreira. All rights reserved.
 //
 
-#include "Networking/NetworkManager.h"
+#include "Networking/Server.h"
 #include <iostream>
 #include <unistd.h>
 
-const int port = 3200;
+// const int port = 3200;
 
 // Some basic setup.
 int setup()
@@ -19,21 +19,27 @@ int setup()
     return 0;
 }
 
+const char** __argv;
+int __argc;
 int main( int argc, const char* argv[] )
 {
-    setup();
-
-    // Start Server
-    NetworkManager nm = NetworkManager();
-    // TODO: Catch error
-    nm.Init( port );
-
-    // std::cout << "Starting server on " << port << std::endl;
-    while ( true )
+    if ( Server::StaticInit() )
     {
-        nm.ProcessIncomingPackages();
-        // std::cout << "blah" << std::endl;
-        sleep( 1 );
+        return Server::sInstance->Run();
     }
-    return 0;
+    //    setup();
+    //
+    //    // Start Server
+    //    NetworkManager nm = NetworkManager();
+    //    // TODO: Catch error
+    //    nm.Init( port );
+    //
+    //    // std::cout << "Starting server on " << port << std::endl;
+    //    while ( true )
+    //    {
+    //        nm.ProcessIncomingPackets();
+    //        // std::cout << "blah" << std::endl;
+    //        sleep( 1 );
+    //    }
+    //    return 0;
 }
