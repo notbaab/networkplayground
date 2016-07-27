@@ -20,6 +20,8 @@ class NetworkManager
     // 4 byte message identifier
     static const uint32_t kHelloCC = 'HELO';   // client connect message
     static const uint32_t kWelcomeCC = 'WLCM'; // server welcome message
+    static const uint32_t kStateCC = 'STAT';
+    static const uint32_t kInputCC = 'INPT';
 
     NetworkManager();
     virtual ~NetworkManager();
