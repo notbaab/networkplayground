@@ -9,9 +9,13 @@
 #ifndef ClientProxy_h
 #define ClientProxy_h
 
+#include "gameobjects/InputState.h"
+#include "gameobjects/MoveList.h"
+#include "networking/SocketAddress.h"
+#include <memory>
 #include <string>
 
-#include "networking/SocketAddress.h"
+// class InputState;
 
 class ClientProxy
 {
@@ -20,15 +24,41 @@ class ClientProxy
                  int inPlayerId );
 
     const SocketAddress& GetSocketAddress() const { return mSocketAddress; }
+    int GetPlayerId() const { return mPlayerId; }
+    const std::string& GetName() const { return mName; }
+
+    void SetInputState( const InputState& inInputState )
+    {
+        mInputState = inInputState;
+    }
+    const InputState& GetInputState() const { return mInputState; }
+
+    void UpdateLastPacketTime();
+
+    const MoveList& GetUnprocessedMoveList() const
+    {
+        return mUnprocessedMoveList;
+    }
+    MoveList& GetUnprocessedMoveList() { return mUnprocessedMoveList; }
+
+    void SetIsLastMoveTimestampDirty( bool inIsDirty )
+    {
+        mIsLastMoveTimestampDirty = inIsDirty;
+    }
+
+    bool IsLastMoveTimestampDirty() const { return mIsLastMoveTimestampDirty; }
 
   private:
     SocketAddress mSocketAddress;
+    InputState mInputState;
     std::string mName;
     int mPlayerId;
 
     float mLastPacketFromClientTime;
 
-    //    MoveList mUnprocessedMoveList;
+    MoveList mUnprocessedMoveList;
+    bool mIsLastMoveTimestampDirty;
 };
 
 #endif /* ClientProxy_h */
+typedef std::shared_ptr<ClientProxy> ClientProxyPtr;
