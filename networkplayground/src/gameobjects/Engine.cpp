@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <time.h>
 
-std::unique_ptr<Engine> Engine::sIntance;
+std::unique_ptr<Engine> Engine::sInstance;
 
 Engine::Engine()
 {

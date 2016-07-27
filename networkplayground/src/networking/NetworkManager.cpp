@@ -5,6 +5,7 @@
 //  Created by Erik Parreira on 2/29/16.
 //  Copyright © 2016 Erik Parreira. All rights reserved.
 
+#include "gameobjects/GameObject.h"
 #include "networking/NetworkManager.h"
 #include "networking/SocketUtil.h"
 #include <ctime>
@@ -49,7 +50,7 @@ bool NetworkManager::Init( uint16_t inPort )
 }
 
 // Wrapper for doing all the network related tasks
-void NetworkManager::ProcessIncomingPackages()
+void NetworkManager::ProcessIncomingPackets()
 {
     ReadIncomingPacketsIntoQueue();
     ProcessQueuedPackets();

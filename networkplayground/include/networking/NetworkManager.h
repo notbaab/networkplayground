@@ -25,7 +25,7 @@ class NetworkManager
     virtual ~NetworkManager();
 
     bool Init( uint16_t inPort );
-    void ProcessIncomingPackages();
+    void ProcessIncomingPackets();
     virtual void ProcessPacket( InputMemoryBitStream& inInputStream,
                                 const SocketAddress& inFromAddress );
 
