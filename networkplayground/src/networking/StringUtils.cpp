@@ -3,23 +3,20 @@
 #include "networking/StringUtils.h"
 
 #if !_WIN32
-// extern const char** __argv;
-// extern int __argc;
-// void OutputDebugString( const char* inString )
-//{
-//	printf( "%s", inString );
-//}
+extern const char** __argv;
+extern int __argc;
+void OutputDebugString( const char* inString ) { printf( "%s", inString ); }
 #endif
 
-// string StringUtils::GetCommandLineArg( int inIndex )
-//{
-//	if( inIndex < __argc )
-//	{
-//		return string( __argv[ inIndex ] );
-//	}
-//
-//	return string();
-//}
+std::string StringUtils::GetCommandLineArg( int inIndex )
+{
+    if ( inIndex < __argc )
+    {
+        return std::string( __argv[inIndex] );
+    }
+
+    return std::string();
+}
 
 std::string StringUtils::Sprintf( const char* inFormat, ... )
 {
@@ -37,11 +34,11 @@ std::string StringUtils::Sprintf( const char* inFormat, ... )
     return std::string( temp );
 }
 
-// void StringUtils::Log( const char* inFormat )
-// {
-// 	OutputDebugString( inFormat );
-// 	OutputDebugString( "\n" );
-// }
+void StringUtils::Log( const char* inFormat )
+{
+    OutputDebugString( inFormat );
+    OutputDebugString( "\n" );
+}
 
 void StringUtils::Log( const char* inFormat, ... )
 {
@@ -56,6 +53,6 @@ void StringUtils::Log( const char* inFormat, ... )
 #else
     vsnprintf( temp, 4096, inFormat, args );
 #endif
-    //	OutputDebugString( temp );
-    //	OutputDebugString( "\n" );
+    OutputDebugString( temp );
+    OutputDebugString( "\n" );
 }
