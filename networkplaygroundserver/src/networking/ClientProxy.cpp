@@ -7,8 +7,17 @@
 //
 
 #include "networking/ClientProxy.h"
+#include "timing/Timing.h"
 
 ClientProxy::ClientProxy( const SocketAddress& inSocketAddress,
                           const std::string& inName, int inPlayerId )
+    : mSocketAddress( inSocketAddress ), mName( inName ),
+      mPlayerId( inPlayerId )
 {
+    UpdateLastPacketTime();
+}
+
+void ClientProxy::UpdateLastPacketTime()
+{
+    mLastPacketFromClientTime = Timing::sInstance.GetTimef();
 }
