@@ -18,9 +18,7 @@
 		7E3E92561D3C31820043CCDD /* MoveList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E92551D3C31820043CCDD /* MoveList.cpp */; };
 		7E3E92571D3C31820043CCDD /* MoveList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E92551D3C31820043CCDD /* MoveList.cpp */; };
 		7E3E92581D3C31820043CCDD /* MoveList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E92551D3C31820043CCDD /* MoveList.cpp */; };
-		7E3E925C1D3DE6580043CCDD /* ReplicationManagerServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E925B1D3DE6580043CCDD /* ReplicationManagerServer.cpp */; };
 		7E3E925D1D3DE6580043CCDD /* ReplicationManagerServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E925B1D3DE6580043CCDD /* ReplicationManagerServer.cpp */; };
-		7E3E925E1D3DE6580043CCDD /* ReplicationManagerServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E925B1D3DE6580043CCDD /* ReplicationManagerServer.cpp */; };
 		7E3F507C1C8270100001F61E /* OutputMemoryBitStream_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3F507B1C8270100001F61E /* OutputMemoryBitStream_test.cpp */; };
 		7E4026591C797D030044C61E /* SocketAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E40264F1C797D030044C61E /* SocketAddress.cpp */; };
 		7E40265A1C797D030044C61E /* SocketAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E40264F1C797D030044C61E /* SocketAddress.cpp */; };
@@ -34,6 +32,7 @@
 		7E4026621C797D030044C61E /* TCPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026531C797D030044C61E /* TCPSocket.cpp */; };
 		7E4026631C797D030044C61E /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
 		7E4026641C797D030044C61E /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
+		7E46EA391D50FD1D000C51A3 /* WindowManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E46EA381D50FD1D000C51A3 /* WindowManager.cpp */; };
 		7E559A701D2D64CA003B236A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E559A6F1D2D64CA003B236A /* Vector3.cpp */; };
 		7E559A711D2D64CA003B236A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E559A6F1D2D64CA003B236A /* Vector3.cpp */; };
 		7E559A721D2D64CA003B236A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E559A6F1D2D64CA003B236A /* Vector3.cpp */; };
@@ -50,12 +49,10 @@
 		7E6F0B281D375657005E9F60 /* InputState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F0B251D375657005E9F60 /* InputState.cpp */; };
 		7E7300B71C7278AC003DE60E /* networkplaygroundserver in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E73009E1C727471003DE60E /* networkplaygroundserver */; };
 		7E7300B81C7278B9003DE60E /* networkplaygroundclient in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E7300931C72742E003DE60E /* networkplaygroundclient */; };
-		7EA9EF9D1D2D655600232486 /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EF9C1D2D655600232486 /* Vector3.h */; };
 		7EA9EF9E1D2D655600232486 /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EF9C1D2D655600232486 /* Vector3.h */; };
 		7EA9EFA01D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EF9F1D2EB50E00232486 /* GameObjectRegistry.cpp */; };
 		7EA9EFA11D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EF9F1D2EB50E00232486 /* GameObjectRegistry.cpp */; };
 		7EA9EFA21D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EF9F1D2EB50E00232486 /* GameObjectRegistry.cpp */; };
-		7EA9EFA41D2EB52300232486 /* GameObjectRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFA31D2EB52300232486 /* GameObjectRegistry.h */; };
 		7EA9EFA51D2EB52300232486 /* GameObjectRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFA31D2EB52300232486 /* GameObjectRegistry.h */; };
 		7EA9EFA71D321FCF00232486 /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFA61D321FCF00232486 /* Engine.cpp */; };
 		7EA9EFA81D321FCF00232486 /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFA61D321FCF00232486 /* Engine.cpp */; };
@@ -63,10 +60,9 @@
 		7EA9EFAC1D32215400232486 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFAB1D32215400232486 /* World.cpp */; };
 		7EA9EFAD1D32215400232486 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFAB1D32215400232486 /* World.cpp */; };
 		7EA9EFAE1D32215400232486 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9EFAB1D32215400232486 /* World.cpp */; };
-		7EA9EFB01D32216000232486 /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFAF1D32216000232486 /* World.h */; };
 		7EA9EFB11D32216000232486 /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFAF1D32216000232486 /* World.h */; };
-		7EA9EFB31D322BB100232486 /* SocketConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFB21D322BB100232486 /* SocketConsts.h */; };
 		7EA9EFB41D322BB100232486 /* SocketConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA9EFB21D322BB100232486 /* SocketConsts.h */; };
+		7EAE0FD41D4E7A88000509BF /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EAE0FD31D4E7A88000509BF /* TextureManager.cpp */; };
 		7ED16CE11C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
 		7ED16CE21C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
 		7ED16CE31C84F09C00E38DC4 /* NetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */; };
@@ -79,6 +75,15 @@
 		7EF9A5A71D4157FB005DED72 /* Timing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9A5A51D4157FB005DED72 /* Timing.cpp */; };
 		7EF9A5A91D415827005DED72 /* Timing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9A5A51D4157FB005DED72 /* Timing.cpp */; };
 		7EF9A5AA1D415828005DED72 /* Timing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9A5A51D4157FB005DED72 /* Timing.cpp */; };
+		7EFC96481D4A6E5600C48FDC /* libfreetype.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EFC963C1D4A6D8000C48FDC /* libfreetype.6.dylib */; };
+		7EFC96491D4A6E5600C48FDC /* libpng16.16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EFC963D1D4A6D8000C48FDC /* libpng16.16.dylib */; };
+		7EFC964A1D4A6E5600C48FDC /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EFC963E1D4A6D8000C48FDC /* libSDL2_image-2.0.0.dylib */; };
+		7EFC964B1D4A6E5600C48FDC /* libSDL2_mixer-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EFC963F1D4A6D8000C48FDC /* libSDL2_mixer-2.0.0.dylib */; };
+		7EFC964C1D4A6E5600C48FDC /* libSDL2_ttf-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EFC96401D4A6D8000C48FDC /* libSDL2_ttf-2.0.0.dylib */; };
+		7EFC964D1D4A6E5600C48FDC /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EFC96411D4A6D8000C48FDC /* libSDL2-2.0.0.dylib */; };
+		7EFC96531D4A6EC500C48FDC /* GraphicsDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC96521D4A6EC500C48FDC /* GraphicsDriver.cpp */; };
+		7EFC96571D4B0AF800C48FDC /* SpriteComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC96561D4B0AF800C48FDC /* SpriteComponent.cpp */; };
+		7EFC965A1D4B0C5500C48FDC /* RenderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC96591D4B0C5500C48FDC /* RenderManager.cpp */; };
 		FE1DE7421C72A5CF00ABF75D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE1DE7401C72A5CF00ABF75D /* main.cpp */; };
 		FEEEBAE61C88D87D006DE562 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E39CAFE1C7B923700B3C0ED /* gtest.framework */; };
 /* End PBXBuildFile section */
@@ -143,6 +148,8 @@
 		7E40266A1C797D140044C61E /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		7E40266B1C797D140044C61E /* TCPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPSocket.h; sourceTree = "<group>"; };
 		7E40266C1C797D140044C61E /* UDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPSocket.h; sourceTree = "<group>"; };
+		7E46EA371D50FCF2000C51A3 /* WindowManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
+		7E46EA381D50FD1D000C51A3 /* WindowManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowManager.cpp; sourceTree = "<group>"; };
 		7E559A6F1D2D64CA003B236A /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
 		7E5ED43B1D3875CB007A3389 /* Move.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
 		7E5ED43C1D3876BF007A3389 /* Move.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Move.cpp; sourceTree = "<group>"; };
@@ -164,11 +171,26 @@
 		7EA9EFAB1D32215400232486 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		7EA9EFAF1D32216000232486 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		7EA9EFB21D322BB100232486 /* SocketConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketConsts.h; sourceTree = "<group>"; };
+		7EAE0FD01D4E79E6000509BF /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		7EAE0FD21D4E7A6B000509BF /* TextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
+		7EAE0FD31D4E7A88000509BF /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureManager.cpp; sourceTree = "<group>"; };
 		7ED16CDF1C84E6A300E38DC4 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkManager.cpp; sourceTree = "<group>"; };
 		7ED16CEC1C85540800E38DC4 /* MemoryBitStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MemoryBitStream.h; path = networkplayground/include/IO/MemoryBitStream.h; sourceTree = "<group>"; };
 		7EF9A5A31D4157E8005DED72 /* Timing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Timing.h; sourceTree = "<group>"; };
 		7EF9A5A51D4157FB005DED72 /* Timing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timing.cpp; sourceTree = "<group>"; };
+		7EFC963C1D4A6D8000C48FDC /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = SDL/lib/mac/libfreetype.6.dylib; sourceTree = "<group>"; };
+		7EFC963D1D4A6D8000C48FDC /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = SDL/lib/mac/libpng16.16.dylib; sourceTree = "<group>"; };
+		7EFC963E1D4A6D8000C48FDC /* libSDL2_image-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_image-2.0.0.dylib"; path = "SDL/lib/mac/libSDL2_image-2.0.0.dylib"; sourceTree = "<group>"; };
+		7EFC963F1D4A6D8000C48FDC /* libSDL2_mixer-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_mixer-2.0.0.dylib"; path = "SDL/lib/mac/libSDL2_mixer-2.0.0.dylib"; sourceTree = "<group>"; };
+		7EFC96401D4A6D8000C48FDC /* libSDL2_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_ttf-2.0.0.dylib"; path = "SDL/lib/mac/libSDL2_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
+		7EFC96411D4A6D8000C48FDC /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "SDL/lib/mac/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		7EFC96501D4A6EAD00C48FDC /* GraphicsDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsDriver.h; sourceTree = "<group>"; };
+		7EFC96521D4A6EC500C48FDC /* GraphicsDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphicsDriver.cpp; sourceTree = "<group>"; };
+		7EFC96541D4B0ADD00C48FDC /* SpriteComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteComponent.h; sourceTree = "<group>"; };
+		7EFC96561D4B0AF800C48FDC /* SpriteComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteComponent.cpp; sourceTree = "<group>"; };
+		7EFC96581D4B0C4500C48FDC /* RenderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderManager.h; sourceTree = "<group>"; };
+		7EFC96591D4B0C5500C48FDC /* RenderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderManager.cpp; sourceTree = "<group>"; };
 		FE1DE7401C72A5CF00ABF75D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +207,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EFC96481D4A6E5600C48FDC /* libfreetype.6.dylib in Frameworks */,
+				7EFC96491D4A6E5600C48FDC /* libpng16.16.dylib in Frameworks */,
+				7EFC964A1D4A6E5600C48FDC /* libSDL2_image-2.0.0.dylib in Frameworks */,
+				7EFC964B1D4A6E5600C48FDC /* libSDL2_mixer-2.0.0.dylib in Frameworks */,
+				7EFC964C1D4A6E5600C48FDC /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
+				7EFC964D1D4A6E5600C48FDC /* libSDL2-2.0.0.dylib in Frameworks */,
 				FEEEBAE61C88D87D006DE562 /* gtest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +392,7 @@
 		7ECC44F61C72715A00A2710D = {
 			isa = PBXGroup;
 			children = (
+				7EFC96391D4A6CCD00C48FDC /* lib */,
 				7E3F50891C8281890001F61E /* scratch.cpp */,
 				7E39CAFE1C7B923700B3C0ED /* gtest.framework */,
 				7E7300A91C7275F7003DE60E /* networkplayground */,
@@ -400,6 +429,44 @@
 			path = timing;
 			sourceTree = "<group>";
 		};
+		7EFC96391D4A6CCD00C48FDC /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				7EFC963C1D4A6D8000C48FDC /* libfreetype.6.dylib */,
+				7EFC963D1D4A6D8000C48FDC /* libpng16.16.dylib */,
+				7EFC963E1D4A6D8000C48FDC /* libSDL2_image-2.0.0.dylib */,
+				7EFC963F1D4A6D8000C48FDC /* libSDL2_mixer-2.0.0.dylib */,
+				7EFC96401D4A6D8000C48FDC /* libSDL2_ttf-2.0.0.dylib */,
+				7EFC96411D4A6D8000C48FDC /* libSDL2-2.0.0.dylib */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		7EFC964E1D4A6E6C00C48FDC /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				7EFC96521D4A6EC500C48FDC /* GraphicsDriver.cpp */,
+				7EFC96561D4B0AF800C48FDC /* SpriteComponent.cpp */,
+				7EFC96591D4B0C5500C48FDC /* RenderManager.cpp */,
+				7EAE0FD31D4E7A88000509BF /* TextureManager.cpp */,
+				7E46EA381D50FD1D000C51A3 /* WindowManager.cpp */,
+			);
+			path = graphics;
+			sourceTree = "<group>";
+		};
+		7EFC964F1D4A6E9D00C48FDC /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				7EAE0FD01D4E79E6000509BF /* Texture.h */,
+				7EFC96501D4A6EAD00C48FDC /* GraphicsDriver.h */,
+				7EFC96541D4B0ADD00C48FDC /* SpriteComponent.h */,
+				7EFC96581D4B0C4500C48FDC /* RenderManager.h */,
+				7EAE0FD21D4E7A6B000509BF /* TextureManager.h */,
+				7E46EA371D50FCF2000C51A3 /* WindowManager.h */,
+			);
+			path = graphics;
+			sourceTree = "<group>";
+		};
 		FE1DE7371C72A51200ABF75D /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +487,7 @@
 		FE1DE73E1C72A5CF00ABF75D /* include */ = {
 			isa = PBXGroup;
 			children = (
+				7EFC964F1D4A6E9D00C48FDC /* graphics */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -427,6 +495,7 @@
 		FE1DE73F1C72A5CF00ABF75D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7EFC964E1D4A6E6C00C48FDC /* graphics */,
 				FE1DE7401C72A5CF00ABF75D /* main.cpp */,
 			);
 			path = src;
@@ -478,10 +547,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EA9EFB01D32216000232486 /* World.h in Headers */,
-				7EA9EFA41D2EB52300232486 /* GameObjectRegistry.h in Headers */,
-				7EA9EF9D1D2D655600232486 /* Vector3.h in Headers */,
-				7EA9EFB31D322BB100232486 /* SocketConsts.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +590,7 @@
 				7E7300901C72742E003DE60E /* Frameworks */,
 				7E7300911C72742E003DE60E /* CopyFiles */,
 				7E3F507A1C826FD30001F61E /* Headers */,
+				7E46EA3A1D50FFCA000C51A3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -591,6 +657,22 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7E46EA3A1D50FFCA000C51A3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# copy dylib stuff cause I'm following a networking book not a graphics book\nif [ -d \"$BUILD_DIR/Debug\" ]; then\ncp \"$SRCROOT/lib/SDL/lib/mac/\"*.dylib \"$BUILD_DIR/Debug\"\n# cp -R \"$SRCROOT/Assets\" \"$BUILD_DIR\"\ninstall_name_tool -change /usr/local/lib/libSDL2_ttf-2.0.0.dylib @executable_path/libSDL2_ttf-2.0.0.dylib \"$BUILD_DIR/Debug/networkplaygroundclient\"\ninstall_name_tool -change /usr/local/lib/libSDL2-2.0.0.dylib @executable_path/libSDL2-2.0.0.dylib \"$BUILD_DIR/Debug/networkplaygroundclient\"\ninstall_name_tool -change /usr/local/lib/libSDL2_image-2.0.0.dylib @executable_path/libSDL2_image-2.0.0.dylib \"$BUILD_DIR/Debug/networkplaygroundclient\"\ninstall_name_tool -change /usr/local/lib/libfreetype.6.dylib @executable_path/libfreetype.6.dylib \"$BUILD_DIR/Debug/networkplaygroundclient\"\ninstall_name_tool -change /usr/local/lib/libpng16.16.dylib @executable_path/libpng16.16.dylib \"$BUILD_DIR/Debug/networkplaygroundclient\"\nfi\n\nif [ -d \"$BUILD_DIR/Release\" ]; then\ncp \"$SRCROOT/lib/SDL/lib/mac/\"*.dylib \"$BUILD_DIR/Release\"\n# cp -R \"$SRCROOT/Assets\" \"$BUILD_DIR\"\ninstall_name_tool -change /usr/local/lib/libSDL2_ttf-2.0.0.dylib @executable_path/libSDL2_ttf-2.0.0.dylib \"$BUILD_DIR/Release/networkplaygroundclient\"\ninstall_name_tool -change /usr/local/lib/libSDL2-2.0.0.dylib @executable_path/libSDL2-2.0.0.dylib \"$BUILD_DIR/Release/networkplaygroundclient\"\ninstall_name_tool -change /usr/local/lib/libSDL2_image-2.0.0.dylib @executable_path/libSDL2_image-2.0.0.dylib \"$BUILD_DIR/Release/networkplaygroundclient\"\ninstall_name_tool -change /usr/local/lib/libfreetype.6.dylib @executable_path/libfreetype.6.dylib \"$BUILD_DIR/Release/networkplaygroundclient\"\ninstall_name_tool -change /usr/local/lib/libpng16.16.dylib @executable_path/libpng16.16.dylib \"$BUILD_DIR/Release/networkplaygroundclient\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7E39CAF31C7B90E300B3C0ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -605,7 +687,6 @@
 				7ED16CE91C84F34100E38DC4 /* TCPSocket.cpp in Sources */,
 				7EF9A5AA1D415828005DED72 /* Timing.cpp in Sources */,
 				7ED16CEA1C84F34100E38DC4 /* UDPSocket.cpp in Sources */,
-				7E3E925E1D3DE6580043CCDD /* ReplicationManagerServer.cpp in Sources */,
 				7E5ED43F1D3876BF007A3389 /* Move.cpp in Sources */,
 				7ED16CE31C84F09C00E38DC4 /* NetworkManager.cpp in Sources */,
 				7E39CB0D1C7BD19300B3C0ED /* MemoryBitStream.cpp in Sources */,
@@ -626,12 +707,15 @@
 			files = (
 				7E5ED43D1D3876BF007A3389 /* Move.cpp in Sources */,
 				7E40265F1C797D030044C61E /* StringUtils.cpp in Sources */,
+				7EFC96571D4B0AF800C48FDC /* SpriteComponent.cpp in Sources */,
 				7E40265B1C797D030044C61E /* SocketAddressFactory.cpp in Sources */,
 				7E3E92561D3C31820043CCDD /* MoveList.cpp in Sources */,
 				7E64FB381D2856A900562700 /* GameObject.cpp in Sources */,
 				7ED16CE11C84F09C00E38DC4 /* NetworkManager.cpp in Sources */,
 				7E4026631C797D030044C61E /* UDPSocket.cpp in Sources */,
 				7EF9A5A71D4157FB005DED72 /* Timing.cpp in Sources */,
+				7EFC96531D4A6EC500C48FDC /* GraphicsDriver.cpp in Sources */,
+				7EFC965A1D4B0C5500C48FDC /* RenderManager.cpp in Sources */,
 				7E4026591C797D030044C61E /* SocketAddress.cpp in Sources */,
 				FE1DE7421C72A5CF00ABF75D /* main.cpp in Sources */,
 				7E40265D1C797D030044C61E /* SocketUtil.cpp in Sources */,
@@ -642,7 +726,8 @@
 				7E6F0B261D375657005E9F60 /* InputState.cpp in Sources */,
 				7EA9EFA01D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */,
 				7E4026611C797D030044C61E /* TCPSocket.cpp in Sources */,
-				7E3E925C1D3DE6580043CCDD /* ReplicationManagerServer.cpp in Sources */,
+				7E46EA391D50FD1D000C51A3 /* WindowManager.cpp in Sources */,
+				7EAE0FD41D4E7A88000509BF /* TextureManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +771,10 @@
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/networkplayground/include";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/SDL/lib/mac",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = /Library/Frameworks;
 			};
@@ -699,6 +788,10 @@
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/networkplayground/include";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/SDL/lib/mac",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = /Library/Frameworks;
 			};
@@ -714,6 +807,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/networkplayground/include",
 					"$(PROJECT_DIR)/networkplaygroundclient/include",
+					"$(PROJECT_DIR)/lib/SDL/include/",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/SDL/lib/mac",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -730,6 +828,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/networkplayground/include",
 					"$(PROJECT_DIR)/networkplaygroundclient/include",
+					"$(PROJECT_DIR)/lib/SDL/include/",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/SDL/lib/mac",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
