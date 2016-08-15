@@ -1,15 +1,30 @@
-//
-//  MemoryBitStream.cpp
-//  networkplayground
-//
-//  Created by Erik Parreira on 2/21/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #include "IO/MemoryBitStream.h"
+#include "networking/StringUtils.h"
+#include <bitset>
 
 using std::cout;
 using std::endl;
+
+void printStream( uint32_t bufferSize, const char* streamBuffer )
+{
+    StringUtils::LogFile( "Hex: " );
+    for ( int charIdx = 0; charIdx < bufferSize; charIdx++ )
+    {
+        StringUtils::LogFile( "%x", streamBuffer[charIdx] );
+    }
+    StringUtils::LogFile( "\nBinary: " );
+
+    //    std::cout << std::endl << "As Binary " << std::endl;
+
+    for ( int charIdx = 0; charIdx < bufferSize; charIdx++ )
+    {
+        std::bitset<8> asBits( streamBuffer[charIdx] );
+        std::string asString = asBits.to_string<char, std::string::traits_type,
+                                                std::string::allocator_type>();
+
+        StringUtils::LogFile( asString.c_str() );
+    }
+}
 
 void OutputMemoryBitStream::ReallocBuffer( uint32_t inNewBitLength )
 {
@@ -99,6 +114,13 @@ void OutputMemoryBitStream::PrintByteArray()
     cout << endl;
 }
 
+void OutputMemoryBitStream::printStream() const
+{
+    const char* streamBuffer = GetBufferPtr();
+    uint32_t bufferSize = GetByteLength();
+    ::printStream( bufferSize, streamBuffer );
+}
+
 // =======================Input Memory Stream Implementation=================
 
 // basic bit Read. Reads from mBuffer the number of bits into the single byte
@@ -153,4 +175,12 @@ void InputMemoryBitStream::ReadBits( void* outData, uint32_t inBitCount )
     {
         ReadBits( *destByte, inBitCount );
     }
+}
+
+void InputMemoryBitStream::printStream() const
+{
+    const char* streamBuffer = GetBufferPtr();
+    uint32_t bufferSize = GetByteCapacity();
+
+    ::printStream( bufferSize, streamBuffer );
 }

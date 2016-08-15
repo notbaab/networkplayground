@@ -38,23 +38,28 @@ class GameObject
 
     virtual void Update();
 
+    // State that says everything is changed
+    virtual uint32_t GetAllStateMask() const { return 0; }
+
     void SetIndexInWorld( int inIndex ) { mIndexInWorld = inIndex; }
     int GetIndexInWorld() const { return mIndexInWorld; }
 
     int GetNetworkId() const { return mNetworkId; }
+    void SetNetworkId( int inId ) { mNetworkId = inId; }
 
     virtual uint32_t Write( OutputMemoryBitStream& inOutputStream,
                             uint32_t inDirtyState ) const
     {
         return 0;
     }
+
     virtual void Read( InputMemoryBitStream& inInputStream ) {}
 
     const Vector3& GetLocation() const { return mLocation; }
 
-  private:
     Vector3 mLocation;
 
+  private:
     int mIndexInWorld;
     int mNetworkId;
 };

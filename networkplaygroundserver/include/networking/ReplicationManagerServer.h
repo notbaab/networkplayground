@@ -25,9 +25,8 @@ class ReplicationManagerServer
     void HandleCreateAckd( int inNetworkId );
     void RemoveFromReplication( int inNetworkId );
 
-    void Write( OutputMemoryBitStream& inOutputStream );
-    // reliable write with transmission data
-    // void Write( OutputMemoryBitStream& inOutputStream,  );
+    void Write( OutputMemoryBitStream& inOutputStream,
+                ReplicationManagerTransmissionData* ioTransmissinData );
 
   private:
     uint32_t WriteCreateAction( OutputMemoryBitStream& inOutputStream,

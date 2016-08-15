@@ -17,7 +17,7 @@ class Server : public Engine
   public:
     static bool StaticInit();
 
-    virtual void DoFrame() override;
+    virtual bool DoFrame() override;
 
     virtual int Run() override;
 

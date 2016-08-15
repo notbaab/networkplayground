@@ -1,11 +1,3 @@
-//
-//  MoveList.h
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/17/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #ifndef MoveList_h
 #define MoveList_h
 

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7A6476CF4B03F14B952F30974EB38F68C1A16494",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7A6476CF4B03F14B952F30974EB38F68C1A16494" : 0,
+    "4C94995AF3949FB75DF721214703E3F7D86D7D13" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3F49060B-4BB1-4DA8-A6F8-FB5BED168447",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7A6476CF4B03F14B952F30974EB38F68C1A16494" : "networkplayground\/",
+    "4C94995AF3949FB75DF721214703E3F7D86D7D13" : "networking\/MultiplayerBook\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "networkplayground",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "networkplayground.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:MultiplayerBook\/MultiplayerBook.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4C94995AF3949FB75DF721214703E3F7D86D7D13"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:etinlb\/networkplayground.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7A6476CF4B03F14B952F30974EB38F68C1A16494"
+    }
+  ]
+}

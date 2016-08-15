@@ -1,11 +1,3 @@
-//
-//  Move.cpp
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/14/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #include "gameobjects/Move.h"
 
 bool Move::Write( OutputMemoryBitStream& inOutputStream ) const

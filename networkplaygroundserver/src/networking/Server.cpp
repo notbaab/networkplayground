@@ -21,6 +21,10 @@ Server::Server()
 {
     // Register objects with registry
     InitNetworkManager();
+    //     NetworkManagerServer::sInstance->SetDropPacketChance( 0.8f );
+    //     NetworkManagerServer::sInstance->SetSimulatedLatency( 0.25f );
+    //     NetworkManagerServer::sInstance->SetSimulatedLatency( 0.5f );
+    //     NetworkManagerServer::sInstance->SetSimulatedLatency( 0.1f );
 }
 
 int Server::Run()
@@ -43,13 +47,26 @@ void Server::SetupWorld()
     // Nothing yet
 }
 
-void Server::DoFrame()
+bool Server::DoFrame()
 {
     NetworkManagerServer* networkManager = NetworkManagerServer::sInstance;
+
     // Read all the incoming packets
     networkManager->ProcessIncomingPackets();
+    networkManager->CheckForDisconnects();
 
     Engine::DoFrame();
 
     networkManager->SendOutgoingPackets();
+
+    return true;
 }
+
+void Server::HandleNewClient( ClientProxyPtr inClientProxy )
+{
+    int playerId = inClientProxy->GetPlayerId();
+
+    // TODO: add a player object to the world
+}
+
+void Server::HandleLostClient( ClientProxyPtr inClientProxy ) {}

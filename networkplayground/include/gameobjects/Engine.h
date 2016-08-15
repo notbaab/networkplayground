@@ -24,7 +24,7 @@ class Engine
   protected:
     Engine();
 
-    virtual void DoFrame();
+    virtual bool DoFrame();
 
   private:
     int DoRunLoop();

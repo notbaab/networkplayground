@@ -1,12 +1,7 @@
-//
-//  ReplicationManagerServer.cpp
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/18/16.
-
 #include "gameobjects/GameObject.h"
 #include "networking/NetworkManagerServer.h"
 #include "networking/ReplicationManagerServer.h"
+#include "networking/ReplicationManagerTransmissionData.h"
 
 void ReplicationManagerServer::ReplicateCreate( int inNetworkId,
                                                 uint32_t inInitialDirtyState )
@@ -30,10 +25,19 @@ void ReplicationManagerServer::HandleCreateAckd( int inNetworkId )
     mNetworkIdToReplicationCommand[inNetworkId].HandleCreateAckd();
 }
 
+// TODO: I'm not sure I like the replication manager managing dirty state
+void ReplicationManagerServer::SetStateDirty( int inNetworkId,
+                                              uint32_t inDirtyState )
+{
+    mNetworkIdToReplicationCommand[inNetworkId].AddDirtyState( inDirtyState );
+}
+
 /**
  * Writes any pending replication commands to the output stream
  */
-void ReplicationManagerServer::Write( OutputMemoryBitStream& inOutputStream )
+void ReplicationManagerServer::Write(
+    OutputMemoryBitStream& inOutputStream,
+    ReplicationManagerTransmissionData* ioTransmissinData )
 {
     for ( auto& pair : mNetworkIdToReplicationCommand )
     {
@@ -74,7 +78,7 @@ void ReplicationManagerServer::Write( OutputMemoryBitStream& inOutputStream )
             break;
         }
         // TODO: Log in flight packets
-        // ioTransmissionData->AddTransmission();
+        ioTransmissinData->AddTransmission( networkId, action, writtenState );
 
         // Stop writting that state
         replicationCommmand.ClearDirtyState( writtenState );

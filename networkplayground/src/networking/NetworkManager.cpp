@@ -8,12 +8,14 @@
 #include "gameobjects/GameObject.h"
 #include "networking/NetworkManager.h"
 #include "networking/SocketUtil.h"
+#include "networking/StringUtils.h"
 #include <ctime>
 
 // TODO: Temp for now
 void printStream( InputMemoryBitStream& inInputStream );
 
-NetworkManager::NetworkManager() //:
+NetworkManager::NetworkManager()
+    : mRecordRequestPackets( true ), mRecordRespondPackets( true )
 // mBytesSentThisFrame( 0 ),
 // mDropPacketChance( 0.f ),
 // mSimulatedLatency( 0.f )
@@ -80,27 +82,13 @@ void NetworkManager::ProcessQueuedPackets()
 void NetworkManager::ProcessPacket( InputMemoryBitStream& inInputStream,
                                     const SocketAddress& inFromAddress )
 {
-    printStream( inInputStream );
-    std::cout << inFromAddress.ToString() << std::endl;
+
     // For now, just output the packet data
     // for(int i = 0 ; i < readByteCount ; i ++ )
     // {
     //     std::cout << packetMem[i] ;//Looping 5 times to print out
     //     [0],[1],[2],[3],[4]
     // }
-}
-
-void printStream( InputMemoryBitStream& inInputStream )
-{
-    const char* streamBuffer = inInputStream.GetBufferPtr();
-    uint32_t bufferSize = inInputStream.GetByteCapacity();
-
-    std::cout << "Reading " << bufferSize << " Bytes" << std::endl;
-    for ( int charIdx = 0; charIdx < bufferSize; charIdx++ )
-    {
-        std::cout << streamBuffer[charIdx];
-    }
-    std::cout << std::endl;
 }
 
 void NetworkManager::ReadIncomingPacketsIntoQueue()
@@ -138,6 +126,14 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
 
         // Resize input stream to the number of bytes
         inputStream.ResetToCapacity( readByteCount );
+
+        if ( mRecordRequestPackets )
+        {
+            StringUtils::LogFile( "Requests: " );
+            inputStream.printStream();
+            StringUtils::LogFile( "\n" );
+        }
+
         ++totalPacketsRecieved;
         totalBytesRead += readByteCount;
 
@@ -159,11 +155,17 @@ void NetworkManager::SendPacket( const OutputMemoryBitStream& inOutputStream,
     int sentByteCount =
         mSocket->SendTo( packetDataToSend, streamByteLength, inFromAddress );
 
+    if ( mRecordRespondPackets )
+    {
+        StringUtils::LogFile( "Sending: " );
+        inOutputStream.printStream();
+        StringUtils::LogFile( "\n" );
+    }
+
     if ( sentByteCount )
     {
         // TODO: Keep track of how many bytes have been sent
-        // mBytesSentThisFrame += sentByteCount;
-        std::cout << "Sent " << sentByteCount << " bytes";
+        //        mBytesSentThisFrame += sentByteCount;
     }
 }
 

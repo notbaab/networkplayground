@@ -45,6 +45,8 @@ class NetworkManager
 
   protected:
     std::unordered_map<int, GameObjectPtr> mNetworkIdToGameObjectMap;
+    bool mRecordRequestPackets;
+    bool mRecordRespondPackets;
 
   private:
     /**

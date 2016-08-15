@@ -11,6 +11,8 @@
 
 #include "gameobjects/InputState.h"
 #include "gameobjects/MoveList.h"
+#include "networking/DeliveryNotificationManager.h"
+#include "networking/ReplicationManagerServer.h"
 #include "networking/SocketAddress.h"
 #include <memory>
 #include <string>
@@ -34,6 +36,10 @@ class ClientProxy
     const InputState& GetInputState() const { return mInputState; }
 
     void UpdateLastPacketTime();
+    float GetLastPacketFromClientTime() const
+    {
+        return mLastPacketFromClientTime;
+    }
 
     const MoveList& GetUnprocessedMoveList() const
     {
@@ -46,19 +52,32 @@ class ClientProxy
         mIsLastMoveTimestampDirty = inIsDirty;
     }
 
+    DeliveryNotificationManager& GetDeliveryNotificationManager()
+    {
+        return mDeliveryNotificationManager;
+    }
+    ReplicationManagerServer& GetReplicationManagerServer()
+    {
+        return mReplicationManagerServer;
+    }
+
     bool IsLastMoveTimestampDirty() const { return mIsLastMoveTimestampDirty; }
 
   private:
+    DeliveryNotificationManager mDeliveryNotificationManager;
+    ReplicationManagerServer mReplicationManagerServer;
+
     SocketAddress mSocketAddress;
     InputState mInputState;
     std::string mName;
     int mPlayerId;
 
     float mLastPacketFromClientTime;
+    float mTimeToRespawn;
 
     MoveList mUnprocessedMoveList;
     bool mIsLastMoveTimestampDirty;
 };
 
-#endif /* ClientProxy_h */
 typedef std::shared_ptr<ClientProxy> ClientProxyPtr;
+#endif /* ClientProxy_h */

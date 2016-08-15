@@ -8,7 +8,9 @@
 
 #include "gameobjects/Engine.h"
 #include "gameobjects/GameObjectRegistry.h"
+#include "gameobjects/World.h"
 #include "networking/SocketUtil.h"
+#include "networking/StringUtils.h"
 #include <memory>
 #include <stdio.h>
 #include <time.h>
@@ -40,17 +42,17 @@ int Engine::Run() { return DoRunLoop(); }
 
 int Engine::DoRunLoop()
 {
-    // Usually overridden by the child class
-    //    while (!quit && mShouldKeepRunning) {
-    while ( true )
+
+    while ( DoFrame() )
     {
-        DoFrame();
     }
 
+    LOG( "Exiting" );
     return 0;
 }
 
-void Engine::DoFrame()
+bool Engine::DoFrame()
 {
-    //    World::sInstance->Update();
+    World::sInstance->Update();
+    return true;
 }

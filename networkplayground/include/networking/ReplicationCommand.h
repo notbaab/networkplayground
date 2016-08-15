@@ -1,11 +1,3 @@
-//
-//  ReplicationCommand.h
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/18/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #ifndef ReplicationCommand_h
 #define ReplicationCommand_h
 
@@ -20,7 +12,7 @@ enum ReplicationAction
     RA_MAX
 };
 
-class ReplicationManagerTranmissionData;
+class ReplicationManagerTransmissionData;
 
 struct ReplicationCommand
 {
@@ -51,7 +43,7 @@ struct ReplicationCommand
     inline void ClearDirtyState( uint32_t inStateToClear );
 
     //    void Write( OutputMemryBitStream& inStream, int inNetworkId,
-    //                ReplicationManagerTranmissionData* ioTransactionData );
+    //                ReplicationManagerTransmissionData* ioTransactionData );
     //    void Read( InputMemoryBitStream& inStream, int inNetworkId );
 
   private:

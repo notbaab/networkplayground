@@ -1,13 +1,3 @@
-//
-//  InputState.h
-//  networkplayground
-//
-//  Simple class for reading the inputs storing the player inputs. The inputs
-//  are stored as 1 if the button they correspond to is pressed.
-//  Created by Erik Parreira on 7/13/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #ifndef InputState_h
 #define InputState_h
 

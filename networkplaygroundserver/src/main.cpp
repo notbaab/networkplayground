@@ -7,6 +7,7 @@
 //
 
 #include "Networking/Server.h"
+#include "networking/StringUtils.h"
 #include <iostream>
 #include <unistd.h>
 
@@ -23,23 +24,10 @@ const char** __argv;
 int __argc;
 int main( int argc, const char* argv[] )
 {
+    StringUtils::initLog( "/Users/erikparreira/Dropbox/Programming/"
+                          "networkplayground/server_log.txt" );
     if ( Server::StaticInit() )
     {
         return Server::sInstance->Run();
     }
-    //    setup();
-    //
-    //    // Start Server
-    //    NetworkManager nm = NetworkManager();
-    //    // TODO: Catch error
-    //    nm.Init( port );
-    //
-    //    // std::cout << "Starting server on " << port << std::endl;
-    //    while ( true )
-    //    {
-    //        nm.ProcessIncomingPackets();
-    //        // std::cout << "blah" << std::endl;
-    //        sleep( 1 );
-    //    }
-    //    return 0;
 }

@@ -87,6 +87,8 @@ class OutputMemoryBitStream
 
     void PrintByteArray();
 
+    void printStream() const;
+
   private:
     void ReallocBuffer( uint32_t inNewBitCapacity );
 
@@ -185,6 +187,8 @@ class InputMemoryBitStream
             Read( element );
         }
     }
+
+    void printStream() const;
 
   private:
     char* mBuffer;

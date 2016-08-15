@@ -1,3 +1,6 @@
+#ifndef Timing_h
+#define Timing_h
+
 #include <cstdint>
 
 class Timing
@@ -25,3 +28,5 @@ class Timing
     float mFrameStartTimef;
     double mPerfCountDuration;
 };
+
+#endif

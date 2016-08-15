@@ -1,10 +1,3 @@
-//
-//  Move.h
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/14/16.
-//
-
 #ifndef Move_h
 #define Move_h
 

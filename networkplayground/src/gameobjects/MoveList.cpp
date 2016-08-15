@@ -1,11 +1,3 @@
-//
-//  MoveList.cpp
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/17/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #include "gameobjects/MoveList.h"
 
 const Move& MoveList::AddMove( const InputState& inInputState,
