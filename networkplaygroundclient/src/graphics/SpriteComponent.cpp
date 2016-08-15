@@ -25,33 +25,49 @@ SpriteComponent::~SpriteComponent()
 
 void SpriteComponent::Draw( const SDL_Rect& inViewTransform )
 {
-    if ( mTexture )
-    {
-        // Texture color multiplier
-        //                Vector3 color = mGameObject->GetColor();
-        Vector3 color = Vector3( 1, 3, .1 );
-        Uint8 r = static_cast<Uint8>( color.mX * 255 );
-        Uint8 g = static_cast<Uint8>( color.mY * 255 );
-        Uint8 b = static_cast<Uint8>( color.mZ * 255 );
-        SDL_SetTextureColorMod( mTexture->GetData(), r, g, b );
+    SDL_Renderer* renderer = GraphicsDriver::sInstance->GetRenderer();
 
-        // Compute the destination rectangle
-        Vector3 objLocation = mGameObject->GetLocation();
-        //        float objScale = mGameObject->GetScale();
-        float objScale = 1;
-        SDL_Rect dstRect;
-        dstRect.w = static_cast<int>( mTexture->GetWidth() * objScale );
-        dstRect.h = static_cast<int>( mTexture->GetHeight() * objScale );
-        dstRect.x = static_cast<int>( objLocation.mX * inViewTransform.w +
-                                      inViewTransform.x - dstRect.w / 2 );
-        dstRect.y = static_cast<int>( objLocation.mY * inViewTransform.h +
-                                      inViewTransform.y - dstRect.h / 2 );
+    SDL_SetRenderDrawColor( renderer, 255, 0, 0, 255 );
+    SDL_Rect rectangle;
 
-        // Blit the texture
-        //        SDL_RenderCopyEx( GraphicsDriver::sInstance->GetRenderer(),
-        //                          mTexture->GetData(), nullptr, &dstRect,
-        //                          RoboMath::ToDegrees(
-        //                          mGameObject->GetRotation() ),
-        //                          nullptr, SDL_FLIP_NONE );
-    }
+    Vector3 objLocation = mGameObject->GetLocation();
+    rectangle.x = objLocation.mX;
+    rectangle.y = objLocation.mY;
+    rectangle.w = 50;
+    rectangle.h = 50;
+
+    // draw a rect for this object
+    SDL_RenderFillRect( renderer, &rectangle );
+
+    //    if ( mTexture )
+    //    {
+    //        // Texture color multiplier
+    //        //                Vector3 color = mGameObject->GetColor();
+    //        Vector3 color = Vector3( 1, 3, .1 );
+    //        Uint8 r = static_cast<Uint8>( color.mX * 255 );
+    //        Uint8 g = static_cast<Uint8>( color.mY * 255 );
+    //        Uint8 b = static_cast<Uint8>( color.mZ * 255 );
+    //        SDL_SetTextureColorMod( mTexture->GetData(), r, g, b );
+    //
+    //        // Compute the destination rectangle
+    //        Vector3 objLocation = mGameObject->GetLocation();
+    //        //        float objScale = mGameObject->GetScale();
+    //        float objScale = 1;
+    //        SDL_Rect dstRect;
+    //        dstRect.w = static_cast<int>( mTexture->GetWidth() * objScale );
+    //        dstRect.h = static_cast<int>( mTexture->GetHeight() * objScale );
+    //        dstRect.x = static_cast<int>( objLocation.mX * inViewTransform.w +
+    //                                      inViewTransform.x - dstRect.w / 2 );
+    //        dstRect.y = static_cast<int>( objLocation.mY * inViewTransform.h +
+    //                                      inViewTransform.y - dstRect.h / 2 );
+    //
+    //        // Blit the texture
+    //        //        SDL_RenderCopyEx(
+    //        GraphicsDriver::sInstance->GetRenderer(),
+    //        //                          mTexture->GetData(), nullptr,
+    //        &dstRect,
+    //        //                          RoboMath::ToDegrees(
+    //        //                          mGameObject->GetRotation() ),
+    //        //                          nullptr, SDL_FLIP_NONE );
+    //    }
 }

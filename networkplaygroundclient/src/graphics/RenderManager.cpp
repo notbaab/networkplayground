@@ -59,25 +59,16 @@ void RenderManager::RenderComponents()
 {
     // Get the logical viewport so we can pass this to the SpriteComponents when
     // it's draw time
-    SDL_Rect viewport = GraphicsDriver::sInstance->GetLogicalViewport();
+    //    SDL_Rect viewport = GraphicsDriver::sInstance->GetLogicalViewport();
     SDL_Renderer* renderer = GraphicsDriver::sInstance->GetRenderer();
-
-    SDL_SetRenderDrawColor( renderer, 255, 0, 0, 255 );
-    SDL_Rect rectangle;
-
-    rectangle.x = 0;
-    rectangle.y = 0;
-    rectangle.w = 50;
-    rectangle.h = 50;
-    SDL_RenderFillRect( renderer, &rectangle );
-
-    SDL_SetRenderDrawColor( renderer, 100, 149, 237, SDL_ALPHA_OPAQUE );
 
     for ( auto cIt = mComponents.begin(), end = mComponents.end(); cIt != end;
           ++cIt )
     {
         ( *cIt )->Draw( mViewTransform );
     }
+
+    SDL_SetRenderDrawColor( renderer, 100, 149, 237, SDL_ALPHA_OPAQUE );
 }
 
 void RenderManager::Render()
