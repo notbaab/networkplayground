@@ -1,6 +1,7 @@
-#include <string>
-
 #include "networking/StringUtils.h"
+#include <fstream>
+#include <iostream>
+#include <string>
 
 #if !_WIN32
 extern const char** __argv;
@@ -16,6 +17,11 @@ std::string StringUtils::GetCommandLineArg( int inIndex )
     }
 
     return std::string();
+}
+
+void StringUtils::initLog( std::string logFile )
+{
+    StringUtils::logFile = logFile;
 }
 
 std::string StringUtils::Sprintf( const char* inFormat, ... )
@@ -34,12 +40,6 @@ std::string StringUtils::Sprintf( const char* inFormat, ... )
     return std::string( temp );
 }
 
-void StringUtils::Log( const char* inFormat )
-{
-    OutputDebugString( inFormat );
-    OutputDebugString( "\n" );
-}
-
 void StringUtils::Log( const char* inFormat, ... )
 {
     // not thread safe...
@@ -55,4 +55,25 @@ void StringUtils::Log( const char* inFormat, ... )
 #endif
     OutputDebugString( temp );
     OutputDebugString( "\n" );
+}
+
+void StringUtils::LogFile( const char* inFormat, ... )
+{
+    // not thread safe...
+    static char temp[4096];
+    std::ofstream myfile;
+
+    va_list args;
+    va_start( args, inFormat );
+
+    vsnprintf( temp, 4096, inFormat, args );
+
+    myfile.open( StringUtils::logFile, std::ofstream::app );
+    if ( myfile.std::__1::ios_base::fail() )
+    {
+        std::cout << myfile.failbit;
+    }
+
+    myfile << temp;
+    myfile.close();
 }
