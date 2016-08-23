@@ -6,12 +6,14 @@
 //  Copyright © 2016 Erik Parreira. All rights reserved.
 
 #include "gtest/gtest.h"
-#include <stdio.h>
 
 // assuming on mac running test through xcode, which means we need to manually
 // start the tests with RUN_ALL_TESTS. One day I learn static libraries vs
 // frameworks
 #ifdef __APPLE__
+
+const char** __argv;
+int __argc;
 int main( int argc, char* argv[] )
 {
     ::testing::InitGoogleTest( &argc, argv );
