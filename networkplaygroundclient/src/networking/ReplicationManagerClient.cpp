@@ -14,6 +14,7 @@ void ReplicationManagerClient::Read( InputMemoryBitStream& inInputStream )
 
         // 2 bits for action
         uint8_t action;
+        inInputStream.Read( action, 2 );
 
         switch ( action )
         {

@@ -1,4 +1,5 @@
 #include "gameobjects/MoveList.h"
+#include "networking/StringUtils.h"
 
 const Move& MoveList::AddMove( const InputState& inInputState,
                                float inTimeStamp )
@@ -23,19 +24,22 @@ bool MoveList::AddMoveIfNew( const Move& inMove )
     }
 
     float deltaTime =
-        mLastMoveTimestamp >= 0.f ? timeStamp = mLastMoveTimestamp : 0.f;
+        mLastMoveTimestamp >= 0.f ? timeStamp - mLastMoveTimestamp : 0.f;
 
     mLastMoveTimestamp = timeStamp;
 
     mMoves.emplace_back( inMove.GetInputState(), timeStamp, deltaTime );
+    LOG( "Adding move with timestamp %.10f and delta %.10f", timeStamp,
+         deltaTime );
+
     return true;
 }
 
-void MoveList::RemoveProcessedMoves( float inLAstMoveProcessedTimestamp )
+void MoveList::RemoveProcessedMoves( float inLastMoveProcessedTimestamp )
 {
     // remove moves until we are up to the current time stamp
     while ( !mMoves.empty() &&
-            mMoves.front().GetTimeStamp() <= inLAstMoveProcessedTimestamp )
+            mMoves.front().GetTimeStamp() <= inLastMoveProcessedTimestamp )
     {
         mMoves.pop_front();
     }
