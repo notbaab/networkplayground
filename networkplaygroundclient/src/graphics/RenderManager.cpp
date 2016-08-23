@@ -29,7 +29,7 @@ void RenderManager::RemoveComponent( SpriteComponent* inComponent )
 
     if ( index != -1 )
     {
-        int lastIndex = mComponents.size() - 1;
+        int lastIndex = (int)mComponents.size() - 1;
         if ( index != lastIndex )
         {
             mComponents[index] = mComponents[lastIndex];
@@ -40,7 +40,7 @@ void RenderManager::RemoveComponent( SpriteComponent* inComponent )
 
 int RenderManager::GetComponentIndex( SpriteComponent* inComponent ) const
 {
-    for ( int i = 0, c = mComponents.size(); i < c; ++i )
+    for ( int i = 0, c = (int)mComponents.size(); i < c; ++i )
     {
         if ( mComponents[i] == inComponent )
         {

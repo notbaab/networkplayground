@@ -108,7 +108,7 @@ void OutputMemoryBitStream::PrintByteArray()
 
     for ( int i = 0; i < bytesToWrite; i++ )
     {
-        printf( "%x", static_cast<char>( buffer[i] ) );
+        printf( "%x", buffer[i] );
     }
 
     cout << endl;
