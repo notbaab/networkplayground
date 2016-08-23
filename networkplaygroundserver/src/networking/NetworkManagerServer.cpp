@@ -104,7 +104,7 @@ void NetworkManagerServer::HandleInputPacket(
     uint32_t moveCount = 0;
     Move move;
     inInputStream.Read( moveCount, 2 );
-
+    LOG( "Proccessing %d Moves", moveCount );
     for ( ; moveCount > 0; --moveCount )
     {
         proccessMovePacket( inClientProxy, move, inInputStream );
@@ -190,7 +190,7 @@ void NetworkManagerServer::SendStatePacketToClient(
 {
     OutputMemoryBitStream statePacket;
 
-    auto replicationServer = inClientProxy->GetReplicationManagerServer();
+    //    auto replicationServer = inClientProxy->GetReplicationManagerServer();
 
     // Mark packet as a state packet
     statePacket.Write( kStateCC );
@@ -205,10 +205,11 @@ void NetworkManagerServer::SendStatePacketToClient(
     WriteLastMoveTimestampIfDirty( statePacket, inClientProxy );
 
     ReplicationManagerTransmissionData* rmtd =
-        new ReplicationManagerTransmissionData( &replicationServer );
+        new ReplicationManagerTransmissionData(
+            &inClientProxy->GetReplicationManagerServer() );
 
     // Write anything that we need to replicate to this client!
-    replicationServer.Write( statePacket, rmtd );
+    inClientProxy->GetReplicationManagerServer().Write( statePacket, rmtd );
 
     // Record the transmission
     ifp->SetTransmissionData(

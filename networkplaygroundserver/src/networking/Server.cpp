@@ -1,14 +1,7 @@
-//
-//  Server.cpp
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/25/16.
-//
-
-#include "networking/NetworkManagerServer.h"
+#include "gameobjects/GameObjectRegistry.h"
+#include "gameobjects/PlayerServer.h"
 #include "networking/Server.h"
 #include "networking/StringUtils.h"
-#include <string.h>
 
 bool Server::StaticInit()
 {
@@ -20,6 +13,8 @@ bool Server::StaticInit()
 Server::Server()
 {
     // Register objects with registry
+    GameObjectRegistry::sInstance->RegisterCreationFunction(
+        Player::kClassId, PlayerServer::StaticCreate );
     InitNetworkManager();
     //     NetworkManagerServer::sInstance->SetDropPacketChance( 0.8f );
     //     NetworkManagerServer::sInstance->SetSimulatedLatency( 0.25f );
@@ -66,7 +61,21 @@ void Server::HandleNewClient( ClientProxyPtr inClientProxy )
 {
     int playerId = inClientProxy->GetPlayerId();
 
-    // TODO: add a player object to the world
+    SpawnPlayer( playerId );
 }
 
-void Server::HandleLostClient( ClientProxyPtr inClientProxy ) {}
+void Server::HandleLostClient( ClientProxyPtr inClientProxy )
+{
+    LOG("WE LOST ONE!, %s", inClientProxy->GetName());
+}
+
+void Server::SpawnPlayer( int inPlayerId )
+{
+    PlayerPtr player = std::static_pointer_cast<Player>(
+        GameObjectRegistry::sInstance->CreateGameObject( Player::kClassId ) );
+
+    player->SetPlayerId( inPlayerId );
+    // gotta pick a better spawn location than this...
+    player->SetLocation(
+        Vector3( 1.f - static_cast<float>( inPlayerId ), 0.f, 0.f ) );
+}

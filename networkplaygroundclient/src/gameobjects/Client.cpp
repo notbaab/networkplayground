@@ -1,5 +1,6 @@
 #include "gameobjects/Client.h"
 #include "gameobjects/GameObjectRegistry.h"
+#include "gameobjects/PlayerClient.h"
 #include "graphics/GraphicsDriver.h"
 #include "graphics/RenderManager.h"
 #include "graphics/TextureManager.h"
@@ -41,6 +42,9 @@ Client::Client()
         SocketAddressFactory::CreateIPv4FromString( destination );
 
     NetworkManagerClient::StaticInit( *serverAddress, "DUDUD" );
+
+    GameObjectRegistry::sInstance->RegisterCreationFunction(
+        Player::kClassId, PlayerClient::StaticCreate );
 }
 
 bool Client::DoFrame()

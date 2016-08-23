@@ -1,8 +1,7 @@
 #ifndef NetworkManagerClient_h
 #define NetworkManagerClient_h
 
-#include "WeightedTimedMovingAverage.h"
-//#include "WeightedTimedMovingAverage.h"
+#include "math/WeightedTimedMovingAverage.h"
 #include "networking/DeliveryNotificationManager.h"
 #include "networking/NetworkManager.h"
 #include "networking/ReplicationManagerClient.h"

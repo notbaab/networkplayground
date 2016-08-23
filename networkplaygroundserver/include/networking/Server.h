@@ -29,6 +29,8 @@ class Server : public Engine
 
     bool InitNetworkManager();
     void SetupWorld();
+
+    void SpawnPlayer( int inPlayerId );
 };
 
 #endif /* Server_h */
