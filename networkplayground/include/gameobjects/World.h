@@ -22,6 +22,8 @@ class World
     static std::unique_ptr<World> sInstance;
 
     void AddGameObject( GameObjectPtr inGameObject );
+    static void StaticAddGameObject( GameObjectPtr inGameObject );
+
     void RemoveGameObject( GameObjectPtr inGameObject );
 
     void Update();

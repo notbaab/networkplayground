@@ -19,6 +19,10 @@ void World::AddGameObject( GameObjectPtr inGameObject )
     inGameObject->SetIndexInWorld( (int)mGameObjects.size() - 1 );
 }
 
+void World::StaticAddGameObject(GameObjectPtr inGameObject) {
+    sInstance->AddGameObject(inGameObject);
+}
+
 void World::RemoveGameObject( GameObjectPtr inGameObject )
 {
     int index = inGameObject->GetIndexInWorld();

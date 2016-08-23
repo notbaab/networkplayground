@@ -11,16 +11,14 @@
 #include "gameobjects/World.h"
 #include "networking/SocketUtil.h"
 #include "networking/StringUtils.h"
-#include <memory>
-#include <stdio.h>
-#include <time.h>
 
 std::unique_ptr<Engine> Engine::sInstance;
 
 Engine::Engine()
 {
     SocketUtil::StaticInit();
-
+    World::StaticInit();
+    GameObjectRegistry::StaticInit( World::StaticAddGameObject );
     //    GameObjectRegistry::StaticInit(<#addToWorldFunction
     //    worldAddFunction#>)
 }
