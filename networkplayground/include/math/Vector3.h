@@ -1,20 +1,5 @@
-//
-//  Vector3.h
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/6/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #ifndef Vector3_h
 #define Vector3_h
-//
-//  Vector3.cpp
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/6/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
 
 #include <math.h>
 #include <stdio.h>
@@ -134,10 +119,10 @@ class Vector3
         return temp;
     }
 
-    //    friend Vector3 Lerp( const Vector3& inA, const Vector3& inB, float t )
-    //    {
-    //        return Vector3( inA + t * ( inB - inA ) );
-    //    }
+    friend Vector3 Lerp( const Vector3& inA, const Vector3& inB, float t )
+    {
+        return Vector3( inA + t * ( inB - inA ) );
+    }
 
     static const Vector3 Zero;
     static const Vector3 UnitX;
