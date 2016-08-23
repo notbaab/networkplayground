@@ -7,6 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E1ED3CC1D62C25E00A72A27 /* PlayerMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3CB1D62C25E00A72A27 /* PlayerMessage.cpp */; };
+		7E1ED3CD1D62C25E00A72A27 /* PlayerMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3CB1D62C25E00A72A27 /* PlayerMessage.cpp */; };
+		7E1ED3CE1D62C25E00A72A27 /* PlayerMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3CB1D62C25E00A72A27 /* PlayerMessage.cpp */; };
+		7E1ED3E41D63782400A72A27 /* Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3DB1D63781200A72A27 /* Client.cpp */; };
+		7E1ED3E51D63782800A72A27 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3DD1D63781200A72A27 /* InputManager.cpp */; };
+		7E1ED3E61D63782D00A72A27 /* NetworkManagerClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3DF1D63781200A72A27 /* NetworkManagerClient.cpp */; };
+		7E1ED3E71D63782F00A72A27 /* ReplicationManagerClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3E01D63781200A72A27 /* ReplicationManagerClient.cpp */; };
+		7E1ED3EB1D63789F00A72A27 /* DeliveryNotificationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3EA1D63789F00A72A27 /* DeliveryNotificationManager.cpp */; };
+		7E1ED3EC1D63789F00A72A27 /* DeliveryNotificationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3EA1D63789F00A72A27 /* DeliveryNotificationManager.cpp */; };
+		7E1ED3ED1D63789F00A72A27 /* DeliveryNotificationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3EA1D63789F00A72A27 /* DeliveryNotificationManager.cpp */; };
+		7E1ED3F01D6378B200A72A27 /* AckRange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3EE1D6378B200A72A27 /* AckRange.cpp */; };
+		7E1ED3F11D6378B200A72A27 /* AckRange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3EE1D6378B200A72A27 /* AckRange.cpp */; };
+		7E1ED3F21D6378B200A72A27 /* AckRange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3EE1D6378B200A72A27 /* AckRange.cpp */; };
+		7E1ED3F31D6378B200A72A27 /* InFlightPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3EF1D6378B200A72A27 /* InFlightPacket.cpp */; };
+		7E1ED3F41D6378B200A72A27 /* InFlightPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3EF1D6378B200A72A27 /* InFlightPacket.cpp */; };
+		7E1ED3F51D6378B200A72A27 /* InFlightPacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3EF1D6378B200A72A27 /* InFlightPacket.cpp */; };
+		7E1ED3F81D65506300A72A27 /* NetworkManagerServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F0B1E1D33726D005E9F60 /* NetworkManagerServer.cpp */; };
+		7E1ED3F91D6594A000A72A27 /* ReplicationManagerServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E925B1D3DE6580043CCDD /* ReplicationManagerServer.cpp */; };
+		7E1ED3FB1D65950000A72A27 /* ReplicationManagerTransmissionData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3FA1D65950000A72A27 /* ReplicationManagerTransmissionData.cpp */; };
+		7E1ED3FC1D65950000A72A27 /* ReplicationManagerTransmissionData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3FA1D65950000A72A27 /* ReplicationManagerTransmissionData.cpp */; };
+		7E1ED4001D6640B200A72A27 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3FF1D6640B200A72A27 /* Player.cpp */; };
+		7E1ED4011D6640B200A72A27 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3FF1D6640B200A72A27 /* Player.cpp */; };
+		7E1ED4021D6640B200A72A27 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED3FF1D6640B200A72A27 /* Player.cpp */; };
+		7E1ED4031D66A70200A72A27 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E64FB361D2856A900562700 /* GameObject.cpp */; };
+		7E1ED4071D67687000A72A27 /* PlayerServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED4061D67687000A72A27 /* PlayerServer.cpp */; };
+		7E1ED4081D67687000A72A27 /* PlayerServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E1ED4061D67687000A72A27 /* PlayerServer.cpp */; };
 		7E2466001D4715A4009789AD /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E2465FF1D4715A4009789AD /* Server.cpp */; };
 		7E2466011D4715A4009789AD /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E2465FF1D4715A4009789AD /* Server.cpp */; };
 		7E3224AE1D242985008C54D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E3224AC1D242985008C54D3 /* main.cpp */; };
@@ -33,6 +59,8 @@
 		7E4026631C797D030044C61E /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
 		7E4026641C797D030044C61E /* UDPSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4026541C797D030044C61E /* UDPSocket.cpp */; };
 		7E46EA391D50FD1D000C51A3 /* WindowManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E46EA381D50FD1D000C51A3 /* WindowManager.cpp */; };
+		7E51D7221D684C9D00FA2AE9 /* PlayerClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E51D7211D684C9D00FA2AE9 /* PlayerClient.cpp */; };
+		7E51D7231D684C9D00FA2AE9 /* PlayerClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E51D7211D684C9D00FA2AE9 /* PlayerClient.cpp */; };
 		7E559A701D2D64CA003B236A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E559A6F1D2D64CA003B236A /* Vector3.cpp */; };
 		7E559A711D2D64CA003B236A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E559A6F1D2D64CA003B236A /* Vector3.cpp */; };
 		7E559A721D2D64CA003B236A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E559A6F1D2D64CA003B236A /* Vector3.cpp */; };
@@ -121,10 +149,38 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7E1ED3CA1D62C23300A72A27 /* PlayerMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerMessage.h; sourceTree = "<group>"; };
+		7E1ED3CB1D62C25E00A72A27 /* PlayerMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerMessage.cpp; sourceTree = "<group>"; };
+		7E1ED3D01D6377DF00A72A27 /* Client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		7E1ED3D21D6377F000A72A27 /* GraphicsDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphicsDriver.h; sourceTree = "<group>"; };
+		7E1ED3D31D6377F000A72A27 /* RenderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderManager.h; sourceTree = "<group>"; };
+		7E1ED3D41D6377F000A72A27 /* SpriteComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteComponent.h; sourceTree = "<group>"; };
+		7E1ED3D51D6377F000A72A27 /* Texture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		7E1ED3D61D6377F000A72A27 /* TextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
+		7E1ED3D71D6377F000A72A27 /* WindowManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
+		7E1ED3D91D6377F000A72A27 /* InputManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputManager.h; sourceTree = "<group>"; };
+		7E1ED3DB1D63781200A72A27 /* Client.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Client.cpp; sourceTree = "<group>"; };
+		7E1ED3DD1D63781200A72A27 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
+		7E1ED3DF1D63781200A72A27 /* NetworkManagerClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkManagerClient.cpp; sourceTree = "<group>"; };
+		7E1ED3E01D63781200A72A27 /* ReplicationManagerClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReplicationManagerClient.cpp; sourceTree = "<group>"; };
+		7E1ED3E21D63781C00A72A27 /* NetworkManagerClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManagerClient.h; sourceTree = "<group>"; };
+		7E1ED3E31D63781C00A72A27 /* ReplicationManagerClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplicationManagerClient.h; sourceTree = "<group>"; };
+		7E1ED3E81D63787700A72A27 /* WeightedTimedMovingAverage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeightedTimedMovingAverage.h; sourceTree = "<group>"; };
+		7E1ED3E91D63789300A72A27 /* DeliveryNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeliveryNotificationManager.h; sourceTree = "<group>"; };
+		7E1ED3EA1D63789F00A72A27 /* DeliveryNotificationManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeliveryNotificationManager.cpp; sourceTree = "<group>"; };
+		7E1ED3EE1D6378B200A72A27 /* AckRange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AckRange.cpp; sourceTree = "<group>"; };
+		7E1ED3EF1D6378B200A72A27 /* InFlightPacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InFlightPacket.cpp; sourceTree = "<group>"; };
+		7E1ED3F61D6378CA00A72A27 /* AckRange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AckRange.h; sourceTree = "<group>"; };
+		7E1ED3F71D6378CA00A72A27 /* InFlightPacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InFlightPacket.h; sourceTree = "<group>"; };
+		7E1ED3FA1D65950000A72A27 /* ReplicationManagerTransmissionData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReplicationManagerTransmissionData.cpp; sourceTree = "<group>"; };
+		7E1ED3FD1D65950F00A72A27 /* ReplicationManagerTransmissionData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplicationManagerTransmissionData.h; sourceTree = "<group>"; };
+		7E1ED3FE1D663AC400A72A27 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		7E1ED3FF1D6640B200A72A27 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		7E1ED4061D67687000A72A27 /* PlayerServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerServer.cpp; sourceTree = "<group>"; };
+		7E1ED4091D67688200A72A27 /* PlayerServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerServer.h; sourceTree = "<group>"; };
 		7E2465FF1D4715A4009789AD /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Server.cpp; sourceTree = "<group>"; };
 		7E2466021D4715B8009789AD /* Server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		7E3224AC1D242985008C54D3 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = networkplaygroundserver/src/main.cpp; sourceTree = SOURCE_ROOT; };
-		7E39CAE61C7980B900B3C0ED /* NetworkingShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingShared.h; sourceTree = "<group>"; };
 		7E39CAEF1C7AB06500B3C0ED /* MemoryBitStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemoryBitStream.cpp; path = IO/MemoryBitStream.cpp; sourceTree = "<group>"; };
 		7E39CAF71C7B90E300B3C0ED /* unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E39CAF91C7B90E300B3C0ED /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -148,8 +204,9 @@
 		7E40266A1C797D140044C61E /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		7E40266B1C797D140044C61E /* TCPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPSocket.h; sourceTree = "<group>"; };
 		7E40266C1C797D140044C61E /* UDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPSocket.h; sourceTree = "<group>"; };
-		7E46EA371D50FCF2000C51A3 /* WindowManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
 		7E46EA381D50FD1D000C51A3 /* WindowManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowManager.cpp; sourceTree = "<group>"; };
+		7E51D7211D684C9D00FA2AE9 /* PlayerClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerClient.cpp; sourceTree = "<group>"; };
+		7E51D7241D684CAF00FA2AE9 /* PlayerClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerClient.h; sourceTree = "<group>"; };
 		7E559A6F1D2D64CA003B236A /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
 		7E5ED43B1D3875CB007A3389 /* Move.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
 		7E5ED43C1D3876BF007A3389 /* Move.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Move.cpp; sourceTree = "<group>"; };
@@ -171,8 +228,6 @@
 		7EA9EFAB1D32215400232486 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		7EA9EFAF1D32216000232486 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		7EA9EFB21D322BB100232486 /* SocketConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketConsts.h; sourceTree = "<group>"; };
-		7EAE0FD01D4E79E6000509BF /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
-		7EAE0FD21D4E7A6B000509BF /* TextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
 		7EAE0FD31D4E7A88000509BF /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureManager.cpp; sourceTree = "<group>"; };
 		7ED16CDF1C84E6A300E38DC4 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		7ED16CE01C84F09C00E38DC4 /* NetworkManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkManager.cpp; sourceTree = "<group>"; };
@@ -185,11 +240,8 @@
 		7EFC963F1D4A6D8000C48FDC /* libSDL2_mixer-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_mixer-2.0.0.dylib"; path = "SDL/lib/mac/libSDL2_mixer-2.0.0.dylib"; sourceTree = "<group>"; };
 		7EFC96401D4A6D8000C48FDC /* libSDL2_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_ttf-2.0.0.dylib"; path = "SDL/lib/mac/libSDL2_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
 		7EFC96411D4A6D8000C48FDC /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "SDL/lib/mac/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		7EFC96501D4A6EAD00C48FDC /* GraphicsDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsDriver.h; sourceTree = "<group>"; };
 		7EFC96521D4A6EC500C48FDC /* GraphicsDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphicsDriver.cpp; sourceTree = "<group>"; };
-		7EFC96541D4B0ADD00C48FDC /* SpriteComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteComponent.h; sourceTree = "<group>"; };
 		7EFC96561D4B0AF800C48FDC /* SpriteComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteComponent.cpp; sourceTree = "<group>"; };
-		7EFC96581D4B0C4500C48FDC /* RenderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderManager.h; sourceTree = "<group>"; };
 		7EFC96591D4B0C5500C48FDC /* RenderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderManager.cpp; sourceTree = "<group>"; };
 		FE1DE7401C72A5CF00ABF75D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,6 +279,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E1ED3CF1D6377DF00A72A27 /* gameobjects */ = {
+			isa = PBXGroup;
+			children = (
+				7E1ED3D01D6377DF00A72A27 /* Client.h */,
+				7E51D7241D684CAF00FA2AE9 /* PlayerClient.h */,
+			);
+			path = gameobjects;
+			sourceTree = "<group>";
+		};
+		7E1ED3D11D6377F000A72A27 /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				7E1ED3D21D6377F000A72A27 /* GraphicsDriver.h */,
+				7E1ED3D31D6377F000A72A27 /* RenderManager.h */,
+				7E1ED3D41D6377F000A72A27 /* SpriteComponent.h */,
+				7E1ED3D51D6377F000A72A27 /* Texture.h */,
+				7E1ED3D61D6377F000A72A27 /* TextureManager.h */,
+				7E1ED3D71D6377F000A72A27 /* WindowManager.h */,
+			);
+			path = graphics;
+			sourceTree = "<group>";
+		};
+		7E1ED3D81D6377F000A72A27 /* input */ = {
+			isa = PBXGroup;
+			children = (
+				7E1ED3D91D6377F000A72A27 /* InputManager.h */,
+			);
+			path = input;
+			sourceTree = "<group>";
+		};
+		7E1ED3DA1D63781200A72A27 /* gameobjects */ = {
+			isa = PBXGroup;
+			children = (
+				7E1ED3DB1D63781200A72A27 /* Client.cpp */,
+				7E51D7211D684C9D00FA2AE9 /* PlayerClient.cpp */,
+			);
+			path = gameobjects;
+			sourceTree = "<group>";
+		};
+		7E1ED3DC1D63781200A72A27 /* input */ = {
+			isa = PBXGroup;
+			children = (
+				7E1ED3DD1D63781200A72A27 /* InputManager.cpp */,
+			);
+			path = input;
+			sourceTree = "<group>";
+		};
+		7E1ED3DE1D63781200A72A27 /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				7E1ED3DF1D63781200A72A27 /* NetworkManagerClient.cpp */,
+				7E1ED3E01D63781200A72A27 /* ReplicationManagerClient.cpp */,
+			);
+			path = networking;
+			sourceTree = "<group>";
+		};
+		7E1ED3E11D63781C00A72A27 /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				7E1ED3E21D63781C00A72A27 /* NetworkManagerClient.h */,
+				7E1ED3E31D63781C00A72A27 /* ReplicationManagerClient.h */,
+			);
+			path = networking;
+			sourceTree = "<group>";
+		};
+		7E1ED4041D67683300A72A27 /* gameobjects */ = {
+			isa = PBXGroup;
+			children = (
+				7E1ED4091D67688200A72A27 /* PlayerServer.h */,
+			);
+			name = gameobjects;
+			path = networkplaygroundserver/include/gameobjects;
+			sourceTree = SOURCE_ROOT;
+		};
+		7E1ED4051D67684D00A72A27 /* gameobjects */ = {
+			isa = PBXGroup;
+			children = (
+				7E1ED4061D67687000A72A27 /* PlayerServer.cpp */,
+			);
+			name = gameobjects;
+			path = networkplaygroundserver/src/gameobjects;
+			sourceTree = SOURCE_ROOT;
+		};
 		7E39CAEE1C7AB02900B3C0ED /* IO */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +398,7 @@
 		7E559A6E1D2D64B6003B236A /* math */ = {
 			isa = PBXGroup;
 			children = (
+				7E1ED3E81D63787700A72A27 /* WeightedTimedMovingAverage.h */,
 				7EA9EF9C1D2D655600232486 /* Vector3.h */,
 			);
 			path = math;
@@ -271,6 +407,9 @@
 		7E5B94771C762D64007E8198 /* networking */ = {
 			isa = PBXGroup;
 			children = (
+				7E1ED3EE1D6378B200A72A27 /* AckRange.cpp */,
+				7E1ED3EF1D6378B200A72A27 /* InFlightPacket.cpp */,
+				7E1ED3EA1D63789F00A72A27 /* DeliveryNotificationManager.cpp */,
 				7E40264F1C797D030044C61E /* SocketAddress.cpp */,
 				7E4026501C797D030044C61E /* SocketAddressFactory.cpp */,
 				7E4026511C797D030044C61E /* SocketUtil.cpp */,
@@ -285,7 +424,9 @@
 		7E5B947C1C762DD1007E8198 /* networking */ = {
 			isa = PBXGroup;
 			children = (
-				7E39CAE61C7980B900B3C0ED /* NetworkingShared.h */,
+				7E1ED3F61D6378CA00A72A27 /* AckRange.h */,
+				7E1ED3F71D6378CA00A72A27 /* InFlightPacket.h */,
+				7E1ED3E91D63789300A72A27 /* DeliveryNotificationManager.h */,
 				7E4026671C797D140044C61E /* SocketAddress.h */,
 				7E4026681C797D140044C61E /* SocketAddressFactory.h */,
 				7E4026691C797D140044C61E /* SocketUtil.h */,
@@ -309,6 +450,8 @@
 				7E6F0B251D375657005E9F60 /* InputState.cpp */,
 				7E5ED43C1D3876BF007A3389 /* Move.cpp */,
 				7E3E92551D3C31820043CCDD /* MoveList.cpp */,
+				7E1ED3CB1D62C25E00A72A27 /* PlayerMessage.cpp */,
+				7E1ED3FF1D6640B200A72A27 /* Player.cpp */,
 			);
 			path = gameobjects;
 			sourceTree = "<group>";
@@ -323,6 +466,8 @@
 				7E6F0B241D375635005E9F60 /* InputState.h */,
 				7E5ED43B1D3875CB007A3389 /* Move.h */,
 				7E3E92591D3C31910043CCDD /* MoveList.h */,
+				7E1ED3CA1D62C23300A72A27 /* PlayerMessage.h */,
+				7E1ED3FE1D663AC400A72A27 /* Player.h */,
 			);
 			path = gameobjects;
 			sourceTree = "<group>";
@@ -330,6 +475,7 @@
 		7E6F0B1C1D3371D1005E9F60 /* networking */ = {
 			isa = PBXGroup;
 			children = (
+				7E1ED3FD1D65950F00A72A27 /* ReplicationManagerTransmissionData.h */,
 				7E6F0B1B1D3366CC005E9F60 /* NetworkManagerServer.h */,
 				7E6F0B231D369D17005E9F60 /* ClientProxy.h */,
 				7E3E925F1D3DE66D0043CCDD /* ReplicationManagerServer.h */,
@@ -342,6 +488,7 @@
 		7E6F0B1D1D33723F005E9F60 /* networking */ = {
 			isa = PBXGroup;
 			children = (
+				7E1ED3FA1D65950000A72A27 /* ReplicationManagerTransmissionData.cpp */,
 				7E6F0B1E1D33726D005E9F60 /* NetworkManagerServer.cpp */,
 				7E6F0B201D369CFB005E9F60 /* ClientProxy.cpp */,
 				7E3E925B1D3DE6580043CCDD /* ReplicationManagerServer.cpp */,
@@ -384,6 +531,7 @@
 		7E7300B21C727857003DE60E /* include */ = {
 			isa = PBXGroup;
 			children = (
+				7E1ED4041D67683300A72A27 /* gameobjects */,
 				7E6F0B1C1D3371D1005E9F60 /* networking */,
 			);
 			path = include;
@@ -454,22 +602,10 @@
 			path = graphics;
 			sourceTree = "<group>";
 		};
-		7EFC964F1D4A6E9D00C48FDC /* graphics */ = {
-			isa = PBXGroup;
-			children = (
-				7EAE0FD01D4E79E6000509BF /* Texture.h */,
-				7EFC96501D4A6EAD00C48FDC /* GraphicsDriver.h */,
-				7EFC96541D4B0ADD00C48FDC /* SpriteComponent.h */,
-				7EFC96581D4B0C4500C48FDC /* RenderManager.h */,
-				7EAE0FD21D4E7A6B000509BF /* TextureManager.h */,
-				7E46EA371D50FCF2000C51A3 /* WindowManager.h */,
-			);
-			path = graphics;
-			sourceTree = "<group>";
-		};
 		FE1DE7371C72A51200ABF75D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7E1ED4051D67684D00A72A27 /* gameobjects */,
 				7E6F0B1D1D33723F005E9F60 /* networking */,
 				7E3224AC1D242985008C54D3 /* main.cpp */,
 			);
@@ -487,7 +623,10 @@
 		FE1DE73E1C72A5CF00ABF75D /* include */ = {
 			isa = PBXGroup;
 			children = (
-				7EFC964F1D4A6E9D00C48FDC /* graphics */,
+				7E1ED3E11D63781C00A72A27 /* networking */,
+				7E1ED3D11D6377F000A72A27 /* graphics */,
+				7E1ED3D81D6377F000A72A27 /* input */,
+				7E1ED3CF1D6377DF00A72A27 /* gameobjects */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -495,6 +634,9 @@
 		FE1DE73F1C72A5CF00ABF75D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7E1ED3DA1D63781200A72A27 /* gameobjects */,
+				7E1ED3DC1D63781200A72A27 /* input */,
+				7E1ED3DE1D63781200A72A27 /* networking */,
 				7EFC964E1D4A6E6C00C48FDC /* graphics */,
 				FE1DE7401C72A5CF00ABF75D /* main.cpp */,
 			);
@@ -680,24 +822,35 @@
 			files = (
 				7E6F0B281D375657005E9F60 /* InputState.cpp in Sources */,
 				7ED16CE51C84F34100E38DC4 /* SocketAddress.cpp in Sources */,
+				7E1ED3F21D6378B200A72A27 /* AckRange.cpp in Sources */,
+				7E1ED3F81D65506300A72A27 /* NetworkManagerServer.cpp in Sources */,
 				7E3E92581D3C31820043CCDD /* MoveList.cpp in Sources */,
 				7ED16CE61C84F34100E38DC4 /* SocketAddressFactory.cpp in Sources */,
+				7E1ED3CE1D62C25E00A72A27 /* PlayerMessage.cpp in Sources */,
 				7ED16CE71C84F34100E38DC4 /* SocketUtil.cpp in Sources */,
+				7E1ED4021D6640B200A72A27 /* Player.cpp in Sources */,
 				7ED16CE81C84F34100E38DC4 /* StringUtils.cpp in Sources */,
+				7E1ED3F51D6378B200A72A27 /* InFlightPacket.cpp in Sources */,
 				7ED16CE91C84F34100E38DC4 /* TCPSocket.cpp in Sources */,
 				7EF9A5AA1D415828005DED72 /* Timing.cpp in Sources */,
 				7ED16CEA1C84F34100E38DC4 /* UDPSocket.cpp in Sources */,
 				7E5ED43F1D3876BF007A3389 /* Move.cpp in Sources */,
 				7ED16CE31C84F09C00E38DC4 /* NetworkManager.cpp in Sources */,
 				7E39CB0D1C7BD19300B3C0ED /* MemoryBitStream.cpp in Sources */,
+				7E1ED4081D67687000A72A27 /* PlayerServer.cpp in Sources */,
 				7E6F0B221D369CFB005E9F60 /* ClientProxy.cpp in Sources */,
 				7E39CAFA1C7B90E300B3C0ED /* main.cpp in Sources */,
+				7E51D7231D684C9D00FA2AE9 /* PlayerClient.cpp in Sources */,
 				7E559A721D2D64CA003B236A /* Vector3.cpp in Sources */,
 				7E2466011D4715A4009789AD /* Server.cpp in Sources */,
 				7EA9EFAE1D32215400232486 /* World.cpp in Sources */,
 				7EA9EFA91D321FCF00232486 /* Engine.cpp in Sources */,
 				7EA9EFA21D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */,
+				7E1ED3ED1D63789F00A72A27 /* DeliveryNotificationManager.cpp in Sources */,
 				7E3F507C1C8270100001F61E /* OutputMemoryBitStream_test.cpp in Sources */,
+				7E1ED3F91D6594A000A72A27 /* ReplicationManagerServer.cpp in Sources */,
+				7E1ED4031D66A70200A72A27 /* GameObject.cpp in Sources */,
+				7E1ED3FC1D65950000A72A27 /* ReplicationManagerTransmissionData.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,24 +863,34 @@
 				7EFC96571D4B0AF800C48FDC /* SpriteComponent.cpp in Sources */,
 				7E40265B1C797D030044C61E /* SocketAddressFactory.cpp in Sources */,
 				7E3E92561D3C31820043CCDD /* MoveList.cpp in Sources */,
+				7E1ED3E71D63782F00A72A27 /* ReplicationManagerClient.cpp in Sources */,
 				7E64FB381D2856A900562700 /* GameObject.cpp in Sources */,
 				7ED16CE11C84F09C00E38DC4 /* NetworkManager.cpp in Sources */,
+				7E1ED4001D6640B200A72A27 /* Player.cpp in Sources */,
 				7E4026631C797D030044C61E /* UDPSocket.cpp in Sources */,
 				7EF9A5A71D4157FB005DED72 /* Timing.cpp in Sources */,
 				7EFC96531D4A6EC500C48FDC /* GraphicsDriver.cpp in Sources */,
+				7E1ED3CC1D62C25E00A72A27 /* PlayerMessage.cpp in Sources */,
 				7EFC965A1D4B0C5500C48FDC /* RenderManager.cpp in Sources */,
+				7E1ED3E51D63782800A72A27 /* InputManager.cpp in Sources */,
 				7E4026591C797D030044C61E /* SocketAddress.cpp in Sources */,
 				FE1DE7421C72A5CF00ABF75D /* main.cpp in Sources */,
 				7E40265D1C797D030044C61E /* SocketUtil.cpp in Sources */,
+				7E1ED3EB1D63789F00A72A27 /* DeliveryNotificationManager.cpp in Sources */,
 				7E39CAF11C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */,
+				7E51D7221D684C9D00FA2AE9 /* PlayerClient.cpp in Sources */,
 				7E559A701D2D64CA003B236A /* Vector3.cpp in Sources */,
+				7E1ED3F31D6378B200A72A27 /* InFlightPacket.cpp in Sources */,
 				7EA9EFAC1D32215400232486 /* World.cpp in Sources */,
 				7EA9EFA71D321FCF00232486 /* Engine.cpp in Sources */,
 				7E6F0B261D375657005E9F60 /* InputState.cpp in Sources */,
 				7EA9EFA01D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */,
 				7E4026611C797D030044C61E /* TCPSocket.cpp in Sources */,
+				7E1ED3E41D63782400A72A27 /* Client.cpp in Sources */,
 				7E46EA391D50FD1D000C51A3 /* WindowManager.cpp in Sources */,
+				7E1ED3F01D6378B200A72A27 /* AckRange.cpp in Sources */,
 				7EAE0FD41D4E7A88000509BF /* TextureManager.cpp in Sources */,
+				7E1ED3E61D63782D00A72A27 /* NetworkManagerClient.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,14 +902,18 @@
 				7E40265C1C797D030044C61E /* SocketAddressFactory.cpp in Sources */,
 				7EF9A5A91D415827005DED72 /* Timing.cpp in Sources */,
 				7EA9EFAD1D32215400232486 /* World.cpp in Sources */,
+				7E1ED3F41D6378B200A72A27 /* InFlightPacket.cpp in Sources */,
 				7E559A711D2D64CA003B236A /* Vector3.cpp in Sources */,
 				7EA9EFA81D321FCF00232486 /* Engine.cpp in Sources */,
+				7E1ED4071D67687000A72A27 /* PlayerServer.cpp in Sources */,
 				7E6F0B1F1D33726D005E9F60 /* NetworkManagerServer.cpp in Sources */,
+				7E1ED4011D6640B200A72A27 /* Player.cpp in Sources */,
 				7E6F0B271D375657005E9F60 /* InputState.cpp in Sources */,
 				7E4026641C797D030044C61E /* UDPSocket.cpp in Sources */,
 				7EA9EFA11D2EB50E00232486 /* GameObjectRegistry.cpp in Sources */,
 				7E2466001D4715A4009789AD /* Server.cpp in Sources */,
 				7E39CAF21C7AB06500B3C0ED /* MemoryBitStream.cpp in Sources */,
+				7E1ED3F11D6378B200A72A27 /* AckRange.cpp in Sources */,
 				7E40265A1C797D030044C61E /* SocketAddress.cpp in Sources */,
 				7E5ED43E1D3876BF007A3389 /* Move.cpp in Sources */,
 				7E3E92571D3C31820043CCDD /* MoveList.cpp in Sources */,
@@ -755,8 +922,11 @@
 				7E40265E1C797D030044C61E /* SocketUtil.cpp in Sources */,
 				7E64FB391D2856A900562700 /* GameObject.cpp in Sources */,
 				7E3224AE1D242985008C54D3 /* main.cpp in Sources */,
+				7E1ED3CD1D62C25E00A72A27 /* PlayerMessage.cpp in Sources */,
 				7E4026621C797D030044C61E /* TCPSocket.cpp in Sources */,
+				7E1ED3EC1D63789F00A72A27 /* DeliveryNotificationManager.cpp in Sources */,
 				7E3E925D1D3DE6580043CCDD /* ReplicationManagerServer.cpp in Sources */,
+				7E1ED3FB1D65950000A72A27 /* ReplicationManagerTransmissionData.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,7 +940,11 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/networkplayground/include";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/networkplayground/include",
+					"$(PROJECT_DIR)/networkplaygroundserver/include",
+					"$(PROJECT_DIR)/networkplaygroundclient/include",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/SDL/lib/mac",
@@ -787,7 +961,11 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/networkplayground/include";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/networkplayground/include",
+					"$(PROJECT_DIR)/networkplaygroundserver/include",
+					"$(PROJECT_DIR)/networkplaygroundclient/include",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/SDL/lib/mac",
