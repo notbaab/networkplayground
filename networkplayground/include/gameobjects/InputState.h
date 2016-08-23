@@ -20,6 +20,8 @@ class InputState
     {
         return mForwardAmount - mBackAmount;
     };
+    
+    bool HasInput();
 
     bool Write( OutputMemoryBitStream& inOutputStream ) const;
     bool Read( InputMemoryBitStream& inInputStream );

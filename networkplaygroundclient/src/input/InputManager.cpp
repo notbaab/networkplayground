@@ -79,9 +79,17 @@ bool InputManager::IsTimeToSampleInput()
     return false;
 }
 
+// Input Should be sampled if the follow criteria is met
+// 1. It's time i.e only sample during a frame update.
+// 2. There is input to sample
+bool InputManager::shouldSampleMove()
+{
+    return IsTimeToSampleInput() && mCurrentState.HasInput();
+}
+
 void InputManager::Update()
 {
-    if ( IsTimeToSampleInput() )
+    if ( shouldSampleMove() )
     {
         mPendingMove = &SampleInputAsMove();
     }

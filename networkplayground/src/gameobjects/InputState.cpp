@@ -50,3 +50,8 @@ bool InputState::Read( InputMemoryBitStream& inInputStream )
 
     return true;
 }
+
+bool InputState::HasInput()
+{
+    return GetDesiredVerticalDelta() || GetDesiredHorizontalDelta();
+}

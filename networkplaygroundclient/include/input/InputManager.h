@@ -40,6 +40,7 @@ class InputManager
     InputManager();
 
     bool IsTimeToSampleInput();
+    bool shouldSampleMove();
     const Move& SampleInputAsMove();
 
     MoveList mMoveList;
