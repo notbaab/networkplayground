@@ -29,6 +29,10 @@
 
 # Stuff in my bin directory
 bin/
+lib/googletest
 
 # Ignore .vagrant
 .vagrant/
+
+# Ignore clion stuff
+.idea
