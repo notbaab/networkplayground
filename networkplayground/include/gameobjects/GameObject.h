@@ -22,16 +22,17 @@
     {                                                                          \
         kClassId = inCode                                                      \
     };                                                                         \
-    virtual uint32_t GetClassId() const { return kClassId; }                   \
-    static GameObject* CreateInstance()                                        \
-    {                                                                          \
-        return static_cast<GameObject*>( new inClass() );                      \
-    }
+    virtual uint32_t GetClassId() const override { return kClassId; }
 
 class GameObject
 {
   public:
-    CLASS_IDENTIFICATION( 'GOBJ', GameObject )
+    enum
+    {
+        kClassId = 'GOBJ'
+    };
+
+    virtual uint32_t GetClassId() const { return kClassId; }
 
     GameObject();
     virtual ~GameObject() {}
@@ -48,7 +49,7 @@ class GameObject
     void SetNetworkId( int inId ) { mNetworkId = inId; }
 
     virtual uint32_t Write( OutputMemoryBitStream& inOutputStream,
-                            uint32_t inDirtyState ) const
+                            uint32_t inDirtyState )
     {
         return 0;
     }
@@ -56,6 +57,7 @@ class GameObject
     virtual void Read( InputMemoryBitStream& inInputStream ) {}
 
     const Vector3& GetLocation() const { return mLocation; }
+    void SetLocation( const Vector3& inLocation ) { mLocation = inLocation; }
 
     Vector3 mLocation;
 

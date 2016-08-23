@@ -85,6 +85,8 @@ class OutputMemoryBitStream
         }
     }
 
+    template <typename T> void serialize( T inData ) { Write( inData ); }
+
     void PrintByteArray();
 
     void printStream() const;
@@ -137,6 +139,8 @@ class InputMemoryBitStream
         ReadBits( outData, inByteCount << 3 );
     }
 
+    bool serialize_bits( uint32_t& outData, uint32_t inBitCount = 32 );
+
     template <typename T>
     void Read( T& inData, uint32_t inBitCount = sizeof( T ) * 8 )
     {
@@ -144,6 +148,8 @@ class InputMemoryBitStream
                        "Generic Read only supports primitive data types" );
         ReadBits( &inData, inBitCount );
     }
+
+    template <typename T> void serialize( T& inData ) { Read( inData ); }
 
     void Read( uint32_t& outData, uint32_t inBitCount = 32 )
     {
