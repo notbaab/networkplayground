@@ -15,7 +15,7 @@
 void printStream( InputMemoryBitStream& inInputStream );
 
 NetworkManager::NetworkManager()
-    : mRecordRequestPackets( true ), mRecordRespondPackets( true )
+    : mRecordRequestPackets( false ), mRecordRespondPackets( false )
 // mBytesSentThisFrame( 0 ),
 // mDropPacketChance( 0.f ),
 // mSimulatedLatency( 0.f )
