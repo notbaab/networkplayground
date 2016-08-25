@@ -11,6 +11,8 @@
 
 #include <memory>
 
+const float TIME_BETWEEN_TICKS = 0.03f;
+
 class Engine
 {
   public:
@@ -23,11 +25,13 @@ class Engine
 
   protected:
     Engine();
+    float mNextPhysicsTick;
 
     virtual bool DoFrame();
 
   private:
     int DoRunLoop();
+
 };
 
 #endif /* Engine_h */

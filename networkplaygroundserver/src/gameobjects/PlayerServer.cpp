@@ -1,5 +1,6 @@
 #include "gameobjects/PlayerServer.h"
 #include "networking/StringUtils.h"
+#include "const/consts.h"
 
 PlayerServer::PlayerServer() : mControlType( PCT_HUMAN ) {}
 
@@ -27,7 +28,7 @@ void PlayerServer::Update()
 
             float deltaTime = unprocessedMove.GetDeltaTime();
             ProcessInput( deltaTime, currentState );
-            SimulateMovement( deltaTime );
+            SimulateMovement( TIME_STEP );
         }
         moveList.Clear();
 

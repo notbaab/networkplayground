@@ -2,6 +2,7 @@
 #include "gameobjects/PlayerServer.h"
 #include "networking/Server.h"
 #include "networking/StringUtils.h"
+#include "timing/Timing.h"
 
 bool Server::StaticInit()
 {
@@ -16,6 +17,7 @@ Server::Server()
     GameObjectRegistry::sInstance->RegisterCreationFunction(
         Player::kClassId, PlayerServer::StaticCreate );
     InitNetworkManager();
+    mNextPhysicsTick = 0.f;
     //     NetworkManagerServer::sInstance->SetDropPacketChance( 0.8f );
     //     NetworkManagerServer::sInstance->SetSimulatedLatency( 0.25f );
     //     NetworkManagerServer::sInstance->SetSimulatedLatency( 0.5f );
@@ -50,7 +52,16 @@ bool Server::DoFrame()
     networkManager->ProcessIncomingPackets();
     networkManager->CheckForDisconnects();
 
-    Engine::DoFrame();
+
+    Timing::sInstance.Update();
+
+    // Run "Physics" at 60 hertz
+    float time = Timing::sInstance.GetFrameStartTime();
+    if ( time > mNextPhysicsTick )
+    {
+        mNextPhysicsTick += TIME_BETWEEN_TICKS;
+        Engine::DoFrame();
+    }
 
     networkManager->SendOutgoingPackets();
 
@@ -66,7 +77,7 @@ void Server::HandleNewClient( ClientProxyPtr inClientProxy )
 
 void Server::HandleLostClient( ClientProxyPtr inClientProxy )
 {
-    LOG("WE LOST ONE!, %s", inClientProxy->GetName());
+    LOG("WE LOST ONE!, %s", inClientProxy->GetName().c_str());
 }
 
 void Server::SpawnPlayer( int inPlayerId )

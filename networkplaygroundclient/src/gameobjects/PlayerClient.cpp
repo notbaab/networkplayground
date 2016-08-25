@@ -3,6 +3,7 @@
 #include "input/InputManager.h"
 #include "networking/NetworkManagerClient.h"
 #include "networking/StringUtils.h"
+#include "const/consts.h"
 
 PlayerClient::PlayerClient()
     : mTimeLocationBecameOutOfSync( 0.f ), mTimeVelocityBecameOutOfSync( 0.f )
@@ -21,17 +22,20 @@ void PlayerClient::Update()
         {
             float deltaTime = pendingMove->GetDeltaTime();
             
-            LOG("Doing move %d", deltaTime);
+            LOG("Doing move %.2f", deltaTime);
             ProcessInput( deltaTime, pendingMove->GetInputState() );
 
-            SimulateMovement( deltaTime );
+            SimulateMovement( TIME_STEP );
         }
     }
 }
 
 void PlayerClient::Read( InputMemoryBitStream& inInputStream )
 {
+
+    // Ignore server side code
+//    PlayerMessage::SerializeInternal( inInputStream, new PlayerClient() );
     PlayerMessage::SerializeInternal( inInputStream, this );
 
-    // Do interpolation and shit for it
+    // Do interpolation and shiΩΩΩt for it
 }
