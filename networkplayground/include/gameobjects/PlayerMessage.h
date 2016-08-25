@@ -21,10 +21,21 @@ class PlayerMessage
     template <typename Stream>
     static bool Serialize( Stream& stream, Player* inPlayer )
     {
-        stream.serialize( inPlayer->mPlayerId );
-        stream.serialize( inPlayer->mVelocity.mX );
-        stream.serialize( inPlayer->mVelocity.mY );
-        stream.serialize( inPlayer->mVelocity.mZ );
+        stream.serialize( inPlayer->mState );
+        bool writePlayerId = inPlayer->mState & Player::PlayerReplicationState::PRS_PID;
+        bool writePosition = inPlayer->mState & Player::PlayerReplicationState::PRS_POSI;
+
+        if(writePlayerId)
+        {
+            stream.serialize(inPlayer->mPlayerId);
+        }
+
+        if(writePosition)
+        {
+            stream.serialize( inPlayer->mVelocity.mX );
+            stream.serialize( inPlayer->mVelocity.mY );
+            stream.serialize( inPlayer->mVelocity.mZ );
+        }
 
         return true;
     }

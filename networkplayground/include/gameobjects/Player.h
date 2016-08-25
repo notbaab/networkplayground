@@ -5,6 +5,7 @@
 #include "gameobjects/InputState.h"
 
 #define PLAYER_CLASS_IDENTIFICATION 0xffffffff
+const float PLAYER_SPEED = 50.f;
 
 class Player : public GameObject
 {
@@ -15,8 +16,9 @@ class Player : public GameObject
 
     enum PlayerReplicationState
     {
-        PRS_POSI = 1 << 0, // Player position and rotation
-        ALL_STATE = PRS_POSI,
+        PRS_PID = 1 << 0, // Player Id
+        PRS_POSI = 1 << 1, // Player position and rotation
+        ALL_STATE = PRS_POSI | PRS_PID,
     };
     virtual uint32_t GetAllStateMask() const override { return ALL_STATE; }
     virtual void Update() override;
@@ -44,6 +46,7 @@ class Player : public GameObject
     uint32_t mPlayerId;
     Vector3 mVelocity;
     float mLastMoveTimestamp;
+    PlayerReplicationState mState;
 };
 
 typedef std::shared_ptr<Player> PlayerPtr;

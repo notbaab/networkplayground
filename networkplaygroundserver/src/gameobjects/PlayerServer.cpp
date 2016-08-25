@@ -19,6 +19,7 @@ void PlayerServer::Update()
         if ( !client )
         {
             LOG( "NO HUMANC CONTROLING THIS, IT HAS BECOME SENTIENT RUN" );
+            return;
         }
 
         MoveList& moveList = client->GetUnprocessedMoveList();

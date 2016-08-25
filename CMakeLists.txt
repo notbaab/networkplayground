@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.6)
 project(networkplayground)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+SET(CMAKE_C_FLAGS_DEBUG "-D_DEBUG")
 INCLUDE_DIRECTORIES(networkplayground/include/)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
@@ -87,5 +88,4 @@ add_subdirectory(lib/googletest)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 target_link_libraries(unit_tests gtest gtest_main)
-#target_link_libraries(runBasicCalendarTests calendars)
 

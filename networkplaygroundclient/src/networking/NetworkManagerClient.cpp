@@ -156,7 +156,7 @@ void NetworkManagerClient::SendInputPacket()
         auto move = moveList.begin() + firstMoveIndex;
 
         inputPacket.Write( moveCount - firstMoveIndex, 2 );
-
+        LOG("Sending %d moves", moveCount - firstMoveIndex);
         for ( ; firstMoveIndex < moveCount; ++firstMoveIndex, ++move )
         {
             move->Write( inputPacket );

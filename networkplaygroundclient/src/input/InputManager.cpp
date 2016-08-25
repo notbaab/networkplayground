@@ -89,7 +89,8 @@ bool InputManager::shouldSampleMove()
 
 void InputManager::Update()
 {
-    if ( shouldSampleMove() )
+    // TODO: No.
+    if ( shouldSampleMove() || true)
     {
         mPendingMove = &SampleInputAsMove();
     }
