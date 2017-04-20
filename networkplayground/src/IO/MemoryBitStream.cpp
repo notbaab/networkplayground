@@ -1,5 +1,5 @@
 #include "IO/MemoryBitStream.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 #include <bitset>
 
 using std::cout;

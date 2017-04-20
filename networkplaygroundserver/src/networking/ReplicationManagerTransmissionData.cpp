@@ -1,7 +1,7 @@
 #include "networking/DeliveryNotificationManager.h"
 #include "networking/NetworkManagerServer.h"
 #include "networking/ReplicationManagerTransmissionData.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 
 void ReplicationManagerTransmissionData::AddTransmission(
     int inNetworkId, ReplicationAction inAction, uint32_t inState )

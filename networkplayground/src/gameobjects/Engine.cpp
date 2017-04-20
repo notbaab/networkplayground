@@ -10,7 +10,7 @@
 #include "gameobjects/GameObjectRegistry.h"
 #include "gameobjects/World.h"
 #include "networking/SocketUtil.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 
 std::unique_ptr<Engine> Engine::sInstance;
 

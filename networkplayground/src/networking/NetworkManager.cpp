@@ -8,7 +8,7 @@
 #include "gameobjects/GameObject.h"
 #include "networking/NetworkManager.h"
 #include "networking/SocketUtil.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 #include <ctime>
 
 // TODO: Temp for now

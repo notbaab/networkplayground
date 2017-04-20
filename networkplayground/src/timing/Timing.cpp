@@ -1,5 +1,5 @@
 #include "timing/Timing.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 
 #if !_WIN32
 #include <chrono>

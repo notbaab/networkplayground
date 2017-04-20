@@ -9,7 +9,7 @@
 #include "input/InputManager.h"
 #include "networking/NetworkManagerClient.h"
 #include "networking/SocketAddressFactory.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 
 bool Client::StaticInit()
 {

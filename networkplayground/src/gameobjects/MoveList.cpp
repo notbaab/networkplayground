@@ -1,5 +1,5 @@
 #include "gameobjects/MoveList.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 
 const Move& MoveList::AddMove( const InputState& inInputState,
                                float inTimeStamp )

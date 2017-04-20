@@ -4,7 +4,7 @@
 #include "graphics/RenderManager.h"
 #include "graphics/SpriteComponent.h"
 #include "graphics/WindowManager.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 #include <iostream>
 
 const char** __argv;

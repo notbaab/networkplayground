@@ -1,6 +1,6 @@
 #include "input/InputManager.h"
 #include "timing/Timing.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 
 std::unique_ptr<InputManager> InputManager::sInstance;
 

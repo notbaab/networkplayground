@@ -3,7 +3,7 @@
 #include "networking/NetworkManagerServer.h"
 #include "networking/ReplicationManagerTransmissionData.h"
 #include "networking/Server.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 #include "timing/Timing.h"
 
 

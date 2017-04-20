@@ -1,7 +1,7 @@
 #include "gameobjects/MoveList.h"
 #include "input/InputManager.h"
 #include "networking/NetworkManagerClient.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 
 const float kTimeBetweenHellos = 1.f;
 const float kTimeBetweenInputPackets = 0.033f;

@@ -1,6 +1,6 @@
 #include "gameobjects/Player.h"
 #include "gameobjects/PlayerMessage.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 
 Player::Player() : GameObject(), mVelocity( Vector3::Zero ) {}
 

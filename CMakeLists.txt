@@ -30,7 +30,7 @@ SET(BASE_SOURCE
     networkplayground/src/networking/SocketAddress.cpp
     networkplayground/src/networking/SocketAddressFactory.cpp
     networkplayground/src/networking/SocketUtil.cpp
-    networkplayground/src/networking/StringUtils.cpp
+        networkplayground/src/networking/Logger.cpp
     networkplayground/src/networking/TCPSocket.cpp
     networkplayground/src/networking/UDPSocket.cpp
     networkplayground/src/timing/Timing.cpp

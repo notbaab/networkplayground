@@ -3,7 +3,7 @@
 #include "gameobjects/PlayerMessage.h"
 #include "input/InputManager.h"
 #include "networking/NetworkManagerClient.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 #include "const/consts.h"
 
 PlayerClient::PlayerClient()

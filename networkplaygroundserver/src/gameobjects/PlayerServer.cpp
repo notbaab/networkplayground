@@ -1,5 +1,5 @@
 #include "gameobjects/PlayerServer.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 #include "const/consts.h"
 
 PlayerServer::PlayerServer() : mControlType( PCT_HUMAN ) {}

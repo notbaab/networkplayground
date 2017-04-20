@@ -1,5 +1,5 @@
 #include "networking/DeliveryNotificationManager.h"
-#include "networking/StringUtils.h"
+#include "networking/Logger.h"
 #include "timing/Timing.h"
 
 static const float kDelayBeforeAckTimeout = 0.5f;
