@@ -1,6 +1,5 @@
 #include "gameobjects/GameObject.h"
 #include "networking/NetworkManagerServer.h"
-#include "networking/ReplicationManagerServer.h"
 #include "networking/ReplicationManagerTransmissionData.h"
 
 void ReplicationManagerServer::ReplicateCreate( int inNetworkId,

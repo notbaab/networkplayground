@@ -9,7 +9,8 @@ extern int __argc;
 void OutputDebugString( const char* inString ) { printf( "%s", inString ); }
 #endif
 
-std::string StringUtils::GetCommandLineArg( int inIndex )
+Logger::LogLevel sCurrentLevel = Logger::LogLevel::ALL;
+std::string Logger::GetCommandLineArg( int inIndex )
 {
     if ( inIndex < __argc )
     {
@@ -19,12 +20,17 @@ std::string StringUtils::GetCommandLineArg( int inIndex )
     return std::string();
 }
 
-void StringUtils::initLog( std::string logFile )
+void Logger::InitLog(std::string logFile)
 {
-    StringUtils::logFile = logFile;
+    Logger::logFile = logFile;
 }
 
-std::string StringUtils::Sprintf( const char* inFormat, ... )
+void Logger::SetLevel(LogLevel level)
+{
+    sCurrentLevel = level;
+}
+
+std::string Logger::Sprintf( const char* inFormat, ... )
 {
     // not thread safe...
     static char temp[4096];
@@ -40,40 +46,74 @@ std::string StringUtils::Sprintf( const char* inFormat, ... )
     return std::string( temp );
 }
 
-void StringUtils::Log( const char* inFormat, ... )
+void Logger::Log( const char* inFormat, ... )
 {
     // not thread safe...
-    static char temp[4096];
+   static char temp[4096];
 
-    va_list args;
-    va_start( args, inFormat );
+   va_list args;
+   va_start( args, inFormat );
 
 #if _WIN32
-    _vsnprintf_s( temp, 4096, 4096, inFormat, args );
+   _vsnprintf_s( temp, 4096, 4096, inFormat, args );
 #else
-    vsnprintf( temp, 4096, inFormat, args );
+   vsnprintf( temp, 4096, inFormat, args );
 #endif
-    OutputDebugString( temp );
-    OutputDebugString( "\n" );
+   OutputDebugString( temp );
+   OutputDebugString( "\n" );
 }
 
-void StringUtils::LogFile( const char* inFormat, ... )
+// void Logger::Logl( const char* inFormat, ... )
+// {
+//     // not thread safe...
+//    static char temp[4096];
+
+//    va_list args;
+//    va_start( args, inFormat );
+
+// #if _WIN32
+//    _vsnprintf_s( temp, 4096, 4096, inFormat, args );
+// #else
+//    vsnprintf( temp, 4096, inFormat, args );
+// #endif
+//    OutputDebugString( temp );
+//    OutputDebugString( "\n" );
+// }
+
+void Logger::LogMore( const char* inFormat, ... )
 {
     // not thread safe...
-    static char temp[4096];
-    std::ofstream myfile;
+   static char temp[4096];
 
-    va_list args;
-    va_start( args, inFormat );
+   va_list args;
+   va_start( args, inFormat );
 
-    vsnprintf( temp, 4096, inFormat, args );
+#if _WIN32
+   _vsnprintf_s( temp, 4096, 4096, inFormat, args );
+#else
+   vsnprintf( temp, 4096, inFormat, args );
+#endif
+   OutputDebugString( temp );
+   OutputDebugString( "\n" );
+}
 
-    myfile.open( StringUtils::logFile, std::ofstream::app );
-    if ( myfile.std::__1::ios_base::fail() )
-    {
-        std::cout << myfile.failbit;
-    }
-
-    myfile << temp;
-    myfile.close();
+void Logger::LogFile( const char* inFormat, ... )
+{
+//    // not thread safe...
+//    static char temp[4096];
+//    std::ofstream myfile;
+//
+//    va_list args;
+//    va_start( args, inFormat );
+//
+//    vsnprintf( temp, 4096, inFormat, args );
+//
+//    myfile.open( Logger::logFile, std::ofstream::app );
+//    if ( myfile.std::__1::ios_base::fail() )
+//    {
+//        std::cout << myfile.failbit;
+//    }
+//
+//    myfile << temp;
+//    myfile.close();
 }

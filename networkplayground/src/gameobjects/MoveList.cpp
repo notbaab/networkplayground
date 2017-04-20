@@ -29,8 +29,8 @@ bool MoveList::AddMoveIfNew( const Move& inMove )
     mLastMoveTimestamp = timeStamp;
 
     mMoves.emplace_back( inMove.GetInputState(), timeStamp, deltaTime );
-    LOG( "Adding move with timestamp %.10f and delta %.10f", timeStamp,
-         deltaTime );
+    // LOG( "Adding move with timestamp %.10f and delta %.10f", timeStamp,
+         // deltaTime );
 
     return true;
 }

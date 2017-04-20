@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 project(networkplayground)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 SET(CMAKE_C_FLAGS_DEBUG "-D_DEBUG")
 INCLUDE_DIRECTORIES(networkplayground/include/)
 
@@ -47,7 +47,7 @@ set(CLIENT_SOURCE
     networkplaygroundclient/src/input/InputManager.cpp
     networkplaygroundclient/src/networking/NetworkManagerClient.cpp
     networkplaygroundclient/src/networking/ReplicationManagerClient.cpp
-)
+        networkplaygroundclient/src/gameobjects/Ghost.cpp)
 
 set(SERVER_SOURCE
     networkplaygroundserver/src/gameobjects/PlayerServer.cpp

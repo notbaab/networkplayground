@@ -129,9 +129,9 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
 
         if ( mRecordRequestPackets )
         {
-            StringUtils::LogFile( "Requests: " );
+            Logger::LogFile( "Requests: " );
             inputStream.printStream();
-            StringUtils::LogFile( "\n" );
+            Logger::LogFile( "\n" );
         }
 
         ++totalPacketsRecieved;
@@ -157,9 +157,9 @@ void NetworkManager::SendPacket( const OutputMemoryBitStream& inOutputStream,
 
     if ( mRecordRespondPackets )
     {
-        StringUtils::LogFile( "Sending: " );
+        Logger::LogFile( "Sending: " );
         inOutputStream.printStream();
-        StringUtils::LogFile( "\n" );
+        Logger::LogFile( "\n" );
     }
 
     if ( sentByteCount )

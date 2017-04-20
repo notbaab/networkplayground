@@ -27,7 +27,12 @@ void SpriteComponent::Draw( const SDL_Rect& inViewTransform )
 {
     SDL_Renderer* renderer = GraphicsDriver::sInstance->GetRenderer();
 
-    SDL_SetRenderDrawColor( renderer, 255, 0, 0, 255 );
+    uint8_t red = mColor.mX;
+    uint8_t green = mColor.mY;
+    uint8_t blue = mColor.mZ;
+
+    SDL_SetRenderDrawColor( renderer, red, green, blue, 255 );
+
     SDL_Rect rectangle;
 
     Vector3 objLocation = mGameObject->GetLocation();

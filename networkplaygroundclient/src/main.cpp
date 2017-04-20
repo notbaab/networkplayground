@@ -40,8 +40,8 @@ int main( int argc, const char* argv[] )
     __argc = argc;
     __argv = argv;
 
-    StringUtils::initLog( "/Users/erikparreira/Dropbox/Programming/"
-                          "networkplayground/client_log.txt" );
+    Logger::InitLog("/Users/erikparreira/Dropbox/Programming/"
+                            "networkplayground/client_log.txt");
     if ( Client::StaticInit() )
     {
         return Client::sInstance->Run();

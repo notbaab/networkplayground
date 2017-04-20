@@ -46,6 +46,7 @@ bool DeliveryNotificationManager::ProcessSequenceNumber(
 {
     PacketSequenceNumber sequenceNumber;
     inInputStream.Read( sequenceNumber );
+    // LOGMORE("Read %d packet", sequenceNumber);
 
     // Uh...old packet, we have moved on to greater things
     if ( sequenceNumber < mNextExpectedSequenceNumber )

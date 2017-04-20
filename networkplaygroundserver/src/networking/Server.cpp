@@ -33,7 +33,7 @@ int Server::Run()
 
 bool Server::InitNetworkManager()
 {
-    //    std::string portString = StringUtils::GetCommandLineArg( 1 );
+    //    std::string portString = Logger::GetCommandLineArg( 1 );
     //    uint16_t port = stoi( portString );
 
     return NetworkManagerServer::StaticInit( 45000 );

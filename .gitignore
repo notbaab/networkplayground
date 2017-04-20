@@ -36,3 +36,4 @@ lib/googletest
 
 # Ignore clion stuff
 .idea
+cmake-build-debug/*

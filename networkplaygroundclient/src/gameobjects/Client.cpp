@@ -1,3 +1,4 @@
+#include <gameobjects/World.h>
 #include "gameobjects/Client.h"
 #include "gameobjects/GameObjectRegistry.h"
 #include "gameobjects/PlayerClient.h"
@@ -14,13 +15,13 @@ bool Client::StaticInit()
 {
     Client* client = new Client();
 
-    if ( WindowManager::StaticInit() == false )
+    if ( !WindowManager::StaticInit() )
     {
         return false;
     }
 
-    if ( GraphicsDriver::StaticInit(
-             WindowManager::sInstance->GetMainWindow() ) == false )
+    if ( !GraphicsDriver::StaticInit(
+             WindowManager::sInstance->GetMainWindow() ) )
     {
         return false;
     }
@@ -28,7 +29,7 @@ bool Client::StaticInit()
     TextureManager::StaticInit();
     RenderManager::StaticInit();
     InputManager::StaticInit();
-
+    Logger::SetLevel(Logger::ALL);
     sInstance.reset( client );
 
     return true;
@@ -37,7 +38,7 @@ bool Client::StaticInit()
 Client::Client()
 {
     std::string destination = "127.0.0.1:45000";
-    std::string name = StringUtils::GetCommandLineArg( 2 );
+    std::string name = Logger::GetCommandLineArg( 2 );
     SocketAddressPtr serverAddress =
         SocketAddressFactory::CreateIPv4FromString( destination );
 
@@ -68,9 +69,40 @@ bool Client::DoFrame()
 
     InputManager::sInstance->Update();
 
+    auto objs = World::sInstance->GetGameObjects();
+    Vector3 vel;
+
+    if(objs.size() > 0)
+    {
+        auto player = objs.front();
+
+        vel = player->mVelocity;
+
+        if(vel.mY != 0)
+        {
+            LOG("moving down ");
+        }
+    }
+
+
     Engine::DoFrame();
 
     NetworkManagerClient::sInstance->ProcessIncomingPackets();
+
+    auto objs2 = World::sInstance->GetGameObjects();
+
+
+    if(objs2.size() > 0)
+    {
+        auto player = objs2.front();
+
+        vel = player->mVelocity;
+
+        if(vel.mY != 0)
+        {
+            LOG("moving down ");
+        }
+    }
 
     RenderManager::sInstance->Render();
 

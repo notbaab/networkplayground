@@ -19,7 +19,7 @@ void Player::AdjustVelocityByThrust( float inDeltaTime )
 void Player::SimulateMovement( float inDeltaTime )
 {
 //    AdjustVelocityByThrust( inDeltaTime );
-//    LOG("Moving Player by %.2f and %.2f, from location %.2f, %.2f time %.2f", mVelocity.mX, mVelocity.mY, GetLocation().mX, GetLocation().mY, inDeltaTime);
+    // LOG("Moving Player by %.2f and %.2f, from location %.2f, %.2f time %.2f", mVelocity.mX, mVelocity.mY, GetLocation().mX, GetLocation().mY, inDeltaTime);
     SetLocation( GetLocation() + mVelocity * inDeltaTime );
 }
 
@@ -32,9 +32,9 @@ uint32_t Player::Write( OutputMemoryBitStream& inOutputStream,
 {
     PlayerMessage* message = new PlayerMessage();
 
-    // This is pretty wrong
+    // This is pretty wrong, where is everything dirty?
     this->mState = static_cast<PlayerReplicationState>(inDirtyState & ALL_STATE);
-    message->SerializeInternal( inOutputStream, this );
+    message->Serialize( inOutputStream, this );
 
     return inDirtyState;
 }

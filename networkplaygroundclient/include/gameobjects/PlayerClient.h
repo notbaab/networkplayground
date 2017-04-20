@@ -5,6 +5,10 @@
 #include "gameobjects/Player.h"
 #include "graphics/SpriteComponent.h"
 
+#define DEBUG_DRAW_SERVER_GHOST 1
+
+class Ghost;
+
 class PlayerClient : public Player
 {
   public:
@@ -16,11 +20,12 @@ class PlayerClient : public Player
     virtual void Update() override;
     virtual void Read( InputMemoryBitStream& inInputStream ) override;
 
-    void DoClientSidePredectionAfterReplicationForLocalPlayer(
-        uint32_t inReadState );
+    void DoClientSidePredictionAfterReplicationForLocalPlayer( uint32_t inReadState );
 
-    void DoClientSidePredectionAfterReplicationForRemotePlayer(
-        uint32_t inReadState );
+    void InterpolateClientSidePrediction(float inOldRotation, const Vector3 &inOldLocation,
+                                         const Vector3 &inOldVelocity, bool inIsForRemotePlayer);
+
+    bool IsCreatedOnServer();
 
   protected:
     PlayerClient();
@@ -30,9 +35,13 @@ class PlayerClient : public Player
                                           const Vector3& inOldVelocity,
                                           bool inIsRemotePlayer );
 
+    void HandleStatePacket(InputMemoryBitStream& inInputStream);
+
     float mTimeLocationBecameOutOfSync;
     float mTimeVelocityBecameOutOfSync;
 
     SpriteComponentPtr mSpriteComponent;
+
+    std::shared_ptr<Ghost> mServerGhost;
 };
 #endif /* PlayerClient_h */

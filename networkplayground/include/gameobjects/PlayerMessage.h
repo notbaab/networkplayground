@@ -1,6 +1,5 @@
-//
 //  PlayerMessage.h
-//  Message sent/read about the player
+//  Message sent/read about the player.
 //
 //  Created by Erik Parreira on 8/15/16.
 //  Copyright © 2016 Erik Parreira. All rights reserved.
@@ -18,39 +17,27 @@ class PlayerMessage
   public:
     friend class Player;
 
-    template <typename Stream>
-    static bool Serialize( Stream& stream, Player* inPlayer )
+    template <typename Stream, typename DataContainer>
+    static bool Serialize( Stream& stream, DataContainer dataContainer )
     {
-        stream.serialize( inPlayer->mState );
-        bool writePlayerId = inPlayer->mState & Player::PlayerReplicationState::PRS_PID;
-        bool writePosition = inPlayer->mState & Player::PlayerReplicationState::PRS_POSI;
+        stream.serialize( dataContainer->mState );
+        bool writePlayerId = dataContainer->mState & Player::PlayerReplicationState::PRS_PID;
+        bool writePosition = dataContainer->mState & Player::PlayerReplicationState::PRS_POSI;
 
         if(writePlayerId)
         {
-            stream.serialize(inPlayer->mPlayerId);
+            stream.serialize(dataContainer->mPlayerId);
         }
 
         if(writePosition)
         {
-            stream.serialize( inPlayer->mVelocity.mX );
-            stream.serialize( inPlayer->mVelocity.mY );
-            stream.serialize( inPlayer->mVelocity.mZ );
+            stream.serialize( dataContainer->mVelocity.mX );
+            stream.serialize( dataContainer->mVelocity.mY );
+
+            stream.serialize( dataContainer->mLocation.mX );
+            stream.serialize( dataContainer->mLocation.mY );
         }
 
-        return true;
-    }
-
-    static bool SerializeInternal( OutputMemoryBitStream& stream,
-                                   Player* inPlayer )
-    {
-        Serialize( stream, inPlayer );
-        return true;
-    }
-
-    static bool SerializeInternal( InputMemoryBitStream& stream,
-                                   Player* inPlayer )
-    {
-        Serialize( stream, inPlayer );
         return true;
     }
 };

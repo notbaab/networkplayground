@@ -2,7 +2,6 @@
 #include "gameobjects/GameObjectRegistry.h"
 #include "networking/NetworkManagerClient.h"
 #include "networking/ReplicationCommand.h"
-#include "networking/ReplicationManagerClient.h"
 #include "networking/StringUtils.h"
 
 void ReplicationManagerClient::Read( InputMemoryBitStream& inInputStream )

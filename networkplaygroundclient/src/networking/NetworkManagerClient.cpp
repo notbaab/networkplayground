@@ -2,7 +2,6 @@
 #include "input/InputManager.h"
 #include "networking/NetworkManagerClient.h"
 #include "networking/StringUtils.h"
-#include "timing/Timing.h"
 
 const float kTimeBetweenHellos = 1.f;
 const float kTimeBetweenInputPackets = 0.033f;
@@ -146,7 +145,9 @@ void NetworkManagerClient::SendInputPacket()
         mDeliveryNotificationManager.WriteState( inputPacket );
 
         int moveCount = moveList.GetMoveCount();
+        // LOG("Has %d", moveCount);
         int firstMoveIndex = moveCount - 3;
+//        int firstMoveIndex = 0;
 
         if ( firstMoveIndex < 3 )
         {
@@ -156,7 +157,7 @@ void NetworkManagerClient::SendInputPacket()
         auto move = moveList.begin() + firstMoveIndex;
 
         inputPacket.Write( moveCount - firstMoveIndex, 2 );
-        LOG("Sending %d moves", moveCount - firstMoveIndex);
+        // LOG("Sending %d moves", moveCount - firstMoveIndex);
         for ( ; firstMoveIndex < moveCount; ++firstMoveIndex, ++move )
         {
             move->Write( inputPacket );

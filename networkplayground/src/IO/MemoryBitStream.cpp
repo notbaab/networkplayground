@@ -7,12 +7,12 @@ using std::endl;
 
 void printStream( uint32_t bufferSize, const char* streamBuffer )
 {
-    StringUtils::LogFile( "Hex: " );
+    Logger::LogFile( "Hex: " );
     for ( int charIdx = 0; charIdx < bufferSize; charIdx++ )
     {
-        StringUtils::LogFile( "%x", streamBuffer[charIdx] );
+        Logger::LogFile( "%x", streamBuffer[charIdx] );
     }
-    StringUtils::LogFile( "\nBinary: " );
+    Logger::LogFile( "\nBinary: " );
 
     //    std::cout << std::endl << "As Binary " << std::endl;
 
@@ -22,7 +22,7 @@ void printStream( uint32_t bufferSize, const char* streamBuffer )
         std::string asString = asBits.to_string<char, std::string::traits_type,
                                                 std::string::allocator_type>();
 
-        StringUtils::LogFile( asString.c_str() );
+        Logger::LogFile( asString.c_str() );
     }
 }
 

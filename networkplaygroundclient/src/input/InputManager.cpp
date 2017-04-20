@@ -1,15 +1,19 @@
 #include "input/InputManager.h"
 #include "timing/Timing.h"
+#include "networking/StringUtils.h"
 
 std::unique_ptr<InputManager> InputManager::sInstance;
 
 float kTimeBetweenInputSamples = 0.03f;
+// float kTimeBetweenInputSamples = 0.3f;
+// float kTimeBetweenInputSamples = 1.0f;
 
 void InputManager::StaticInit() { sInstance.reset( new InputManager() ); }
 
 InputManager::InputManager()
     : mNextTimeToSampleInput( 0.f ), mPendingMove( nullptr )
 {
+    mNextTimeToSampleInput = Timing::sInstance.GetFrameStartTime();
 }
 
 inline void UpdateDesireVariableFromKey( EInputAction inInputAction,
@@ -71,8 +75,10 @@ const Move& InputManager::SampleInputAsMove()
 bool InputManager::IsTimeToSampleInput()
 {
     float time = Timing::sInstance.GetFrameStartTime();
+    // LOG("Time %f and %f", time, mNextTimeToSampleInput);
     if ( time > mNextTimeToSampleInput )
     {
+        // LOG("Sampling");
         mNextTimeToSampleInput += kTimeBetweenInputSamples;
         return true;
     }
@@ -90,7 +96,7 @@ bool InputManager::shouldSampleMove()
 void InputManager::Update()
 {
     // TODO: No.
-    if ( shouldSampleMove() || true)
+    if ( shouldSampleMove())
     {
         mPendingMove = &SampleInputAsMove();
     }

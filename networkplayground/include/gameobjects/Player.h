@@ -5,7 +5,7 @@
 #include "gameobjects/InputState.h"
 
 #define PLAYER_CLASS_IDENTIFICATION 0xffffffff
-const float PLAYER_SPEED = 50.f;
+const float PLAYER_SPEED = 500.f;
 
 class Player : public GameObject
 {

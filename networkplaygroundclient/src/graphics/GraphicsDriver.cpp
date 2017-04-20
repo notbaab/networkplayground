@@ -1,5 +1,4 @@
 #include <graphics/GraphicsDriver.h>
-#include <stdio.h>
 
 std::unique_ptr<GraphicsDriver> GraphicsDriver::sInstance;
 

@@ -7,7 +7,6 @@
 //
 
 #include "gameobjects/World.h"
-#include <stdio.h>
 
 std::unique_ptr<World> World::sInstance;
 
@@ -50,4 +49,9 @@ void World::Update()
     {
         go->Update();
     }
+}
+
+const std::vector<GameObjectPtr> &World::GetGameObjects() {
+
+    return mGameObjects;
 }

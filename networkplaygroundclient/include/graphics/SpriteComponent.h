@@ -20,9 +20,16 @@ class SpriteComponent
 
     Vector3 GetOrigin() const { return mOrigin; }
     void SetOrigin( const Vector3& inOrigin ) { mOrigin = inOrigin; }
+    void SetColor( Vector3* inColor)
+    {
+        mColor.mX = inColor->mX;
+        mColor.mY = inColor->mY;
+        mColor.mZ = inColor->mZ;
+    }
 
   private:
     Vector3 mOrigin;
+    Vector3 mColor;
 
     TexturePtr mTexture;
 

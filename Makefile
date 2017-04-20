@@ -3,10 +3,11 @@ LDFLAGS=
 # BASE_INC_FLAG=networkplayground/include/networking
 # BASE_INC_FLAG=networkplaygroundclient/include/networking
 BASE_INC_FLAG=-Inetworkplayground/include/
+CLIENT_INC_FLAG=-Inetworkplaygroundclient/include/
 
 EXECUTABLE=test
 
-CC_FLAGS=-std=c++11 $(BASE_INC_FLAG)
+CC_FLAGS=-std=c++14 $(BASE_INC_FLAG)
 
 # mark the main files so we can exclude them these during unit tests
 CLIENT_MAIN=networkplaygroundclient/src/main.cpp
@@ -19,7 +20,7 @@ GTEST_INCLUDE=/opt/gtest/googletest/include/
 GTEST_LIB=/opt/gtest/lib/gtest_main.a
 TESTS_MAIN=unit_tests/main.cpp
 TESTS_MAIN_OBJ=unit_tests/main.o
-TEST_FLAGS=-std=c++11 -I $(GTEST_INCLUDE) -pthread $(GTEST_LIB)
+TEST_FLAGS=-std=c++14 -I $(GTEST_INCLUDE) -pthread $(GTEST_LIB)
 TEST_BASE_FILES=$(shell find networkplayground/tests -name '*.cpp')
 
 
@@ -57,7 +58,7 @@ unit_tests/main.o: unit_tests/main.cpp
 	$(CC) $(BASE_INC_FLAG) $(TEST_FLAGS) -c -o $@ $<
 
 %.o: %.cpp
-	$(CC) $(CC_FLAGS) -c -o $@ $<
+	$(CC) $(CLIENT_INC_FLAG) $(CC_FLAGS) -c -o $@ $<
 
 clean:
 	find . -name '*.o' -delete

@@ -60,6 +60,7 @@ class GameObject
     void SetLocation( const Vector3& inLocation ) { mLocation = inLocation; }
 
     Vector3 mLocation;
+    Vector3 mVelocity;
 
   private:
     int mIndexInWorld;

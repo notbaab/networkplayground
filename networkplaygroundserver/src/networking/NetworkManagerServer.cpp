@@ -5,7 +5,7 @@
 #include "networking/Server.h"
 #include "networking/StringUtils.h"
 #include "timing/Timing.h"
-#include <vector>
+
 
 NetworkManagerServer* NetworkManagerServer::sInstance;
 
@@ -104,7 +104,7 @@ void NetworkManagerServer::HandleInputPacket(
     uint32_t moveCount = 0;
     Move move;
     inInputStream.Read( moveCount, 2 );
-    LOG( "Proccessing %d Moves", moveCount );
+    // LOG( "Processing %d Moves", moveCount );
     for ( ; moveCount > 0; --moveCount )
     {
         proccessMovePacket( inClientProxy, move, inInputStream );
@@ -115,7 +115,6 @@ void NetworkManagerServer::HandlePacketFromNewClient(
     InputMemoryBitStream& inInputStream, const SocketAddress& inFromAddress )
 {
     uint32_t packetType;
-    uint32_t test = kHelloCC;
     inInputStream.Read( packetType );
     if ( packetType == kHelloCC )
     {
@@ -226,8 +225,8 @@ void NetworkManagerServer::WriteLastMoveTimestampIfDirty(
     bool isTimestampDirty = inClientProxy->IsLastMoveTimestampDirty();
     inOutputStream.Write( isTimestampDirty );
 
-    // Check the unproccessed moves because we got them we just haven't
-    // proccessed them
+    // Check the unprocessed moves because we got them we just haven't
+    // processed them
     // TODO: Why?
     if ( isTimestampDirty )
     {

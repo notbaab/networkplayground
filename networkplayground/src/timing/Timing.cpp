@@ -1,4 +1,5 @@
 #include "timing/Timing.h"
+#include "networking/StringUtils.h"
 
 #if !_WIN32
 #include <chrono>
@@ -28,6 +29,7 @@ Timing::Timing()
     mLastFrameStartTime = GetTime();
 #else
     sStartTime = high_resolution_clock::now();
+    LOG("Time is %f", sStartTime)
 #endif
 }
 
@@ -40,8 +42,9 @@ void Timing::Update()
 
     mLastFrameStartTime = currentTime;
     mFrameStartTimef = static_cast<float>( mLastFrameStartTime );
-}
+    // LOG("currentTime %f, mDeltaTime %f, mLastFrameStartTime %f, mFrameStartTimef %f", currentTime, mDeltaTime, mLastFrameStartTime, mFrameStartTimef);
 
+}
 double Timing::GetTime() const
 {
 #if _WIN32

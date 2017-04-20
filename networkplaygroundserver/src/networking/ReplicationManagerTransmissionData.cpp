@@ -1,7 +1,5 @@
 #include "networking/DeliveryNotificationManager.h"
 #include "networking/NetworkManagerServer.h"
-#include "networking/ReplicationCommand.h"
-#include "networking/ReplicationManagerServer.h"
 #include "networking/ReplicationManagerTransmissionData.h"
 #include "networking/StringUtils.h"
 
@@ -113,7 +111,8 @@ void ReplicationManagerTransmissionData::HandleDeliverySuccess(
             HandleDestroyDeliverySuccess( rt.GetNetworkId() );
             break;
         default:
-            LOG( "No success handler for %d", rt.GetAction() );
+            continue;
+            // LOG( "No success handler for %d", rt.GetAction() );
         }
     }
 }
