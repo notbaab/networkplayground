@@ -29,7 +29,7 @@ void ReplicationManagerClient::Read( InputMemoryBitStream& inInputStream )
             break;
 
         default:
-            LOG( "No Action found for %d", action );
+            LOG( Logger::DEBUG, "No Action found for %d", action );
         }
     }
 }

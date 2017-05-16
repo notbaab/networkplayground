@@ -45,7 +45,7 @@ int Engine::DoRunLoop()
     {
     }
 
-    LOG( "Exiting" );
+    LOG( Logger::ALL, "Exiting" );
     return 0;
 }
 

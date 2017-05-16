@@ -22,7 +22,7 @@ const char** __argv;
 int __argc;
 int main( int argc, const char* argv[] )
 {
-    Logger::InitLog("/Users/erikparreira/Dropbox/Programming/"
+    Logger::InitLog(Logger::ALL, "/Users/erikparreira/Dropbox/Programming/"
                             "networkplayground/server_log.txt");
     if ( Server::StaticInit() )
     {

@@ -80,7 +80,7 @@ bool Client::DoFrame()
 
         if(vel.mY != 0)
         {
-            LOG("moving down ");
+            LOG(Logger::DEBUG, "moving down ");
         }
     }
 
@@ -100,7 +100,7 @@ bool Client::DoFrame()
 
         if(vel.mY != 0)
         {
-            LOG("moving down ");
+            LOG(Logger::DEBUG, "moving down ");
         }
     }
 

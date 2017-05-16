@@ -29,7 +29,6 @@ Timing::Timing()
     mLastFrameStartTime = GetTime();
 #else
     sStartTime = high_resolution_clock::now();
-    LOG("Time is %f", sStartTime)
 #endif
 }
 

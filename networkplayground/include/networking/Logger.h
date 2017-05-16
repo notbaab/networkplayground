@@ -9,13 +9,13 @@ namespace Logger
 enum LogLevel
 {
     ALL = 0,
-    TRACE,
-    DEBUG,
-    INFO,
-    WARNING,
-    ERROR,
-    CRITICAL,
-    OFF,
+    TRACE = 10,
+    DEBUG = 20,
+    INFO = 30,
+    WARNING = 40,
+    ERROR = 50,
+    CRITICAL = 60,
+    OFF = 70,
 };
 
 std::string GetCommandLineArg( int inIndex );
@@ -23,18 +23,16 @@ std::string GetCommandLineArg( int inIndex );
 std::string Sprintf( const char* inFormat, ... );
 static std::string logFile;
 
-static LogLevel sCurrentLevel;
+static LogLevel sCurrentLevel = LogLevel::ALL;
 
+void InitLog(LogLevel level);
 void InitLog(LogLevel level, std::string logFile);
-void InitLog(std::string logFile);
 
-void Log( const char* inFormat, ... );
-void LogFile( const char* inFormat, ... );
-void LogMore( const char* inFormat, ... );
+void Log( LogLevel level, const char* inFormat, ... );
+void LogFile( const char* msg );
 void SetLevel(LogLevel level);
 
 }
 
-#define LOG( ... ) Logger::Log( __VA_ARGS__ );
-#define LOGMORE( ... ) Logger::LogMore( __VA_ARGS__ );
+#define LOG( level, ... ) Logger::Log( level, __VA_ARGS__ );
 #endif

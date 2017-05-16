@@ -77,7 +77,7 @@ void Server::HandleNewClient( ClientProxyPtr inClientProxy )
 
 void Server::HandleLostClient( ClientProxyPtr inClientProxy )
 {
-    LOG("WE LOST ONE!, %s", inClientProxy->GetName().c_str());
+    LOG(Logger::CRITICAL, "WE LOST ONE!, %s", inClientProxy->GetName().c_str());
 }
 
 void Server::SpawnPlayer( int inPlayerId )

@@ -122,7 +122,7 @@ void NetworkManagerServer::HandlePacketFromNewClient(
     }
     else
     {
-        LOG( "Bad packet from client %s", inFromAddress.ToString().c_str() );
+        LOG( Logger::CRITICAL, "Bad packet from client %s", inFromAddress.ToString().c_str() );
     }
 }
 
@@ -158,7 +158,7 @@ void NetworkManagerServer::SendWelcomePacket( ClientProxyPtr inClientProxy )
     welcomePacket.Write( kWelcomeCC );
     welcomePacket.Write( ( inClientProxy->GetPlayerId() ) );
 
-    LOG( "Welcomed new client '%s' as player %d",
+    LOG( Logger::INFO, "Welcomed new client '%s' as player %d",
          inClientProxy->GetName().c_str(), inClientProxy->GetPlayerId() );
 
     SendPacket( welcomePacket, inClientProxy->GetSocketAddress() );

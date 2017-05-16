@@ -13,7 +13,7 @@ void Player::ProcessInput( float inDeltaTime, const InputState& inInputState )
 
 void Player::AdjustVelocityByThrust( float inDeltaTime )
 {
-    LOG( "Implment" );
+    LOG( Logger::ERROR, "Implment" );
 }
 
 void Player::SimulateMovement( float inDeltaTime )

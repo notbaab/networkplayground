@@ -34,7 +34,7 @@ void ReplicationManagerTransmissionData::HandleDeliveryFailure(
             HandleDestroyDeliveryFailure( networkId );
             break;
         default:
-            LOG( "No failure handler for %d", rt.GetAction() );
+            LOG( Logger::CRITICAL, "No failure handler for %d", rt.GetAction() );
         }
     }
 }
