@@ -162,6 +162,8 @@ void NetworkManagerServer::SendWelcomePacket( ClientProxyPtr inClientProxy )
          inClientProxy->GetName().c_str(), inClientProxy->GetPlayerId() );
 
     SendPacket( welcomePacket, inClientProxy->GetSocketAddress() );
+    SendStatePacketToClient(inClientProxy);
+
 }
 
 void NetworkManagerServer::SendOutgoingPackets()
@@ -293,6 +295,7 @@ void NetworkManagerServer::HandleClientDisconnected(
 void NetworkManagerServer::RegisterGameObject( GameObjectPtr inGameObject )
 {
     // assign network id
+    LOG(Logger::TRACE, "Registering Game Object");
     int newNetworkId = GetNewNetworkId();
     inGameObject->SetNetworkId( newNetworkId );
 
