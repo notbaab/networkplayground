@@ -1,6 +1,5 @@
 #include "input/InputManager.h"
 #include "timing/Timing.h"
-#include "networking/Logger.h"
 
 std::unique_ptr<InputManager> InputManager::sInstance;
 
@@ -75,10 +74,8 @@ const Move& InputManager::SampleInputAsMove()
 bool InputManager::IsTimeToSampleInput()
 {
     float time = Timing::sInstance.GetFrameStartTime();
-    // LOG("Time %f and %f", time, mNextTimeToSampleInput);
     if ( time > mNextTimeToSampleInput )
     {
-        // LOG("Sampling");
         mNextTimeToSampleInput += kTimeBetweenInputSamples;
         return true;
     }

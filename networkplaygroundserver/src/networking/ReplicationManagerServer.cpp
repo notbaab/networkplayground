@@ -40,7 +40,7 @@ void ReplicationManagerServer::Write(
 {
     for ( auto& pair : mNetworkIdToReplicationCommand )
     {
-        // What is the commmand we are trying to replicate?
+        // What is the command we are trying to replicate?
         ReplicationCommand& replicationCommmand = pair.second;
 
         // Only do stuff if the command is "dirty"
@@ -70,6 +70,7 @@ void ReplicationManagerServer::Write(
                 WriteCreateAction( inOutputStream, networkId, dirtyState );
             break;
         case RA_UPDATE:
+            Log(Logger::TRACE, "Writing Update Packet");
             writtenState =
                 WriteUpdateAction( inOutputStream, networkId, dirtyState );
             break;

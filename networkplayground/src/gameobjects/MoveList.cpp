@@ -18,19 +18,16 @@ bool MoveList::AddMoveIfNew( const Move& inMove )
     float timeStamp = inMove.GetTimeStamp();
 
     // only add if latter than current move
-    if ( timeStamp <= mLastMoveTimestamp )
+    if ( timeStamp <= mLastMoveTimestamp )jjj
     {
+        LOG(Logger::TRACE, "Old Move");
         return false;
     }
 
-    float deltaTime =
-        mLastMoveTimestamp >= 0.f ? timeStamp - mLastMoveTimestamp : 0.f;
+    float deltaTime = mLastMoveTimestamp >= 0.f ? timeStamp - mLastMoveTimestamp : 0.f;
 
     mLastMoveTimestamp = timeStamp;
-
     mMoves.emplace_back( inMove.GetInputState(), timeStamp, deltaTime );
-    // LOG( "Adding move with timestamp %.10f and delta %.10f", timeStamp,
-         // deltaTime );
 
     return true;
 }
@@ -42,5 +39,9 @@ void MoveList::RemoveProcessedMoves( float inLastMoveProcessedTimestamp )
             mMoves.front().GetTimeStamp() <= inLastMoveProcessedTimestamp )
     {
         mMoves.pop_front();
+    }
+    if (!mMoves.empty())
+    {
+        LOG(Logger::TRACE, "Moves still here %d\n", mMoves.size());
     }
 }

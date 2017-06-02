@@ -9,6 +9,7 @@
 #define PlayerMessage_h
 #include "IO/MemoryBitStream.h"
 #include "gameobjects/Player.h"
+#include "networking/Logger.h"
 
 class Player;
 
@@ -31,6 +32,7 @@ class PlayerMessage
 
         if(writePosition)
         {
+            LOG(Logger::TRACE, "Message is At %.2f, %.2f", dataContainer->GetLocation().mX, dataContainer->GetLocation().mY);
             stream.serialize( dataContainer->mVelocity.mX );
             stream.serialize( dataContainer->mVelocity.mY );
 

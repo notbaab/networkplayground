@@ -137,6 +137,7 @@ void NetworkManagerClient::SendInputPacket()
 
     if ( moveList.HasMoves() )
     {
+        Log(Logger::TRACE, "Has Moves");
         OutputMemoryBitStream inputPacket;
 
         inputPacket.Write( kInputCC );
@@ -178,6 +179,7 @@ void NetworkManagerClient::ReadLastMoveProcessedOnServerTimestamp(
     // Don't do anything if the packet wasn't dirty
     if ( !isTimestampDirty )
     {
+        Log(Logger::TRACE, "Don't need i");
         return;
     }
 

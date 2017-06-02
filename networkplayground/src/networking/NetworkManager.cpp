@@ -117,6 +117,7 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
             // nothing to read
             break;
         }
+        Log(Logger::TRACE, "Read %d", readByteCount);
         // Reset? How would that work with udp sockets?
         // else if( readByteCount == -WSAECONNRESET )
         // {

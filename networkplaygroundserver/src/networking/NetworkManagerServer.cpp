@@ -176,7 +176,6 @@ void NetworkManagerServer::SendOutgoingPackets()
 
         if ( clientProxy->IsLastMoveTimestampDirty() )
         {
-            // we
             SendStatePacketToClient( clientProxy );
         }
     }
@@ -187,6 +186,7 @@ void NetworkManagerServer::UpdateAllClients() {}
 void NetworkManagerServer::SendStatePacketToClient(
     ClientProxyPtr inClientProxy )
 {
+    Logger::Log(Logger::TRACE, "Sending State");
     OutputMemoryBitStream statePacket;
 
     //    auto replicationServer = inClientProxy->GetReplicationManagerServer();
@@ -200,7 +200,7 @@ void NetworkManagerServer::SendStatePacketToClient(
         inClientProxy->GetDeliveryNotificationManager().WriteState(
             statePacket );
 
-    // Tell the client whcih move we last saw from them
+    // Tell the client which move we last saw from them
     WriteLastMoveTimestampIfDirty( statePacket, inClientProxy );
 
     ReplicationManagerTransmissionData* rmtd =

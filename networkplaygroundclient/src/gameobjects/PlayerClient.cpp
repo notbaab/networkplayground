@@ -20,9 +20,11 @@ void PlayerClient::Update()
 {
     if ( !IsCreatedOnServer() )
     {
+        Log(Logger::TRACE, "Not created yet");
         return;
     }
-
+    // Player::Update();
+    // mServerGhost->PrintInfo();
     const Move* pendingMove =
         InputManager::sInstance->GetAndClearPendingMove();
 
@@ -37,6 +39,8 @@ void PlayerClient::Update()
     ProcessInput( TIME_STEP, pendingMove->GetInputState() );
 
     SimulateMovement( TIME_STEP );
+    Player::Update();
+    mServerGhost->PrintInfo();
 }
 
 // Called everytime we get a packet from the server
@@ -47,6 +51,8 @@ void PlayerClient::Read( InputMemoryBitStream& inInputStream )
     if(!IsCreatedOnServer())
     {
         PlayerMessage::Serialize( inInputStream, this );
+        Log(Logger::TRACE, "Created");
+        // HandleStatePacket(inInputStream);
     } else {
         HandleStatePacket(inInputStream);
     }
@@ -55,6 +61,7 @@ void PlayerClient::Read( InputMemoryBitStream& inInputStream )
 // Read player into a ghost object and interpolate from there
 void PlayerClient::HandleStatePacket(InputMemoryBitStream& inInputStream )
 {
+    Log(Logger::TRACE, "Reading in State");
     PlayerMessage::Serialize( inInputStream, mServerGhost );
 }
 
