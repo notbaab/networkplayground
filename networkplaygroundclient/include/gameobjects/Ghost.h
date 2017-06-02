@@ -13,7 +13,7 @@ class Ghost : public GameObject
 {
 public:
     Ghost();
-
+    void PrintInfo();
     // An enum in most implementations but always an uint32 when reading
     // and writing from a stream
     uint32_t mState;

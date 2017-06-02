@@ -7,6 +7,7 @@
 //
 
 #include "gameobjects/World.h"
+#include "networking/Logger.h"
 
 std::unique_ptr<World> World::sInstance;
 
@@ -20,6 +21,19 @@ void World::AddGameObject( GameObjectPtr inGameObject )
 
 void World::StaticAddGameObject(GameObjectPtr inGameObject) {
     sInstance->AddGameObject(inGameObject);
+}
+
+void World::PrintInfo()
+{
+
+    for (auto go : sInstance->mGameObjects)
+    {
+        // TODO: Print Info delegate to game object
+        printf("Location of  %d, %.2f, %.2f",
+                               go->GetNetworkId(),
+                               go->GetLocation().mX,
+                               go->GetLocation().mY);
+    }
 }
 
 void World::RemoveGameObject( GameObjectPtr inGameObject )

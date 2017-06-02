@@ -23,6 +23,7 @@ class World
 
     void AddGameObject( GameObjectPtr inGameObject );
     static void StaticAddGameObject( GameObjectPtr inGameObject );
+    static void PrintInfo();
 
     void RemoveGameObject( GameObjectPtr inGameObject );
 
