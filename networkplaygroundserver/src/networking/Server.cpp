@@ -61,9 +61,8 @@ bool Server::DoFrame()
     {
         mNextPhysicsTick += TIME_BETWEEN_TICKS;
         Engine::DoFrame();
+        networkManager->SendOutgoingPackets();
     }
-
-    networkManager->SendOutgoingPackets();
 
     return true;
 }
