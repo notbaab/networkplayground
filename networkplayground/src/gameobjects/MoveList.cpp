@@ -18,7 +18,7 @@ bool MoveList::AddMoveIfNew( const Move& inMove )
     float timeStamp = inMove.GetTimeStamp();
 
     // only add if latter than current move
-    if ( timeStamp <= mLastMoveTimestamp )jjj
+    if ( timeStamp <= mLastMoveTimestamp )
     {
         LOG(Logger::TRACE, "Old Move");
         return false;
