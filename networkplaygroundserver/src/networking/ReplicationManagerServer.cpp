@@ -1,10 +1,12 @@
 #include "gameobjects/GameObject.h"
 #include "networking/NetworkManagerServer.h"
 #include "networking/ReplicationManagerTransmissionData.h"
+#include "networking/Logger.h"
 
 void ReplicationManagerServer::ReplicateCreate( int inNetworkId,
                                                 uint32_t inInitialDirtyState )
 {
+    LOG(Logger::TRACE, "Made a replicate create");
     mNetworkIdToReplicationCommand[inNetworkId] =
         ReplicationCommand( inInitialDirtyState );
 }
@@ -66,6 +68,7 @@ void ReplicationManagerServer::Write(
         switch ( action )
         {
         case RA_CREATE:
+            LOG(Logger::TRACE, "Creating");
             writtenState =
                 WriteCreateAction( inOutputStream, networkId, dirtyState );
             break;

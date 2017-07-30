@@ -68,6 +68,7 @@ void NetworkManager::ProcessQueuedPackets()
     while ( !mPacketQueue.empty() )
     {
         ReceivedPacket& nextPacket = mPacketQueue.front();
+        Log(Logger::CRITICAL, "Time %.f, other time %.f", Timing::sInstance.GetTimef(), nextPacket.GetRecievedTime());
         // if( Timing::sInstance.GetTimef() > nextPacket.GetReceivedTime() )
         // {
         ProcessPacket( nextPacket.GetPacketBuffer(),

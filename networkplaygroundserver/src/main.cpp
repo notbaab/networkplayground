@@ -40,7 +40,7 @@ int main( int argc, const char* argv[] )
 {
     std::thread t(&interactive_console);   // t starts running
 
-    Logger::InitLog(Logger::CRITICAL);
+    Logger::InitLog(Logger::TRACE);
     Logger::Log(Logger::DEBUG, "Starting");
 
     if ( Server::StaticInit() )
