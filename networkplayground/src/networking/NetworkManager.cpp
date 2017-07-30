@@ -9,6 +9,8 @@
 #include "networking/NetworkManager.h"
 #include "networking/SocketUtil.h"
 #include "networking/Logger.h"
+#include "timing/Timing.h"
+
 #include <ctime>
 
 // TODO: Temp for now
@@ -139,7 +141,7 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
         totalBytesRead += readByteCount;
 
         // TODO: Simulate dropping packet change and latency
-        float recievedTime = time( 0 );
+        float recievedTime = Timing::sInstance.GetTimef();
         // std::cout << recievedTime << std::endl;
 
         // create a new RecievedPacket, copying the memory stream

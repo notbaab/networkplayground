@@ -28,7 +28,7 @@ void PlayerServer::Update()
             const InputState& currentState = unprocessedMove.GetInputState();
 
             float deltaTime = unprocessedMove.GetDeltaTime();
-            ProcessInput( deltaTime, currentState );
+            ProcessInput( 0, currentState );
             SimulateMovement( TIME_STEP );
         }
         moveList.Clear();
