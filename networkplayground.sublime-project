@@ -15,6 +15,10 @@
 	"folders":
 	[
 		{
+			"folder_exclude_patterns":
+			[
+				"lib"
+			],
 			"path": "."
 		},
 		{

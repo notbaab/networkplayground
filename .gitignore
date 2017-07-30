@@ -46,3 +46,9 @@ cmake_install\.cmake
 client
 
 server
+
+*.sublime-workspace
+
+*.cbp
+
+compile_commands\.json

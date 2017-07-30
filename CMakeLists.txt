@@ -66,7 +66,7 @@ set(UNIT_TEST_SOURCE
 
 add_executable(client ${BASE_SOURCE} ${CLIENT_SOURCE} networkplaygroundclient/src/main.cpp)
 add_executable(server ${BASE_SOURCE} ${SERVER_SOURCE} networkplaygroundserver/src/main.cpp)
-add_executable(unit_tests ${BASE_SOURCE} ${SERVER_SOURCE} ${UNIT_TEST_SOURCE} networkplayground/tests/OutputMemoryBitStream_test.cpp)
+# add_executable(unit_tests ${BASE_SOURCE} ${SERVER_SOURCE} ${UNIT_TEST_SOURCE} networkplayground/tests/OutputMemoryBitStream_test.cpp)
 
 
 
@@ -78,14 +78,14 @@ target_include_directories(client
         ${SDL2_INCLUDE_DIR}
         ${SDL2_IMAGE_INCLUDE_DIR})
 
-target_include_directories(unit_tests PUBLIC networkplayground/include/ networkplaygroundserver/include/ networkplaygroundclient/include/)
+# target_include_directories(unit_tests PUBLIC networkplayground/include/ networkplaygroundserver/include/ networkplaygroundclient/include/)
 
 target_link_libraries(client ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES})
 
 # These should go in their own directory
-add_subdirectory(lib/googletest)
+# add_subdirectory(lib/googletest)
 
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-target_link_libraries(unit_tests gtest gtest_main)
+# target_link_libraries(unit_tests gtest gtest_main)
 
