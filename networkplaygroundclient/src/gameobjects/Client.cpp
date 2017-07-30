@@ -84,10 +84,11 @@ bool Client::DoFrame()
         }
     }
 
+    NetworkManagerClient::sInstance->ProcessIncomingPackets();
 
     Engine::DoFrame();
 
-    NetworkManagerClient::sInstance->ProcessIncomingPackets();
+
 
     auto objs2 = World::sInstance->GetGameObjects();
 
