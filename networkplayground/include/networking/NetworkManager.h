@@ -22,6 +22,7 @@ class NetworkManager
     static const uint32_t kWelcomeCC = 'WLCM'; // server welcome message
     static const uint32_t kStateCC = 'STAT';
     static const uint32_t kInputCC = 'INPT';
+    static const int      kMaxPacketsPerFrameCount = 10;
 
     NetworkManager();
     virtual ~NetworkManager();
@@ -63,7 +64,7 @@ class NetworkManager
         const SocketAddress& GetFromAddress() const { return mFromAddress; }
 
         // When was this packet received
-        float GetRecievedTime() const { return mRecievedTime; }
+        float GetReceivedTime() const { return mRecievedTime; }
 
         // Get the stream of  packet data
         InputMemoryBitStream& GetPacketBuffer() { return mPacketDataStream; }
@@ -74,9 +75,11 @@ class NetworkManager
         SocketAddress mFromAddress;
     };
 
-    UDPSocketPtr mSocket;
-    //
     std::queue<ReceivedPacket, std::list<ReceivedPacket>> mPacketQueue;
+    UDPSocketPtr mSocket;
+    int                         mBytesSentThisFrame;
+    float                       mDropPacketChance;
+    float                       mSimulatedLatency;
     //    WeightedTimedMovingAverage	mBytesReceivedPerSecond;
     //    WeightedTimedMovingAverage	mBytesSentPerSecond;
 };

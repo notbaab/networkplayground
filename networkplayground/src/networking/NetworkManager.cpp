@@ -10,6 +10,7 @@
 #include "networking/SocketUtil.h"
 #include "networking/Logger.h"
 #include "timing/Timing.h"
+#include "math/Random.h"
 
 #include <ctime>
 
@@ -17,10 +18,8 @@
 void printStream( InputMemoryBitStream& inInputStream );
 
 NetworkManager::NetworkManager()
-    : mRecordRequestPackets( false ), mRecordRespondPackets( false )
-// mBytesSentThisFrame( 0 ),
-// mDropPacketChance( 0.f ),
-// mSimulatedLatency( 0.f )
+    : mRecordRequestPackets( false ), mRecordRespondPackets( false ),
+      mBytesSentThisFrame( 0 ), mDropPacketChance( 0.f ), mSimulatedLatency( 1.f )
 {
 }
 
@@ -68,17 +67,18 @@ void NetworkManager::ProcessQueuedPackets()
     while ( !mPacketQueue.empty() )
     {
         ReceivedPacket& nextPacket = mPacketQueue.front();
-        Log(Logger::CRITICAL, "Time %.f, other time %.f", Timing::sInstance.GetTimef(), nextPacket.GetRecievedTime());
-        // if( Timing::sInstance.GetTimef() > nextPacket.GetReceivedTime() )
-        // {
-        ProcessPacket( nextPacket.GetPacketBuffer(),
-                       nextPacket.GetFromAddress() );
+
+        // Log(Logger::INFO, "Time %2.2f, other time %2.2f",
+        //         Timing::sInstance.GetTimef(), nextPacket.GetReceivedTime());
+        // TODO: Don't break, we will need to simulate jitter and out of order packets
+        if( Timing::sInstance.GetTimef() < nextPacket.GetReceivedTime() ){
+            // Log(Logger::INFO, "Simulating Lag: Time %.f, other time %.f",
+            //     Timing::sInstance.GetTimef(), nextPacket.GetReceivedTime());
+            break;
+        }
+
+        ProcessPacket( nextPacket.GetPacketBuffer(), nextPacket.GetFromAddress() );
         mPacketQueue.pop();
-        // }
-        // else
-        // {
-        //     break;
-        // }
     }
 }
 
@@ -109,44 +109,44 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
 
     SocketAddress fromAddress;
 
-    // XXX: Hard code 10 total packets received for now
-    while ( totalPacketsRecieved < 10 )
+    while ( totalPacketsRecieved < kMaxPacketsPerFrameCount )
     {
-        int readByteCount =
-            mSocket->ReceiveFrom( packetMem, packetSize, fromAddress );
+        int readByteCount = mSocket->ReceiveFrom( packetMem, packetSize, fromAddress );
 
         if ( readByteCount == 0 )
         {
             // nothing to read
             break;
+        } else if ( readByteCount == -WSAECONNRESET ) {
+            // got a connection reset? In a udp socket?
+            LOG(Logger::INFO, "Client disconnected");
+            break;
         }
-        Log(Logger::TRACE, "Read %d", readByteCount);
-        // Reset? How would that work with udp sockets?
-        // else if( readByteCount == -WSAECONNRESET )
-        // {
-        //     //port closed on other end, so DC this person immediately
-        //     HandleConnectionReset( fromAddress );
-        // }
 
         // Resize input stream to the number of bytes
         inputStream.ResetToCapacity( readByteCount );
+        ++totalPacketsRecieved;
+        totalBytesRead += readByteCount;
 
+
+        if ( Math::GetRandomFloat() < mDropPacketChance ) {
+            LOG(Logger::DEBUG, "Simulated a dropped packet!");
+            break;
+        }
+
+        float recievedTime = Timing::sInstance.GetTimef() + mSimulatedLatency;
+        // float recievedTime = Timing::sInstance.GetTimef();
+
+        // create a new RecievedPacket, copying the memory stream
+        mPacketQueue.emplace( recievedTime, inputStream, fromAddress );
+
+        // Eh, probably not really need at this point
         if ( mRecordRequestPackets )
         {
             Logger::LogFile( "Requests: " );
             inputStream.printStream();
             Logger::LogFile( "\n" );
         }
-
-        ++totalPacketsRecieved;
-        totalBytesRead += readByteCount;
-
-        // TODO: Simulate dropping packet change and latency
-        float recievedTime = Timing::sInstance.GetTimef();
-        // std::cout << recievedTime << std::endl;
-
-        // create a new RecievedPacket, copying the memory stream
-        mPacketQueue.emplace( recievedTime, inputStream, fromAddress );
     }
 }
 
