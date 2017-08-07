@@ -147,8 +147,8 @@ void NetworkManagerClient::SendInputPacket()
 
         int moveCount = moveList.GetMoveCount();
         // LOG("Has %d", moveCount);
-        int firstMoveIndex = moveCount - 3;
-//        int firstMoveIndex = 0;
+        // int firstMoveIndex = moveCount - 3;
+       int firstMoveIndex = 0;
 
         if ( firstMoveIndex < 3 )
         {
@@ -157,8 +157,8 @@ void NetworkManagerClient::SendInputPacket()
 
         auto move = moveList.begin() + firstMoveIndex;
 
-        inputPacket.Write( moveCount - firstMoveIndex, 2 );
-        // LOG("Sending %d moves", moveCount - firstMoveIndex);
+        inputPacket.Write( moveCount - firstMoveIndex, 8 );
+        LOG(Logger::TRACE, "Sending %d moves", moveCount - firstMoveIndex);
         for ( ; firstMoveIndex < moveCount; ++firstMoveIndex, ++move )
         {
             move->Write( inputPacket );

@@ -103,8 +103,9 @@ void NetworkManagerServer::HandleInputPacket(
 {
     uint32_t moveCount = 0;
     Move move;
-    inInputStream.Read( moveCount, 2 );
-    // LOG( "Processing %d Moves", moveCount );
+    // TODO: Have a move packet so I don't need to change the bit count everywhere
+    inInputStream.Read( moveCount, 8 );
+    LOG( Logger::TRACE, "Processing %d Moves", moveCount );
     for ( ; moveCount > 0; --moveCount )
     {
         proccessMovePacket( inClientProxy, move, inInputStream );
