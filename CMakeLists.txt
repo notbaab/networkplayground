@@ -22,6 +22,7 @@ SET(BASE_SOURCE
     networkplayground/src/gameobjects/World.cpp
     networkplayground/src/IO/MemoryBitStream.cpp
     networkplayground/src/math/Vector3.cpp
+    networkplayground/src/math/Random.cpp
     networkplayground/src/networking/AckRange.cpp
     networkplayground/src/networking/DeliveryNotificationManager.cpp
     networkplayground/src/networking/InFlightPacket.cpp

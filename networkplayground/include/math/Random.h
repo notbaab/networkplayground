@@ -1,0 +1,4 @@
+namespace Math
+{
+    float GetRandomFloat();
+}
