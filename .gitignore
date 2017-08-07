@@ -52,3 +52,5 @@ server
 *.cbp
 
 compile_commands\.json
+
+Makefile
