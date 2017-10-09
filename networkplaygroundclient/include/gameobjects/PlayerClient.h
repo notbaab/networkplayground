@@ -31,11 +31,8 @@ class PlayerClient : public Player
     PlayerClient();
 
   private:
-    void InterpolateClientSidePrediction( const Vector3& inOldLocation,
-                                          const Vector3& inOldVelocity,
-                                          bool inIsRemotePlayer );
-
-    void HandleStatePacket(InputMemoryBitStream& inInputStream);
+    void ApplyUnAckedMoves( uint32_t inReadState );
+    void HandleStatePacket( InputMemoryBitStream& inInputStream );
 
     float mTimeLocationBecameOutOfSync;
     float mTimeVelocityBecameOutOfSync;
