@@ -5,12 +5,12 @@
 //  Created by Erik Parreira on 2/29/16.
 //  Copyright © 2016 Erik Parreira. All rights reserved.
 
-#include "gameobjects/GameObject.h"
 #include "networking/NetworkManager.h"
-#include "networking/SocketUtil.h"
-#include "networking/Logger.h"
-#include "timing/Timing.h"
+#include "gameobjects/GameObject.h"
 #include "math/Random.h"
+#include "networking/Logger.h"
+#include "networking/SocketUtil.h"
+#include "timing/Timing.h"
 
 #include <ctime>
 
@@ -19,7 +19,8 @@ void printStream( InputMemoryBitStream& inInputStream );
 
 NetworkManager::NetworkManager()
     : mRecordRequestPackets( false ), mRecordRespondPackets( false ),
-      mBytesSentThisFrame( 0 ), mDropPacketChance( 0.f ), mSimulatedLatency( 1.f )
+      mBytesSentThisFrame( 0 ), mDropPacketChance( 0.f ),
+      mSimulatedLatency( 0.f )
 {
 }
 
@@ -70,14 +71,17 @@ void NetworkManager::ProcessQueuedPackets()
 
         // Log(Logger::INFO, "Time %2.2f, other time %2.2f",
         //         Timing::sInstance.GetTimef(), nextPacket.GetReceivedTime());
-        // TODO: Don't break, we will need to simulate jitter and out of order packets
-        if( Timing::sInstance.GetTimef() < nextPacket.GetReceivedTime() ){
+        // TODO: Don't break, we will need to simulate jitter and out of order
+        // packets
+        if ( Timing::sInstance.GetTimef() < nextPacket.GetReceivedTime() )
+        {
             // Log(Logger::INFO, "Simulating Lag: Time %.f, other time %.f",
             //     Timing::sInstance.GetTimef(), nextPacket.GetReceivedTime());
             break;
         }
 
-        ProcessPacket( nextPacket.GetPacketBuffer(), nextPacket.GetFromAddress() );
+        ProcessPacket( nextPacket.GetPacketBuffer(),
+                       nextPacket.GetFromAddress() );
         mPacketQueue.pop();
     }
 }
@@ -111,15 +115,18 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
 
     while ( totalPacketsRecieved < kMaxPacketsPerFrameCount )
     {
-        int readByteCount = mSocket->ReceiveFrom( packetMem, packetSize, fromAddress );
+        int readByteCount =
+            mSocket->ReceiveFrom( packetMem, packetSize, fromAddress );
 
         if ( readByteCount == 0 )
         {
             // nothing to read
             break;
-        } else if ( readByteCount == -WSAECONNRESET ) {
+        }
+        else if ( readByteCount == -WSAECONNRESET )
+        {
             // got a connection reset? In a udp socket?
-            LOG(Logger::INFO, "Client disconnected");
+            LOG( Logger::INFO, "Client disconnected" );
             break;
         }
 
@@ -128,9 +135,9 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
         ++totalPacketsRecieved;
         totalBytesRead += readByteCount;
 
-
-        if ( Math::GetRandomFloat() < mDropPacketChance ) {
-            LOG(Logger::DEBUG, "Simulated a dropped packet!");
+        if ( Math::GetRandomFloat() < mDropPacketChance )
+        {
+            LOG( Logger::DEBUG, "Simulated a dropped packet!" );
             break;
         }
 

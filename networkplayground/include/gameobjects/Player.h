@@ -16,7 +16,7 @@ class Player : public GameObject
 
     enum PlayerReplicationState
     {
-        PRS_PID = 1 << 0, // Player Id
+        PRS_PID = 1 << 0,  // Player Id
         PRS_POSI = 1 << 1, // Player position and rotation
         ALL_STATE = PRS_POSI | PRS_PID,
     };
