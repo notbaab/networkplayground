@@ -1,10 +1,3 @@
-//
-//  main.cpp
-//  networkplaygroundclient
-//
-//  Created by Erik Parreira on 2/15/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
 #include <iostream>
 #include <thread>
 #include <string>
@@ -40,8 +33,10 @@ int main( int argc, const char* argv[] )
 {
     std::thread t(&interactive_console);   // t starts running
 
-    Logger::InitLog(Logger::TRACE);
-    Logger::Log(Logger::DEBUG, "Starting");
+    Logger::InitLog(spdlog::level::trace, "server");
+    INFO("Fucking start");
+    TRACE("Fucking start");
+    DEBUG("Stuff")
 
     if ( Server::StaticInit() )
     {

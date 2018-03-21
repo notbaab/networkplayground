@@ -105,7 +105,7 @@ void NetworkManagerServer::HandleInputPacket(
     Move move;
     // TODO: Have a move packet so I don't need to change the bit count everywhere
     inInputStream.Read( moveCount, 8 );
-    LOG( Logger::TRACE, "Processing %d Moves", moveCount );
+    TRACE("Processing {} Moves", moveCount );
     for ( ; moveCount > 0; --moveCount )
     {
         proccessMovePacket( inClientProxy, move, inInputStream );
@@ -123,7 +123,7 @@ void NetworkManagerServer::HandlePacketFromNewClient(
     }
     else
     {
-        LOG( Logger::CRITICAL, "Bad packet from client %s", inFromAddress.ToString().c_str() );
+        CRITICAL("Bad packet from client {}", inFromAddress.ToString().c_str() );
     }
 }
 
@@ -140,8 +140,7 @@ void NetworkManagerServer::HandleHelloPacket(
     mPlayerIdToClientMap[newClientProxy->GetPlayerId()] = newClientProxy;
 
     // Book Says this is a terrible way to do this. I agree
-    static_cast<Server*>( Engine::sInstance.get() )
-        ->HandleNewClient( newClientProxy );
+    static_cast<Server*>(Engine::sInstance.get())->HandleNewClient( newClientProxy );
 
     SendWelcomePacket( newClientProxy );
 
@@ -159,12 +158,11 @@ void NetworkManagerServer::SendWelcomePacket( ClientProxyPtr inClientProxy )
     welcomePacket.Write( kWelcomeCC );
     welcomePacket.Write( ( inClientProxy->GetPlayerId() ) );
 
-    LOG( Logger::INFO, "Welcomed new client '%s' as player %d",
+    INFO("Welcomed new client '{}' as player {}",
          inClientProxy->GetName().c_str(), inClientProxy->GetPlayerId() );
 
     SendPacket( welcomePacket, inClientProxy->GetSocketAddress() );
     SendStatePacketToClient(inClientProxy);
-
 }
 
 void NetworkManagerServer::SendOutgoingPackets()
@@ -183,13 +181,14 @@ void NetworkManagerServer::SendOutgoingPackets()
         }
     }
 }
+
 void NetworkManagerServer::UpdateAllClients() {}
 
 // The thing that actually sends the world state to the clients
 void NetworkManagerServer::SendStatePacketToClient(
     ClientProxyPtr inClientProxy )
 {
-    Logger::Log(Logger::TRACE, "Sending State");
+    TRACE("Sending State");
     OutputMemoryBitStream statePacket;
 
     //    auto replicationServer = inClientProxy->GetReplicationManagerServer();
@@ -296,7 +295,7 @@ void NetworkManagerServer::HandleClientDisconnected(
 void NetworkManagerServer::RegisterGameObject( GameObjectPtr inGameObject )
 {
     // assign network id
-    LOG(Logger::TRACE, "Registering Game Object");
+    TRACE("Registering Game Object");
     int newNetworkId = GetNewNetworkId();
     inGameObject->SetNetworkId( newNetworkId );
 

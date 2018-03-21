@@ -10,9 +10,6 @@
 const char** __argv;
 int __argc;
 
-// Logger::LogLevel logLevel = Logger::ALL;
-Logger::LogLevel logLevel = Logger::CRITICAL;
-
 #define EXIT "exit"
 
 void interactive_console()
@@ -33,19 +30,21 @@ void interactive_console()
 
 int main( int argc, const char* argv[] )
 {
-    std::thread t(&interactive_console);   // t starts running
+    // std::thread t(&interactive_console);   // t starts running
 
     __argc = argc;
     __argv = argv;
 
-    Logger::InitLog(logLevel);
-    LOG(Logger::TRACE, "Starting");
+    Logger::InitLog(spdlog::level::trace, "client");
 
     if ( Client::StaticInit() )
     {
-        return Client::sInstance->Run();
+        int exitCode = Client::sInstance->Run();
+        INFO("Exiting");
+        SDL_Quit();
+        return exitCode;
     }
-else
+    else
     {
         SDL_Quit();
         // error

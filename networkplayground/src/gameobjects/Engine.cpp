@@ -27,7 +27,7 @@ Engine::~Engine()
 {
     SocketUtil::CleanUp();
 
-    //    SDL_Quit();
+       // SDL_Quit();
 }
 
 int Engine::Run() { return DoRunLoop(); }
@@ -45,7 +45,7 @@ int Engine::DoRunLoop()
     {
     }
 
-    LOG( Logger::ALL, "Exiting" );
+    INFO("Exiting");
     return 0;
 }
 

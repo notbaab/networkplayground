@@ -101,7 +101,7 @@ void NetworkManagerClient::HandleWelcomePacket(
     // Read player id into state
     inInputStream.Read( mPlayerId );
     mState = NCS_Welcomed;
-    LOG( Logger::DEBUG, "'%s' was welcomed on client as player %d", mName.c_str(), mPlayerId );
+    DEBUG("'{}' was welcomed on client as player {}", mName.c_str(), mPlayerId );
 }
 
 void NetworkManagerClient::HandleStatePacket(
@@ -137,7 +137,7 @@ void NetworkManagerClient::SendInputPacket()
 
     if ( moveList.HasMoves() )
     {
-        Log(Logger::TRACE, "Has Moves");
+        TRACE("Has Moves");
         OutputMemoryBitStream inputPacket;
 
         inputPacket.Write( kInputCC );
@@ -146,7 +146,6 @@ void NetworkManagerClient::SendInputPacket()
         mDeliveryNotificationManager.WriteState( inputPacket );
 
         int moveCount = moveList.GetMoveCount();
-        // LOG("Has %d", moveCount);
         // int firstMoveIndex = moveCount - 3;
        int firstMoveIndex = 0;
 
@@ -158,7 +157,7 @@ void NetworkManagerClient::SendInputPacket()
         auto move = moveList.begin() + firstMoveIndex;
 
         inputPacket.Write( moveCount - firstMoveIndex, 8 );
-        LOG(Logger::TRACE, "Sending %d moves", moveCount - firstMoveIndex);
+        TRACE("Sending {} moves", moveCount - firstMoveIndex);
         for ( ; firstMoveIndex < moveCount; ++firstMoveIndex, ++move )
         {
             move->Write( inputPacket );
@@ -179,7 +178,7 @@ void NetworkManagerClient::ReadLastMoveProcessedOnServerTimestamp(
     // Don't do anything if the packet wasn't dirty
     if ( !isTimestampDirty )
     {
-        Log(Logger::TRACE, "Don't need i");
+        TRACE("Don't need i");
         return;
     }
 

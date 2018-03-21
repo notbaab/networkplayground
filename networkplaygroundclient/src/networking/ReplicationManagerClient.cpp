@@ -18,18 +18,17 @@ void ReplicationManagerClient::Read( InputMemoryBitStream& inInputStream )
         switch ( action )
         {
         case RA_CREATE:
+            DEBUG("Creating {}", networkId);
             ReadAndDoCreateAction( inInputStream, networkId );
             break;
-
         case RA_UPDATE:
             ReadAndDoUpdateAction( inInputStream, networkId );
             break;
         case RA_DESTROY:
             ReadAndDoDestroyAction( inInputStream, networkId );
             break;
-
         default:
-            LOG( Logger::DEBUG, "No Action found for %d", action );
+            DEBUG("No Action found for {}", action );
         }
     }
 }

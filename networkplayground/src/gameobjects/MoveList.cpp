@@ -20,7 +20,7 @@ bool MoveList::AddMoveIfNew( const Move& inMove )
     // only add if latter than current move
     if ( timeStamp <= mLastMoveTimestamp )
     {
-        LOG(Logger::TRACE, "Old Move");
+        TRACE("Old Move");
         return false;
     }
 
@@ -42,6 +42,6 @@ void MoveList::RemoveProcessedMoves( float inLastMoveProcessedTimestamp )
     }
     if (!mMoves.empty())
     {
-        LOG(Logger::TRACE, "Moves still here %d\n", mMoves.size());
+        TRACE("Moves still here {}\n", mMoves.size());
     }
 }

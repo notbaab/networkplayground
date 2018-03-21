@@ -126,7 +126,7 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
         else if ( readByteCount == -WSAECONNRESET )
         {
             // got a connection reset? In a udp socket?
-            LOG( Logger::INFO, "Client disconnected" );
+            INFO("Client disconnected");
             break;
         }
 
@@ -137,7 +137,7 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
 
         if ( Math::GetRandomFloat() < mDropPacketChance )
         {
-            LOG( Logger::DEBUG, "Simulated a dropped packet!" );
+            DEBUG("Simulated a dropped packet!");
             break;
         }
 
@@ -150,9 +150,7 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
         // Eh, probably not really need at this point
         if ( mRecordRequestPackets )
         {
-            Logger::LogFile( "Requests: " );
             inputStream.printStream();
-            Logger::LogFile( "\n" );
         }
     }
 }
@@ -168,9 +166,7 @@ void NetworkManager::SendPacket( const OutputMemoryBitStream& inOutputStream,
 
     if ( mRecordRespondPackets )
     {
-        Logger::LogFile( "Sending: " );
         inOutputStream.printStream();
-        Logger::LogFile( "\n" );
     }
 
     if ( sentByteCount )

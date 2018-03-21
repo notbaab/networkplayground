@@ -14,5 +14,5 @@ Ghost::Ghost()
 
 void Ghost::PrintInfo()
 {
-   LOG(Logger::DEBUG, "Ghost At %.2f, %.2f", GetLocation().mX, GetLocation().mY);
+   TRACE("Ghost At {}, {}", GetLocation().mX, GetLocation().mY);
 }

@@ -18,7 +18,7 @@ void PlayerServer::Update()
 
         if ( !client )
         {
-            LOG( Logger::CRITICAL, "NO HUMAN CONTROLLING THIS, IT HAS BECOME SENTIENT RUN" );
+            CRITICAL("NO HUMAN CONTROLLING THIS, IT HAS BECOME SENTIENT RUN");
             return;
         }
 

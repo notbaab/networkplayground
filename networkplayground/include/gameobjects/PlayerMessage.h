@@ -32,7 +32,7 @@ class PlayerMessage
 
         if(writePosition)
         {
-            LOG(Logger::TRACE, "Message is At %.2f, %.2f", dataContainer->GetLocation().mX, dataContainer->GetLocation().mY);
+            TRACE("Message is At {}, {}", dataContainer->GetLocation().mX, dataContainer->GetLocation().mY);
             stream.serialize( dataContainer->mVelocity.mX );
             stream.serialize( dataContainer->mVelocity.mY );
 

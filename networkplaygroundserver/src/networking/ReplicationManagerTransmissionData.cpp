@@ -34,7 +34,7 @@ void ReplicationManagerTransmissionData::HandleDeliveryFailure(
             HandleDestroyDeliveryFailure( networkId );
             break;
         default:
-            LOG( Logger::TRACE, "No failure handler for %d", rt.GetAction() );
+            TRACE("No failure handler for {}", rt.GetAction() );
         }
     }
 }
@@ -111,8 +111,9 @@ void ReplicationManagerTransmissionData::HandleDeliverySuccess(
             HandleDestroyDeliverySuccess( rt.GetNetworkId() );
             break;
         default:
+            ERROR("Can't handle delivery success for {} with network id {}", rt.GetAction(), rt.GetNetworkId());
             continue;
-            // LOG( "No success handler for %d", rt.GetAction() );
+            // LOG( "No success handler for {}", rt.GetAction() );
         }
     }
 }
@@ -121,6 +122,7 @@ void ReplicationManagerTransmissionData::HandleCreateDeliverySuccess(
     int inNetworkId ) const
 {
     // Tell the server the create succeded for this object
+    DEBUG("Create delivery success");
     mReplicationManagerServer->HandleCreateAckd( inNetworkId );
 }
 

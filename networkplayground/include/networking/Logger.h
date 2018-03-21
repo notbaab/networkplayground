@@ -3,36 +3,22 @@
 
 #include <stdio.h>
 #include <string>
+#include <spdlog/spdlog.h>
+#include <spdlog/common.h>
+
 namespace Logger
 {
-
-enum LogLevel
-{
-    ALL = 0,
-    TRACE = 10,
-    DEBUG = 20,
-    INFO = 30,
-    WARNING = 40,
-    ERROR = 50,
-    CRITICAL = 60,
-    OFF = 70,
-};
-
-std::string GetCommandLineArg( int inIndex );
-
-std::string Sprintf( const char* inFormat, ... );
-static std::string logFile;
-
-static LogLevel sCurrentLevel = LogLevel::ALL;
-
-void InitLog(LogLevel level);
-void InitLog(LogLevel level, std::string logFile);
-
-void Log( LogLevel level, const char* inFormat, ... );
-void LogFile( const char* msg );
-void SetLevel(LogLevel level);
+void InitLog(spdlog::level::level_enum level, std::string loggerName);
+void SetLevel(spdlog::level::level_enum level);
+std::shared_ptr<spdlog::logger> GetSpdLogger();
 
 }
 
-#define LOG( level, ... ) Logger::Log( level, __VA_ARGS__ );
+#define TRACE( fmt, ... ) SPDLOG_TRACE(Logger::GetSpdLogger(), fmt, ##__VA_ARGS__);
+#define DEBUG( fmt, ... ) SPDLOG_DEBUG(Logger::GetSpdLogger(), fmt, ##__VA_ARGS__);
+#define INFO( fmt, ... ) Logger::GetSpdLogger()->info(fmt, ##__VA_ARGS__);
+#define WARNING( fmt, ... ) Logger::GetSpdLogger()->warn(fmt, ##__VA_ARGS__);
+#define ERROR( fmt, ... ) Logger::GetSpdLogger()->error(fmt, ##__VA_ARGS__);
+#define CRITICAL( fmt, ... ) Logger::GetSpdLogger()->critical(fmt, ##__VA_ARGS__);
+
 #endif

@@ -6,7 +6,6 @@
 void ReplicationManagerServer::ReplicateCreate( int inNetworkId,
                                                 uint32_t inInitialDirtyState )
 {
-    LOG(Logger::TRACE, "Made a replicate create");
     mNetworkIdToReplicationCommand[inNetworkId] =
         ReplicationCommand( inInitialDirtyState );
 }
@@ -68,17 +67,17 @@ void ReplicationManagerServer::Write(
         switch ( action )
         {
         case RA_CREATE:
-            LOG(Logger::TRACE, "Creating");
+            ERROR("Creating a new user {}", networkId);
             writtenState =
                 WriteCreateAction( inOutputStream, networkId, dirtyState );
             break;
         case RA_UPDATE:
-            Log(Logger::TRACE, "Writing Update Packet");
-            writtenState =
-                WriteUpdateAction( inOutputStream, networkId, dirtyState );
+            ERROR("Writing update packet for {}", networkId);
+            writtenState = WriteUpdateAction( inOutputStream, networkId, dirtyState );
             break;
         default:
-            break;
+            ERROR("Don't Recognize Action");
+            return;
         }
         // TODO: Log in flight packets
         ioTransmissinData->AddTransmission( networkId, action, writtenState );

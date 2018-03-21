@@ -29,7 +29,6 @@ bool Client::StaticInit()
     TextureManager::StaticInit();
     RenderManager::StaticInit();
     InputManager::StaticInit();
-    Logger::SetLevel(Logger::ALL);
     sInstance.reset( client );
 
     return true;
@@ -38,7 +37,7 @@ bool Client::StaticInit()
 Client::Client()
 {
     std::string destination = "127.0.0.1:45000";
-    std::string name = Logger::GetCommandLineArg( 2 );
+    // std::string name = Logger::GetCommandLineArg( 2 );
     SocketAddressPtr serverAddress =
         SocketAddressFactory::CreateIPv4FromString( destination );
 

@@ -15,7 +15,7 @@ DeliveryNotificationManager::DeliveryNotificationManager( bool inSendAcks,
 
 DeliveryNotificationManager::~DeliveryNotificationManager()
 {
-    LOG(Logger::INFO, "DNM destructor. Delivery rate %d%%, Drop rate %d%%",
+    INFO("DNM destructor. Delivery rate {}%%, Drop rate {}%%",
          ( 100 * mDeliveredPacketCount ) / mDispatchedPacketCount,
          ( 100 * mDroppedPacketCount ) / mDispatchedPacketCount );
 }
