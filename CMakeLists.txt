@@ -33,7 +33,7 @@ SET(BASE_SOURCE
     networkplayground/src/networking/SocketAddress.cpp
     networkplayground/src/networking/SocketAddressFactory.cpp
     networkplayground/src/networking/SocketUtil.cpp
-        networkplayground/src/networking/Logger.cpp
+    networkplayground/src/networking/Logger.cpp
     networkplayground/src/networking/TCPSocket.cpp
     networkplayground/src/networking/UDPSocket.cpp
     networkplayground/src/timing/Timing.cpp
@@ -50,7 +50,7 @@ set(CLIENT_SOURCE
     networkplaygroundclient/src/input/InputManager.cpp
     networkplaygroundclient/src/networking/NetworkManagerClient.cpp
     networkplaygroundclient/src/networking/ReplicationManagerClient.cpp
-        networkplaygroundclient/src/gameobjects/Ghost.cpp)
+    networkplaygroundclient/src/gameobjects/Ghost.cpp)
 
 set(SERVER_SOURCE
     networkplaygroundserver/src/gameobjects/PlayerServer.cpp
