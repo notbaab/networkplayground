@@ -8,7 +8,7 @@ INCLUDE_DIRECTORIES(networkplayground/include/)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 find_package(SDL2 REQUIRED)
-find_package(SDL2_Image REQUIRED)
+find_package(SDL2_image REQUIRED)
 
 SET(BASE_SOURCE
     networkplayground/src/gameobjects/Engine.cpp
