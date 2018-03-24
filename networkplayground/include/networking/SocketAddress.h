@@ -12,7 +12,11 @@
 #include <fcntl.h>
 #include <iostream>
 #include <stdio.h>
-//#include <unistd.h>
+
+// Added for linux
+#include <cstring>
+#include <memory>
+// #include <unistd.h>
 
 class SocketAddress
 {
@@ -26,7 +30,7 @@ class SocketAddress
 
     SocketAddress( const sockaddr& inSockAddr )
     {
-        memcpy( &mSockAddr, &inSockAddr, sizeof( sockaddr ) );
+        std::memcpy( &mSockAddr, &inSockAddr, sizeof( sockaddr ) );
     }
 
     SocketAddress()
