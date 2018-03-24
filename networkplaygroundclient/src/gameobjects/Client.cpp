@@ -68,45 +68,10 @@ bool Client::DoFrame()
     }
 
     Timing::sInstance.Update();
-
     InputManager::sInstance->Update();
 
-    auto objs = World::sInstance->GetGameObjects();
-    Vector3 vel;
-
-    if(objs.size() > 0)
-    {
-        auto player = objs.front();
-
-        vel = player->mVelocity;
-
-        if(vel.mY != 0)
-        {
-            LOG(Logger::DEBUG, "moving down ");
-        }
-    }
-
     NetworkManagerClient::sInstance->ProcessIncomingPackets();
-
     Engine::DoFrame();
-
-
-
-    auto objs2 = World::sInstance->GetGameObjects();
-
-
-    if(objs2.size() > 0)
-    {
-        auto player = objs2.front();
-
-        vel = player->mVelocity;
-
-        if(vel.mY != 0)
-        {
-            LOG(Logger::DEBUG, "moving down ");
-        }
-    }
-
     RenderManager::sInstance->Render();
 
     NetworkManagerClient::sInstance->SendOutgoingPackets();
