@@ -336,4 +336,4 @@ void NetworkManagerServer::SetStateDirty( int inNetworkId,
 }
 
 int NetworkManagerServer::GetNewPlayerId() { return mNextPlayerId++; }
-int NetworkManagerServer::GetNewNetworkId() { return mNextPlayerId++; }
+int NetworkManagerServer::GetNewNetworkId() { return mNextNetworkId++; }
