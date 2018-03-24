@@ -15,6 +15,8 @@ bool Client::StaticInit()
 {
     Client* client = new Client();
 
+    SDL_Init(SDL_INIT_EVERYTHING);
+
     if ( !WindowManager::StaticInit() )
     {
         return false;
@@ -56,6 +58,7 @@ bool Client::DoFrame()
     {
         if ( event.type == SDL_QUIT )
         {
+            SDL_Quit();
             return false;
         }
         else
