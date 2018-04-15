@@ -24,14 +24,12 @@ void Player::AdjustVelocityByThrust( float inDeltaTime )
 void Player::SimulateMovement( float inDeltaTime )
 {
 //    AdjustVelocityByThrust( inDeltaTime );
-    TRACE("Moving Player {} by {} and {}, from location {}, {}", GetPlayerId(), mVelocity.mX, mVelocity.mY, GetLocation().mX, GetLocation().mY);
+    // TRACE("Moving Player {} by {} and {}, from location {}, {}", GetPlayerId(), mVelocity.mX, mVelocity.mY, GetLocation().mX, GetLocation().mY);
     SetLocation( GetLocation() + mVelocity * inDeltaTime );
-    TRACE("Moved to location {}, {}", GetLocation().mX, GetLocation().mY);
+    // TRACE("Moved to location {}, {}", GetLocation().mX, GetLocation().mY);
 }
 
 void Player::Update() {
-    // To noisey
-    // TRACE("At %.2f, %.2f", GetLocation().mX, GetLocation().mY);
 }
 
 uint32_t Player::Write( OutputMemoryBitStream& inOutputStream,

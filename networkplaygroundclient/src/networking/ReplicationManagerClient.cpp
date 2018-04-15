@@ -6,8 +6,11 @@
 
 void ReplicationManagerClient::Read( InputMemoryBitStream& inInputStream )
 {
+
+    uint8_t statePackRead = 0;
     while ( inInputStream.GetRemainingBitCount() >= 32 )
     {
+        statePackRead++;
         int networkId;
         inInputStream.Read( networkId );
 
@@ -22,6 +25,7 @@ void ReplicationManagerClient::Read( InputMemoryBitStream& inInputStream )
             ReadAndDoCreateAction( inInputStream, networkId );
             break;
         case RA_UPDATE:
+            DEBUG("Updating {}", networkId);
             ReadAndDoUpdateAction( inInputStream, networkId );
             break;
         case RA_DESTROY:
@@ -31,7 +35,10 @@ void ReplicationManagerClient::Read( InputMemoryBitStream& inInputStream )
             DEBUG("No Action found for {}", action );
         }
     }
+
+    DEBUG("Read {} state packets", statePackRead);
 }
+
 
 // TODO: This should be managed by some sort of packet class
 void ReplicationManagerClient::ReadAndDoCreateAction(

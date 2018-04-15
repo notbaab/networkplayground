@@ -1,11 +1,3 @@
-//
-//  ClientProxy.h
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/13/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #ifndef ClientProxy_h
 #define ClientProxy_h
 

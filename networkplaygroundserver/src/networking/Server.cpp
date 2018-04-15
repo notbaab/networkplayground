@@ -81,6 +81,7 @@ void Server::HandleLostClient( ClientProxyPtr inClientProxy )
 
 void Server::SpawnPlayer( int inPlayerId )
 {
+    INFO("Spawning player {}", inPlayerId);
     PlayerPtr player = std::static_pointer_cast<Player>(
         GameObjectRegistry::sInstance->CreateGameObject( Player::kClassId ) );
 

@@ -6,13 +6,19 @@
 void ReplicationManagerServer::ReplicateCreate( int inNetworkId,
                                                 uint32_t inInitialDirtyState )
 {
-    mNetworkIdToReplicationCommand[inNetworkId] =
-        ReplicationCommand( inInitialDirtyState );
+    if (inInitialDirtyState == 10 ) {
+        DEBUG("DA FUCK");
+    }
+    if (mNetworkIdToReplicationCommand.find(inNetworkId) == mNetworkIdToReplicationCommand.end()) {
+        DEBUG("Replicating create on new user {}", inNetworkId);
+    }
+    mNetworkIdToReplicationCommand[inNetworkId] = ReplicationCommand( inInitialDirtyState );;
 }
 
 void ReplicationManagerServer::ReplicateDestory( int inNetworkId )
 {
-    //    mNetworkIdToReplicationCommand[inNetworkId].SetDestroy();
+    ERROR("Destroy not implemented yet");
+//        mNetworkIdToReplicationCommand[inNetworkId].SetDestroy();
 }
 
 void ReplicationManagerServer::RemoveFromReplication( int inNetworkId )
@@ -22,7 +28,7 @@ void ReplicationManagerServer::RemoveFromReplication( int inNetworkId )
 
 void ReplicationManagerServer::HandleCreateAckd( int inNetworkId )
 {
-    mNetworkIdToReplicationCommand[inNetworkId].HandleCreateAckd();
+   mNetworkIdToReplicationCommand[inNetworkId].HandleCreateAckd();
 }
 
 // TODO: I'm not sure I like the replication manager managing dirty state
@@ -39,6 +45,7 @@ void ReplicationManagerServer::Write(
     OutputMemoryBitStream& inOutputStream,
     ReplicationManagerTransmissionData* ioTransmissinData )
 {
+    DEBUG("Writing shit to {} ids", mNetworkIdToReplicationCommand.size());
     for ( auto& pair : mNetworkIdToReplicationCommand )
     {
         // What is the command we are trying to replicate?

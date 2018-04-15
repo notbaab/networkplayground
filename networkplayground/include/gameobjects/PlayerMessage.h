@@ -32,7 +32,11 @@ class PlayerMessage
 
         if(writePosition)
         {
-            TRACE("Message is At {}, {}", dataContainer->GetLocation().mX, dataContainer->GetLocation().mY);
+            TRACE("Writting message with x={}, y={}, mX={}, mY={}",
+                dataContainer->GetLocation().mX,
+                dataContainer->GetLocation().mY,
+                dataContainer->mVelocity.mX,
+                dataContainer->mVelocity.mY);
             stream.serialize( dataContainer->mVelocity.mX );
             stream.serialize( dataContainer->mVelocity.mY );
 

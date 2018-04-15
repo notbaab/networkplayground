@@ -122,7 +122,7 @@ void ReplicationManagerTransmissionData::HandleCreateDeliverySuccess(
     int inNetworkId ) const
 {
     // Tell the server the create succeded for this object
-    DEBUG("Create delivery success");
+    DEBUG("Create delivery success for id {}", inNetworkId);
     mReplicationManagerServer->HandleCreateAckd( inNetworkId );
 }
 

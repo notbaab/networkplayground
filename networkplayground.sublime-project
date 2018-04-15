@@ -17,19 +17,25 @@
 		{
 			"folder_exclude_patterns":
 			[
-				"lib"
+				"lib",
+				"CMakeFiles",
+				"networkplayground.xcodeproj",
+				"build",
+				".idea",
+				"bin",
+				"cmake",
+				"cmake-build-debug"
 			],
 			"path": "."
 		},
 		{
-			"path": "/Users/erikparreira/Downloads/GDC 2015 Example Source Code"
+			"path": "/Users/et/Downloads/GDC 2015 Example Source Code"
+		},
+		{
+			"path": "/Users/et/Dropbox/Programming/networking/MultiplayerBook/Chapter 8/RoboCatAction"
 		}
 	],
 	"settings":
 	{
-		"cc_include_options":
-		[
-			"-Inetworkplayground/networkplayground/include/"
-		]
 	}
 }

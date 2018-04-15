@@ -1,11 +1,10 @@
+#include "networking/NetworkManagerServer.h"
 #include "gameobjects/GameObject.h"
 #include "gameobjects/Move.h"
-#include "networking/NetworkManagerServer.h"
+#include "networking/Logger.h"
 #include "networking/ReplicationManagerTransmissionData.h"
 #include "networking/Server.h"
-#include "networking/Logger.h"
 #include "timing/Timing.h"
-
 
 NetworkManagerServer* NetworkManagerServer::sInstance;
 
@@ -103,9 +102,10 @@ void NetworkManagerServer::HandleInputPacket(
 {
     uint32_t moveCount = 0;
     Move move;
-    // TODO: Have a move packet so I don't need to change the bit count everywhere
+    // TODO: Have a move packet so I don't need to change the bit count
+    // everywhere
     inInputStream.Read( moveCount, 8 );
-    TRACE("Processing {} Moves", moveCount );
+    TRACE( "Processing {} Moves", moveCount );
     for ( ; moveCount > 0; --moveCount )
     {
         proccessMovePacket( inClientProxy, move, inInputStream );
@@ -123,7 +123,8 @@ void NetworkManagerServer::HandlePacketFromNewClient(
     }
     else
     {
-        CRITICAL("Bad packet from client {}", inFromAddress.ToString().c_str() );
+        CRITICAL( "Bad packet from client {}",
+                  inFromAddress.ToString().c_str() );
     }
 }
 
@@ -166,10 +167,12 @@ void NetworkManagerServer::SendWelcomePacket( ClientProxyPtr inClientProxy )
     welcomePacket.Write( kWelcomeCC );
     welcomePacket.Write( ( inClientProxy->GetPlayerId() ) );
 
-    INFO("Welcomed new client '{}' as player {}",
-         inClientProxy->GetName().c_str(), inClientProxy->GetPlayerId() );
+    INFO( "Welcomed new client '{}' as player {}",
+          inClientProxy->GetName().c_str(), inClientProxy->GetPlayerId() );
 
     SendPacket( welcomePacket, inClientProxy->GetSocketAddress() );
+    // sends the first location of the user to the client
+    // Technically this should be handled by sending replicate create?
     SendStatePacketToClient(inClientProxy);
 }
 
@@ -196,7 +199,7 @@ void NetworkManagerServer::UpdateAllClients() {}
 void NetworkManagerServer::SendStatePacketToClient(
     ClientProxyPtr inClientProxy )
 {
-    TRACE("Sending State");
+    TRACE( "Sending State" );
     OutputMemoryBitStream statePacket;
 
     //    auto replicationServer = inClientProxy->GetReplicationManagerServer();
@@ -303,16 +306,18 @@ void NetworkManagerServer::HandleClientDisconnected(
 void NetworkManagerServer::RegisterGameObject( GameObjectPtr inGameObject )
 {
     // assign network id
-    TRACE("Registering Game Object");
     int newNetworkId = GetNewNetworkId();
     inGameObject->SetNetworkId( newNetworkId );
 
     // add mapping from network id to game object
     mNetworkIdToGameObjectMap[newNetworkId] = inGameObject;
+    TRACE( "Registering Game Object {}", newNetworkId );
 
     // tell all client proxies this is new...
+    INFO( "Replicating to {} clients", mAddressToClientMap.size() );
     for ( const auto& pair : mAddressToClientMap )
     {
+        DEBUG("Sending {} to {}", pair.second->GetPlayerId(), pair.second->GetSocketAddress().ToString());
         pair.second->GetReplicationManagerServer().ReplicateCreate(
             newNetworkId, inGameObject->GetAllStateMask() );
     }

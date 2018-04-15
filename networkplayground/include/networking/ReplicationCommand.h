@@ -9,7 +9,7 @@ enum ReplicationAction
     RA_UPDATE,
     RA_DESTROY,
     RA_RPC,
-    RA_MAX
+    RA_MAX,
 };
 
 class ReplicationManagerTransmissionData;
@@ -27,8 +27,9 @@ struct ReplicationCommand
     // just update ones
     void HandleCreateAckd()
     {
-        if ( mAction == RA_CREATE )
+        if ( mAction == RA_CREATE ){
             mAction = RA_UPDATE;
+        }
     }
 
     void AddDirtyState( uint32_t inState ) { mDirtyState |= inState; }

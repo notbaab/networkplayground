@@ -38,19 +38,25 @@ void NetworkManagerClient::ProcessPacket( InputMemoryBitStream& inInputStream,
     uint32_t packetType;
 
     inInputStream.Read( packetType );
+
+    DEBUG("Reading packet {} ", packetType);
     switch ( packetType )
     {
     case kWelcomeCC:
         HandleWelcomePacket( inInputStream );
-
+        DEBUG("Welcome packet {} ", packetType);
         break;
     case kStateCC:
         if ( mDeliveryNotificationManager.ReadAndProcessState( inInputStream ) )
         {
+            DEBUG("State packet {} ", packetType);
             HandleStatePacket( inInputStream );
+        } else {
+            ERROR("Don't care about state packetl");
         }
         break;
     default:
+        ERROR("Can't read packet type {}", packetType);
         break;
     }
 }
@@ -110,12 +116,13 @@ void NetworkManagerClient::HandleStatePacket(
     // Only process if welcomed
     if ( mState != NCS_Welcomed )
     {
+        DEBUG("Not welcomed yet")
         return;
     }
 
     ReadLastMoveProcessedOnServerTimestamp( inInputStream );
 
-    // Have the replicaiton manager read the input packets, it will be copied
+    // Have the replication manager read the input packets, it will be copied
     // as moves or whatever is needed
     mReplicationManagerClient.Read( inInputStream );
 }

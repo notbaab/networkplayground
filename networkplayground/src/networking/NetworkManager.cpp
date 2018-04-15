@@ -1,10 +1,3 @@
-//
-//  NetworkManager.cpp
-//  networkplayground
-//
-//  Created by Erik Parreira on 2/29/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-
 #include "networking/NetworkManager.h"
 #include "gameobjects/GameObject.h"
 #include "math/Random.h"
@@ -152,6 +145,9 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
         {
             inputStream.printStream();
         }
+    }
+    if (totalPacketsRecieved != 0) {
+        DEBUG("Read {} packets", totalPacketsRecieved);
     }
 }
 

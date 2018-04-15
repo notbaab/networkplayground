@@ -1,6 +1,6 @@
 #include "gameobjects/PlayerServer.h"
-#include "networking/Logger.h"
 #include "const/consts.h"
+#include "networking/Logger.h"
 
 PlayerServer::PlayerServer() : mControlType( PCT_HUMAN ) {}
 
@@ -18,7 +18,7 @@ void PlayerServer::Update()
 
         if ( !client )
         {
-            CRITICAL("NO HUMAN CONTROLLING THIS, IT HAS BECOME SENTIENT RUN");
+            CRITICAL( "NO HUMAN CONTROLLING THIS, IT HAS BECOME SENTIENT RUN" );
             return;
         }
 
