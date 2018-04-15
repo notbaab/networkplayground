@@ -25,7 +25,7 @@ class PlayerClient : public Player
     void InterpolateClientSidePrediction(float inOldRotation, const Vector3 &inOldLocation,
                                          const Vector3 &inOldVelocity, bool inIsForRemotePlayer);
 
-    bool IsCreatedOnServer();
+    bool IsLocalPlayer();
 
   protected:
     PlayerClient();

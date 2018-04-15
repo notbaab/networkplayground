@@ -47,7 +47,10 @@ void ReplicationManagerServer::Write(
         // Only do stuff if the command is "dirty"
         if ( !replicationCommmand.HasDirtyState() )
         {
-            return;
+            DEBUG("No dirty State for {}", pair.first);
+            continue;
+        } else {
+            DEBUG("Dirty state for {}", pair.first);
         }
 
         // Dirty, better write it out to the stream

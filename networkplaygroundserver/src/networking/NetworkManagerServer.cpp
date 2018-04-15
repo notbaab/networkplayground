@@ -140,11 +140,19 @@ void NetworkManagerServer::HandleHelloPacket(
     mPlayerIdToClientMap[newClientProxy->GetPlayerId()] = newClientProxy;
 
     // Book Says this is a terrible way to do this. I agree
-    static_cast<Server*>(Engine::sInstance.get())->HandleNewClient( newClientProxy );
+    static_cast<Server*>( Engine::sInstance.get() )
+        ->HandleNewClient( newClientProxy );
 
     SendWelcomePacket( newClientProxy );
 
-    // TODO: Send the full world state!
+    INFO( "Sending world state to player {} for {} objects",
+          newClientProxy->GetPlayerId(),
+          mNetworkIdToGameObjectMap.size() );
+    for ( const auto& pair : mNetworkIdToGameObjectMap )
+    {
+        newClientProxy->GetReplicationManagerServer().ReplicateCreate(
+            pair.first, pair.second->GetAllStateMask() );
+    }
 }
 
 /**

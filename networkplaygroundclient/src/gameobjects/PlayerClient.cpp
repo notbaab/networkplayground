@@ -12,17 +12,19 @@ PlayerClient::PlayerClient()
     mSpriteComponent.reset( new SpriteComponent( this ) );
     mSpriteComponent->SetColor( new Vector3( 255, 255, 0 ) );
     mServerGhost.reset( new Ghost() );
-    // add the ghost to the game world?
+    INFO("Created a new player client");
 }
 
 // Update called every frame on the client
 void PlayerClient::Update()
 {
-    if ( !IsCreatedOnServer() )
+    if ( !IsLocalPlayer() )
     {
-        TRACE("{} Not Local Player", GetPlayerId() );
+        // TRACE("{} Not Local Player", GetPlayerId() );
+        SimulateMovement( TIME_STEP );
         return;
     }
+
     // Player::Update();
     // mServerGhost->PrintInfo();
     const Move* pendingMove = InputManager::sInstance->GetAndClearPendingMove();
@@ -45,13 +47,16 @@ void PlayerClient::Update()
 // Called everytime we get a packet from the server
 void PlayerClient::Read( InputMemoryBitStream& inInputStream )
 {
+    // PlayerMessage::Serialize( inInputStream, this );
 
+    HandleStatePacket(inInputStream);
     TRACE("Read in state");
     // If we aren't created on the server, read state directly into player
     // object, else, read into our server ghost
-    if ( !IsCreatedOnServer() )
+    if ( !IsLocalPlayer() )
     {
-        PlayerMessage::Serialize( inInputStream, this );
+        // PlayerMessage::Serialize( inInputStream, this );
+        // HandleStatePacket(inInputStream);
         TRACE("Not a local player, moved to {}-{}", mLocation.mX, mLocation.mY );
         // HandleStatePacket(inInputStream);
     }
@@ -63,7 +68,7 @@ void PlayerClient::Read( InputMemoryBitStream& inInputStream )
         }
 
         auto oldLocation = mLocation;
-        HandleStatePacket( inInputStream );
+        // HandleStatePacket( inInputStream );
 
         // TODO: ....hmmmmm
         ApplyUnAckedMoves( 111 );
@@ -72,7 +77,15 @@ void PlayerClient::Read( InputMemoryBitStream& inInputStream )
     }
 }
 
-// Read player into a ghost object and interpolate from there
+// void PlayerClient::ReadRemotePlayer(InputMemoryBitStream& inInputStream) {
+
+// }
+
+// void PlayerClient::ReadLocalPlayer(InputMemoryBitStream& inInputStream) {
+
+// }
+
+// Read state into player object
 void PlayerClient::HandleStatePacket( InputMemoryBitStream& inInputStream )
 {
     TRACE("Reading in State" );
@@ -102,7 +115,7 @@ void PlayerClient::ApplyUnAckedMoves( uint32_t inReadState )
     return;
 }
 
-bool PlayerClient::IsCreatedOnServer()
+bool PlayerClient::IsLocalPlayer()
 {
     return GetPlayerId() == NetworkManagerClient::sInstance->GetPlayerId();
 }
