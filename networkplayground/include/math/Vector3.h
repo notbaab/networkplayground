@@ -130,4 +130,21 @@ class Vector3
     static const Vector3 UnitZ;
 };
 
+namespace Math
+{
+    const float PI = 3.1415926535f;
+    float GetRandomFloat();
+
+    Vector3 GetRandomVector( const Vector3& inMin, const Vector3& inMax );
+
+    inline bool Is2DVectorEqual( const Vector3& inA, const Vector3& inB )
+    {
+        return ( inA.mX == inB.mX && inA.mY == inB.mY );
+    }
+
+    inline float ToDegrees( float inRadians )
+    {
+        return inRadians * 180.0f / PI;
+    }
+}
 #endif /* Vector3_h */

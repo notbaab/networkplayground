@@ -33,8 +33,21 @@ void PlayerServer::Update()
         }
         moveList.Clear();
 
-        // TODO: Check if there velocity has actually changed before sending
-        // update
+        if ( Math::Is2DVectorEqual( oldVelocity, GetVelocity() ) &&
+             Math::Is2DVectorEqual( oldLocation, GetLocation() ) )
+        {
+            // if (GetVelocity().mX == 0 || GetVelocity().mY == 0) {
+            //     TRACE("{} Not moving", GetNetworkId());
+            // }
+            // no change, return
+            return;
+        }
+
+            if (GetVelocity().mX == 0 || GetVelocity().mY == 0) {
+                ERROR("{} Not moving but updating", GetNetworkId());
+            }
+
+
         NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(),
                                                         PRS_POSI );
     }
