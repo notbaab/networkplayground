@@ -26,6 +26,8 @@ class SocketAddress
         GetAsSockAddrIn()->sin_family = AF_INET;
         GetIP4Ref() = htonl( inAddress );
         GetAsSockAddrIn()->sin_port = htons( inPort );
+
+        port = inPort;
     }
 
     SocketAddress( const sockaddr& inSockAddr )
@@ -59,6 +61,8 @@ class SocketAddress
     uint32_t GetSize() const { return sizeof( sockaddr ); }
 
     std::string ToString() const;
+
+    uint16_t port;
 
   private:
     friend class UDPSocket;

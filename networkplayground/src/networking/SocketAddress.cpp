@@ -11,6 +11,8 @@ std::string SocketAddress::ToString() const
                                  ntohs( s->sin_port ) );
 #else
     // not implement on mac for now...
-    return std::string( "not implemented on mac for now" );
+    char temp[32];
+    snprintf(temp, 32, "%d", port);
+    return std::string(temp);
 #endif
 }
