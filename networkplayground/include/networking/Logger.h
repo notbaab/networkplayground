@@ -9,6 +9,7 @@
 namespace Logger
 {
 void InitLog(spdlog::level::level_enum level, std::string loggerName);
+void InitLog(spdlog::level::level_enum level, std::string loggerName, std::string filename);
 void SetLevel(spdlog::level::level_enum level);
 std::shared_ptr<spdlog::logger> GetSpdLogger();
 
