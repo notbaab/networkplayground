@@ -38,6 +38,7 @@ SET(BASE_SOURCE
     networkplayground/src/networking/TCPSocket.cpp
     networkplayground/src/networking/UDPSocket.cpp
     networkplayground/src/timing/Timing.cpp
+    lib/linenoise/linenoise.c
 )
 
 set(CLIENT_SOURCE
@@ -62,6 +63,7 @@ set(SERVER_SOURCE
     networkplaygroundserver/src/networking/Server.cpp
     networkplaygroundserver/tests/tests.cpp
     networkplaygroundserver/tests/tests.hpp
+    networkplaygroundserver/src/console.cpp
 )
 
 set(UNIT_TEST_SOURCE
