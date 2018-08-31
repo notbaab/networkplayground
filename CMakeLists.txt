@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.6)
 project(networkplayground)
 
 # pthread added for spdlog
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -pthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -pthread")
 SET(CMAKE_C_FLAGS_DEBUG "-D_DEBUG")
 INCLUDE_DIRECTORIES(networkplayground/include/)
 INCLUDE_DIRECTORIES(lib/spdlog/include)
