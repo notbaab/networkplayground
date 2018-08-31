@@ -6,6 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -pthread")
 SET(CMAKE_C_FLAGS_DEBUG "-D_DEBUG")
 INCLUDE_DIRECTORIES(networkplayground/include/)
 INCLUDE_DIRECTORIES(lib/spdlog/include)
+INCLUDE_DIRECTORIES(lib/linenoise)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
