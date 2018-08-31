@@ -77,12 +77,12 @@ void ReplicationManagerServer::Write(
         switch ( action )
         {
         case RA_CREATE:
-            ERROR("Creating a new user {}", networkId);
+            DEBUG("Creating a new user {}", networkId);
             writtenState =
                 WriteCreateAction( inOutputStream, networkId, dirtyState );
             break;
         case RA_UPDATE:
-            ERROR("Writing update packet for {}", networkId);
+            DEBUG("Writing update packet for {}", networkId);
             writtenState = WriteUpdateAction( inOutputStream, networkId, dirtyState );
             break;
         default:

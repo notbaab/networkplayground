@@ -27,8 +27,6 @@ bool NetworkManager::Init( uint16_t inPort )
     SocketAddress ownAddress( INADDR_ANY, inPort );
     mSocket->Bind( ownAddress );
 
-    printf( "Initializing NetworkManager at port %d\n", inPort );
-
     //    mBytesReceivedPerSecond = WeightedTimedMovingAverage( 1.f );
     //    mBytesSentPerSecond = WeightedTimedMovingAverage( 1.f );
 

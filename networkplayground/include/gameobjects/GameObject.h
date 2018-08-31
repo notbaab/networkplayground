@@ -16,7 +16,7 @@
 #include "IO/MemoryBitStream.h"
 #include "math/Vector3.h"
 
-// Define for identifiing classes.
+// Define for identifying classes.
 #define CLASS_IDENTIFICATION( inCode, inClass )                                \
     enum                                                                       \
     {                                                                          \
