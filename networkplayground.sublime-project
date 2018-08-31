@@ -6,10 +6,26 @@
 			[
 				"make",
 				"-j",
+				"8"
+			],
+			"name": "Rebuild",
+			"working_dir": "/Users/et/sublime-build/networkmanager"
+		},
+		{
+			"cmd":
+			[
+				"make",
+				"-j",
 				"run_tests"
 			],
 			"name": "Run Test",
 			"working_dir": "${project_path}"
+		},
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"python3\" -u \"$file\""
 		}
 	],
 	"folders":
@@ -17,10 +33,10 @@
 		{
 			"folder_exclude_patterns":
 			[
-				"lib",
 				"CMakeFiles",
+				"lib",
 				"networkplayground.xcodeproj",
-				"build",
+				"build*",
 				".idea",
 				"bin",
 				"cmake",
