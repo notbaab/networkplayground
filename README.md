@@ -7,3 +7,5 @@ To get running on a mac, you'll need the following installed.
 - sdl2_image
 
 The easiest way on a mac to do so is `brew install cmake sdl2 sdl_image`
+
+
