@@ -31,6 +31,7 @@ class Server : public Engine
     void SetupWorld();
 
     void SpawnPlayer( int inPlayerId );
+    void ShowGameObjects();
 };
 
 #endif /* Server_h */

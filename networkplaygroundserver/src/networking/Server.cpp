@@ -3,6 +3,8 @@
 #include "networking/Server.h"
 #include "networking/Logger.h"
 #include "timing/Timing.h"
+#include "console/console.h"
+#include "gameobjects/World.h"
 
 bool Server::StaticInit()
 {
@@ -22,7 +24,11 @@ Server::Server()
     //     NetworkManagerServer::sInstance->SetSimulatedLatency( 0.25f );
     //     NetworkManagerServer::sInstance->SetSimulatedLatency( 0.5f );
     //     NetworkManagerServer::sInstance->SetSimulatedLatency( 0.1f );
+
+    add_command("show objects", std::bind(&Server::ShowGameObjects, this));
+    add_exit_command("exit", std::bind(&Server::Stop, this));
 }
+
 
 int Server::Run()
 {
@@ -90,3 +96,9 @@ void Server::SpawnPlayer( int inPlayerId )
     player->SetLocation(
         Vector3( 1.f - static_cast<float>( inPlayerId ), 0.f, 0.f ) );
 }
+
+void Server::ShowGameObjects()
+{
+    World::sInstance->PrintInfo();
+}
+

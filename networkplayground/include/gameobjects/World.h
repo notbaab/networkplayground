@@ -1,11 +1,3 @@
-//
-//  Header.h
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/9/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #ifndef World_h
 #define World_h
 

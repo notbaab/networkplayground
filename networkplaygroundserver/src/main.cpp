@@ -2,15 +2,12 @@
 #include <string>
 #include <thread>
 
-#include "console.h"
+#include "console/console.h"
 #include "gameobjects/World.h"
 #include "networking/Logger.h"
 #include "networking/Server.h"
 
-// const int port = 3200;
-
 #define EXIT "exit"
-// Some basic setup.
 
 const char** __argv;
 int __argc;
@@ -26,7 +23,6 @@ int main( int argc, const char* argv[] )
         {
             std::cout << "Starting a shell" << std::endl;
             t = std::thread( &interactive_console );
-            // std::thread t(&interactive_console);   // t starts running
         }
         else if ( !strcmp( *argv, "--log-file" ) )
         {
@@ -49,6 +45,7 @@ int main( int argc, const char* argv[] )
     if ( Server::StaticInit() )
     {
         int exitCode = Server::sInstance->Run();
+        t.join();
         return exitCode;
     }
 }

@@ -25,14 +25,11 @@ void World::StaticAddGameObject(GameObjectPtr inGameObject) {
 
 void World::PrintInfo()
 {
-
     for (auto go : sInstance->mGameObjects)
     {
         // TODO: Print Info delegate to game object
-        printf("Location of  %d, %.2f, %.2f",
-                               go->GetNetworkId(),
-                               go->GetLocation().mX,
-                               go->GetLocation().mY);
+        std::cout << "Location of " << go->GetNetworkId() << " at " <<
+            go->GetLocation().mX << "," << go->GetLocation().mY << std::endl;
     }
 }
 
