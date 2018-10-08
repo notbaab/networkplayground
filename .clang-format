@@ -9,7 +9,7 @@ AlignAfterOpenBracket: true
 # Force pointers to the type for C++.
 DerivePointerAlignment: false
 PointerAlignment: Left
-SpacesInParentheses: true
+# SpacesInParentheses: true
 # BreakBeforeBraces: Linux
 BreakBeforeBraces: Allman
 SortIncludes: true
