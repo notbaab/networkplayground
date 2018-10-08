@@ -11,16 +11,16 @@ class SDL_Rect;
 class SpriteComponent
 {
   public:
-    SpriteComponent( GameObject* inGameObject );
+    SpriteComponent(GameObject* inGameObject);
     ~SpriteComponent();
 
-    virtual void Draw( const SDL_Rect& inViewTransform );
+    virtual void Draw(const SDL_Rect& inViewTransform);
 
-    void SetTexture( TexturePtr inTexture ) { mTexture = inTexture; }
+    void SetTexture(TexturePtr inTexture) { mTexture = inTexture; }
 
     Vector3 GetOrigin() const { return mOrigin; }
-    void SetOrigin( const Vector3& inOrigin ) { mOrigin = inOrigin; }
-    void SetColor( Vector3* inColor)
+    void SetOrigin(const Vector3& inOrigin) { mOrigin = inOrigin; }
+    void SetColor(Vector3* inColor)
     {
         mColor.mX = inColor->mX;
         mColor.mY = inColor->mY;

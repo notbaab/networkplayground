@@ -21,13 +21,13 @@ class NetworkManagerClient : public NetworkManager
   public:
     static NetworkManagerClient* sInstance;
 
-    static void StaticInit( const SocketAddress& inServerAddress,
-                            const std::string& inName );
+    static void StaticInit(const SocketAddress& inServerAddress,
+                           const std::string& inName);
 
     void SendOutgoingPackets();
 
-    virtual void ProcessPacket( InputMemoryBitStream& inInputStream,
-                                const SocketAddress& inFromAddress ) override;
+    virtual void ProcessPacket(InputMemoryBitStream& inInputStream,
+                               const SocketAddress& inFromAddress) override;
 
     const WeightedTimedMovingAverage& GetAvgRoundTripTime() const
     {
@@ -44,25 +44,24 @@ class NetworkManagerClient : public NetworkManager
 
   private:
     NetworkManagerClient();
-    void Init( const SocketAddress& inServerAddress,
-               const std::string& inName );
+    void Init(const SocketAddress& inServerAddress, const std::string& inName);
 
     void UpdateSayingHello();
     void SendHelloPacket();
 
     // Packet handling functions
-    void HandleWelcomePacket( InputMemoryBitStream& inInputStream );
-    void HandleStatePacket( InputMemoryBitStream& inInputStream );
-    void ReadLastMoveProcessedOnServerTimestamp(
-        InputMemoryBitStream& inInputStream );
+    void HandleWelcomePacket(InputMemoryBitStream& inInputStream);
+    void HandleStatePacket(InputMemoryBitStream& inInputStream);
+    void
+    ReadLastMoveProcessedOnServerTimestamp(InputMemoryBitStream& inInputStream);
 
-    void HandleGameObjectState( InputMemoryBitStream& inInputStream );
+    void HandleGameObjectState(InputMemoryBitStream& inInputStream);
 
     void UpdateSendingInputPacket();
     void SendInputPacket();
 
     void DestroyGameObjectsInMap(
-        std::unordered_map<int, GameObjectPtr>& inObjectsToDestroy );
+        std::unordered_map<int, GameObjectPtr>& inObjectsToDestroy);
 
     ReplicationManagerClient mReplicationManagerClient;
     DeliveryNotificationManager mDeliveryNotificationManager;

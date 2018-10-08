@@ -1,4 +1,4 @@
- #ifndef TRIE_HPP
+#ifndef TRIE_HPP
 #define TRIE_HPP
 
 #include <map>
@@ -16,10 +16,10 @@ class TrieNode
     int freq;
 
     /* Constructor */
-    TrieNode( char symbol, TrieNode* left = 0, TrieNode* right = 0,
-              TrieNode* mid = 0, bool isAWord = false, int freq = 0 )
-        : symbol( symbol ), left( left ), right( right ), mid( mid ),
-          isAWord( isAWord ), freq( freq ){};
+    TrieNode(char symbol, TrieNode* left = 0, TrieNode* right = 0,
+             TrieNode* mid = 0, bool isAWord = false, int freq = 0)
+        : symbol(symbol), left(left), right(right), mid(mid), isAWord(isAWord),
+          freq(freq){};
 };
 
 class DictionaryTrie
@@ -28,28 +28,28 @@ class DictionaryTrie
     DictionaryTrie();
 
     unsigned int num_vertices = 0;
-    bool insert( std::string word, unsigned int freq );
+    bool insert(std::string word, unsigned int freq);
 
-    bool find( std::string word ) const;
+    bool find(std::string word) const;
 
-    std::vector<std::string> predictCompletions( std::string prefix,
-                                                 unsigned int num_completions );
+    std::vector<std::string> predictCompletions(std::string prefix,
+                                                unsigned int num_completions);
 
     /* Destructor */
     ~DictionaryTrie();
 
   private:
     TrieNode* root;
-    std::pair<TrieNode*, unsigned int> traverse( std::string word ) const;
+    std::pair<TrieNode*, unsigned int> traverse(std::string word) const;
     bool prefixExists(std::string prefix);
     void findPrefixWords(
         std::string prefix,
-        std::multimap<int, std::string, std::greater<int>>& prefixWords );
+        std::multimap<int, std::string, std::greater<int>>& prefixWords);
     void getPrefixWords(
         TrieNode* curr, std::string prefix,
-        std::multimap<int, std::string, std::greater<int>>& prefixWords );
+        std::multimap<int, std::string, std::greater<int>>& prefixWords);
 
-    void deleteAll( TrieNode* n );
+    void deleteAll(TrieNode* n);
 };
 
 #endif // DICTIONARY_TRIE_HPP

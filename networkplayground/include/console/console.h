@@ -1,6 +1,6 @@
-#include <vector>
-#include <string>
 #include <functional>
+#include <string>
+#include <vector>
 
 using ConsoleCallback = std::function<void()>;
 

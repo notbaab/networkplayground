@@ -20,7 +20,7 @@ class InputManager
     static void StaticInit();
     static std::unique_ptr<InputManager> sInstance;
 
-    void HandleInput( EInputAction inInputAction, int inKeyCode );
+    void HandleInput(EInputAction inInputAction, int inKeyCode);
 
     const InputState& GetState() const { return mCurrentState; }
     MoveList& GetMoveList() { return mMoveList; }

@@ -17,7 +17,7 @@
 #include "math/Vector3.h"
 
 // Define for identifying classes.
-#define CLASS_IDENTIFICATION( inCode, inClass )                                \
+#define CLASS_IDENTIFICATION(inCode, inClass)                                  \
     enum                                                                       \
     {                                                                          \
         kClassId = inCode                                                      \
@@ -42,22 +42,22 @@ class GameObject
     // State that says everything is changed
     virtual uint32_t GetAllStateMask() const { return 0; }
 
-    void SetIndexInWorld( int inIndex ) { mIndexInWorld = inIndex; }
+    void SetIndexInWorld(int inIndex) { mIndexInWorld = inIndex; }
     int GetIndexInWorld() const { return mIndexInWorld; }
 
     int GetNetworkId() const { return mNetworkId; }
-    void SetNetworkId( int inId ) { mNetworkId = inId; }
+    void SetNetworkId(int inId) { mNetworkId = inId; }
 
-    virtual uint32_t Write( OutputMemoryBitStream& inOutputStream,
-                            uint32_t inDirtyState )
+    virtual uint32_t Write(OutputMemoryBitStream& inOutputStream,
+                           uint32_t inDirtyState)
     {
         return 0;
     }
 
-    virtual void Read( InputMemoryBitStream& inInputStream ) {}
+    virtual void Read(InputMemoryBitStream& inInputStream) {}
 
     const Vector3& GetLocation() const { return mLocation; }
-    void SetLocation( const Vector3& inLocation ) { mLocation = inLocation; }
+    void SetLocation(const Vector3& inLocation) { mLocation = inLocation; }
 
     Vector3 mLocation;
     Vector3 mVelocity;

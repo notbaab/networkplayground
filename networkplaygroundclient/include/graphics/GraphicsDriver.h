@@ -8,7 +8,7 @@
 class GraphicsDriver
 {
   public:
-    static bool StaticInit( SDL_Window* inWnd );
+    static bool StaticInit(SDL_Window* inWnd);
 
     static std::unique_ptr<GraphicsDriver> sInstance;
 
@@ -21,7 +21,7 @@ class GraphicsDriver
 
   private:
     GraphicsDriver();
-    bool Init( SDL_Window* inWnd );
+    bool Init(SDL_Window* inWnd);
 
     SDL_Renderer* mRenderer;
     SDL_Rect mViewport;

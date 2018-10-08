@@ -20,15 +20,14 @@ class GameObject;
 /**
  * Converts a float to an int
  */
-inline uint32_t ConvertToFixed( float inNumber, float inMin, float inPrecision )
+inline uint32_t ConvertToFixed(float inNumber, float inMin, float inPrecision)
 {
-    return static_cast<int>( ( inNumber - inMin ) / inPrecision );
+    return static_cast<int>((inNumber - inMin) / inPrecision);
 }
 
-inline uint32_t ConvertFromFixed( float inNumber, float inMin,
-                                  float inPrecision )
+inline uint32_t ConvertFromFixed(float inNumber, float inMin, float inPrecision)
 {
-    return static_cast<float>( inNumber ) * inPrecision + inMin;
+    return static_cast<float>(inNumber) * inPrecision + inMin;
 }
 
 /**
@@ -37,15 +36,15 @@ inline uint32_t ConvertFromFixed( float inNumber, float inMin,
 class OutputMemoryBitStream
 {
   public:
-    OutputMemoryBitStream() : mBuffer( nullptr ), mBitHead( 0 )
+    OutputMemoryBitStream() : mBuffer(nullptr), mBitHead(0)
     {
-        ReallocBuffer( 1500 * 8 ); // init 1500 Byte size buffer
+        ReallocBuffer(1500 * 8); // init 1500 Byte size buffer
     }
 
-    ~OutputMemoryBitStream() { std::free( mBuffer ); }
+    ~OutputMemoryBitStream() { std::free(mBuffer); }
 
-    void WriteBits( uint8_t inData, uint32_t inBitCount );
-    void WriteBits( const void* inData, uint32_t inBitCount );
+    void WriteBits(uint8_t inData, uint32_t inBitCount);
+    void WriteBits(const void* inData, uint32_t inBitCount);
 
     // Get read only pointer into buffer
     const char* GetBufferPtr() const { return mBuffer; }
@@ -54,45 +53,45 @@ class OutputMemoryBitStream
     uint32_t GetBitLength() const { return mBitHead; }
 
     // Get number of bytes written to the buffer
-    uint32_t GetByteLength() const { return ( mBitHead + 7 ) >> 3; }
+    uint32_t GetByteLength() const { return (mBitHead + 7) >> 3; }
 
     // Convient wrapper around write bits for byte aligned data
-    void WriteBytes( const void* inData, uint32_t inByteCount )
+    void WriteBytes(const void* inData, uint32_t inByteCount)
     {
-        WriteBits( inData, inByteCount << 3 );
+        WriteBits(inData, inByteCount << 3);
     }
 
     // Generic templatized write for primative values
     template <typename T>
-    void Write( T inData, uint32_t inBitCount = sizeof( T ) * 8 )
+    void Write(T inData, uint32_t inBitCount = sizeof(T) * 8)
     {
-        static_assert( std::is_arithmetic<T>::value || std::is_enum<T>::value,
-                       "Generic Write only supports primitive data types" );
-        WriteBits( &inData, inBitCount );
+        static_assert(std::is_arithmetic<T>::value || std::is_enum<T>::value,
+                      "Generic Write only supports primitive data types");
+        WriteBits(&inData, inBitCount);
     }
 
     // Writer for bool data, which should only be 1 bit
-    void Write( bool inData ) { WriteBits( &inData, 1 ); }
+    void Write(bool inData) { WriteBits(&inData, 1); }
 
     // Writer for string data
-    void Write( const std::string& inString )
+    void Write(const std::string& inString)
     {
-        uint32_t elementCount = static_cast<uint32_t>( inString.size() );
-        Write( elementCount );
-        for ( const auto& element : inString )
+        uint32_t elementCount = static_cast<uint32_t>(inString.size());
+        Write(elementCount);
+        for (const auto& element : inString)
         {
-            Write( element );
+            Write(element);
         }
     }
 
-    template <typename T> void serialize( T inData ) { Write( inData ); }
+    template <typename T> void serialize(T inData) { Write(inData); }
 
     void PrintByteArray();
 
     void printStream() const;
 
   private:
-    void ReallocBuffer( uint32_t inNewBitCapacity );
+    void ReallocBuffer(uint32_t inNewBitCapacity);
 
     char* mBuffer;         // buffer pointer
     uint32_t mBitHead;     // how many bits have data
@@ -102,28 +101,28 @@ class OutputMemoryBitStream
 class InputMemoryBitStream
 {
   public:
-    InputMemoryBitStream( char* inBuffer, uint32_t inBitCount )
-        : mBuffer( inBuffer ), mBitHead( 0 ), mBitCapacity( inBitCount ),
-          mIsBufferOwner( false )
+    InputMemoryBitStream(char* inBuffer, uint32_t inBitCount)
+        : mBuffer(inBuffer), mBitHead(0), mBitCapacity(inBitCount),
+          mIsBufferOwner(false)
     {
     }
 
-    InputMemoryBitStream( const InputMemoryBitStream& inOther )
-        : mBitHead( inOther.mBitHead ), mBitCapacity( inOther.mBitCapacity ),
-          mIsBufferOwner( true )
+    InputMemoryBitStream(const InputMemoryBitStream& inOther)
+        : mBitHead(inOther.mBitHead), mBitCapacity(inOther.mBitCapacity),
+          mIsBufferOwner(true)
     {
         // allocate buffer of right size
         int byteCount = mBitCapacity / 8;
-        mBuffer = static_cast<char*>( malloc( byteCount ) );
+        mBuffer = static_cast<char*>(malloc(byteCount));
         // copy
-        memcpy( mBuffer, inOther.mBuffer, byteCount );
+        memcpy(mBuffer, inOther.mBuffer, byteCount);
     }
 
     ~InputMemoryBitStream()
     {
-        if ( mIsBufferOwner )
+        if (mIsBufferOwner)
         {
-            free( mBuffer );
+            free(mBuffer);
         };
     }
 
@@ -131,66 +130,66 @@ class InputMemoryBitStream
     uint32_t GetRemainingBitCount() const { return mBitCapacity - mBitHead; }
     uint32_t GetByteCapacity() const { return mBitCapacity >> 3; }
 
-    void ReadBits( uint8_t& outData, uint32_t inBitCount );
-    void ReadBits( void* outData, uint32_t inBitCount );
+    void ReadBits(uint8_t& outData, uint32_t inBitCount);
+    void ReadBits(void* outData, uint32_t inBitCount);
 
-    void ReadBytes( void* outData, uint32_t inByteCount )
+    void ReadBytes(void* outData, uint32_t inByteCount)
     {
-        ReadBits( outData, inByteCount << 3 );
+        ReadBits(outData, inByteCount << 3);
     }
 
-    bool serialize_bits( uint32_t& outData, uint32_t inBitCount = 32 );
+    bool serialize_bits(uint32_t& outData, uint32_t inBitCount = 32);
 
     template <typename T>
-    void Read( T& inData, uint32_t inBitCount = sizeof( T ) * 8 )
+    void Read(T& inData, uint32_t inBitCount = sizeof(T) * 8)
     {
-        static_assert( std::is_arithmetic<T>::value || std::is_enum<T>::value,
-                       "Generic Read only supports primitive data types" );
-        ReadBits( &inData, inBitCount );
+        static_assert(std::is_arithmetic<T>::value || std::is_enum<T>::value,
+                      "Generic Read only supports primitive data types");
+        ReadBits(&inData, inBitCount);
     }
 
-    template <typename T> void serialize( T& inData ) { Read( inData ); }
+    template <typename T> void serialize(T& inData) { Read(inData); }
 
-    void Read( uint32_t& outData, uint32_t inBitCount = 32 )
+    void Read(uint32_t& outData, uint32_t inBitCount = 32)
     {
-        ReadBits( &outData, inBitCount );
+        ReadBits(&outData, inBitCount);
     }
-    void Read( int& outData, uint32_t inBitCount = 32 )
+    void Read(int& outData, uint32_t inBitCount = 32)
     {
-        ReadBits( &outData, inBitCount );
+        ReadBits(&outData, inBitCount);
     }
-    void Read( float& outData ) { ReadBits( &outData, 32 ); }
+    void Read(float& outData) { ReadBits(&outData, 32); }
 
-    void Read( uint16_t& outData, uint32_t inBitCount = 16 )
+    void Read(uint16_t& outData, uint32_t inBitCount = 16)
     {
-        ReadBits( &outData, inBitCount );
+        ReadBits(&outData, inBitCount);
     }
-    void Read( int16_t& outData, uint32_t inBitCount = 16 )
+    void Read(int16_t& outData, uint32_t inBitCount = 16)
     {
-        ReadBits( &outData, inBitCount );
+        ReadBits(&outData, inBitCount);
     }
 
-    void Read( uint8_t& outData, uint32_t inBitCount = 8 )
+    void Read(uint8_t& outData, uint32_t inBitCount = 8)
     {
-        ReadBits( &outData, inBitCount );
+        ReadBits(&outData, inBitCount);
     }
-    void Read( bool& outData ) { ReadBits( &outData, 1 ); }
+    void Read(bool& outData) { ReadBits(&outData, 1); }
 
-    void ResetToCapacity( uint32_t inByteCapacity )
+    void ResetToCapacity(uint32_t inByteCapacity)
     {
         mBitCapacity = inByteCapacity << 3;
         mBitHead = 0;
     }
 
     // This seems...dumb
-    void Read( std::string& inString )
+    void Read(std::string& inString)
     {
         uint32_t elementCount;
-        Read( elementCount );
-        inString.resize( elementCount );
-        for ( auto& element : inString )
+        Read(elementCount);
+        inString.resize(elementCount);
+        for (auto& element : inString)
         {
-            Read( element );
+            Read(element);
         }
     }
 

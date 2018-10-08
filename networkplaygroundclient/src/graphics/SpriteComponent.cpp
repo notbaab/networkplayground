@@ -1,29 +1,29 @@
+#include "graphics/SpriteComponent.h"
 #include "gameobjects/GameObject.h"
 #include "graphics/GraphicsDriver.h"
 #include "graphics/RenderManager.h"
-#include "graphics/SpriteComponent.h"
 #include <SDL.h>
 
-SpriteComponent::SpriteComponent( GameObject* inGameObject )
-    : mGameObject( inGameObject )
+SpriteComponent::SpriteComponent(GameObject* inGameObject)
+    : mGameObject(inGameObject)
 {
     // hardcoded at the moment...
     float textureWidth = 128.f, textureHeight = 128.f;
     // origin should be half texture size, but we're not loading the actual size
     // at the moment
-    mOrigin = Vector3( textureWidth * 0.5f, textureHeight * 0.5f, 0.f );
+    mOrigin = Vector3(textureWidth * 0.5f, textureHeight * 0.5f, 0.f);
 
     // and add yourself to the rendermanager...
-    RenderManager::sInstance->AddComponent( this );
+    RenderManager::sInstance->AddComponent(this);
 }
 
 SpriteComponent::~SpriteComponent()
 {
     // don't render me, I'm dead!
-    RenderManager::sInstance->RemoveComponent( this );
+    RenderManager::sInstance->RemoveComponent(this);
 }
 
-void SpriteComponent::Draw( const SDL_Rect& inViewTransform )
+void SpriteComponent::Draw(const SDL_Rect& inViewTransform)
 {
     SDL_Renderer* renderer = GraphicsDriver::sInstance->GetRenderer();
 
@@ -31,7 +31,7 @@ void SpriteComponent::Draw( const SDL_Rect& inViewTransform )
     uint8_t green = mColor.mY;
     uint8_t blue = mColor.mZ;
 
-    SDL_SetRenderDrawColor( renderer, red, green, blue, 255 );
+    SDL_SetRenderDrawColor(renderer, red, green, blue, 255);
 
     SDL_Rect rectangle;
 
@@ -42,7 +42,7 @@ void SpriteComponent::Draw( const SDL_Rect& inViewTransform )
     rectangle.h = 50;
 
     // draw a rect for this object
-    SDL_RenderFillRect( renderer, &rectangle );
+    SDL_RenderFillRect(renderer, &rectangle);
 
     //    if ( mTexture )
     //    {

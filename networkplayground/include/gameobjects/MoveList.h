@@ -10,11 +10,11 @@ class MoveList
     typedef std::deque<Move>::const_iterator const_iterator;
     typedef std::deque<Move>::const_reference const_reverse_iterator;
 
-    MoveList() : mLastMoveTimestamp( -1.f ) {}
+    MoveList() : mLastMoveTimestamp(-1.f) {}
 
-    const Move& AddMove( const InputState& inInputState, float inTimeStamp );
-    bool AddMoveIfNew( const Move& inMove );
-    void RemoveProcessedMoves( float inLAstMoveProcessedTimestamp );
+    const Move& AddMove(const InputState& inInputState, float inTimeStamp);
+    bool AddMoveIfNew(const Move& inMove);
+    void RemoveProcessedMoves(float inLAstMoveProcessedTimestamp);
 
     float GetLastMoveTimestamp() const { return mLastMoveTimestamp; }
     const Move& GetLatestmove() const { return mMoves.back(); }

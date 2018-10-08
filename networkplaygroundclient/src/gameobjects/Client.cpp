@@ -1,4 +1,3 @@
-#include <gameobjects/World.h>
 #include "gameobjects/Client.h"
 #include "gameobjects/GameObjectRegistry.h"
 #include "gameobjects/PlayerClient.h"
@@ -7,9 +6,10 @@
 #include "graphics/TextureManager.h"
 #include "graphics/WindowManager.h"
 #include "input/InputManager.h"
+#include "networking/Logger.h"
 #include "networking/NetworkManagerClient.h"
 #include "networking/SocketAddressFactory.h"
-#include "networking/Logger.h"
+#include <gameobjects/World.h>
 
 bool Client::StaticInit()
 {
@@ -17,13 +17,12 @@ bool Client::StaticInit()
 
     SDL_Init(SDL_INIT_EVERYTHING);
 
-    if ( !WindowManager::StaticInit() )
+    if (!WindowManager::StaticInit())
     {
         return false;
     }
 
-    if ( !GraphicsDriver::StaticInit(
-             WindowManager::sInstance->GetMainWindow() ) )
+    if (!GraphicsDriver::StaticInit(WindowManager::sInstance->GetMainWindow()))
     {
         return false;
     }
@@ -31,7 +30,7 @@ bool Client::StaticInit()
     TextureManager::StaticInit();
     RenderManager::StaticInit();
     InputManager::StaticInit();
-    sInstance.reset( client );
+    sInstance.reset(client);
 
     return true;
 }
@@ -41,29 +40,29 @@ Client::Client()
     std::string destination = "127.0.0.1:45000";
     // std::string name = Logger::GetCommandLineArg( 2 );
     SocketAddressPtr serverAddress =
-        SocketAddressFactory::CreateIPv4FromString( destination );
+        SocketAddressFactory::CreateIPv4FromString(destination);
 
-    NetworkManagerClient::StaticInit( *serverAddress, "DUDUD" );
+    NetworkManagerClient::StaticInit(*serverAddress, "DUDUD");
 
     GameObjectRegistry::sInstance->RegisterCreationFunction(
-        Player::kClassId, PlayerClient::StaticCreate );
+        Player::kClassId, PlayerClient::StaticCreate);
 }
 
 bool Client::DoFrame()
 {
     // Main message loop
     SDL_Event event;
-    memset( &event, 0, sizeof( SDL_Event ) );
-    if ( SDL_PollEvent( &event ) )
+    memset(&event, 0, sizeof(SDL_Event));
+    if (SDL_PollEvent(&event))
     {
-        if ( event.type == SDL_QUIT )
+        if (event.type == SDL_QUIT)
         {
             SDL_Quit();
             return false;
         }
         else
         {
-            HandleEvent( &event );
+            HandleEvent(&event);
         }
     }
 
@@ -80,17 +79,17 @@ bool Client::DoFrame()
     return true;
 }
 
-void Client::HandleEvent( SDL_Event* inEvent )
+void Client::HandleEvent(SDL_Event* inEvent)
 {
-    switch ( inEvent->type )
+    switch (inEvent->type)
     {
     case SDL_KEYDOWN:
-        InputManager::sInstance->HandleInput( EIA_Pressed,
-                                              inEvent->key.keysym.sym );
+        InputManager::sInstance->HandleInput(EIA_Pressed,
+                                             inEvent->key.keysym.sym);
         break;
     case SDL_KEYUP:
-        InputManager::sInstance->HandleInput( EIA_Released,
-                                              inEvent->key.keysym.sym );
+        InputManager::sInstance->HandleInput(EIA_Released,
+                                             inEvent->key.keysym.sym);
         break;
     default:
         break;

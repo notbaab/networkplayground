@@ -31,7 +31,6 @@ class Engine
 
   private:
     int DoRunLoop();
-
 };
 
 #endif /* Engine_h */

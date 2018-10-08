@@ -9,7 +9,7 @@
 class Texture
 {
   public:
-    Texture( uint32_t inWidth, uint32_t inHeight, SDL_Texture* inTexture );
+    Texture(uint32_t inWidth, uint32_t inHeight, SDL_Texture* inTexture);
     ~Texture();
 
     uint32_t GetWidth() const { return mWidth; }

@@ -1,11 +1,10 @@
 #include <iostream>
-#include <thread>
 #include <string>
+#include <thread>
 
 #include "gameobjects/Client.h"
-#include "networking/Logger.h"
 #include "gameobjects/World.h"
-
+#include "networking/Logger.h"
 
 const char** __argv;
 int __argc;
@@ -14,9 +13,10 @@ int __argc;
 
 void interactive_console()
 {
-    setbuf( stdout, NULL );
+    setbuf(stdout, NULL);
     std::string command;
-    do {
+    do
+    {
         std::cin >> command;
 
         if ("locate" == command)
@@ -28,7 +28,7 @@ void interactive_console()
     std::cout << "Exiting";
 }
 
-int main( int argc, const char* argv[] )
+int main(int argc, const char* argv[])
 {
     // std::thread t(&interactive_console);   // t starts running
 
@@ -37,7 +37,7 @@ int main( int argc, const char* argv[] )
 
     Logger::InitLog(spdlog::level::trace, "client");
 
-    if ( Client::StaticInit() )
+    if (Client::StaticInit())
     {
         int exitCode = Client::sInstance->Run();
         INFO("Exiting");

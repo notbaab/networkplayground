@@ -9,50 +9,50 @@ class Vector3
   public:
     float mX, mY, mZ;
 
-    Vector3( float x, float y, float z ) : mX( x ), mY( y ), mZ( z ) {}
+    Vector3(float x, float y, float z) : mX(x), mY(y), mZ(z) {}
 
-    Vector3() : mX( 0.0f ), mY( 0.0f ), mZ( 0.0f ) {}
+    Vector3() : mX(0.0f), mY(0.0f), mZ(0.0f) {}
 
-    void Set( float x, float y, float z )
+    void Set(float x, float y, float z)
     {
         mX = x;
         mY = y;
         mZ = z;
     }
 
-    friend Vector3 operator+( const Vector3& inLeft, const Vector3& inRight )
+    friend Vector3 operator+(const Vector3& inLeft, const Vector3& inRight)
     {
-        return Vector3( inLeft.mX + inRight.mX, inLeft.mY + inRight.mY,
-                        inLeft.mZ + inRight.mZ );
+        return Vector3(inLeft.mX + inRight.mX, inLeft.mY + inRight.mY,
+                       inLeft.mZ + inRight.mZ);
     }
 
-    friend Vector3 operator-( const Vector3& inLeft, const Vector3& inRight )
+    friend Vector3 operator-(const Vector3& inLeft, const Vector3& inRight)
     {
-        return Vector3( inLeft.mX - inRight.mX, inLeft.mY - inRight.mY,
-                        inLeft.mZ - inRight.mZ );
+        return Vector3(inLeft.mX - inRight.mX, inLeft.mY - inRight.mY,
+                       inLeft.mZ - inRight.mZ);
     }
 
     // Component-wise multiplication
-    friend Vector3 operator*( const Vector3& inLeft, const Vector3& inRight )
+    friend Vector3 operator*(const Vector3& inLeft, const Vector3& inRight)
     {
-        return Vector3( inLeft.mX * inRight.mX, inLeft.mY * inRight.mY,
-                        inLeft.mZ * inRight.mZ );
+        return Vector3(inLeft.mX * inRight.mX, inLeft.mY * inRight.mY,
+                       inLeft.mZ * inRight.mZ);
     }
 
     // Scalar multiply
-    friend Vector3 operator*( float inScalar, const Vector3& inVec )
+    friend Vector3 operator*(float inScalar, const Vector3& inVec)
     {
-        return Vector3( inVec.mX * inScalar, inVec.mY * inScalar,
-                        inVec.mZ * inScalar );
+        return Vector3(inVec.mX * inScalar, inVec.mY * inScalar,
+                       inVec.mZ * inScalar);
     }
 
-    friend Vector3 operator*( const Vector3& inVec, float inScalar )
+    friend Vector3 operator*(const Vector3& inVec, float inScalar)
     {
-        return Vector3( inVec.mX * inScalar, inVec.mY * inScalar,
-                        inVec.mZ * inScalar );
+        return Vector3(inVec.mX * inScalar, inVec.mY * inScalar,
+                       inVec.mZ * inScalar);
     }
 
-    Vector3& operator*=( float inScalar )
+    Vector3& operator*=(float inScalar)
     {
         mX *= inScalar;
         mY *= inScalar;
@@ -60,7 +60,7 @@ class Vector3
         return *this;
     }
 
-    Vector3& operator+=( const Vector3& inRight )
+    Vector3& operator+=(const Vector3& inRight)
     {
         mX += inRight.mX;
         mY += inRight.mY;
@@ -68,7 +68,7 @@ class Vector3
         return *this;
     }
 
-    Vector3& operator-=( const Vector3& inRight )
+    Vector3& operator-=(const Vector3& inRight)
     {
         mX -= inRight.mX;
         mY -= inRight.mY;
@@ -76,11 +76,11 @@ class Vector3
         return *this;
     }
 
-    float Length() { return sqrtf( mX * mX + mY * mY + mZ * mZ ); }
+    float Length() { return sqrtf(mX * mX + mY * mY + mZ * mZ); }
 
     float LengthSq() { return mX * mX + mY * mY + mZ * mZ; }
 
-    float Length2D() { return sqrtf( mX * mX + mY * mY ); }
+    float Length2D() { return sqrtf(mX * mX + mY * mY); }
 
     float LengthSq2D() { return mX * mX + mY * mY; }
 
@@ -99,18 +99,18 @@ class Vector3
         mY /= length;
     }
 
-    friend float Dot( const Vector3& inLeft, const Vector3& inRight )
+    friend float Dot(const Vector3& inLeft, const Vector3& inRight)
     {
-        return ( inLeft.mX * inRight.mX + inLeft.mY * inRight.mY +
-                 inLeft.mZ * inRight.mZ );
+        return (inLeft.mX * inRight.mX + inLeft.mY * inRight.mY +
+                inLeft.mZ * inRight.mZ);
     }
 
-    friend float Dot2D( const Vector3& inLeft, const Vector3& inRight )
+    friend float Dot2D(const Vector3& inLeft, const Vector3& inRight)
     {
-        return ( inLeft.mX * inRight.mX + inLeft.mY * inRight.mY );
+        return (inLeft.mX * inRight.mX + inLeft.mY * inRight.mY);
     }
 
-    friend Vector3 Cross( const Vector3& inLeft, const Vector3& inRight )
+    friend Vector3 Cross(const Vector3& inLeft, const Vector3& inRight)
     {
         Vector3 temp;
         temp.mX = inLeft.mY * inRight.mZ - inLeft.mZ * inRight.mY;
@@ -119,9 +119,9 @@ class Vector3
         return temp;
     }
 
-    friend Vector3 Lerp( const Vector3& inA, const Vector3& inB, float t )
+    friend Vector3 Lerp(const Vector3& inA, const Vector3& inB, float t)
     {
-        return Vector3( inA + t * ( inB - inA ) );
+        return Vector3(inA + t * (inB - inA));
     }
 
     static const Vector3 Zero;
@@ -132,19 +132,16 @@ class Vector3
 
 namespace Math
 {
-    const float PI = 3.1415926535f;
-    float GetRandomFloat();
+const float PI = 3.1415926535f;
+float GetRandomFloat();
 
-    Vector3 GetRandomVector( const Vector3& inMin, const Vector3& inMax );
+Vector3 GetRandomVector(const Vector3& inMin, const Vector3& inMax);
 
-    inline bool Is2DVectorEqual( const Vector3& inA, const Vector3& inB )
-    {
-        return ( inA.mX == inB.mX && inA.mY == inB.mY );
-    }
-
-    inline float ToDegrees( float inRadians )
-    {
-        return inRadians * 180.0f / PI;
-    }
+inline bool Is2DVectorEqual(const Vector3& inA, const Vector3& inB)
+{
+    return (inA.mX == inB.mX && inA.mY == inB.mY);
 }
+
+inline float ToDegrees(float inRadians) { return inRadians * 180.0f / PI; }
+} // namespace Math
 #endif /* Vector3_h */

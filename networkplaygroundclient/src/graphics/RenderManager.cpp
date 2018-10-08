@@ -1,5 +1,5 @@
-#include "graphics/GraphicsDriver.h"
 #include "graphics/RenderManager.h"
+#include "graphics/GraphicsDriver.h"
 #include "graphics/SpriteComponent.h"
 
 std::unique_ptr<RenderManager> RenderManager::sInstance;
@@ -16,21 +16,21 @@ RenderManager::RenderManager()
     mViewTransform.h = 100;
 }
 
-void RenderManager::StaticInit() { sInstance.reset( new RenderManager() ); }
+void RenderManager::StaticInit() { sInstance.reset(new RenderManager()); }
 
-void RenderManager::AddComponent( SpriteComponent* inComponent )
+void RenderManager::AddComponent(SpriteComponent* inComponent)
 {
-    mComponents.push_back( inComponent );
+    mComponents.push_back(inComponent);
 }
 
-void RenderManager::RemoveComponent( SpriteComponent* inComponent )
+void RenderManager::RemoveComponent(SpriteComponent* inComponent)
 {
-    int index = GetComponentIndex( inComponent );
+    int index = GetComponentIndex(inComponent);
 
-    if ( index != -1 )
+    if (index != -1)
     {
         int lastIndex = (int)mComponents.size() - 1;
-        if ( index != lastIndex )
+        if (index != lastIndex)
         {
             mComponents[index] = mComponents[lastIndex];
         }
@@ -38,11 +38,11 @@ void RenderManager::RemoveComponent( SpriteComponent* inComponent )
     }
 }
 
-int RenderManager::GetComponentIndex( SpriteComponent* inComponent ) const
+int RenderManager::GetComponentIndex(SpriteComponent* inComponent) const
 {
-    for ( int i = 0, c = (int)mComponents.size(); i < c; ++i )
+    for (int i = 0, c = (int)mComponents.size(); i < c; ++i)
     {
-        if ( mComponents[i] == inComponent )
+        if (mComponents[i] == inComponent)
         {
             return i;
         }
@@ -62,13 +62,13 @@ void RenderManager::RenderComponents()
     //    SDL_Rect viewport = GraphicsDriver::sInstance->GetLogicalViewport();
     SDL_Renderer* renderer = GraphicsDriver::sInstance->GetRenderer();
 
-    for ( auto cIt = mComponents.begin(), end = mComponents.end(); cIt != end;
-          ++cIt )
+    for (auto cIt = mComponents.begin(), end = mComponents.end(); cIt != end;
+         ++cIt)
     {
-        ( *cIt )->Draw( mViewTransform );
+        (*cIt)->Draw(mViewTransform);
     }
 
-    SDL_SetRenderDrawColor( renderer, 100, 149, 237, SDL_ALPHA_OPAQUE );
+    SDL_SetRenderDrawColor(renderer, 100, 149, 237, SDL_ALPHA_OPAQUE);
 }
 
 void RenderManager::Render()

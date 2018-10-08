@@ -22,27 +22,27 @@ class NetworkManager
     static const uint32_t kWelcomeCC = 'WLCM'; // server welcome message
     static const uint32_t kStateCC = 'STAT';
     static const uint32_t kInputCC = 'INPT';
-    static const int      kMaxPacketsPerFrameCount = 10;
+    static const int kMaxPacketsPerFrameCount = 10;
 
     NetworkManager();
     virtual ~NetworkManager();
 
-    bool Init( uint16_t inPort );
+    bool Init(uint16_t inPort);
     void ProcessIncomingPackets();
-    virtual void ProcessPacket( InputMemoryBitStream& inInputStream,
-                                const SocketAddress& inFromAddress );
+    virtual void ProcessPacket(InputMemoryBitStream& inInputStream,
+                               const SocketAddress& inFromAddress);
 
-    void SendPacket( const OutputMemoryBitStream& inOutputStream,
-                     const SocketAddress& inFromAddress );
+    void SendPacket(const OutputMemoryBitStream& inOutputStream,
+                    const SocketAddress& inFromAddress);
 
     void ReadIncomingPacketsIntoQueue();
     void ReadIncomingPacket();
     void ProcessQueuedPackets();
 
     // TODO: Does this need game object knowledge? Can we abstract it?
-    inline GameObjectPtr GetGameObject( int inNetworkId ) const;
-    void AddToNetworkIdToGameObjectMap( GameObjectPtr inGameObject );
-    void RemoveFromNetworkIdToGameObjectMap( GameObjectPtr inGameObject );
+    inline GameObjectPtr GetGameObject(int inNetworkId) const;
+    void AddToNetworkIdToGameObjectMap(GameObjectPtr inGameObject);
+    void RemoveFromNetworkIdToGameObjectMap(GameObjectPtr inGameObject);
 
   protected:
     std::unordered_map<int, GameObjectPtr> mNetworkIdToGameObjectMap;
@@ -56,9 +56,9 @@ class NetworkManager
     class ReceivedPacket
     {
       public:
-        ReceivedPacket( float inRecievedTime,
-                        InputMemoryBitStream& inInputMemoryBitStream,
-                        const SocketAddress& inAddress );
+        ReceivedPacket(float inRecievedTime,
+                       InputMemoryBitStream& inInputMemoryBitStream,
+                       const SocketAddress& inAddress);
 
         // get the address this packet came from
         const SocketAddress& GetFromAddress() const { return mFromAddress; }
@@ -77,17 +77,17 @@ class NetworkManager
 
     std::queue<ReceivedPacket, std::list<ReceivedPacket>> mPacketQueue;
     UDPSocketPtr mSocket;
-    int                         mBytesSentThisFrame;
-    float                       mDropPacketChance;
-    float                       mSimulatedLatency;
+    int mBytesSentThisFrame;
+    float mDropPacketChance;
+    float mSimulatedLatency;
     //    WeightedTimedMovingAverage	mBytesReceivedPerSecond;
     //    WeightedTimedMovingAverage	mBytesSentPerSecond;
 };
 
-inline GameObjectPtr NetworkManager::GetGameObject( int inNetworkId ) const
+inline GameObjectPtr NetworkManager::GetGameObject(int inNetworkId) const
 {
-    auto gameObjectIt = mNetworkIdToGameObjectMap.find( inNetworkId );
-    if ( gameObjectIt != mNetworkIdToGameObjectMap.end() )
+    auto gameObjectIt = mNetworkIdToGameObjectMap.find(inNetworkId);
+    if (gameObjectIt != mNetworkIdToGameObjectMap.end())
     {
         return gameObjectIt->second;
     }

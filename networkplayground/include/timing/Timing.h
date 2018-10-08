@@ -14,7 +14,7 @@ class Timing
 
     double GetTime() const;
 
-    float GetTimef() const { return static_cast<float>( GetTime() ); }
+    float GetTimef() const { return static_cast<float>(GetTime()); }
 
     float GetFrameStartTime() const { return mFrameStartTimef; }
 

@@ -7,58 +7,58 @@ float kTimeBetweenInputSamples = 0.03f;
 // float kTimeBetweenInputSamples = 0.3f;
 // float kTimeBetweenInputSamples = 1.0f;
 
-void InputManager::StaticInit() { sInstance.reset( new InputManager() ); }
+void InputManager::StaticInit() { sInstance.reset(new InputManager()); }
 
 InputManager::InputManager()
-    : mNextTimeToSampleInput( 0.f ), mPendingMove( nullptr )
+    : mNextTimeToSampleInput(0.f), mPendingMove(nullptr)
 {
     mNextTimeToSampleInput = Timing::sInstance.GetFrameStartTime();
 }
 
-inline void UpdateDesireVariableFromKey( EInputAction inInputAction,
-                                         bool& ioVariable )
+inline void UpdateDesireVariableFromKey(EInputAction inInputAction,
+                                        bool& ioVariable)
 {
-    if ( inInputAction == EIA_Pressed )
+    if (inInputAction == EIA_Pressed)
     {
         ioVariable = true;
     }
-    else if ( inInputAction == EIA_Released )
+    else if (inInputAction == EIA_Released)
     {
         ioVariable = false;
     }
 }
 
-inline void UpdateDesireFloatFromKey( EInputAction inInputAction,
-                                      float& ioVariable )
+inline void UpdateDesireFloatFromKey(EInputAction inInputAction,
+                                     float& ioVariable)
 {
-    if ( inInputAction == EIA_Pressed )
+    if (inInputAction == EIA_Pressed)
     {
         ioVariable = 1.f;
     }
-    else if ( inInputAction == EIA_Released )
+    else if (inInputAction == EIA_Released)
     {
         ioVariable = 0.f;
     }
 }
 
-void InputManager::HandleInput( EInputAction inInputAction, int inKeyCode )
+void InputManager::HandleInput(EInputAction inInputAction, int inKeyCode)
 {
-    switch ( inKeyCode )
+    switch (inKeyCode)
     {
     case 'a':
-        UpdateDesireFloatFromKey( inInputAction, mCurrentState.mLeftAmount );
+        UpdateDesireFloatFromKey(inInputAction, mCurrentState.mLeftAmount);
         break;
     case 'd':
-        UpdateDesireFloatFromKey( inInputAction, mCurrentState.mRightAmount );
+        UpdateDesireFloatFromKey(inInputAction, mCurrentState.mRightAmount);
         break;
     case 'w':
-        UpdateDesireFloatFromKey( inInputAction, mCurrentState.mForwardAmount );
+        UpdateDesireFloatFromKey(inInputAction, mCurrentState.mForwardAmount);
         break;
     case 's':
-        UpdateDesireFloatFromKey( inInputAction, mCurrentState.mBackAmount );
+        UpdateDesireFloatFromKey(inInputAction, mCurrentState.mBackAmount);
         break;
     case 'k':
-        UpdateDesireVariableFromKey( inInputAction, mCurrentState.mIsShooting );
+        UpdateDesireVariableFromKey(inInputAction, mCurrentState.mIsShooting);
         break;
     default:
         break;
@@ -67,14 +67,13 @@ void InputManager::HandleInput( EInputAction inInputAction, int inKeyCode )
 
 const Move& InputManager::SampleInputAsMove()
 {
-    return mMoveList.AddMove( GetState(),
-                              Timing::sInstance.GetFrameStartTime() );
+    return mMoveList.AddMove(GetState(), Timing::sInstance.GetFrameStartTime());
 }
 
 bool InputManager::IsTimeToSampleInput()
 {
     float time = Timing::sInstance.GetFrameStartTime();
-    if ( time > mNextTimeToSampleInput )
+    if (time > mNextTimeToSampleInput)
     {
         mNextTimeToSampleInput += kTimeBetweenInputSamples;
         return true;
@@ -93,7 +92,7 @@ bool InputManager::shouldSampleMove()
 void InputManager::Update()
 {
     // TODO: No.
-    if ( shouldSampleMove())
+    if (shouldSampleMove())
     {
         mPendingMove = &SampleInputAsMove();
     }

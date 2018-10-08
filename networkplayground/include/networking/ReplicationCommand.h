@@ -5,7 +5,7 @@
 
 enum ReplicationAction
 {
-    RA_CREATE=1,
+    RA_CREATE = 1,
     RA_UPDATE,
     RA_DESTROY,
     RA_RPC,
@@ -18,8 +18,8 @@ struct ReplicationCommand
 {
   public:
     ReplicationCommand() {}
-    ReplicationCommand( uint32_t inIntialDirtyState )
-        : mAction( RA_CREATE ), mDirtyState( inIntialDirtyState )
+    ReplicationCommand(uint32_t inIntialDirtyState)
+        : mAction(RA_CREATE), mDirtyState(inIntialDirtyState)
     {
     }
 
@@ -27,21 +27,22 @@ struct ReplicationCommand
     // just update ones
     void HandleCreateAckd()
     {
-        if ( mAction == RA_CREATE ){
+        if (mAction == RA_CREATE)
+        {
             mAction = RA_UPDATE;
         }
     }
 
-    void AddDirtyState( uint32_t inState ) { mDirtyState |= inState; }
+    void AddDirtyState(uint32_t inState) { mDirtyState |= inState; }
 
     bool HasDirtyState() const
     {
-        return ( mAction == RA_DESTROY ) || ( mDirtyState != 0 );
+        return (mAction == RA_DESTROY) || (mDirtyState != 0);
     }
 
     ReplicationAction GetAction() const { return mAction; }
     uint32_t GetDirtyState() const { return mDirtyState; }
-    inline void ClearDirtyState( uint32_t inStateToClear );
+    inline void ClearDirtyState(uint32_t inStateToClear);
 
     //    void Write( OutputMemryBitStream& inStream, int inNetworkId,
     //                ReplicationManagerTransmissionData* ioTransactionData );
@@ -52,11 +53,11 @@ struct ReplicationCommand
     ReplicationAction mAction;
 };
 
-inline void ReplicationCommand::ClearDirtyState( uint32_t inStateToClear )
+inline void ReplicationCommand::ClearDirtyState(uint32_t inStateToClear)
 {
     mDirtyState &= ~inStateToClear;
 
-    if ( mAction == RA_DESTROY )
+    if (mAction == RA_DESTROY)
     {
         // Don't destroy the object if we want to clear it's state
         mAction = RA_UPDATE;

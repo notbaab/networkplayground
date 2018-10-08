@@ -7,8 +7,8 @@ class InputState
 {
   public:
     InputState()
-        : mLeftAmount( 0 ), mRightAmount( 0 ), mForwardAmount( 0 ),
-          mBackAmount( 0 ), mIsShooting( false )
+        : mLeftAmount(0), mRightAmount(0), mForwardAmount(0), mBackAmount(0),
+          mIsShooting(false)
     {
     }
 
@@ -20,11 +20,11 @@ class InputState
     {
         return mForwardAmount - mBackAmount;
     };
-    
+
     bool HasInput();
 
-    bool Write( OutputMemoryBitStream& inOutputStream ) const;
-    bool Read( InputMemoryBitStream& inInputStream );
+    bool Write(OutputMemoryBitStream& inOutputStream) const;
+    bool Read(InputMemoryBitStream& inInputStream);
 
   private:
     friend class InputManager; // client only class. Why?

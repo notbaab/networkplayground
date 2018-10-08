@@ -15,23 +15,23 @@
 
 #include "gameobjects/GameObject.h"
 
-typedef GameObjectPtr ( *GameObjectCreationFunc )();
+typedef GameObjectPtr (*GameObjectCreationFunc)();
 
-typedef void ( *addToWorldFunction )( GameObjectPtr );
+typedef void (*addToWorldFunction)(GameObjectPtr);
 
 class GameObjectRegistry
 {
   public:
     // Takes a function that should be called after the object is created
-    static void StaticInit( addToWorldFunction worldAddFunction );
+    static void StaticInit(addToWorldFunction worldAddFunction);
 
     // Singleton instance
     static std::unique_ptr<GameObjectRegistry> sInstance;
 
-    void RegisterCreationFunction( uint32_t inCCName,
-                                   GameObjectCreationFunc inCreationFuntion );
+    void RegisterCreationFunction(uint32_t inCCName,
+                                  GameObjectCreationFunc inCreationFuntion);
 
-    GameObjectPtr CreateGameObject( uint32_t inCCName );
+    GameObjectPtr CreateGameObject(uint32_t inCCName);
 
   private:
     GameObjectRegistry();

@@ -17,9 +17,9 @@ class RenderManager
     void RenderComponents();
 
     // vert inefficient method of tracking scene graph...
-    void AddComponent( SpriteComponent* inComponent );
-    void RemoveComponent( SpriteComponent* inComponent );
-    int GetComponentIndex( SpriteComponent* inComponent ) const;
+    void AddComponent(SpriteComponent* inComponent);
+    void RemoveComponent(SpriteComponent* inComponent);
+    int GetComponentIndex(SpriteComponent* inComponent) const;
 
   private:
     RenderManager();

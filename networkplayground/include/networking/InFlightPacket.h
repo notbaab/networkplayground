@@ -13,27 +13,27 @@ typedef std::uint16_t PacketSequenceNumber;
 class InFlightPacket
 {
   public:
-    InFlightPacket( PacketSequenceNumber inSequenceNumber );
+    InFlightPacket(PacketSequenceNumber inSequenceNumber);
 
     PacketSequenceNumber GetSequenceNumber() const { return mSequenceNumber; }
     float GetTimeDispatched() const { return mTimeDispatched; }
 
-    void SetTransmissionData( int inKey, TransmissionDataPtr inTranmissiondata )
+    void SetTransmissionData(int inKey, TransmissionDataPtr inTranmissiondata)
     {
         mTransmissionDataMap[inKey] = inTranmissiondata;
     }
 
-    const TransmissionDataPtr GetTransmissionData( int key ) const
+    const TransmissionDataPtr GetTransmissionData(int key) const
     {
-        auto it = mTransmissionDataMap.find( key );
-        return ( it != mTransmissionDataMap.end() ? it->second : nullptr );
+        auto it = mTransmissionDataMap.find(key);
+        return (it != mTransmissionDataMap.end() ? it->second : nullptr);
     }
 
     void HandleDeliveryFailure(
-        DeliveryNotificationManager* inDeliveryNotificationManager ) const;
+        DeliveryNotificationManager* inDeliveryNotificationManager) const;
 
     void HandleDeliverySuccess(
-        DeliveryNotificationManager* inDeliveryNotificationManager ) const;
+        DeliveryNotificationManager* inDeliveryNotificationManager) const;
 
   private:
     PacketSequenceNumber mSequenceNumber;

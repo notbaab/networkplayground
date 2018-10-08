@@ -14,16 +14,19 @@ class PlayerClient : public Player
   public:
     static GameObjectPtr StaticCreate()
     {
-        return GameObjectPtr( new PlayerClient() );
+        return GameObjectPtr(new PlayerClient());
     }
 
     virtual void Update() override;
-    virtual void Read( InputMemoryBitStream& inInputStream ) override;
+    virtual void Read(InputMemoryBitStream& inInputStream) override;
 
-    void DoClientSidePredictionAfterReplicationForLocalPlayer( uint32_t inReadState );
+    void
+    DoClientSidePredictionAfterReplicationForLocalPlayer(uint32_t inReadState);
 
-    void InterpolateClientSidePrediction(float inOldRotation, const Vector3 &inOldLocation,
-                                         const Vector3 &inOldVelocity, bool inIsForRemotePlayer);
+    void InterpolateClientSidePrediction(float inOldRotation,
+                                         const Vector3& inOldLocation,
+                                         const Vector3& inOldVelocity,
+                                         bool inIsForRemotePlayer);
 
     bool IsLocalPlayer();
 
@@ -31,8 +34,8 @@ class PlayerClient : public Player
     PlayerClient();
 
   private:
-    void ApplyUnAckedMoves( uint32_t inReadState );
-    void HandleStatePacket( InputMemoryBitStream& inInputStream );
+    void ApplyUnAckedMoves(uint32_t inReadState);
+    void HandleStatePacket(InputMemoryBitStream& inInputStream);
 
     float mTimeLocationBecameOutOfSync;
     float mTimeVelocityBecameOutOfSync;

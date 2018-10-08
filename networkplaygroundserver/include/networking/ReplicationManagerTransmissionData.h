@@ -13,17 +13,17 @@ class ReplicationManagerTransmissionData : public TransmissionData
     static const uint32_t kReplicationTransmissionData = 'RPLM';
 
     ReplicationManagerTransmissionData(
-        ReplicationManagerServer* inReplicationManagerServer )
-        : mReplicationManagerServer( inReplicationManagerServer )
+        ReplicationManagerServer* inReplicationManagerServer)
+        : mReplicationManagerServer(inReplicationManagerServer)
     {
     }
 
     class ReplicationTransmission
     {
       public:
-        ReplicationTransmission( int inNetworkId, ReplicationAction inAction,
-                                 uint32_t inState )
-            : mNetworkId( inNetworkId ), mAction( inAction ), mState( inState )
+        ReplicationTransmission(int inNetworkId, ReplicationAction inAction,
+                                uint32_t inState)
+            : mNetworkId(inNetworkId), mAction(inAction), mState(inState)
         {
         }
 
@@ -37,29 +37,29 @@ class ReplicationManagerTransmissionData : public TransmissionData
         uint32_t mState;
     };
 
-    void AddTransmission( int inNetworkId, ReplicationAction inAction,
-                          uint32_t instate );
+    void AddTransmission(int inNetworkId, ReplicationAction inAction,
+                         uint32_t instate);
 
     virtual void HandleDeliveryFailure(
-        DeliveryNotificationManager* inDeliveryNotificationManager )
+        DeliveryNotificationManager* inDeliveryNotificationManager)
         const override;
 
     virtual void HandleDeliverySuccess(
-        DeliveryNotificationManager* inDeliveryNotificationManager )
+        DeliveryNotificationManager* inDeliveryNotificationManager)
         const override;
 
   private:
     // Failure handlers
-    void HandleCreateDeliveryFailure( int inNetworkId ) const;
+    void HandleCreateDeliveryFailure(int inNetworkId) const;
     void HandleUpdateStateDeliveryFailure(
         int inNetworkId, uint32_t inState,
-        DeliveryNotificationManager* inDeliveryNotificationManager ) const;
-    void HanldeDestroyDeliveryFailure( int inNetworkId ) const;
+        DeliveryNotificationManager* inDeliveryNotificationManager) const;
+    void HanldeDestroyDeliveryFailure(int inNetworkId) const;
 
     // Success handlers
-    void HandleDestroyDeliveryFailure( int inNetworkId ) const;
-    void HandleCreateDeliverySuccess( int inNetworkId ) const;
-    void HandleDestroyDeliverySuccess( int inNetworkId ) const;
+    void HandleDestroyDeliveryFailure(int inNetworkId) const;
+    void HandleCreateDeliverySuccess(int inNetworkId) const;
+    void HandleDestroyDeliverySuccess(int inNetworkId) const;
 
     ReplicationManagerServer* mReplicationManagerServer;
     std::vector<ReplicationTransmission> mTransmissions;

@@ -19,29 +19,30 @@ class PlayerMessage
     friend class Player;
 
     template <typename Stream, typename DataContainer>
-    static bool Serialize( Stream& stream, DataContainer dataContainer )
+    static bool Serialize(Stream& stream, DataContainer dataContainer)
     {
-        stream.serialize( dataContainer->mState );
-        bool writePlayerId = dataContainer->mState & Player::PlayerReplicationState::PRS_PID;
-        bool writePosition = dataContainer->mState & Player::PlayerReplicationState::PRS_POSI;
+        stream.serialize(dataContainer->mState);
+        bool writePlayerId =
+            dataContainer->mState & Player::PlayerReplicationState::PRS_PID;
+        bool writePosition =
+            dataContainer->mState & Player::PlayerReplicationState::PRS_POSI;
 
-        if(writePlayerId)
+        if (writePlayerId)
         {
             stream.serialize(dataContainer->mPlayerId);
         }
 
-        if(writePosition)
+        if (writePosition)
         {
             TRACE("Writting message with x={}, y={}, mX={}, mY={}",
-                dataContainer->GetLocation().mX,
-                dataContainer->GetLocation().mY,
-                dataContainer->mVelocity.mX,
-                dataContainer->mVelocity.mY);
-            stream.serialize( dataContainer->mVelocity.mX );
-            stream.serialize( dataContainer->mVelocity.mY );
+                  dataContainer->GetLocation().mX,
+                  dataContainer->GetLocation().mY, dataContainer->mVelocity.mX,
+                  dataContainer->mVelocity.mY);
+            stream.serialize(dataContainer->mVelocity.mX);
+            stream.serialize(dataContainer->mVelocity.mY);
 
-            stream.serialize( dataContainer->mLocation.mX );
-            stream.serialize( dataContainer->mLocation.mY );
+            stream.serialize(dataContainer->mLocation.mX);
+            stream.serialize(dataContainer->mLocation.mY);
         }
 
         return true;

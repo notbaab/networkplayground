@@ -1,14 +1,14 @@
+#include "networking/Server.h"
+#include "console/console.h"
 #include "gameobjects/GameObjectRegistry.h"
 #include "gameobjects/PlayerServer.h"
-#include "networking/Server.h"
+#include "gameobjects/World.h"
 #include "networking/Logger.h"
 #include "timing/Timing.h"
-#include "console/console.h"
-#include "gameobjects/World.h"
 
 bool Server::StaticInit()
 {
-    sInstance.reset( new Server() );
+    sInstance.reset(new Server());
 
     return true;
 }
@@ -17,7 +17,7 @@ Server::Server()
 {
     // Register objects with registry
     GameObjectRegistry::sInstance->RegisterCreationFunction(
-        Player::kClassId, PlayerServer::StaticCreate );
+        Player::kClassId, PlayerServer::StaticCreate);
     InitNetworkManager();
     mNextPhysicsTick = 0.f;
     //     NetworkManagerServer::sInstance->SetDropPacketChance( 0.8f );
@@ -28,7 +28,6 @@ Server::Server()
     add_command("show objects", std::bind(&Server::ShowGameObjects, this));
     add_exit_command("exit", std::bind(&Server::Stop, this));
 }
-
 
 int Server::Run()
 {
@@ -42,7 +41,7 @@ bool Server::InitNetworkManager()
     //    std::string portString = Logger::GetCommandLineArg( 1 );
     //    uint16_t port = stoi( portString );
 
-    return NetworkManagerServer::StaticInit( 45000 );
+    return NetworkManagerServer::StaticInit(45000);
 }
 
 void Server::SetupWorld()
@@ -58,12 +57,11 @@ bool Server::DoFrame()
     networkManager->ProcessIncomingPackets();
     networkManager->CheckForDisconnects();
 
-
     Timing::sInstance.Update();
 
     // Run "Physics" at 60 hertz
     float time = Timing::sInstance.GetFrameStartTime();
-    if ( time > mNextPhysicsTick )
+    if (time > mNextPhysicsTick)
     {
         mNextPhysicsTick += TIME_BETWEEN_TICKS;
         Engine::DoFrame();
@@ -73,32 +71,28 @@ bool Server::DoFrame()
     return true;
 }
 
-void Server::HandleNewClient( ClientProxyPtr inClientProxy )
+void Server::HandleNewClient(ClientProxyPtr inClientProxy)
 {
     int playerId = inClientProxy->GetPlayerId();
 
-    SpawnPlayer( playerId );
+    SpawnPlayer(playerId);
 }
 
-void Server::HandleLostClient( ClientProxyPtr inClientProxy )
+void Server::HandleLostClient(ClientProxyPtr inClientProxy)
 {
     CRITICAL("WE LOST ONE!, {}", inClientProxy->GetName().c_str());
 }
 
-void Server::SpawnPlayer( int inPlayerId )
+void Server::SpawnPlayer(int inPlayerId)
 {
     INFO("Spawning player {}", inPlayerId);
     PlayerPtr player = std::static_pointer_cast<Player>(
-        GameObjectRegistry::sInstance->CreateGameObject( Player::kClassId ) );
+        GameObjectRegistry::sInstance->CreateGameObject(Player::kClassId));
 
-    player->SetPlayerId( inPlayerId );
+    player->SetPlayerId(inPlayerId);
     // gotta pick a better spawn location than this...
     player->SetLocation(
-        Vector3( 1.f - static_cast<float>( inPlayerId ), 0.f, 0.f ) );
+        Vector3(1.f - static_cast<float>(inPlayerId), 0.f, 0.f));
 }
 
-void Server::ShowGameObjects()
-{
-    World::sInstance->PrintInfo();
-}
-
+void Server::ShowGameObjects() { World::sInstance->PrintInfo(); }

@@ -11,7 +11,7 @@ class Client : public Engine
   protected:
     Client();
     virtual bool DoFrame() override;
-    void HandleEvent( SDL_Event* inEvent );
+    void HandleEvent(SDL_Event* inEvent);
 };
 
 #endif /* Client_h */

@@ -16,7 +16,7 @@ class WindowManager
     ~WindowManager();
 
   private:
-    WindowManager( SDL_Window* inMainWindow );
+    WindowManager(SDL_Window* inMainWindow);
 
     SDL_Window* mMainWindow;
 };

@@ -16,15 +16,12 @@ class PlayerServer : public Player
     static GameObjectPtr StaticCreate()
     {
         return NetworkManagerServer::sInstance->RegisterAndReturn(
-            new PlayerServer() );
+            new PlayerServer());
     }
 
     virtual void Update();
 
-    void SetCatControlType( PlayerControlType inType )
-    {
-        mControlType = inType;
-    }
+    void SetCatControlType(PlayerControlType inType) { mControlType = inType; }
 
   protected:
     PlayerServer();

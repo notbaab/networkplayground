@@ -8,85 +8,85 @@ using std::cout;
 using std::endl;
 
 // Test if you can write to the buffer stream
-TEST( OutputMemoryBitStream, WritePrimatives )
+TEST(OutputMemoryBitStream, WritePrimatives)
 {
     OutputMemoryBitStream x = OutputMemoryBitStream();
 
-    x.Write( 12 ); // write 4 bytes equal to 12
-    x.Write( 2 );  // write 4 bytes equal to 2
-    x.Write( -2 ); // write 4 bytes equal to -2
-    x.Write( 0 );  // write 4 bytes equal to 0
+    x.Write(12); // write 4 bytes equal to 12
+    x.Write(2);  // write 4 bytes equal to 2
+    x.Write(-2); // write 4 bytes equal to -2
+    x.Write(0);  // write 4 bytes equal to 0
 
     const char* buffer = x.GetBufferPtr();
 
     // Check if each value was written to the stream
-    EXPECT_EQ( int( *buffer ), 12 );
+    EXPECT_EQ(int(*buffer), 12);
     buffer = buffer + 4;
-    EXPECT_EQ( int( *buffer ), 2 );
+    EXPECT_EQ(int(*buffer), 2);
     buffer = buffer + 4;
-    EXPECT_EQ( int( *buffer ), -2 );
+    EXPECT_EQ(int(*buffer), -2);
     buffer = buffer + 4;
-    EXPECT_EQ( int( *buffer ), 0 );
+    EXPECT_EQ(int(*buffer), 0);
 }
 
 // Testing
-TEST( OutputMemoryBitStream, GetBitLength )
+TEST(OutputMemoryBitStream, GetBitLength)
 {
     OutputMemoryBitStream x = OutputMemoryBitStream();
 
-    x.Write( 12 );
-    x.Write( 2 );
-    x.Write( -2 );
-    x.Write( 0 );
+    x.Write(12);
+    x.Write(2);
+    x.Write(-2);
+    x.Write(0);
 
     uint32_t streamSize = x.GetBitLength();
 
     // 4 entries * bytesInInt * 8 bits
-    uint32_t numOfBitsWritten = 4 * sizeof( uint32_t ) * 8;
+    uint32_t numOfBitsWritten = 4 * sizeof(uint32_t) * 8;
 
-    EXPECT_EQ( streamSize, numOfBitsWritten );
+    EXPECT_EQ(streamSize, numOfBitsWritten);
 
-    x.Write( 0 ); // Write 32 more bits
+    x.Write(0); // Write 32 more bits
     streamSize = x.GetBitLength();
-    EXPECT_EQ( streamSize, numOfBitsWritten + sizeof( uint32_t ) * 8 );
+    EXPECT_EQ(streamSize, numOfBitsWritten + sizeof(uint32_t) * 8);
 
-    x.Write( true ); // 2 more bits
-    x.Write( true );
+    x.Write(true); // 2 more bits
+    x.Write(true);
     streamSize = x.GetBitLength();
-    EXPECT_EQ( streamSize, numOfBitsWritten + sizeof( uint32_t ) * 8 + 2 );
+    EXPECT_EQ(streamSize, numOfBitsWritten + sizeof(uint32_t) * 8 + 2);
 }
 
-TEST( OutputMemoryBitStream, GetByteLength )
+TEST(OutputMemoryBitStream, GetByteLength)
 {
     OutputMemoryBitStream x = OutputMemoryBitStream();
 
-    x.Write( 12 );
-    x.Write( 2 );
-    x.Write( true );
+    x.Write(12);
+    x.Write(2);
+    x.Write(true);
 
     uint32_t streamSize = x.GetByteLength();
 
     uint32_t numOfBytesWritten = 9;
 
-    EXPECT_EQ( streamSize, numOfBytesWritten );
+    EXPECT_EQ(streamSize, numOfBytesWritten);
 
-    x.Write( true ); // Writing one a bool won't add another bit
-    EXPECT_EQ( streamSize, numOfBytesWritten );
+    x.Write(true); // Writing one a bool won't add another bit
+    EXPECT_EQ(streamSize, numOfBytesWritten);
 
-    x.Write( 8 ); // Write 32 more bits
+    x.Write(8); // Write 32 more bits
     streamSize = x.GetByteLength();
 
-    EXPECT_NE( streamSize, numOfBytesWritten );
+    EXPECT_NE(streamSize, numOfBytesWritten);
 }
 
-TEST( OutputMemoryBitStream, TestScratch )
+TEST(OutputMemoryBitStream, TestScratch)
 {
     OutputMemoryBitStream x = OutputMemoryBitStream();
 
-    x.Write( 12 );
-    x.Write( std::string( "s" ) );
+    x.Write(12);
+    x.Write(std::string("s"));
     std::string b = "blahblahb";
-    x.Write( b );
+    x.Write(b);
 
     x.PrintByteArray();
 }

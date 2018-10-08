@@ -3,27 +3,30 @@
 #include <string.h>
 #include <unordered_map>
 
-#include "linenoise.h"
 #include "console.h"
-
+#include "linenoise.h"
 
 // keep all the command and completions in this space`
 static std::unordered_map<std::string, ConsoleCallback> commands;
 
-void add_command(std::string full_command, ConsoleCallback callback) {
+void add_command(std::string full_command, ConsoleCallback callback)
+{
     commands.emplace(full_command, callback);
-        }
+}
 
-void completion(const char *buf, linenoiseCompletions *lc) {
-    if (buf[0] == 'h') {
-        linenoiseAddCompletion(lc,"hello");
-        linenoiseAddCompletion(lc,"hello there");
-
+void completion(const char* buf, linenoiseCompletions* lc)
+{
+    if (buf[0] == 'h')
+    {
+        linenoiseAddCompletion(lc, "hello");
+        linenoiseAddCompletion(lc, "hello there");
     }
 }
 
-char* hints(const char *buf, int *color, int *bold) {
-    if (!strcasecmp(buf,"hello")) {
+char* hints(const char* buf, int* color, int* bold)
+{
+    if (!strcasecmp(buf, "hello"))
+    {
         *color = 35;
         *bold = 0;
         return (char*)" World";
@@ -31,8 +34,9 @@ char* hints(const char *buf, int *color, int *bold) {
     return NULL;
 }
 
-void interactive_console() {
-    char *line;
+void interactive_console()
+{
+    char* line;
 
     /* Set the completion callback. This will be called every time the
      * user uses the <tab> key. */
@@ -50,17 +54,23 @@ void interactive_console() {
      * The typed string is returned as a malloc() allocated string by
 
      * linenoise, so the user needs to free() it. */
-    while((line = linenoise("prompt> ")) != NULL) {
+    while ((line = linenoise("prompt> ")) != NULL)
+    {
         /* Do something with the string. */
-        if (line[0] != '\0' && line[0] != '/') {
+        if (line[0] != '\0' && line[0] != '/')
+        {
             printf("echo: '%s'\n", line);
-            linenoiseHistoryAdd(line); /* Add to the history. */
+            linenoiseHistoryAdd(line);           /* Add to the history. */
             linenoiseHistorySave("history.txt"); /* Save the history on disk. */
-        } else if (!strncmp(line,"/historylen",11)) {
+        }
+        else if (!strncmp(line, "/historylen", 11))
+        {
             /* The "/historylen" command will change the history len. */
-            int len = atoi(line+11);
+            int len = atoi(line + 11);
             linenoiseHistorySetMaxLen(len);
-        } else if (line[0] == '/') {
+        }
+        else if (line[0] == '/')
+        {
             printf("Unreconized command: %s\n", line);
         }
         free(line);

@@ -14,14 +14,14 @@
 class ClientProxy
 {
   public:
-    ClientProxy( const SocketAddress& inSocketAddres, const std::string& inName,
-                 int inPlayerId );
+    ClientProxy(const SocketAddress& inSocketAddres, const std::string& inName,
+                int inPlayerId);
 
     const SocketAddress& GetSocketAddress() const { return mSocketAddress; }
     int GetPlayerId() const { return mPlayerId; }
     const std::string& GetName() const { return mName; }
 
-    void SetInputState( const InputState& inInputState )
+    void SetInputState(const InputState& inInputState)
     {
         mInputState = inInputState;
     }
@@ -39,7 +39,7 @@ class ClientProxy
     }
     MoveList& GetUnprocessedMoveList() { return mUnprocessedMoveList; }
 
-    void SetIsLastMoveTimestampDirty( bool inIsDirty )
+    void SetIsLastMoveTimestampDirty(bool inIsDirty)
     {
         mIsLastMoveTimestampDirty = inIsDirty;
     }

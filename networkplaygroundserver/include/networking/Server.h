@@ -21,8 +21,8 @@ class Server : public Engine
 
     virtual int Run() override;
 
-    void HandleNewClient( ClientProxyPtr inClientProxy );
-    void HandleLostClient( ClientProxyPtr inClientProxy );
+    void HandleNewClient(ClientProxyPtr inClientProxy);
+    void HandleLostClient(ClientProxyPtr inClientProxy);
 
   private:
     Server();
@@ -30,7 +30,7 @@ class Server : public Engine
     bool InitNetworkManager();
     void SetupWorld();
 
-    void SpawnPlayer( int inPlayerId );
+    void SpawnPlayer(int inPlayerId);
     void ShowGameObjects();
 };
 

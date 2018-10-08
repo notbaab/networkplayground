@@ -8,35 +8,34 @@
 #include <ctime>
 
 // TODO: Temp for now
-void printStream( InputMemoryBitStream& inInputStream );
+void printStream(InputMemoryBitStream& inInputStream);
 
 NetworkManager::NetworkManager()
-    : mRecordRequestPackets( false ), mRecordRespondPackets( false ),
-      mBytesSentThisFrame( 0 ), mDropPacketChance( 0.f ),
-      mSimulatedLatency( 0.f )
+    : mRecordRequestPackets(false), mRecordRespondPackets(false),
+      mBytesSentThisFrame(0), mDropPacketChance(0.f), mSimulatedLatency(0.f)
 {
 }
 
 NetworkManager::~NetworkManager() {}
-bool NetworkManager::Init( uint16_t inPort )
+bool NetworkManager::Init(uint16_t inPort)
 {
     // Create the underlaying socket for this port
-    mSocket = SocketUtil::CreateUDPSocket( INET );
+    mSocket = SocketUtil::CreateUDPSocket(INET);
 
     // Create a wildcard input address to bind to
-    SocketAddress ownAddress( INADDR_ANY, inPort );
-    mSocket->Bind( ownAddress );
+    SocketAddress ownAddress(INADDR_ANY, inPort);
+    mSocket->Bind(ownAddress);
 
     //    mBytesReceivedPerSecond = WeightedTimedMovingAverage( 1.f );
     //    mBytesSentPerSecond = WeightedTimedMovingAverage( 1.f );
 
     // did we bind okay?
-    if ( mSocket == nullptr )
+    if (mSocket == nullptr)
     {
         return false;
     }
 
-    if ( mSocket->SetNonBlockingMode( true ) != NO_ERROR )
+    if (mSocket->SetNonBlockingMode(true) != NO_ERROR)
     {
         return false;
     }
@@ -56,7 +55,7 @@ void NetworkManager::ProcessIncomingPackets()
 void NetworkManager::ProcessQueuedPackets()
 {
     // look at the front packet...
-    while ( !mPacketQueue.empty() )
+    while (!mPacketQueue.empty())
     {
         ReceivedPacket& nextPacket = mPacketQueue.front();
 
@@ -64,21 +63,21 @@ void NetworkManager::ProcessQueuedPackets()
         //         Timing::sInstance.GetTimef(), nextPacket.GetReceivedTime());
         // TODO: Don't break, we will need to simulate jitter and out of order
         // packets
-        if ( Timing::sInstance.GetTimef() < nextPacket.GetReceivedTime() )
+        if (Timing::sInstance.GetTimef() < nextPacket.GetReceivedTime())
         {
             // Log(Logger::INFO, "Simulating Lag: Time %.f, other time %.f",
             //     Timing::sInstance.GetTimef(), nextPacket.GetReceivedTime());
             break;
         }
 
-        ProcessPacket( nextPacket.GetPacketBuffer(),
-                       nextPacket.GetFromAddress() );
+        ProcessPacket(nextPacket.GetPacketBuffer(),
+                      nextPacket.GetFromAddress());
         mPacketQueue.pop();
     }
 }
 
-void NetworkManager::ProcessPacket( InputMemoryBitStream& inInputStream,
-                                    const SocketAddress& inFromAddress )
+void NetworkManager::ProcessPacket(InputMemoryBitStream& inInputStream,
+                                   const SocketAddress& inFromAddress)
 {
 
     // For now, just output the packet data
@@ -93,28 +92,28 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
 {
     // 'byte' array to read each packet into
     char packetMem[1500];
-    int packetSize = sizeof( packetMem );
+    int packetSize = sizeof(packetMem);
     int packetSizeInBits = packetSize * 8;
 
     // Stream we will read each packet into
-    InputMemoryBitStream inputStream( packetMem, packetSizeInBits );
+    InputMemoryBitStream inputStream(packetMem, packetSizeInBits);
 
     int totalPacketsRecieved = 0;
     int totalBytesRead = 0;
 
     SocketAddress fromAddress;
 
-    while ( totalPacketsRecieved < kMaxPacketsPerFrameCount )
+    while (totalPacketsRecieved < kMaxPacketsPerFrameCount)
     {
         int readByteCount =
-            mSocket->ReceiveFrom( packetMem, packetSize, fromAddress );
+            mSocket->ReceiveFrom(packetMem, packetSize, fromAddress);
 
-        if ( readByteCount == 0 )
+        if (readByteCount == 0)
         {
             // nothing to read
             break;
         }
-        else if ( readByteCount == -WSAECONNRESET )
+        else if (readByteCount == -WSAECONNRESET)
         {
             // got a connection reset? In a udp socket?
             INFO("Client disconnected");
@@ -122,11 +121,11 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
         }
 
         // Resize input stream to the number of bytes
-        inputStream.ResetToCapacity( readByteCount );
+        inputStream.ResetToCapacity(readByteCount);
         ++totalPacketsRecieved;
         totalBytesRead += readByteCount;
 
-        if ( Math::GetRandomFloat() < mDropPacketChance )
+        if (Math::GetRandomFloat() < mDropPacketChance)
         {
             DEBUG("Simulated a dropped packet!");
             break;
@@ -136,34 +135,35 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
         // float recievedTime = Timing::sInstance.GetTimef();
 
         // create a new RecievedPacket, copying the memory stream
-        mPacketQueue.emplace( recievedTime, inputStream, fromAddress );
+        mPacketQueue.emplace(recievedTime, inputStream, fromAddress);
 
         // Eh, probably not really need at this point
-        if ( mRecordRequestPackets )
+        if (mRecordRequestPackets)
         {
             inputStream.printStream();
         }
     }
-    if (totalPacketsRecieved != 0) {
+    if (totalPacketsRecieved != 0)
+    {
         DEBUG("Read {} packets", totalPacketsRecieved);
     }
 }
 
-void NetworkManager::SendPacket( const OutputMemoryBitStream& inOutputStream,
-                                 const SocketAddress& inFromAddress )
+void NetworkManager::SendPacket(const OutputMemoryBitStream& inOutputStream,
+                                const SocketAddress& inFromAddress)
 {
     int streamByteLength = inOutputStream.GetByteLength();
     const void* packetDataToSend = inOutputStream.GetBufferPtr();
 
     int sentByteCount =
-        mSocket->SendTo( packetDataToSend, streamByteLength, inFromAddress );
+        mSocket->SendTo(packetDataToSend, streamByteLength, inFromAddress);
 
-    if ( mRecordRespondPackets )
+    if (mRecordRespondPackets)
     {
         inOutputStream.printStream();
     }
 
-    if ( sentByteCount )
+    if (sentByteCount)
     {
         // TODO: Keep track of how many bytes have been sent
         //        mBytesSentThisFrame += sentByteCount;
@@ -172,19 +172,19 @@ void NetworkManager::SendPacket( const OutputMemoryBitStream& inOutputStream,
 
 NetworkManager::ReceivedPacket::ReceivedPacket(
     float inReceivedTime, InputMemoryBitStream& inInputMemoryBitStream,
-    const SocketAddress& inFromAddress )
-    : mRecievedTime( inReceivedTime ),
-      mPacketDataStream( inInputMemoryBitStream ), mFromAddress( inFromAddress )
+    const SocketAddress& inFromAddress)
+    : mRecievedTime(inReceivedTime), mPacketDataStream(inInputMemoryBitStream),
+      mFromAddress(inFromAddress)
 {
 }
 
-void NetworkManager::AddToNetworkIdToGameObjectMap( GameObjectPtr inGameObject )
+void NetworkManager::AddToNetworkIdToGameObjectMap(GameObjectPtr inGameObject)
 {
     mNetworkIdToGameObjectMap[inGameObject->GetNetworkId()] = inGameObject;
 }
 
 void NetworkManager::RemoveFromNetworkIdToGameObjectMap(
-    GameObjectPtr inGameObject )
+    GameObjectPtr inGameObject)
 {
-    mNetworkIdToGameObjectMap.erase( inGameObject->GetNetworkId() );
+    mNetworkIdToGameObjectMap.erase(inGameObject->GetNetworkId());
 }

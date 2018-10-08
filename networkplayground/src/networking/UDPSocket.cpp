@@ -1,30 +1,30 @@
 #include "networking/UDPSocket.h"
 #include "networking/SocketUtil.h"
 
-int UDPSocket::Bind( const SocketAddress& inBindAddress )
+int UDPSocket::Bind(const SocketAddress& inBindAddress)
 {
     int error =
-        bind( mSocket, &inBindAddress.mSockAddr, inBindAddress.GetSize() );
-    if ( error != 0 )
+        bind(mSocket, &inBindAddress.mSockAddr, inBindAddress.GetSize());
+    if (error != 0)
     {
-        SocketUtil::ReportError( "UDPSocket::Bind" );
+        SocketUtil::ReportError("UDPSocket::Bind");
         return SocketUtil::GetLastError();
     }
 
     return NO_ERROR;
 }
 
-int UDPSocket::SendTo( const void* inToSend, int inLength,
-                       const SocketAddress& inToAddress )
+int UDPSocket::SendTo(const void* inToSend, int inLength,
+                      const SocketAddress& inToAddress)
 {
     int byteSentCount =
-        (int)sendto( mSocket, static_cast<const char*>( inToSend ), inLength, 0,
-                     &inToAddress.mSockAddr, inToAddress.GetSize() );
-    if ( byteSentCount <= 0 )
+        (int)sendto(mSocket, static_cast<const char*>(inToSend), inLength, 0,
+                    &inToAddress.mSockAddr, inToAddress.GetSize());
+    if (byteSentCount <= 0)
     {
         // we'll return error as negative number to indicate less than requested
         // amount of bytes sent...
-        SocketUtil::ReportError( "UDPSocket::SendTo" );
+        SocketUtil::ReportError("UDPSocket::SendTo");
         return -SocketUtil::GetLastError();
     }
     else
@@ -33,15 +33,15 @@ int UDPSocket::SendTo( const void* inToSend, int inLength,
     }
 }
 
-int UDPSocket::ReceiveFrom( void* inToReceive, int inMaxLength,
-                            SocketAddress& outFromAddress )
+int UDPSocket::ReceiveFrom(void* inToReceive, int inMaxLength,
+                           SocketAddress& outFromAddress)
 {
     socklen_t fromLength = outFromAddress.GetSize();
 
     int readByteCount =
-        (int)recvfrom( mSocket, static_cast<char*>( inToReceive ), inMaxLength,
-                       0, &outFromAddress.mSockAddr, &fromLength );
-    if ( readByteCount >= 0 )
+        (int)recvfrom(mSocket, static_cast<char*>(inToReceive), inMaxLength, 0,
+                      &outFromAddress.mSockAddr, &fromLength);
+    if (readByteCount >= 0)
     {
         return readByteCount;
     }
@@ -49,11 +49,11 @@ int UDPSocket::ReceiveFrom( void* inToReceive, int inMaxLength,
     {
         int error = SocketUtil::GetLastError();
 
-        if ( error == WSAEWOULDBLOCK )
+        if (error == WSAEWOULDBLOCK)
         {
             return 0;
         }
-        else if ( error == WSAECONNRESET )
+        else if (error == WSAECONNRESET)
         {
             // this can happen if a client closed and we haven't DC'd yet.
             // this is the ICMP message being sent back saying the port on that
@@ -64,7 +64,7 @@ int UDPSocket::ReceiveFrom( void* inToReceive, int inMaxLength,
         }
         else
         {
-            SocketUtil::ReportError( "UDPSocket::ReceiveFrom" );
+            SocketUtil::ReportError("UDPSocket::ReceiveFrom");
             return -error;
         }
     }
@@ -73,27 +73,27 @@ int UDPSocket::ReceiveFrom( void* inToReceive, int inMaxLength,
 UDPSocket::~UDPSocket()
 {
 #if _WIN32
-    closesocket( mSocket );
+    closesocket(mSocket);
 #else
-    close( mSocket );
+    close(mSocket);
 #endif
 }
 
-int UDPSocket::SetNonBlockingMode( bool inShouldBeNonBlocking )
+int UDPSocket::SetNonBlockingMode(bool inShouldBeNonBlocking)
 {
 #if _WIN32
     u_long arg = inShouldBeNonBlocking ? 1 : 0;
-    int result = ioctlsocket( mSocket, FIONBIO, &arg );
+    int result = ioctlsocket(mSocket, FIONBIO, &arg);
 #else
-    int flags = fcntl( mSocket, F_GETFL, 0 );
-    flags = inShouldBeNonBlocking ? ( flags | O_NONBLOCK )
-                                  : ( flags & ~O_NONBLOCK );
-    int result = fcntl( mSocket, F_SETFL, flags );
+    int flags = fcntl(mSocket, F_GETFL, 0);
+    flags =
+        inShouldBeNonBlocking ? (flags | O_NONBLOCK) : (flags & ~O_NONBLOCK);
+    int result = fcntl(mSocket, F_SETFL, flags);
 #endif
 
-    if ( result == SOCKET_ERROR )
+    if (result == SOCKET_ERROR)
     {
-        SocketUtil::ReportError( "UDPSocket::SetNonBlockingMode" );
+        SocketUtil::ReportError("UDPSocket::SetNonBlockingMode");
         return SocketUtil::GetLastError();
     }
     else

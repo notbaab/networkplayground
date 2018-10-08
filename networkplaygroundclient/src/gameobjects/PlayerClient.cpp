@@ -7,21 +7,21 @@
 #include "networking/NetworkManagerClient.h"
 
 PlayerClient::PlayerClient()
-    : mTimeLocationBecameOutOfSync( 0.f ), mTimeVelocityBecameOutOfSync( 0.f )
+    : mTimeLocationBecameOutOfSync(0.f), mTimeVelocityBecameOutOfSync(0.f)
 {
-    mSpriteComponent.reset( new SpriteComponent( this ) );
-    mSpriteComponent->SetColor( new Vector3( 255, 255, 0 ) );
-    mServerGhost.reset( new Ghost() );
+    mSpriteComponent.reset(new SpriteComponent(this));
+    mSpriteComponent->SetColor(new Vector3(255, 255, 0));
+    mServerGhost.reset(new Ghost());
     INFO("Created a new player client");
 }
 
 // Update called every frame on the client
 void PlayerClient::Update()
 {
-    if ( !IsLocalPlayer() )
+    if (!IsLocalPlayer())
     {
         // TRACE("{} Not Local Player", GetPlayerId() );
-        SimulateMovement( TIME_STEP );
+        SimulateMovement(TIME_STEP);
         return;
     }
 
@@ -29,7 +29,7 @@ void PlayerClient::Update()
     // mServerGhost->PrintInfo();
     const Move* pendingMove = InputManager::sInstance->GetAndClearPendingMove();
 
-    if ( !pendingMove )
+    if (!pendingMove)
     {
         return;
     }
@@ -37,15 +37,15 @@ void PlayerClient::Update()
     float deltaTime = pendingMove->GetDeltaTime();
 
     // LOG("Doing move %.2f", deltaTime);
-    ProcessInput( TIME_STEP, pendingMove->GetInputState() );
+    ProcessInput(TIME_STEP, pendingMove->GetInputState());
 
-    SimulateMovement( TIME_STEP );
+    SimulateMovement(TIME_STEP);
     Player::Update();
     mServerGhost->PrintInfo();
 }
 
 // Called everytime we get a packet from the server
-void PlayerClient::Read( InputMemoryBitStream& inInputStream )
+void PlayerClient::Read(InputMemoryBitStream& inInputStream)
 {
     // PlayerMessage::Serialize( inInputStream, this );
 
@@ -53,16 +53,16 @@ void PlayerClient::Read( InputMemoryBitStream& inInputStream )
     TRACE("Read in state");
     // If we aren't created on the server, read state directly into player
     // object, else, read into our server ghost
-    if ( !IsLocalPlayer() )
+    if (!IsLocalPlayer())
     {
         // PlayerMessage::Serialize( inInputStream, this );
         // HandleStatePacket(inInputStream);
-        TRACE("Not a local player, moved to {}-{}", mLocation.mX, mLocation.mY );
+        TRACE("Not a local player, moved to {}-{}", mLocation.mX, mLocation.mY);
         // HandleStatePacket(inInputStream);
     }
     else
     {
-        if ( GetPlayerId() != NetworkManagerClient::sInstance->GetPlayerId() )
+        if (GetPlayerId() != NetworkManagerClient::sInstance->GetPlayerId())
         {
             return;
         }
@@ -71,9 +71,9 @@ void PlayerClient::Read( InputMemoryBitStream& inInputStream )
         // HandleStatePacket( inInputStream );
 
         // TODO: ....hmmmmm
-        ApplyUnAckedMoves( 111 );
-        TRACE("old location {}, {} new {}, {}", oldLocation.mX,
-             oldLocation.mY, mLocation.mX, mLocation.mY );
+        ApplyUnAckedMoves(111);
+        TRACE("old location {}, {} new {}, {}", oldLocation.mX, oldLocation.mY,
+              mLocation.mX, mLocation.mY);
     }
 }
 
@@ -86,30 +86,30 @@ void PlayerClient::Read( InputMemoryBitStream& inInputStream )
 // }
 
 // Read state into player object
-void PlayerClient::HandleStatePacket( InputMemoryBitStream& inInputStream )
+void PlayerClient::HandleStatePacket(InputMemoryBitStream& inInputStream)
 {
-    TRACE("Reading in State" );
-    PlayerMessage::Serialize( inInputStream, this );
+    TRACE("Reading in State");
+    PlayerMessage::Serialize(inInputStream, this);
     mServerGhost->mLocation.mX = mLocation.mX;
     mServerGhost->mLocation.mY = mLocation.mY;
 }
 
-void PlayerClient::ApplyUnAckedMoves( uint32_t inReadState )
+void PlayerClient::ApplyUnAckedMoves(uint32_t inReadState)
 {
-    if ( ( inReadState & PRS_POSI ) == 0 )
+    if ((inReadState & PRS_POSI) == 0)
     {
-        INFO("No Move came from the server, don't do anything?" );
+        INFO("No Move came from the server, don't do anything?");
         return;
     }
 
     const MoveList& moveList = InputManager::sInstance->GetMoveList();
     TRACE("Moving");
-    for ( auto& move : moveList )
+    for (auto& move : moveList)
     {
-        TRACE("Processing move unacked by server" );
+        TRACE("Processing move unacked by server");
         // float deltaTime = move.GetDeltaTime();
-        ProcessInput( TIME_STEP, move.GetInputState() );
-        SimulateMovement( TIME_STEP );
+        ProcessInput(TIME_STEP, move.GetInputState());
+        SimulateMovement(TIME_STEP);
     }
 
     return;

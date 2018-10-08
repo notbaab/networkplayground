@@ -14,9 +14,9 @@
 
 const char** __argv;
 int __argc;
-int main( int argc, char* argv[] )
+int main(int argc, char* argv[])
 {
-    ::testing::InitGoogleTest( &argc, argv );
+    ::testing::InitGoogleTest(&argc, argv);
     std::cout << "Starting Tests" << std::endl;
     int testSuccessful = RUN_ALL_TESTS();
     std::cout << "Finished" << std::endl;

@@ -14,12 +14,12 @@ class TextureManager
 
     static std::unique_ptr<TextureManager> sInstance;
 
-    TexturePtr GetTexture( const std::string& inTextureName );
+    TexturePtr GetTexture(const std::string& inTextureName);
 
   private:
     TextureManager();
 
-    bool CachTexture( std::string inName, const char* inFileName );
+    bool CachTexture(std::string inName, const char* inFileName);
 
     // MAKE A VECTOR!!!
     std::unordered_map<std::string, TexturePtr> mNameToTextureMap;

@@ -8,5 +8,5 @@
 
 #include "gameobjects/GameObject.h"
 
-GameObject::GameObject() : mIndexInWorld( -1 ), mNetworkId( 0 ) {}
+GameObject::GameObject() : mIndexInWorld(-1), mNetworkId(0) {}
 void GameObject::Update() {}

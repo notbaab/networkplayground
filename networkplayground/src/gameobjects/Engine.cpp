@@ -9,8 +9,8 @@
 #include "gameobjects/Engine.h"
 #include "gameobjects/GameObjectRegistry.h"
 #include "gameobjects/World.h"
-#include "networking/SocketUtil.h"
 #include "networking/Logger.h"
+#include "networking/SocketUtil.h"
 
 std::unique_ptr<Engine> Engine::sInstance;
 
@@ -18,29 +18,27 @@ Engine::Engine() : running(false)
 {
     SocketUtil::StaticInit();
     World::StaticInit();
-    GameObjectRegistry::StaticInit( World::StaticAddGameObject );
+    GameObjectRegistry::StaticInit(World::StaticAddGameObject);
     //    GameObjectRegistry::StaticInit(<#addToWorldFunction
 
     //    worldAddFunction#>)
 }
 
-Engine::~Engine()
-{
-    SocketUtil::CleanUp();
-}
+Engine::~Engine() { SocketUtil::CleanUp(); }
 
-int Engine::Run() {
+int Engine::Run()
+{
     running = true;
     return DoRunLoop();
 }
 
-void Engine::Stop() {
-    running = false;
-}
+void Engine::Stop() { running = false; }
 
 int Engine::DoRunLoop()
 {
-    while ( DoFrame() && running){}
+    while (DoFrame() && running)
+    {
+    }
     INFO("Exiting");
     return 0;
 }
