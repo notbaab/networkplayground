@@ -20,14 +20,14 @@ class Engine
     static std::unique_ptr<Engine> sInstance;
 
     virtual int Run();
-
-    //    virtual void HandleEvent( SDL_)
+    void Stop();
 
   protected:
     Engine();
     float mNextPhysicsTick;
 
     virtual bool DoFrame();
+    bool running;
 
   private:
     int DoRunLoop();

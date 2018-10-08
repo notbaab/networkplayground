@@ -48,6 +48,7 @@ int main( int argc, const char* argv[] )
 
     if ( Server::StaticInit() )
     {
-        return Server::sInstance->Run();
+        int exitCode = Server::sInstance->Run();
+        return exitCode;
     }
 }
