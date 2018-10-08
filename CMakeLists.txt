@@ -2,8 +2,9 @@ cmake_minimum_required(VERSION 3.6)
 project(networkplayground)
 
 # pthread added for spdlog
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -pthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -pthread -Wno-multichar")
 SET(CMAKE_C_FLAGS_DEBUG "-D_DEBUG")
+
 INCLUDE_DIRECTORIES(networkplayground/include/)
 INCLUDE_DIRECTORIES(lib/spdlog/include)
 INCLUDE_DIRECTORIES(lib/linenoise)
@@ -38,7 +39,6 @@ SET(BASE_SOURCE
     networkplayground/src/networking/TCPSocket.cpp
     networkplayground/src/networking/UDPSocket.cpp
     networkplayground/src/timing/Timing.cpp
-    lib/linenoise/linenoise.c
 )
 
 set(CLIENT_SOURCE
@@ -63,18 +63,27 @@ set(SERVER_SOURCE
     networkplaygroundserver/src/networking/Server.cpp
     networkplaygroundserver/tests/tests.cpp
     networkplaygroundserver/tests/tests.hpp
-    networkplaygroundserver/src/console.cpp
 )
 
 set(UNIT_TEST_SOURCE
         unit_tests/main.cpp
 )
 
+
+# Library code that should be moved
+
+set(CONSOLE_SRC
+    networkplayground/src/console/console.cpp
+    lib/linenoise/linenoise.c
+    networkplayground/src/datastructures/Trie.cpp
+)
+
+add_library(console SHARED ${CONSOLE_SRC})
+target_include_directories(console PUBLIC networkplayground/include/console)
+
 add_executable(client ${BASE_SOURCE} ${CLIENT_SOURCE} networkplaygroundclient/src/main.cpp)
 add_executable(server ${BASE_SOURCE} ${SERVER_SOURCE} networkplaygroundserver/src/main.cpp)
 # add_executable(unit_tests ${BASE_SOURCE} ${SERVER_SOURCE} ${UNIT_TEST_SOURCE} networkplayground/tests/OutputMemoryBitStream_test.cpp)
-
-
 
 target_include_directories(server PUBLIC networkplayground/include/ networkplaygroundserver/include/)
 target_include_directories(client
@@ -86,7 +95,8 @@ target_include_directories(client
 
 # target_include_directories(unit_tests PUBLIC networkplayground/include/ networkplaygroundserver/include/ networkplaygroundclient/include/)
 
-target_link_libraries(client ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES})
+target_link_libraries(server console)
+target_link_libraries(client console ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} )
 
 # These should go in their own directory
 # add_subdirectory(lib/googletest)
