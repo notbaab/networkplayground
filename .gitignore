@@ -54,3 +54,5 @@ server
 compile_commands\.json
 
 Makefile
+
+client_side_prediction_example\.js
