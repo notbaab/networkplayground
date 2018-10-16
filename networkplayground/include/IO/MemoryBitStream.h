@@ -84,7 +84,11 @@ class OutputMemoryBitStream
         }
     }
 
-    template <typename T> void serialize(T inData) { Write(inData); }
+    template <typename T>
+    void serialize(T inData)
+    {
+        Write(inData);
+    }
 
     void PrintByteArray();
 
@@ -133,10 +137,7 @@ class InputMemoryBitStream
     void ReadBits(uint8_t& outData, uint32_t inBitCount);
     void ReadBits(void* outData, uint32_t inBitCount);
 
-    void ReadBytes(void* outData, uint32_t inByteCount)
-    {
-        ReadBits(outData, inByteCount << 3);
-    }
+    void ReadBytes(void* outData, uint32_t inByteCount) { ReadBits(outData, inByteCount << 3); }
 
     bool serialize_bits(uint32_t& outData, uint32_t inBitCount = 32);
 
@@ -148,31 +149,20 @@ class InputMemoryBitStream
         ReadBits(&inData, inBitCount);
     }
 
-    template <typename T> void serialize(T& inData) { Read(inData); }
+    template <typename T>
+    void serialize(T& inData)
+    {
+        Read(inData);
+    }
 
-    void Read(uint32_t& outData, uint32_t inBitCount = 32)
-    {
-        ReadBits(&outData, inBitCount);
-    }
-    void Read(int& outData, uint32_t inBitCount = 32)
-    {
-        ReadBits(&outData, inBitCount);
-    }
+    void Read(uint32_t& outData, uint32_t inBitCount = 32) { ReadBits(&outData, inBitCount); }
+    void Read(int& outData, uint32_t inBitCount = 32) { ReadBits(&outData, inBitCount); }
     void Read(float& outData) { ReadBits(&outData, 32); }
 
-    void Read(uint16_t& outData, uint32_t inBitCount = 16)
-    {
-        ReadBits(&outData, inBitCount);
-    }
-    void Read(int16_t& outData, uint32_t inBitCount = 16)
-    {
-        ReadBits(&outData, inBitCount);
-    }
+    void Read(uint16_t& outData, uint32_t inBitCount = 16) { ReadBits(&outData, inBitCount); }
+    void Read(int16_t& outData, uint32_t inBitCount = 16) { ReadBits(&outData, inBitCount); }
 
-    void Read(uint8_t& outData, uint32_t inBitCount = 8)
-    {
-        ReadBits(&outData, inBitCount);
-    }
+    void Read(uint8_t& outData, uint32_t inBitCount = 8) { ReadBits(&outData, inBitCount); }
     void Read(bool& outData) { ReadBits(&outData, 1); }
 
     void ResetToCapacity(uint32_t inByteCapacity)
