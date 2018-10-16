@@ -11,10 +11,6 @@
 // keep all the command and completions in this space
 static std::unordered_map<std::string, ConsoleCallback> commands;
 static std::unordered_map<std::string, ConsoleCallback> exitCommands;
-
-// We could use a more advanced autocomplete data structure like a ternary
-// tree
-// http://igoro.com/archive/efficient-auto-complete-with-a-ternary-search-tree/
 static std::unordered_map<std::string, std::vector<std::string>> hints_map;
 static DictionaryTrie hintTrie = DictionaryTrie();
 
@@ -64,7 +60,7 @@ void interactive_console()
     linenoiseSetHintsCallback(hints);
     linenoiseHistoryLoad("history.txt"); /* Load the history at startup */
 
-    while ((line = linenoise("prompt> ")) != NULL)
+    while ((line = linenoise("cmd> ")) != NULL)
     {
 
         /* Do something with the string. */
@@ -86,18 +82,17 @@ void interactive_console()
             }
 
             commands[line]();
-            linenoiseHistoryAdd(line);           /* Add to the history. */
-            linenoiseHistorySave("history.txt"); /* Save the history on disk. */
+            linenoiseHistoryAdd(line);
+            linenoiseHistorySave("history.txt");
         }
         else if (!strncmp(line, "/historylen", 11))
         {
-            /* The "/historylen" command will change the history len. */
             int len = atoi(line + 11);
             linenoiseHistorySetMaxLen(len);
         }
         else if (line[0] == '/')
         {
-            printf("Unreconized command: %s\n", line);
+            printf("Unrecognized command: %s\n", line);
         }
         free(line);
     }

@@ -1,5 +1,5 @@
-#include "IO/MemoryBitStream.h"
-#include "networking/Logger.h"
+#include "MemoryBitStream.h"
+#include <iostream>
 #include <bitset>
 
 using std::cout;
@@ -7,22 +7,19 @@ using std::endl;
 
 void printStream(uint32_t bufferSize, const char* streamBuffer)
 {
-    DEBUG("Hex: ");
+    printf("Hex: ");
     for (int charIdx = 0; charIdx < bufferSize; charIdx++)
     {
-        DEBUG("%x", streamBuffer[charIdx]);
+        printf("%x", streamBuffer[charIdx]);
     }
-    DEBUG("\nBinary: ");
-
-    //    std::cout << std::endl << "As Binary " << std::endl;
 
     for (int charIdx = 0; charIdx < bufferSize; charIdx++)
     {
         std::bitset<8> asBits(streamBuffer[charIdx]);
-        std::string asString = asBits.to_string<char, std::string::traits_type,
-                                                std::string::allocator_type>();
+        std::string asString =
+            asBits.to_string<char, std::string::traits_type, std::string::allocator_type>();
 
-        DEBUG(asString.c_str());
+        printf("%s", asString.c_str());
     }
 }
 
@@ -65,8 +62,7 @@ void OutputMemoryBitStream::WriteBits(uint8_t inData, uint32_t inBitCount)
     uint32_t bitOffset = mBitHead & 0x7;
 
     uint8_t currentMask = ~(0xff << bitOffset);
-    mBuffer[byteOffset] =
-        (mBuffer[byteOffset] & currentMask) | (inData << bitOffset);
+    mBuffer[byteOffset] = (mBuffer[byteOffset] & currentMask) | (inData << bitOffset);
 
     // calculate how many bits were not yet used in
     // our target byte in the buffer
@@ -126,8 +122,7 @@ void OutputMemoryBitStream::printStream() const
 // outData
 void InputMemoryBitStream::ReadBits(uint8_t& outData, uint32_t inBitCount)
 {
-    uint32_t byteOffset =
-        mBitHead >> 3; // how many bytes have we written already
+    uint32_t byteOffset = mBitHead >> 3; // how many bytes have we written already
     uint32_t bitOffset = mBitHead & 0x7; // how manay bits have been written
 
     // Point outData to the correct location in the current buffer by grabing
@@ -137,7 +132,7 @@ void InputMemoryBitStream::ReadBits(uint8_t& outData, uint32_t inBitCount)
     // How many bits are actually open to use at this location
     uint32_t bitsFreeThisByte = 8 - bitOffset;
 
-    // If not enought bits free to read,
+    // If not enough bits free to read,
     if (bitsFreeThisByte < inBitCount)
     {
         // we need another byte, grab the next byte but shift it back the
