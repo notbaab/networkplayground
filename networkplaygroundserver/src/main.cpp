@@ -35,11 +35,11 @@ int main(int argc, const char* argv[])
     // Logger::InitLog(spdlog::level::info, "server");
     if (!log_file.empty())
     {
-        Logger::InitLog(spdlog::level::info, "server", log_file);
+        Logger::InitLog(spdlog::level::trace, "server", log_file);
     }
     else
     {
-        Logger::InitLog(spdlog::level::info, "server");
+        Logger::InitLog(spdlog::level::trace, "server");
     }
 
     if (Server::StaticInit())

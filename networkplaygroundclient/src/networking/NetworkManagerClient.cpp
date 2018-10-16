@@ -52,7 +52,7 @@ void NetworkManagerClient::ProcessPacket(InputMemoryBitStream& inInputStream,
         }
         else
         {
-            ERROR("Don't care about state packetl");
+            ERROR("Don't care about state packet");
         }
         break;
     default:

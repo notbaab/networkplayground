@@ -41,10 +41,12 @@ void NetworkManagerServer::ProcessPacket(InputMemoryBitStream& inStream,
 
     if (it == mAddressToClientMap.end())
     {
+        TRACE("New client");
         HandlePacketFromNewClient(inStream, inFromAddress);
     }
     else
     {
+        TRACE("Processing packet");
         ProcessPacket((*it).second, inStream);
     }
 }
@@ -61,6 +63,7 @@ void NetworkManagerServer::ProcessPacket(ClientProxyPtr inClientProxy,
     switch (packetType)
     {
     case kHelloCC:
+        DEBUG("Sending welcome packet");
         SendWelcomePacket(inClientProxy);
         break;
 
@@ -114,9 +117,11 @@ void NetworkManagerServer::HandlePacketFromNewClient(InputMemoryBitStream& inInp
                                                      const SocketAddress& inFromAddress)
 {
     uint8_t packetType;
+    DEBUG("Reading new packet");
     inInputStream.Read(packetType);
     if (packetType == kHelloCC)
     {
+        DEBUG("Sending hello packet");
         HandleHelloPacket(inInputStream, inFromAddress);
     }
     else

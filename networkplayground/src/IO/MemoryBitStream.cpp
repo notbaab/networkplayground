@@ -124,10 +124,13 @@ void InputMemoryBitStream::ReadBits(uint8_t& outData, uint32_t inBitCount)
 {
     uint32_t byteOffset = mBitHead >> 3; // how many bytes have we written already
     uint32_t bitOffset = mBitHead & 0x7; // how manay bits have been written
+    printf("%d bit head\n", mBitHead);
 
     // Point outData to the correct location in the current buffer by grabing
     // the current byte and shift it by the amount of bits written
     outData = static_cast<uint8_t>(mBuffer[byteOffset]) >> bitOffset;
+
+    printf("%d out data %d byteOffset\n", outData, byteOffset);
 
     // How many bits are actually open to use at this location
     uint32_t bitsFreeThisByte = 8 - bitOffset;
