@@ -35,8 +35,8 @@ uint32_t Player::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
     PlayerMessage* message = new PlayerMessage();
 
     // This is pretty wrong, where is everything dirty?
-    this->mState =
-        static_cast<PlayerReplicationState>(inDirtyState & ALL_STATE);
+    this->mState = static_cast<PlayerMessage::ReplicationState>(
+        inDirtyState & PlayerMessage::ReplicationState::ALL_STATE);
     message->Serialize(inOutputStream, this);
 
     return inDirtyState;

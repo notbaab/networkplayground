@@ -4,6 +4,8 @@
 #include "gameobjects/GameObject.h"
 #include "gameobjects/InputState.h"
 
+#include "gameobjects/PlayerMessage.h"
+
 #define PLAYER_CLASS_IDENTIFICATION 0xffffffff
 const float PLAYER_SPEED = 500.f;
 
@@ -45,7 +47,7 @@ class Player : public GameObject
     uint32_t mPlayerId;
     Vector3 mVelocity;
     float mLastMoveTimestamp;
-    PlayerReplicationState mState;
+    PlayerMessage::ReplicationState mState;
 };
 
 typedef std::shared_ptr<Player> PlayerPtr;

@@ -1,31 +1,25 @@
-//  PlayerMessage.h
-//  Message sent/read about the player.
-//
-//  Created by Erik Parreira on 8/15/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #ifndef PlayerMessage_h
 #define PlayerMessage_h
-#include "IO/MemoryBitStream.h"
-#include "gameobjects/Player.h"
-#include "networking/Logger.h"
 
-class Player;
+#include "IO/MemoryBitStream.h"
+#include "networking/Logger.h"
 
 class PlayerMessage
 {
   public:
-    friend class Player;
+    enum ReplicationState
+    {
+        PRS_PID = 1 << 0,  // Player Id
+        PRS_POSI = 1 << 1, // Player position and rotation
+        ALL_STATE = PRS_POSI | PRS_PID,
+    };
 
     template <typename Stream, typename DataContainer>
     static bool Serialize(Stream& stream, DataContainer dataContainer)
     {
         stream.serialize(dataContainer->mState);
-        bool writePlayerId =
-            dataContainer->mState & Player::PlayerReplicationState::PRS_PID;
-        bool writePosition =
-            dataContainer->mState & Player::PlayerReplicationState::PRS_POSI;
+        bool writePlayerId = dataContainer->mState & ReplicationState::PRS_PID;
+        bool writePosition = dataContainer->mState & ReplicationState::PRS_POSI;
 
         if (writePlayerId)
         {
@@ -34,8 +28,7 @@ class PlayerMessage
 
         if (writePosition)
         {
-            TRACE("Writting message with x={}, y={}, mX={}, mY={}",
-                  dataContainer->GetLocation().mX,
+            TRACE("Writting message with x={}, y={}, mX={}, mY={}", dataContainer->GetLocation().mX,
                   dataContainer->GetLocation().mY, dataContainer->mVelocity.mX,
                   dataContainer->mVelocity.mY);
             stream.serialize(dataContainer->mVelocity.mX);
