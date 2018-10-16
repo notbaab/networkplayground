@@ -33,7 +33,7 @@ void NetworkManagerClient::Init(const SocketAddress& inServerAddress, const std:
 void NetworkManagerClient::ProcessPacket(InputMemoryBitStream& inInputStream,
                                          const SocketAddress& inFromAddress)
 {
-    uint32_t packetType;
+    uint8_t packetType;
 
     inInputStream.Read(packetType);
 

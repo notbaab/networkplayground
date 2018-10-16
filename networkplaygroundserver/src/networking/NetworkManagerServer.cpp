@@ -54,7 +54,7 @@ void NetworkManagerServer::ProcessPacket(ClientProxyPtr inClientProxy,
 {
     inClientProxy->UpdateLastPacketTime();
 
-    uint32_t packetType;
+    uint8_t packetType;
 
     inInputStream.Read(packetType);
 
@@ -113,7 +113,7 @@ void NetworkManagerServer::HandleInputPacket(ClientProxyPtr inClientProxy,
 void NetworkManagerServer::HandlePacketFromNewClient(InputMemoryBitStream& inInputStream,
                                                      const SocketAddress& inFromAddress)
 {
-    uint32_t packetType;
+    uint8_t packetType;
     inInputStream.Read(packetType);
     if (packetType == kHelloCC)
     {

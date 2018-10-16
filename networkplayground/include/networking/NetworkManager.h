@@ -18,10 +18,10 @@ class NetworkManager
 {
   public:
     // 4 byte message identifier
-    static const uint32_t kHelloCC = 'HELO';   // client connect message
-    static const uint32_t kWelcomeCC = 'WLCM'; // server welcome message
-    static const uint32_t kStateCC = 'STAT';
-    static const uint32_t kInputCC = 'INPT';
+    static const uint8_t kHelloCC = 1;   // client connect message
+    static const uint8_t kWelcomeCC = 2; // server welcome message
+    static const uint8_t kStateCC = 3;
+    static const uint8_t kInputCC = 4;
     static const int kMaxPacketsPerFrameCount = 10;
 
     NetworkManager();
