@@ -48,8 +48,7 @@ class NetworkManagerServer : public NetworkManager
 
     void HandleClientDisconnected(ClientProxyPtr inClientProxy);
 
-    void ProcessPacket(ClientProxyPtr inClientProxy,
-                       InputMemoryBitStream& inInputStream);
+    void ProcessPacket(ClientProxyPtr inClientProxy, InputMemoryBitStream& inInputStream);
 
     void SendWelcomePacket(ClientProxyPtr inClientProxy);
     void UpdateAllClients();
@@ -58,10 +57,8 @@ class NetworkManagerServer : public NetworkManager
     void WriteLastMoveTimestampIfDirty(OutputMemoryBitStream& inOutputStream,
                                        ClientProxyPtr inClientProxy);
 
-    void HandleInputPacket(ClientProxyPtr inClientProxy,
-                           InputMemoryBitStream& inInputStream);
-    void HandleHelloPacket(InputMemoryBitStream& inInputStream,
-                           const SocketAddress& inFromAddress);
+    void HandleInputPacket(ClientProxyPtr inClientProxy, InputMemoryBitStream& inInputStream);
+    void HandleHelloPacket(InputMemoryBitStream& inInputStream, const SocketAddress& inFromAddress);
 
     int GetNewNetworkId();
     int GetNewPlayerId();
@@ -74,8 +71,7 @@ class NetworkManagerServer : public NetworkManager
     float mClientDisconnectTimeout;
 
     typedef std::unordered_map<int, ClientProxyPtr> IntToClientMap;
-    typedef std::unordered_map<SocketAddress, ClientProxyPtr>
-        AddressToClientMap;
+    typedef std::unordered_map<SocketAddress, ClientProxyPtr> AddressToClientMap;
 
     AddressToClientMap mAddressToClientMap;
     IntToClientMap mPlayerIdToClientMap;
@@ -84,8 +80,7 @@ class NetworkManagerServer : public NetworkManager
     bool mDontAllowClientDisconects;
 };
 
-inline GameObjectPtr
-NetworkManagerServer::RegisterAndReturn(GameObject* inGameObject)
+inline GameObjectPtr NetworkManagerServer::RegisterAndReturn(GameObject* inGameObject)
 {
     GameObjectPtr toRet(inGameObject);
     RegisterGameObject(toRet);

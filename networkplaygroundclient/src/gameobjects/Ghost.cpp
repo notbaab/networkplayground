@@ -12,7 +12,4 @@ Ghost::Ghost()
     mSpriteComponent->SetColor(new Vector3(0, 0, 255));
 }
 
-void Ghost::PrintInfo()
-{
-    TRACE("Ghost At {}, {}", GetLocation().mX, GetLocation().mY);
-}
+void Ghost::PrintInfo() { TRACE("Ghost At {}, {}", GetLocation().mX, GetLocation().mY); }

@@ -73,8 +73,7 @@ bool DictionaryTrie::prefixExists(std::string word)
 
     auto retVal = traverse(word);
 
-    return word[word.length() - 1] == retVal.first->symbol &&
-           retVal.second == word.length() - 1;
+    return word[word.length() - 1] == retVal.first->symbol && retVal.second == word.length() - 1;
 }
 
 bool DictionaryTrie::find(std::string word) const
@@ -84,12 +83,11 @@ bool DictionaryTrie::find(std::string word) const
 
     auto retVal = traverse(word);
 
-    return word[word.length() - 1] == retVal.first->symbol &&
-           retVal.second == word.length() - 1 && retVal.first->isAWord;
+    return word[word.length() - 1] == retVal.first->symbol && retVal.second == word.length() - 1 &&
+           retVal.first->isAWord;
 }
 
-std::pair<TrieNode*, unsigned int>
-DictionaryTrie::traverse(std::string word) const
+std::pair<TrieNode*, unsigned int> DictionaryTrie::traverse(std::string word) const
 {
     TrieNode* curr = root;
 
@@ -134,9 +132,8 @@ DictionaryTrie::traverse(std::string word) const
     return std::make_pair(curr, i);
 }
 
-std::vector<std::string>
-DictionaryTrie::predictCompletions(std::string prefix,
-                                   unsigned int num_completions)
+std::vector<std::string> DictionaryTrie::predictCompletions(std::string prefix,
+                                                            unsigned int num_completions)
 {
 
     // First check if the prefix is in the TST & if not return an empty vector
@@ -147,8 +144,7 @@ DictionaryTrie::predictCompletions(std::string prefix,
 
     if (num_completions == 0)
     {
-        std::cout << "The number of completions is set to 0, 0 returned."
-                  << std::endl;
+        std::cout << "The number of completions is set to 0, 0 returned." << std::endl;
         return {};
     }
 
@@ -160,8 +156,8 @@ DictionaryTrie::predictCompletions(std::string prefix,
 
     // Based on the num_completions add only the top # of words
     unsigned int count = 0;
-    for (auto it = prefixWords.begin();
-         (count < num_completions) && (it != prefixWords.end()); ++it)
+    for (auto it = prefixWords.begin(); (count < num_completions) && (it != prefixWords.end());
+         ++it)
     {
 
         words.push_back(it->second);
@@ -171,8 +167,7 @@ DictionaryTrie::predictCompletions(std::string prefix,
 }
 
 void DictionaryTrie::findPrefixWords(
-    std::string prefix,
-    std::multimap<int, std::string, std::greater<int>>& prefixWords)
+    std::string prefix, std::multimap<int, std::string, std::greater<int>>& prefixWords)
 {
 
     auto retVal = traverse(prefix);
@@ -195,9 +190,8 @@ void DictionaryTrie::findPrefixWords(
     getPrefixWords(parent->mid, prefix, prefixWords);
 }
 
-void DictionaryTrie::getPrefixWords(
-    TrieNode* curr, std::string prefix,
-    std::multimap<int, std::string, std::greater<int>>& prefixWords)
+void DictionaryTrie::getPrefixWords(TrieNode* curr, std::string prefix,
+                                    std::multimap<int, std::string, std::greater<int>>& prefixWords)
 {
 
     // Base case
@@ -210,8 +204,7 @@ void DictionaryTrie::getPrefixWords(
 
     // Check if node is a word, & store prefix + current character
     if (curr->isAWord)
-        prefixWords.insert(
-            std::pair<int, std::string>(curr->freq, prefix + curr->symbol));
+        prefixWords.insert(std::pair<int, std::string>(curr->freq, prefix + curr->symbol));
 
     getPrefixWords(curr->mid, prefix + curr->symbol, prefixWords);
 }

@@ -62,8 +62,7 @@ void RenderManager::RenderComponents()
     //    SDL_Rect viewport = GraphicsDriver::sInstance->GetLogicalViewport();
     SDL_Renderer* renderer = GraphicsDriver::sInstance->GetRenderer();
 
-    for (auto cIt = mComponents.begin(), end = mComponents.end(); cIt != end;
-         ++cIt)
+    for (auto cIt = mComponents.begin(), end = mComponents.end(); cIt != end; ++cIt)
     {
         (*cIt)->Draw(mViewTransform);
     }

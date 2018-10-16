@@ -2,8 +2,7 @@
 #include "timing/Timing.h"
 
 InFlightPacket::InFlightPacket(PacketSequenceNumber inSequenceNumber)
-    : mSequenceNumber(inSequenceNumber),
-      mTimeDispatched(Timing::sInstance.GetTimef())
+    : mSequenceNumber(inSequenceNumber), mTimeDispatched(Timing::sInstance.GetTimef())
 {
 }
 

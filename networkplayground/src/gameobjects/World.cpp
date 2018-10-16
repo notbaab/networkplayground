@@ -29,9 +29,8 @@ void World::PrintInfo()
     for (auto go : sInstance->mGameObjects)
     {
         // TODO: Print Info delegate to game object
-        std::cout << "Location of " << go->GetNetworkId() << " at "
-                  << go->GetLocation().mX << "," << go->GetLocation().mY
-                  << std::endl;
+        std::cout << "Location of " << go->GetNetworkId() << " at " << go->GetLocation().mX << ","
+                  << go->GetLocation().mY << std::endl;
     }
 }
 
@@ -64,8 +63,4 @@ void World::Update()
     }
 }
 
-const std::vector<GameObjectPtr>& World::GetGameObjects()
-{
-
-    return mGameObjects;
-}
+const std::vector<GameObjectPtr>& World::GetGameObjects() { return mGameObjects; }

@@ -22,34 +22,29 @@ class Vector3
 
     friend Vector3 operator+(const Vector3& inLeft, const Vector3& inRight)
     {
-        return Vector3(inLeft.mX + inRight.mX, inLeft.mY + inRight.mY,
-                       inLeft.mZ + inRight.mZ);
+        return Vector3(inLeft.mX + inRight.mX, inLeft.mY + inRight.mY, inLeft.mZ + inRight.mZ);
     }
 
     friend Vector3 operator-(const Vector3& inLeft, const Vector3& inRight)
     {
-        return Vector3(inLeft.mX - inRight.mX, inLeft.mY - inRight.mY,
-                       inLeft.mZ - inRight.mZ);
+        return Vector3(inLeft.mX - inRight.mX, inLeft.mY - inRight.mY, inLeft.mZ - inRight.mZ);
     }
 
     // Component-wise multiplication
     friend Vector3 operator*(const Vector3& inLeft, const Vector3& inRight)
     {
-        return Vector3(inLeft.mX * inRight.mX, inLeft.mY * inRight.mY,
-                       inLeft.mZ * inRight.mZ);
+        return Vector3(inLeft.mX * inRight.mX, inLeft.mY * inRight.mY, inLeft.mZ * inRight.mZ);
     }
 
     // Scalar multiply
     friend Vector3 operator*(float inScalar, const Vector3& inVec)
     {
-        return Vector3(inVec.mX * inScalar, inVec.mY * inScalar,
-                       inVec.mZ * inScalar);
+        return Vector3(inVec.mX * inScalar, inVec.mY * inScalar, inVec.mZ * inScalar);
     }
 
     friend Vector3 operator*(const Vector3& inVec, float inScalar)
     {
-        return Vector3(inVec.mX * inScalar, inVec.mY * inScalar,
-                       inVec.mZ * inScalar);
+        return Vector3(inVec.mX * inScalar, inVec.mY * inScalar, inVec.mZ * inScalar);
     }
 
     Vector3& operator*=(float inScalar)
@@ -101,8 +96,7 @@ class Vector3
 
     friend float Dot(const Vector3& inLeft, const Vector3& inRight)
     {
-        return (inLeft.mX * inRight.mX + inLeft.mY * inRight.mY +
-                inLeft.mZ * inRight.mZ);
+        return (inLeft.mX * inRight.mX + inLeft.mY * inRight.mY + inLeft.mZ * inRight.mZ);
     }
 
     friend float Dot2D(const Vector3& inLeft, const Vector3& inRight)

@@ -9,14 +9,12 @@ float kTimeBetweenInputSamples = 0.03f;
 
 void InputManager::StaticInit() { sInstance.reset(new InputManager()); }
 
-InputManager::InputManager()
-    : mNextTimeToSampleInput(0.f), mPendingMove(nullptr)
+InputManager::InputManager() : mNextTimeToSampleInput(0.f), mPendingMove(nullptr)
 {
     mNextTimeToSampleInput = Timing::sInstance.GetFrameStartTime();
 }
 
-inline void UpdateDesireVariableFromKey(EInputAction inInputAction,
-                                        bool& ioVariable)
+inline void UpdateDesireVariableFromKey(EInputAction inInputAction, bool& ioVariable)
 {
     if (inInputAction == EIA_Pressed)
     {
@@ -28,8 +26,7 @@ inline void UpdateDesireVariableFromKey(EInputAction inInputAction,
     }
 }
 
-inline void UpdateDesireFloatFromKey(EInputAction inInputAction,
-                                     float& ioVariable)
+inline void UpdateDesireFloatFromKey(EInputAction inInputAction, float& ioVariable)
 {
     if (inInputAction == EIA_Pressed)
     {
@@ -84,10 +81,7 @@ bool InputManager::IsTimeToSampleInput()
 // Input Should be sampled if the follow criteria is met
 // 1. It's time i.e only sample during a frame update.
 // 2. There is input to sample
-bool InputManager::shouldSampleMove()
-{
-    return IsTimeToSampleInput() && mCurrentState.HasInput();
-}
+bool InputManager::shouldSampleMove() { return IsTimeToSampleInput() && mCurrentState.HasInput(); }
 
 void InputManager::Update()
 {

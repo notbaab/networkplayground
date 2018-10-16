@@ -15,8 +15,7 @@ class PlayerServer : public Player
   public:
     static GameObjectPtr StaticCreate()
     {
-        return NetworkManagerServer::sInstance->RegisterAndReturn(
-            new PlayerServer());
+        return NetworkManagerServer::sInstance->RegisterAndReturn(new PlayerServer());
     }
 
     virtual void Update();

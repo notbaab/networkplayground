@@ -35,10 +35,7 @@ struct ReplicationCommand
 
     void AddDirtyState(uint32_t inState) { mDirtyState |= inState; }
 
-    bool HasDirtyState() const
-    {
-        return (mAction == RA_DESTROY) || (mDirtyState != 0);
-    }
+    bool HasDirtyState() const { return (mAction == RA_DESTROY) || (mDirtyState != 0); }
 
     ReplicationAction GetAction() const { return mAction; }
     uint32_t GetDirtyState() const { return mDirtyState; }

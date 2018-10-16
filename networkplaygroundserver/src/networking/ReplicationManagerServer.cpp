@@ -3,20 +3,17 @@
 #include "networking/NetworkManagerServer.h"
 #include "networking/ReplicationManagerTransmissionData.h"
 
-void ReplicationManagerServer::ReplicateCreate(int inNetworkId,
-                                               uint32_t inInitialDirtyState)
+void ReplicationManagerServer::ReplicateCreate(int inNetworkId, uint32_t inInitialDirtyState)
 {
     if (inInitialDirtyState == 10)
     {
         DEBUG("DA FUCK");
     }
-    if (mNetworkIdToReplicationCommand.find(inNetworkId) ==
-        mNetworkIdToReplicationCommand.end())
+    if (mNetworkIdToReplicationCommand.find(inNetworkId) == mNetworkIdToReplicationCommand.end())
     {
         DEBUG("Replicating create on new user {}", inNetworkId);
     }
-    mNetworkIdToReplicationCommand[inNetworkId] =
-        ReplicationCommand(inInitialDirtyState);
+    mNetworkIdToReplicationCommand[inNetworkId] = ReplicationCommand(inInitialDirtyState);
     ;
 }
 
@@ -37,8 +34,7 @@ void ReplicationManagerServer::HandleCreateAckd(int inNetworkId)
 }
 
 // TODO: I'm not sure I like the replication manager managing dirty state
-void ReplicationManagerServer::SetStateDirty(int inNetworkId,
-                                             uint32_t inDirtyState)
+void ReplicationManagerServer::SetStateDirty(int inNetworkId, uint32_t inDirtyState)
 {
     mNetworkIdToReplicationCommand[inNetworkId].AddDirtyState(inDirtyState);
 }
@@ -46,9 +42,8 @@ void ReplicationManagerServer::SetStateDirty(int inNetworkId,
 /**
  * Writes any pending replication commands to the output stream
  */
-void ReplicationManagerServer::Write(
-    OutputMemoryBitStream& inOutputStream,
-    ReplicationManagerTransmissionData* ioTransmissinData)
+void ReplicationManagerServer::Write(OutputMemoryBitStream& inOutputStream,
+                                     ReplicationManagerTransmissionData* ioTransmissinData)
 {
     DEBUG("Writing shit to {} ids", mNetworkIdToReplicationCommand.size());
     for (auto& pair : mNetworkIdToReplicationCommand)
@@ -85,13 +80,11 @@ void ReplicationManagerServer::Write(
         {
         case RA_CREATE:
             DEBUG("Creating a new user {}", networkId);
-            writtenState =
-                WriteCreateAction(inOutputStream, networkId, dirtyState);
+            writtenState = WriteCreateAction(inOutputStream, networkId, dirtyState);
             break;
         case RA_UPDATE:
             DEBUG("Writing update packet for {}", networkId);
-            writtenState =
-                WriteUpdateAction(inOutputStream, networkId, dirtyState);
+            writtenState = WriteUpdateAction(inOutputStream, networkId, dirtyState);
             break;
         default:
             ERROR("Don't Recognize Action");
@@ -105,12 +98,10 @@ void ReplicationManagerServer::Write(
     }
 }
 
-uint32_t ReplicationManagerServer::WriteCreateAction(
-    OutputMemoryBitStream& inOutputStream, int inNetworkId,
-    uint32_t inDirtyState)
+uint32_t ReplicationManagerServer::WriteCreateAction(OutputMemoryBitStream& inOutputStream,
+                                                     int inNetworkId, uint32_t inDirtyState)
 {
-    GameObjectPtr gameObject =
-        NetworkManagerServer::sInstance->GetGameObject(inNetworkId);
+    GameObjectPtr gameObject = NetworkManagerServer::sInstance->GetGameObject(inNetworkId);
 
     // write class id
     inOutputStream.Write(gameObject->GetClassId());
@@ -120,13 +111,11 @@ uint32_t ReplicationManagerServer::WriteCreateAction(
     return writtenState;
 }
 
-uint32_t ReplicationManagerServer::WriteUpdateAction(
-    OutputMemoryBitStream& inOutputStream, int inNetworkId,
-    uint32_t inDirtyState)
+uint32_t ReplicationManagerServer::WriteUpdateAction(OutputMemoryBitStream& inOutputStream,
+                                                     int inNetworkId, uint32_t inDirtyState)
 {
     // need object
-    GameObjectPtr gameObject =
-        NetworkManagerServer::sInstance->GetGameObject(inNetworkId);
+    GameObjectPtr gameObject = NetworkManagerServer::sInstance->GetGameObject(inNetworkId);
 
     // TODO: What should happen if the object doesn't exist on the other side?
     // What should be done it we keep sending create packets until we

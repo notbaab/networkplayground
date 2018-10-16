@@ -21,18 +21,14 @@ class NetworkManagerClient : public NetworkManager
   public:
     static NetworkManagerClient* sInstance;
 
-    static void StaticInit(const SocketAddress& inServerAddress,
-                           const std::string& inName);
+    static void StaticInit(const SocketAddress& inServerAddress, const std::string& inName);
 
     void SendOutgoingPackets();
 
     virtual void ProcessPacket(InputMemoryBitStream& inInputStream,
                                const SocketAddress& inFromAddress) override;
 
-    const WeightedTimedMovingAverage& GetAvgRoundTripTime() const
-    {
-        return mAvgRoundTripTime;
-    }
+    const WeightedTimedMovingAverage& GetAvgRoundTripTime() const { return mAvgRoundTripTime; }
 
     float GetRoundTripTime() const { return mAvgRoundTripTime.GetValue(); }
 
@@ -52,16 +48,14 @@ class NetworkManagerClient : public NetworkManager
     // Packet handling functions
     void HandleWelcomePacket(InputMemoryBitStream& inInputStream);
     void HandleStatePacket(InputMemoryBitStream& inInputStream);
-    void
-    ReadLastMoveProcessedOnServerTimestamp(InputMemoryBitStream& inInputStream);
+    void ReadLastMoveProcessedOnServerTimestamp(InputMemoryBitStream& inInputStream);
 
     void HandleGameObjectState(InputMemoryBitStream& inInputStream);
 
     void UpdateSendingInputPacket();
     void SendInputPacket();
 
-    void DestroyGameObjectsInMap(
-        std::unordered_map<int, GameObjectPtr>& inObjectsToDestroy);
+    void DestroyGameObjectsInMap(std::unordered_map<int, GameObjectPtr>& inObjectsToDestroy);
 
     ReplicationManagerClient mReplicationManagerClient;
     DeliveryNotificationManager mDeliveryNotificationManager;

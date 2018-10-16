@@ -7,19 +7,12 @@ class InputState
 {
   public:
     InputState()
-        : mLeftAmount(0), mRightAmount(0), mForwardAmount(0), mBackAmount(0),
-          mIsShooting(false)
+        : mLeftAmount(0), mRightAmount(0), mForwardAmount(0), mBackAmount(0), mIsShooting(false)
     {
     }
 
-    float GetDesiredHorizontalDelta() const
-    {
-        return mRightAmount - mLeftAmount;
-    };
-    float GetDesiredVerticalDelta() const
-    {
-        return mForwardAmount - mBackAmount;
-    };
+    float GetDesiredHorizontalDelta() const { return mRightAmount - mLeftAmount; };
+    float GetDesiredVerticalDelta() const { return mForwardAmount - mBackAmount; };
 
     bool HasInput();
 

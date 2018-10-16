@@ -10,8 +10,7 @@
 class DeliveryNotificationManager
 {
   public:
-    DeliveryNotificationManager(bool inShouldSendAcks,
-                                bool inShouldProcessAcks);
+    DeliveryNotificationManager(bool inShouldSendAcks, bool inShouldProcessAcks);
     ~DeliveryNotificationManager();
 
     inline InFlightPacket* WriteState(OutputMemoryBitStream& inOutputStream);
@@ -23,10 +22,7 @@ class DeliveryNotificationManager
     uint32_t GetDeliveredPacketCount() const { return mDeliveredPacketCount; }
     uint32_t GetDispatchedPacketCount() const { return mDispatchedPacketCount; }
 
-    const std::deque<InFlightPacket>& GetInFlightPackets() const
-    {
-        return mInFlightPackets;
-    }
+    const std::deque<InFlightPacket>& GetInFlightPackets() const { return mInFlightPackets; }
 
   private:
     InFlightPacket* WriteSequenceNumber(OutputMemoryBitStream& inOutputStream);
@@ -66,8 +62,7 @@ DeliveryNotificationManager::WriteState(OutputMemoryBitStream& inOutputStream)
 }
 
 // Reads the state from the packet
-inline bool DeliveryNotificationManager::ReadAndProcessState(
-    InputMemoryBitStream& inInputStream)
+inline bool DeliveryNotificationManager::ReadAndProcessState(InputMemoryBitStream& inInputStream)
 {
     bool toRet = ProcessSequenceNumber(inInputStream);
     if (mShouldProcessAcks)

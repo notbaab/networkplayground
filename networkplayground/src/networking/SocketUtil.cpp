@@ -27,10 +27,9 @@ void SocketUtil::ReportError(const char* inOperationDesc)
     LPVOID lpMsgBuf;
     DWORD errorNum = GetLastError();
 
-    FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM |
-                      FORMAT_MESSAGE_IGNORE_INSERTS,
-                  NULL, errorNum, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-                  (LPTSTR)&lpMsgBuf, 0, NULL);
+    FormatMessage(
+        FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL, errorNum, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR)&lpMsgBuf, 0, NULL);
 
     LOG("Error %s: %d- %s", inOperationDesc, errorNum, lpMsgBuf);
 #else
@@ -77,8 +76,8 @@ TCPSocketPtr SocketUtil::CreateTCPSocket(SocketAddressFamily inFamily)
     }
 }
 
-fd_set* SocketUtil::FillSetFromVector(
-    fd_set& outSet, const std::vector<TCPSocketPtr>* inSockets, int& ioNaxNfds)
+fd_set* SocketUtil::FillSetFromVector(fd_set& outSet, const std::vector<TCPSocketPtr>* inSockets,
+                                      int& ioNaxNfds)
 {
     if (inSockets)
     {
@@ -100,8 +99,7 @@ fd_set* SocketUtil::FillSetFromVector(
 }
 
 void SocketUtil::FillVectorFromSet(std::vector<TCPSocketPtr>* outSockets,
-                                   const std::vector<TCPSocketPtr>* inSockets,
-                                   const fd_set& inSet)
+                                   const std::vector<TCPSocketPtr>* inSockets, const fd_set& inSet)
 {
     if (inSockets && outSockets)
     {

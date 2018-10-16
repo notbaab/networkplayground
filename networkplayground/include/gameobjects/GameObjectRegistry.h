@@ -28,8 +28,7 @@ class GameObjectRegistry
     // Singleton instance
     static std::unique_ptr<GameObjectRegistry> sInstance;
 
-    void RegisterCreationFunction(uint32_t inCCName,
-                                  GameObjectCreationFunc inCreationFuntion);
+    void RegisterCreationFunction(uint32_t inCCName, GameObjectCreationFunc inCreationFuntion);
 
     GameObjectPtr CreateGameObject(uint32_t inCCName);
 
@@ -38,8 +37,7 @@ class GameObjectRegistry
 
     addToWorldFunction mAddToWorldFunction;
 
-    std::unordered_map<uint32_t, GameObjectCreationFunc>
-        mNameToCreationFunction;
+    std::unordered_map<uint32_t, GameObjectCreationFunc> mNameToCreationFunction;
 };
 
 #endif /* GameObjectRegistry_h */

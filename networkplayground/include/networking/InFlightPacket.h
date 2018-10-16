@@ -29,11 +29,9 @@ class InFlightPacket
         return (it != mTransmissionDataMap.end() ? it->second : nullptr);
     }
 
-    void HandleDeliveryFailure(
-        DeliveryNotificationManager* inDeliveryNotificationManager) const;
+    void HandleDeliveryFailure(DeliveryNotificationManager* inDeliveryNotificationManager) const;
 
-    void HandleDeliverySuccess(
-        DeliveryNotificationManager* inDeliveryNotificationManager) const;
+    void HandleDeliverySuccess(DeliveryNotificationManager* inDeliveryNotificationManager) const;
 
   private:
     PacketSequenceNumber mSequenceNumber;

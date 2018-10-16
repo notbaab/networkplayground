@@ -34,8 +34,7 @@ class Player : public GameObject
     void SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
     const Vector3& GetVelocity() const { return mVelocity; }
 
-    virtual uint32_t Write(OutputMemoryBitStream& inOutputStream,
-                           uint32_t inDirtyState) override;
+    virtual uint32_t Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) override;
 
   protected:
     Player();

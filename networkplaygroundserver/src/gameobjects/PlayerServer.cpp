@@ -13,8 +13,7 @@ void PlayerServer::Update()
 
     if (mControlType == PCT_HUMAN)
     {
-        ClientProxyPtr client =
-            NetworkManagerServer::sInstance->GetClientProxy(GetPlayerId());
+        ClientProxyPtr client = NetworkManagerServer::sInstance->GetClientProxy(GetPlayerId());
 
         if (!client)
         {
@@ -48,7 +47,6 @@ void PlayerServer::Update()
             ERROR("{} Not moving but updating", GetNetworkId());
         }
 
-        NetworkManagerServer::sInstance->SetStateDirty(GetNetworkId(),
-                                                       PRS_POSI);
+        NetworkManagerServer::sInstance->SetStateDirty(GetNetworkId(), PRS_POSI);
     }
 }

@@ -4,11 +4,9 @@
 
 static const float kDelayBeforeAckTimeout = 0.5f;
 
-DeliveryNotificationManager::DeliveryNotificationManager(bool inSendAcks,
-                                                         bool inProcessAcks)
-    : mNextOutgoingSequenceNumber(0), mNextExpectedSequenceNumber(0),
-      mShouldSendAcks(inSendAcks), mShouldProcessAcks(inProcessAcks),
-      mDeliveredPacketCount(0), mDroppedPacketCount(0),
+DeliveryNotificationManager::DeliveryNotificationManager(bool inSendAcks, bool inProcessAcks)
+    : mNextOutgoingSequenceNumber(0), mNextExpectedSequenceNumber(0), mShouldSendAcks(inSendAcks),
+      mShouldProcessAcks(inProcessAcks), mDeliveredPacketCount(0), mDroppedPacketCount(0),
       mDispatchedPacketCount(0)
 {
 }
@@ -20,8 +18,8 @@ DeliveryNotificationManager::~DeliveryNotificationManager()
          (100 * mDroppedPacketCount) / mDispatchedPacketCount);
 }
 
-InFlightPacket* DeliveryNotificationManager::WriteSequenceNumber(
-    OutputMemoryBitStream& inOutputStream)
+InFlightPacket*
+DeliveryNotificationManager::WriteSequenceNumber(OutputMemoryBitStream& inOutputStream)
 {
     PacketSequenceNumber sequenceNumber = mNextOutgoingSequenceNumber++;
     inOutputStream.Write(sequenceNumber);
@@ -41,8 +39,7 @@ InFlightPacket* DeliveryNotificationManager::WriteSequenceNumber(
 
 // The first field in a packet. Process the sequence number if it's one we care
 // about
-bool DeliveryNotificationManager::ProcessSequenceNumber(
-    InputMemoryBitStream& inInputStream)
+bool DeliveryNotificationManager::ProcessSequenceNumber(InputMemoryBitStream& inInputStream)
 {
     PacketSequenceNumber sequenceNumber;
     inInputStream.Read(sequenceNumber);
@@ -65,8 +62,7 @@ bool DeliveryNotificationManager::ProcessSequenceNumber(
     return true;
 }
 
-void DeliveryNotificationManager::WriteAckData(
-    OutputMemoryBitStream& inOutputStream)
+void DeliveryNotificationManager::WriteAckData(OutputMemoryBitStream& inOutputStream)
 {
     // What do we need to tell them we have recieved?
     bool hasAcks = (mPendingAcks.size() > 0);
@@ -84,8 +80,7 @@ void DeliveryNotificationManager::WriteAckData(
 }
 
 // Tell inflight packets if they have been dropped or delivered
-void DeliveryNotificationManager::ProcessAcks(
-    InputMemoryBitStream& inInputStream)
+void DeliveryNotificationManager::ProcessAcks(InputMemoryBitStream& inInputStream)
 {
     bool hasAcks;
     inInputStream.Read(hasAcks);
@@ -99,16 +94,13 @@ void DeliveryNotificationManager::ProcessAcks(
     ackRange.Read(inInputStream);
 
     PacketSequenceNumber nextAckdSequenceNumber = ackRange.GetStart();
-    uint32_t maxAckdSequenceNumber =
-        nextAckdSequenceNumber + ackRange.GetCount();
+    uint32_t maxAckdSequenceNumber = nextAckdSequenceNumber + ackRange.GetCount();
 
-    while (nextAckdSequenceNumber < maxAckdSequenceNumber &&
-           !mInFlightPackets.empty())
+    while (nextAckdSequenceNumber < maxAckdSequenceNumber && !mInFlightPackets.empty())
     {
         const auto& nextInflightPacket = mInFlightPackets.front();
 
-        PacketSequenceNumber nextSequenceNumber =
-            nextInflightPacket.GetSequenceNumber();
+        PacketSequenceNumber nextSequenceNumber = nextInflightPacket.GetSequenceNumber();
 
         if (nextSequenceNumber < nextAckdSequenceNumber)
         {
@@ -152,25 +144,21 @@ void DeliveryNotificationManager::ProcessTimedOutPackets()
     }
 }
 
-void DeliveryNotificationManager::AddPendingAck(
-    PacketSequenceNumber inSequenceNumber)
+void DeliveryNotificationManager::AddPendingAck(PacketSequenceNumber inSequenceNumber)
 {
-    if (mPendingAcks.size() == 0 ||
-        !mPendingAcks.back().ExtendIfShould(inSequenceNumber))
+    if (mPendingAcks.size() == 0 || !mPendingAcks.back().ExtendIfShould(inSequenceNumber))
     {
         mPendingAcks.emplace_back(inSequenceNumber);
     }
 }
 
-void DeliveryNotificationManager::HandlePacketDeliveryFailure(
-    const InFlightPacket& inFlightPacket)
+void DeliveryNotificationManager::HandlePacketDeliveryFailure(const InFlightPacket& inFlightPacket)
 {
     ++mDroppedPacketCount;
     inFlightPacket.HandleDeliveryFailure(this);
 }
 
-void DeliveryNotificationManager::HandlePacketDeliverySuccess(
-    const InFlightPacket& inFlightPacket)
+void DeliveryNotificationManager::HandlePacketDeliverySuccess(const InFlightPacket& inFlightPacket)
 {
     ++mDeliveredPacketCount;
     inFlightPacket.HandleDeliverySuccess(this);

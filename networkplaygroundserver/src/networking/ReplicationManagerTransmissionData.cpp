@@ -3,8 +3,9 @@
 #include "networking/Logger.h"
 #include "networking/NetworkManagerServer.h"
 
-void ReplicationManagerTransmissionData::AddTransmission(
-    int inNetworkId, ReplicationAction inAction, uint32_t inState)
+void ReplicationManagerTransmissionData::AddTransmission(int inNetworkId,
+                                                         ReplicationAction inAction,
+                                                         uint32_t inState)
 {
     mTransmissions.emplace_back(inNetworkId, inAction, inState);
 }
@@ -40,11 +41,9 @@ void ReplicationManagerTransmissionData::HandleDeliveryFailure(
 }
 
 // Just sends the create again if the object still exists
-void ReplicationManagerTransmissionData::HandleCreateDeliveryFailure(
-    int inNetworkId) const
+void ReplicationManagerTransmissionData::HandleCreateDeliveryFailure(int inNetworkId) const
 {
-    GameObjectPtr gameObject =
-        NetworkManagerServer::sInstance->GetGameObject(inNetworkId);
+    GameObjectPtr gameObject = NetworkManagerServer::sInstance->GetGameObject(inNetworkId);
 
     if (!gameObject)
     {
@@ -52,12 +51,10 @@ void ReplicationManagerTransmissionData::HandleCreateDeliveryFailure(
     }
 
     // Failed? Send it again
-    mReplicationManagerServer->ReplicateCreate(inNetworkId,
-                                               gameObject->GetAllStateMask());
+    mReplicationManagerServer->ReplicateCreate(inNetworkId, gameObject->GetAllStateMask());
 }
 
-void ReplicationManagerTransmissionData::HandleDestroyDeliveryFailure(
-    int inNetworkId) const
+void ReplicationManagerTransmissionData::HandleDestroyDeliveryFailure(int inNetworkId) const
 {
     // Destroy it again!
     mReplicationManagerServer->ReplicateDestory(inNetworkId);
@@ -76,8 +73,7 @@ void ReplicationManagerTransmissionData::HandleUpdateStateDeliveryFailure(
     // TODO: Not dead, go through the inflight packets to see if the state that
     // failed was included an any future packet. If not, the the
     // ReplicationManagerServer to set this objects state as dirty
-    for (const auto& inFlightPacket :
-         inDeliveryNotificationManager->GetInFlightPackets())
+    for (const auto& inFlightPacket : inDeliveryNotificationManager->GetInFlightPackets())
     {
         ReplicationManagerTransmissionDataPtr rmtdp =
             std::static_pointer_cast<ReplicationManagerTransmissionData>(
@@ -111,24 +107,22 @@ void ReplicationManagerTransmissionData::HandleDeliverySuccess(
             HandleDestroyDeliverySuccess(rt.GetNetworkId());
             break;
         default:
-            ERROR("Can't handle delivery success for {} with network id {}",
-                  rt.GetAction(), rt.GetNetworkId());
+            ERROR("Can't handle delivery success for {} with network id {}", rt.GetAction(),
+                  rt.GetNetworkId());
             continue;
             // LOG( "No success handler for {}", rt.GetAction() );
         }
     }
 }
 
-void ReplicationManagerTransmissionData::HandleCreateDeliverySuccess(
-    int inNetworkId) const
+void ReplicationManagerTransmissionData::HandleCreateDeliverySuccess(int inNetworkId) const
 {
     // Tell the server the create succeded for this object
     DEBUG("Create delivery success for id {}", inNetworkId);
     mReplicationManagerServer->HandleCreateAckd(inNetworkId);
 }
 
-void ReplicationManagerTransmissionData::HandleDestroyDeliverySuccess(
-    int inNetworkId) const
+void ReplicationManagerTransmissionData::HandleDestroyDeliverySuccess(int inNetworkId) const
 {
     mReplicationManagerServer->RemoveFromReplication(inNetworkId);
 }

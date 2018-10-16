@@ -1,7 +1,6 @@
 #include "gameobjects/InputState.h"
 
-void WriteSignedBinaryValue(OutputMemoryBitStream& inOutputStream,
-                            float inValue)
+void WriteSignedBinaryValue(OutputMemoryBitStream& inOutputStream, float inValue)
 {
     bool isNonZero = (inValue != 0.f);
     inOutputStream.Write(isNonZero);
@@ -50,7 +49,4 @@ bool InputState::Read(InputMemoryBitStream& inInputStream)
     return true;
 }
 
-bool InputState::HasInput()
-{
-    return GetDesiredVerticalDelta() || GetDesiredHorizontalDelta();
-}
+bool InputState::HasInput() { return GetDesiredVerticalDelta() || GetDesiredHorizontalDelta(); }

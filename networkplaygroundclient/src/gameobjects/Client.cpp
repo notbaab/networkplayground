@@ -39,13 +39,12 @@ Client::Client()
 {
     std::string destination = "127.0.0.1:45000";
     // std::string name = Logger::GetCommandLineArg( 2 );
-    SocketAddressPtr serverAddress =
-        SocketAddressFactory::CreateIPv4FromString(destination);
+    SocketAddressPtr serverAddress = SocketAddressFactory::CreateIPv4FromString(destination);
 
     NetworkManagerClient::StaticInit(*serverAddress, "DUDUD");
 
-    GameObjectRegistry::sInstance->RegisterCreationFunction(
-        Player::kClassId, PlayerClient::StaticCreate);
+    GameObjectRegistry::sInstance->RegisterCreationFunction(Player::kClassId,
+                                                            PlayerClient::StaticCreate);
 }
 
 bool Client::DoFrame()
@@ -84,12 +83,10 @@ void Client::HandleEvent(SDL_Event* inEvent)
     switch (inEvent->type)
     {
     case SDL_KEYDOWN:
-        InputManager::sInstance->HandleInput(EIA_Pressed,
-                                             inEvent->key.keysym.sym);
+        InputManager::sInstance->HandleInput(EIA_Pressed, inEvent->key.keysym.sym);
         break;
     case SDL_KEYUP:
-        InputManager::sInstance->HandleInput(EIA_Released,
-                                             inEvent->key.keysym.sym);
+        InputManager::sInstance->HandleInput(EIA_Released, inEvent->key.keysym.sym);
         break;
     default:
         break;

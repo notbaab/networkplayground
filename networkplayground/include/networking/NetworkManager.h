@@ -56,8 +56,7 @@ class NetworkManager
     class ReceivedPacket
     {
       public:
-        ReceivedPacket(float inRecievedTime,
-                       InputMemoryBitStream& inInputMemoryBitStream,
+        ReceivedPacket(float inRecievedTime, InputMemoryBitStream& inInputMemoryBitStream,
                        const SocketAddress& inAddress);
 
         // get the address this packet came from

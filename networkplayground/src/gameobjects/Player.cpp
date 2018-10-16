@@ -8,9 +8,8 @@ Player::Player() : GameObject(), mVelocity(Vector3::Zero) {}
 void Player::ProcessInput(float inDeltaTime, const InputState& inInputState)
 {
     TRACE("Processing input for move {}, {}, located at {}, {}, ",
-          inInputState.GetDesiredHorizontalDelta(),
-          inInputState.GetDesiredVerticalDelta(), GetLocation().mX,
-          GetLocation().mY);
+          inInputState.GetDesiredHorizontalDelta(), inInputState.GetDesiredVerticalDelta(),
+          GetLocation().mX, GetLocation().mY);
     mVelocity.mX = (inInputState.GetDesiredHorizontalDelta() * PLAYER_SPEED);
     // y is reversed
     mVelocity.mY = (inInputState.GetDesiredVerticalDelta() * -1 * PLAYER_SPEED);
@@ -30,8 +29,7 @@ void Player::SimulateMovement(float inDeltaTime)
 
 void Player::Update() {}
 
-uint32_t Player::Write(OutputMemoryBitStream& inOutputStream,
-                       uint32_t inDirtyState)
+uint32_t Player::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState)
 {
     TRACE("Writing State");
     PlayerMessage* message = new PlayerMessage();

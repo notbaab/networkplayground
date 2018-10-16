@@ -4,8 +4,7 @@
 #include "graphics/RenderManager.h"
 #include <SDL.h>
 
-SpriteComponent::SpriteComponent(GameObject* inGameObject)
-    : mGameObject(inGameObject)
+SpriteComponent::SpriteComponent(GameObject* inGameObject) : mGameObject(inGameObject)
 {
     // hardcoded at the moment...
     float textureWidth = 128.f, textureHeight = 128.f;

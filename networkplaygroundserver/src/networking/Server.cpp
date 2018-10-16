@@ -16,8 +16,8 @@ bool Server::StaticInit()
 Server::Server()
 {
     // Register objects with registry
-    GameObjectRegistry::sInstance->RegisterCreationFunction(
-        Player::kClassId, PlayerServer::StaticCreate);
+    GameObjectRegistry::sInstance->RegisterCreationFunction(Player::kClassId,
+                                                            PlayerServer::StaticCreate);
     InitNetworkManager();
     mNextPhysicsTick = 0.f;
     //     NetworkManagerServer::sInstance->SetDropPacketChance( 0.8f );
@@ -91,8 +91,7 @@ void Server::SpawnPlayer(int inPlayerId)
 
     player->SetPlayerId(inPlayerId);
     // gotta pick a better spawn location than this...
-    player->SetLocation(
-        Vector3(1.f - static_cast<float>(inPlayerId), 0.f, 0.f));
+    player->SetLocation(Vector3(1.f - static_cast<float>(inPlayerId), 0.f, 0.f));
 }
 
 void Server::ShowGameObjects() { World::sInstance->PrintInfo(); }

@@ -6,8 +6,7 @@
 #include "networking/Logger.h"
 #include "networking/NetworkManagerClient.h"
 
-PlayerClient::PlayerClient()
-    : mTimeLocationBecameOutOfSync(0.f), mTimeVelocityBecameOutOfSync(0.f)
+PlayerClient::PlayerClient() : mTimeLocationBecameOutOfSync(0.f), mTimeVelocityBecameOutOfSync(0.f)
 {
     mSpriteComponent.reset(new SpriteComponent(this));
     mSpriteComponent->SetColor(new Vector3(255, 255, 0));
@@ -72,8 +71,8 @@ void PlayerClient::Read(InputMemoryBitStream& inInputStream)
 
         // TODO: ....hmmmmm
         ApplyUnAckedMoves(111);
-        TRACE("old location {}, {} new {}, {}", oldLocation.mX, oldLocation.mY,
-              mLocation.mX, mLocation.mY);
+        TRACE("old location {}, {} new {}, {}", oldLocation.mX, oldLocation.mY, mLocation.mX,
+              mLocation.mY);
     }
 }
 

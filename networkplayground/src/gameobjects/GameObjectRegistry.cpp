@@ -27,8 +27,8 @@ GameObjectPtr GameObjectRegistry::CreateGameObject(uint32_t inCCName)
     return newObject;
 }
 
-void GameObjectRegistry::RegisterCreationFunction(
-    uint32_t inCCName, GameObjectCreationFunc inCreationFuntion)
+void GameObjectRegistry::RegisterCreationFunction(uint32_t inCCName,
+                                                  GameObjectCreationFunc inCreationFuntion)
 {
     sInstance->mNameToCreationFunction[inCCName] = inCreationFuntion;
 }

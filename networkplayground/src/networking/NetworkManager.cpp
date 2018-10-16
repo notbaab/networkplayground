@@ -11,8 +11,8 @@
 void printStream(InputMemoryBitStream& inInputStream);
 
 NetworkManager::NetworkManager()
-    : mRecordRequestPackets(false), mRecordRespondPackets(false),
-      mBytesSentThisFrame(0), mDropPacketChance(0.f), mSimulatedLatency(0.f)
+    : mRecordRequestPackets(false), mRecordRespondPackets(false), mBytesSentThisFrame(0),
+      mDropPacketChance(0.f), mSimulatedLatency(0.f)
 {
 }
 
@@ -70,8 +70,7 @@ void NetworkManager::ProcessQueuedPackets()
             break;
         }
 
-        ProcessPacket(nextPacket.GetPacketBuffer(),
-                      nextPacket.GetFromAddress());
+        ProcessPacket(nextPacket.GetPacketBuffer(), nextPacket.GetFromAddress());
         mPacketQueue.pop();
     }
 }
@@ -155,8 +154,7 @@ void NetworkManager::SendPacket(const OutputMemoryBitStream& inOutputStream,
     int streamByteLength = inOutputStream.GetByteLength();
     const void* packetDataToSend = inOutputStream.GetBufferPtr();
 
-    int sentByteCount =
-        mSocket->SendTo(packetDataToSend, streamByteLength, inFromAddress);
+    int sentByteCount = mSocket->SendTo(packetDataToSend, streamByteLength, inFromAddress);
 
     if (mRecordRespondPackets)
     {
@@ -170,9 +168,9 @@ void NetworkManager::SendPacket(const OutputMemoryBitStream& inOutputStream,
     }
 }
 
-NetworkManager::ReceivedPacket::ReceivedPacket(
-    float inReceivedTime, InputMemoryBitStream& inInputMemoryBitStream,
-    const SocketAddress& inFromAddress)
+NetworkManager::ReceivedPacket::ReceivedPacket(float inReceivedTime,
+                                               InputMemoryBitStream& inInputMemoryBitStream,
+                                               const SocketAddress& inFromAddress)
     : mRecievedTime(inReceivedTime), mPacketDataStream(inInputMemoryBitStream),
       mFromAddress(inFromAddress)
 {
@@ -183,8 +181,7 @@ void NetworkManager::AddToNetworkIdToGameObjectMap(GameObjectPtr inGameObject)
     mNetworkIdToGameObjectMap[inGameObject->GetNetworkId()] = inGameObject;
 }
 
-void NetworkManager::RemoveFromNetworkIdToGameObjectMap(
-    GameObjectPtr inGameObject)
+void NetworkManager::RemoveFromNetworkIdToGameObjectMap(GameObjectPtr inGameObject)
 {
     mNetworkIdToGameObjectMap.erase(inGameObject->GetNetworkId());
 }

@@ -28,8 +28,7 @@ bool GraphicsDriver::Init(SDL_Window* inWnd)
     mRenderer = SDL_CreateRenderer(inWnd, -1, SDL_RENDERER_ACCELERATED);
     if (mRenderer == nullptr)
     {
-        SDL_LogError(SDL_LOG_CATEGORY_ERROR,
-                     "Failed to create hardware-accelerated renderer.");
+        SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to create hardware-accelerated renderer.");
         return false;
     }
 

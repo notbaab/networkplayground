@@ -14,10 +14,8 @@ class UDPSocket
     ~UDPSocket();
 
     int Bind(const SocketAddress& inToAddress);
-    int SendTo(const void* inToSend, int inLength,
-               const SocketAddress& inToAddress);
-    int ReceiveFrom(void* inToReceive, int inMaxLength,
-                    SocketAddress& outFromAddress);
+    int SendTo(const void* inToSend, int inLength, const SocketAddress& inToAddress);
+    int ReceiveFrom(void* inToReceive, int inMaxLength, SocketAddress& outFromAddress);
 
     /*
     int SendTo( const MemoryOutputStream& inMOS, const SocketAddress&

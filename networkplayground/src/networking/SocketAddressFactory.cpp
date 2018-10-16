@@ -4,8 +4,7 @@
 #include "networking/SocketAddressFactory.h"
 #include "networking/SocketUtil.h"
 
-SocketAddressPtr
-SocketAddressFactory::CreateIPv4FromString(const std::string& inString)
+SocketAddressPtr SocketAddressFactory::CreateIPv4FromString(const std::string& inString)
 {
     auto pos = inString.find_last_of(':');
     std::string host, service;

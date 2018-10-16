@@ -9,8 +9,7 @@ class Move
   public:
     Move() {}
     Move(const InputState& inInputState, float inTimeStamp, float inDeltaTime)
-        : mInputState(inInputState), mTimeStamp(inTimeStamp),
-          mDeltaTime(inDeltaTime)
+        : mInputState(inInputState), mTimeStamp(inTimeStamp), mDeltaTime(inDeltaTime)
     {
     }
 

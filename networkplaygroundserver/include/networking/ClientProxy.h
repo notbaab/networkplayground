@@ -14,44 +14,28 @@
 class ClientProxy
 {
   public:
-    ClientProxy(const SocketAddress& inSocketAddres, const std::string& inName,
-                int inPlayerId);
+    ClientProxy(const SocketAddress& inSocketAddres, const std::string& inName, int inPlayerId);
 
     const SocketAddress& GetSocketAddress() const { return mSocketAddress; }
     int GetPlayerId() const { return mPlayerId; }
     const std::string& GetName() const { return mName; }
 
-    void SetInputState(const InputState& inInputState)
-    {
-        mInputState = inInputState;
-    }
+    void SetInputState(const InputState& inInputState) { mInputState = inInputState; }
     const InputState& GetInputState() const { return mInputState; }
 
     void UpdateLastPacketTime();
-    float GetLastPacketFromClientTime() const
-    {
-        return mLastPacketFromClientTime;
-    }
+    float GetLastPacketFromClientTime() const { return mLastPacketFromClientTime; }
 
-    const MoveList& GetUnprocessedMoveList() const
-    {
-        return mUnprocessedMoveList;
-    }
+    const MoveList& GetUnprocessedMoveList() const { return mUnprocessedMoveList; }
     MoveList& GetUnprocessedMoveList() { return mUnprocessedMoveList; }
 
-    void SetIsLastMoveTimestampDirty(bool inIsDirty)
-    {
-        mIsLastMoveTimestampDirty = inIsDirty;
-    }
+    void SetIsLastMoveTimestampDirty(bool inIsDirty) { mIsLastMoveTimestampDirty = inIsDirty; }
 
     DeliveryNotificationManager& GetDeliveryNotificationManager()
     {
         return mDeliveryNotificationManager;
     }
-    ReplicationManagerServer& GetReplicationManagerServer()
-    {
-        return mReplicationManagerServer;
-    }
+    ReplicationManagerServer& GetReplicationManagerServer() { return mReplicationManagerServer; }
 
     bool IsLastMoveTimestampDirty() const { return mIsLastMoveTimestampDirty; }
 

@@ -12,8 +12,7 @@ class ReplicationManagerTransmissionData : public TransmissionData
   public:
     static const uint32_t kReplicationTransmissionData = 'RPLM';
 
-    ReplicationManagerTransmissionData(
-        ReplicationManagerServer* inReplicationManagerServer)
+    ReplicationManagerTransmissionData(ReplicationManagerServer* inReplicationManagerServer)
         : mReplicationManagerServer(inReplicationManagerServer)
     {
     }
@@ -21,8 +20,7 @@ class ReplicationManagerTransmissionData : public TransmissionData
     class ReplicationTransmission
     {
       public:
-        ReplicationTransmission(int inNetworkId, ReplicationAction inAction,
-                                uint32_t inState)
+        ReplicationTransmission(int inNetworkId, ReplicationAction inAction, uint32_t inState)
             : mNetworkId(inNetworkId), mAction(inAction), mState(inState)
         {
         }
@@ -37,16 +35,13 @@ class ReplicationManagerTransmissionData : public TransmissionData
         uint32_t mState;
     };
 
-    void AddTransmission(int inNetworkId, ReplicationAction inAction,
-                         uint32_t instate);
+    void AddTransmission(int inNetworkId, ReplicationAction inAction, uint32_t instate);
 
     virtual void HandleDeliveryFailure(
-        DeliveryNotificationManager* inDeliveryNotificationManager)
-        const override;
+        DeliveryNotificationManager* inDeliveryNotificationManager) const override;
 
     virtual void HandleDeliverySuccess(
-        DeliveryNotificationManager* inDeliveryNotificationManager)
-        const override;
+        DeliveryNotificationManager* inDeliveryNotificationManager) const override;
 
   private:
     // Failure handlers
@@ -65,7 +60,6 @@ class ReplicationManagerTransmissionData : public TransmissionData
     std::vector<ReplicationTransmission> mTransmissions;
 };
 
-typedef std::shared_ptr<ReplicationManagerTransmissionData>
-    ReplicationManagerTransmissionDataPtr;
+typedef std::shared_ptr<ReplicationManagerTransmissionData> ReplicationManagerTransmissionDataPtr;
 
 #endif /* ReplicationManagerTransmissionData_h */

@@ -3,8 +3,7 @@
 
 int UDPSocket::Bind(const SocketAddress& inBindAddress)
 {
-    int error =
-        bind(mSocket, &inBindAddress.mSockAddr, inBindAddress.GetSize());
+    int error = bind(mSocket, &inBindAddress.mSockAddr, inBindAddress.GetSize());
     if (error != 0)
     {
         SocketUtil::ReportError("UDPSocket::Bind");
@@ -14,12 +13,10 @@ int UDPSocket::Bind(const SocketAddress& inBindAddress)
     return NO_ERROR;
 }
 
-int UDPSocket::SendTo(const void* inToSend, int inLength,
-                      const SocketAddress& inToAddress)
+int UDPSocket::SendTo(const void* inToSend, int inLength, const SocketAddress& inToAddress)
 {
-    int byteSentCount =
-        (int)sendto(mSocket, static_cast<const char*>(inToSend), inLength, 0,
-                    &inToAddress.mSockAddr, inToAddress.GetSize());
+    int byteSentCount = (int)sendto(mSocket, static_cast<const char*>(inToSend), inLength, 0,
+                                    &inToAddress.mSockAddr, inToAddress.GetSize());
     if (byteSentCount <= 0)
     {
         // we'll return error as negative number to indicate less than requested
@@ -33,14 +30,12 @@ int UDPSocket::SendTo(const void* inToSend, int inLength,
     }
 }
 
-int UDPSocket::ReceiveFrom(void* inToReceive, int inMaxLength,
-                           SocketAddress& outFromAddress)
+int UDPSocket::ReceiveFrom(void* inToReceive, int inMaxLength, SocketAddress& outFromAddress)
 {
     socklen_t fromLength = outFromAddress.GetSize();
 
-    int readByteCount =
-        (int)recvfrom(mSocket, static_cast<char*>(inToReceive), inMaxLength, 0,
-                      &outFromAddress.mSockAddr, &fromLength);
+    int readByteCount = (int)recvfrom(mSocket, static_cast<char*>(inToReceive), inMaxLength, 0,
+                                      &outFromAddress.mSockAddr, &fromLength);
     if (readByteCount >= 0)
     {
         return readByteCount;
@@ -86,8 +81,7 @@ int UDPSocket::SetNonBlockingMode(bool inShouldBeNonBlocking)
     int result = ioctlsocket(mSocket, FIONBIO, &arg);
 #else
     int flags = fcntl(mSocket, F_GETFL, 0);
-    flags =
-        inShouldBeNonBlocking ? (flags | O_NONBLOCK) : (flags & ~O_NONBLOCK);
+    flags = inShouldBeNonBlocking ? (flags | O_NONBLOCK) : (flags & ~O_NONBLOCK);
     int result = fcntl(mSocket, F_SETFL, flags);
 #endif
 

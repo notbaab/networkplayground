@@ -17,11 +17,11 @@
 #include "math/Vector3.h"
 
 // Define for identifying classes.
-#define CLASS_IDENTIFICATION(inCode, inClass)                                  \
-    enum                                                                       \
-    {                                                                          \
-        kClassId = inCode                                                      \
-    };                                                                         \
+#define CLASS_IDENTIFICATION(inCode, inClass)                                                      \
+    enum                                                                                           \
+    {                                                                                              \
+        kClassId = inCode                                                                          \
+    };                                                                                             \
     virtual uint32_t GetClassId() const override { return kClassId; }
 
 class GameObject
@@ -48,8 +48,7 @@ class GameObject
     int GetNetworkId() const { return mNetworkId; }
     void SetNetworkId(int inId) { mNetworkId = inId; }
 
-    virtual uint32_t Write(OutputMemoryBitStream& inOutputStream,
-                           uint32_t inDirtyState)
+    virtual uint32_t Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState)
     {
         return 0;
     }

@@ -8,8 +8,7 @@ const float kTimeBetweenInputPackets = 0.033f;
 
 NetworkManagerClient* NetworkManagerClient::sInstance;
 NetworkManagerClient::NetworkManagerClient()
-    : mState(NCS_Uninitialized), mDeliveryNotificationManager(true, false),
-      mLastRoundTripTime(0.f)
+    : mState(NCS_Uninitialized), mDeliveryNotificationManager(true, false), mLastRoundTripTime(0.f)
 {
 }
 
@@ -20,8 +19,7 @@ void NetworkManagerClient::StaticInit(const SocketAddress& inServerAddress,
     sInstance->Init(inServerAddress, inName);
 }
 
-void NetworkManagerClient::Init(const SocketAddress& inServerAddress,
-                                const std::string& inName)
+void NetworkManagerClient::Init(const SocketAddress& inServerAddress, const std::string& inName)
 {
     // Init the good shit
     NetworkManager::Init(0);
@@ -98,8 +96,7 @@ void NetworkManagerClient::SendHelloPacket()
     SendPacket(helloPacket, mServerAddress);
 }
 
-void NetworkManagerClient::HandleWelcomePacket(
-    InputMemoryBitStream& inInputStream)
+void NetworkManagerClient::HandleWelcomePacket(InputMemoryBitStream& inInputStream)
 {
     if (mState != NCS_SayingHello)
     {
@@ -112,8 +109,7 @@ void NetworkManagerClient::HandleWelcomePacket(
     DEBUG("'{}' was welcomed on client as player {}", mName.c_str(), mPlayerId);
 }
 
-void NetworkManagerClient::HandleStatePacket(
-    InputMemoryBitStream& inInputStream)
+void NetworkManagerClient::HandleStatePacket(InputMemoryBitStream& inInputStream)
 {
     // Only process if welcomed
     if (mState != NCS_Welcomed)
@@ -193,8 +189,7 @@ void NetworkManagerClient::ReadLastMoveProcessedOnServerTimestamp(
 
     // TODO: You can't send timestamps, that is a good way to fuck up some stuff
     inInputStream.Read(mLastMoveProcessedByServerTimestamp);
-    float rtt = Timing::sInstance.GetFrameStartTime() -
-                mLastMoveProcessedByServerTimestamp;
+    float rtt = Timing::sInstance.GetFrameStartTime() - mLastMoveProcessedByServerTimestamp;
     mLastRoundTripTime = rtt;
 
     mAvgRoundTripTime.Update(rtt);

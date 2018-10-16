@@ -6,8 +6,7 @@
 class WeightedTimedMovingAverage
 {
   public:
-    WeightedTimedMovingAverage(float inDuration = 5.f)
-        : mDuration(inDuration), mValue(0.f)
+    WeightedTimedMovingAverage(float inDuration = 5.f) : mDuration(inDuration), mValue(0.f)
     {
         mTimeLastEntryMade = Timing::sInstance.GetTimef();
     }
@@ -26,8 +25,7 @@ class WeightedTimedMovingAverage
             fractionOfDuration = 1.f;
         }
 
-        mValue = mValue * (1.f - fractionOfDuration) +
-                 valueOverTime * fractionOfDuration;
+        mValue = mValue * (1.f - fractionOfDuration) + valueOverTime * fractionOfDuration;
 
         mTimeLastEntryMade = time;
     }
@@ -44,8 +42,7 @@ class WeightedTimedMovingAverage
             fractionOfDuration = 1.f;
         }
 
-        mValue =
-            mValue * (1.f - fractionOfDuration) + inValue * fractionOfDuration;
+        mValue = mValue * (1.f - fractionOfDuration) + inValue * fractionOfDuration;
 
         mTimeLastEntryMade = time;
     }
