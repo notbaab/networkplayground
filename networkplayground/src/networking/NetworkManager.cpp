@@ -89,23 +89,21 @@ void NetworkManager::ProcessPacket(InputMemoryBitStream& inInputStream,
 
 void NetworkManager::ReadIncomingPacketsIntoQueue()
 {
-    // 'byte' array to read each packet into
-    char packetMem[1500];
-    int packetSize = sizeof(packetMem);
-    int packetSizeInBits = packetSize * 8;
-
-    // Stream we will read each packet into
-    InputMemoryBitStream inputStream(packetMem, packetSizeInBits);
-
     int totalPacketsRecieved = 0;
     int totalBytesRead = 0;
 
     SocketAddress fromAddress;
+    // TODO: Find out why I can't pass kMaxPacketSize to the vector constructor
+    const int packetSize = kMaxPacketSize;
 
     while (totalPacketsRecieved < kMaxPacketsPerFrameCount)
     {
-        int readByteCount =
-            mSocket->ReceiveFrom(packetMem, packetSize, fromAddress);
+        auto packetMem = std::make_shared<std::vector<char>>(packetSize);
+
+        // Stream we will read each packet into
+        InputMemoryBitStream inputStream(packetMem, kPacketSizeInBits);
+        // mSocket->ReceiveFrom(void *inToReceive, int inMaxLength, SocketAddress &outFromAddress)
+        int readByteCount = mSocket->ReceiveFrom(packetMem->data(), kMaxPacketSize, fromAddress);
 
         if (readByteCount == 0)
         {
@@ -139,6 +137,8 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
         // Eh, probably not really need at this point
         if (mRecordRequestPackets)
         {
+            // TODO: Record should just pass the shared stream pointer to
+            // something
             inputStream.printStream();
         }
     }

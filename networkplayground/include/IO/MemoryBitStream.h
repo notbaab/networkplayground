@@ -1,19 +1,13 @@
-/**
- *
- * MemoryBitStream.hpp
- * networkplayground
- *
- * Based on https://github.com/MultiplayerBook/MultiplayerBook.git
- *
- */
 #ifndef MemoryBitStream_h
 #define MemoryBitStream_h
 
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
+#include <memory>
 #include <stdio.h>
 #include <string.h>
+#include <vector>
 
 class GameObject;
 
@@ -105,32 +99,18 @@ class OutputMemoryBitStream
 class InputMemoryBitStream
 {
   public:
-    InputMemoryBitStream(char* inBuffer, uint32_t inBitCount)
-        : mBuffer(inBuffer), mBitHead(0), mBitCapacity(inBitCount),
-          mIsBufferOwner(false)
+    InputMemoryBitStream(std::shared_ptr<std::vector<char>> inBuffer, uint32_t inBitCount)
+        : mBuffer(inBuffer), mBitHead(0), mBitCapacity(inBitCount)
     {
     }
 
     InputMemoryBitStream(const InputMemoryBitStream& inOther)
-        : mBitHead(inOther.mBitHead), mBitCapacity(inOther.mBitCapacity),
-          mIsBufferOwner(true)
+        : mBitHead(inOther.mBitHead), mBitCapacity(inOther.mBitCapacity)
     {
-        // allocate buffer of right size
-        int byteCount = mBitCapacity / 8;
-        mBuffer = static_cast<char*>(malloc(byteCount));
-        // copy
-        memcpy(mBuffer, inOther.mBuffer, byteCount);
+        mBuffer = inOther.mBuffer;
     }
 
-    ~InputMemoryBitStream()
-    {
-        if (mIsBufferOwner)
-        {
-            free(mBuffer);
-        };
-    }
-
-    const char* GetBufferPtr() const { return mBuffer; }
+    const char* GetBufferPtr() const { return mBuffer->data(); }
     uint32_t GetRemainingBitCount() const { return mBitCapacity - mBitHead; }
     uint32_t GetByteCapacity() const { return mBitCapacity >> 3; }
 
@@ -186,10 +166,9 @@ class InputMemoryBitStream
     void printStream() const;
 
   private:
-    char* mBuffer;
+    std::shared_ptr<std::vector<char>> mBuffer;
     uint32_t mBitHead;
     uint32_t mBitCapacity;
-    bool mIsBufferOwner;
 };
 
 #endif

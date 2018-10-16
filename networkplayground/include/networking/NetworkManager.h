@@ -1,7 +1,3 @@
-//
-//  NetworkManager.h
-//  networkplayground
-//
 #ifndef NetworkedManager_h
 #define NetworkedManager_h
 
@@ -22,7 +18,10 @@ class NetworkManager
     static const uint8_t kWelcomeCC = 2; // server welcome message
     static const uint8_t kStateCC = 3;
     static const uint8_t kInputCC = 4;
-    static const int kMaxPacketsPerFrameCount = 10;
+
+    static const uint8_t kMaxPacketsPerFrameCount = 10;
+    static const int kMaxPacketSize = 1500;
+    static const int kPacketSizeInBits = kMaxPacketSize * 8;
 
     NetworkManager();
     virtual ~NetworkManager();

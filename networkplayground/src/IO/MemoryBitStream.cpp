@@ -1,6 +1,6 @@
 #include "MemoryBitStream.h"
-#include <iostream>
 #include <bitset>
+#include <iostream>
 
 using std::cout;
 using std::endl;
@@ -128,7 +128,8 @@ void InputMemoryBitStream::ReadBits(uint8_t& outData, uint32_t inBitCount)
 
     // Point outData to the correct location in the current buffer by grabing
     // the current byte and shift it by the amount of bits written
-    outData = static_cast<uint8_t>(mBuffer[byteOffset]) >> bitOffset;
+
+    outData = static_cast<uint8_t>(mBuffer->data()[byteOffset]) >> bitOffset;
 
     printf("%d out data %d byteOffset\n", outData, byteOffset);
 
@@ -140,8 +141,7 @@ void InputMemoryBitStream::ReadBits(uint8_t& outData, uint32_t inBitCount)
     {
         // we need another byte, grab the next byte but shift it back the
         // amount of bits that were free.
-        outData |= static_cast<uint8_t>(mBuffer[byteOffset + 1])
-                   << bitsFreeThisByte;
+        outData |= static_cast<uint8_t>(mBuffer->data()[byteOffset + 1]) << bitsFreeThisByte;
     }
 
     // Mask out the data we don't want, leaving the bits we want in the last
