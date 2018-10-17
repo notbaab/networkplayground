@@ -32,12 +32,12 @@ void Player::Update() {}
 uint32_t Player::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState)
 {
     TRACE("Writing State");
-    PlayerMessage* message = new PlayerMessage();
-
-    // This is pretty wrong, where is everything dirty?
     this->mState = static_cast<PlayerMessage::ReplicationState>(
         inDirtyState & PlayerMessage::ReplicationState::ALL_STATE);
-    message->Serialize(inOutputStream, this);
+    PlayerMessage* message = new PlayerMessage(this);
+
+    // This is pretty wrong, where is everything dirty?
+    message->Serialize(inOutputStream);
 
     return inDirtyState;
 }

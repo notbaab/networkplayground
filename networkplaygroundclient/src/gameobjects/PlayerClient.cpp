@@ -88,7 +88,11 @@ void PlayerClient::Read(InputMemoryBitStream& inInputStream)
 void PlayerClient::HandleStatePacket(InputMemoryBitStream& inInputStream)
 {
     TRACE("Reading in State");
-    PlayerMessage::Serialize(inInputStream, this);
+
+    auto statePacket = PlayerMessage();
+    statePacket.Serialize(inInputStream);
+    statePacket.copyToPlayer(this);
+
     mServerGhost->mLocation.mX = mLocation.mX;
     mServerGhost->mLocation.mY = mLocation.mY;
 }

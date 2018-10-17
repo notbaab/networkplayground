@@ -14,28 +14,60 @@ class PlayerMessage
         ALL_STATE = PRS_POSI | PRS_PID,
     };
 
-    template <typename Stream, typename DataContainer>
-    static bool Serialize(Stream& stream, DataContainer dataContainer)
-    {
-        stream.serialize(dataContainer->mState);
-        bool writePlayerId = dataContainer->mState & ReplicationState::PRS_PID;
-        bool writePosition = dataContainer->mState & ReplicationState::PRS_POSI;
+    PlayerMessage() {}
 
-        if (writePlayerId)
+    template <typename PlayerLikeObject>
+    PlayerMessage(PlayerLikeObject player) {
+        state = player->mState;
+        id = player->mPlayerId;
+        xVel = player->mVelocity.mX;
+        yVel = player->mVelocity.mY;
+        xLoc = player->mLocation.mX;
+        yLoc = player->mLocation.mY;
+    }
+
+
+    template <typename PlayerLikeObject>
+    bool copyToPlayer(PlayerLikeObject player) {
+        player->mState = state;
+        if(hasId) {
+            player->mPlayerId = id;
+        }
+        if (hasPosition) {
+            player->mVelocity.mX = xVel;
+            player->mVelocity.mY = yVel;
+            player->mLocation.mX = xLoc;
+            player->mLocation.mY = yLoc;
+        }
+    }
+
+    ReplicationState state;
+    uint32_t id;
+    bool hasPosition, hasId;
+    float xVel, yVel, xLoc, yLoc;
+
+    template <typename Stream>
+    bool Serialize(Stream& stream)
+    {
+        stream.serialize(state);
+        hasId = state & ReplicationState::PRS_PID;
+        hasPosition = state & ReplicationState::PRS_POSI;
+
+        if (hasId)
         {
-            stream.serialize(dataContainer->mPlayerId);
+            stream.serialize(id);
         }
 
-        if (writePosition)
+        if (hasPosition)
         {
-            TRACE("Writting message with x={}, y={}, mX={}, mY={}", dataContainer->GetLocation().mX,
-                  dataContainer->GetLocation().mY, dataContainer->mVelocity.mX,
-                  dataContainer->mVelocity.mY);
-            stream.serialize(dataContainer->mVelocity.mX);
-            stream.serialize(dataContainer->mVelocity.mY);
-
-            stream.serialize(dataContainer->mLocation.mX);
-            stream.serialize(dataContainer->mLocation.mY);
+            // TRACE("Writting message with x={}, y={}, mX={}, mY={}",
+            // dataContainer->GetLocation().mX,
+            //       dataContainer->GetLocation().mY, dataContainer->mVelocity.mX,
+            //       dataContainer->mVelocity.mY);
+            stream.serialize(xVel);
+            stream.serialize(yVel);
+            stream.serialize(xLoc);
+            stream.serialize(yLoc);
         }
 
         return true;
