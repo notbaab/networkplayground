@@ -95,6 +95,7 @@ void PlayerClient::HandleStatePacket(InputMemoryBitStream& inInputStream)
 
     mServerGhost->mLocation.mX = mLocation.mX;
     mServerGhost->mLocation.mY = mLocation.mY;
+    TRACE("Setting Ghost location to {},{}", mLocation.mX, mLocation.mY)
 }
 
 void PlayerClient::ApplyUnAckedMoves(uint32_t inReadState)

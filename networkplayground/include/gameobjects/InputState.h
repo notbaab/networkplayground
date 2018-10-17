@@ -19,10 +19,7 @@ class InputState
     bool Write(OutputMemoryBitStream& inOutputStream) const;
     bool Read(InputMemoryBitStream& inInputStream);
 
-  private:
-    friend class InputManager; // client only class. Why?
     float mLeftAmount, mRightAmount, mForwardAmount, mBackAmount;
-
     bool mIsShooting;
 };
 
