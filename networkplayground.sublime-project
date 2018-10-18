@@ -43,15 +43,13 @@
 				"cmake-build-debug"
 			],
 			"path": "."
-		},
-		{
-			"path": "/Users/et/Downloads/GDC 2015 Example Source Code"
-		},
-		{
-			"path": "/Users/et/Dropbox/Programming/networking/MultiplayerBook/Chapter 8/RoboCatAction"
 		}
 	],
 	"settings":
 	{
+		"ClangFormat":
+		{
+			"format_on_save": true
+		}
 	}
 }
