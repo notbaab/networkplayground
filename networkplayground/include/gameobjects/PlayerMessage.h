@@ -1,9 +1,6 @@
 #ifndef PlayerMessage_h
 #define PlayerMessage_h
 
-#include "IO/MemoryBitStream.h"
-#include "networking/Logger.h"
-
 class PlayerMessage
 {
   public:
@@ -17,7 +14,8 @@ class PlayerMessage
     PlayerMessage() {}
 
     template <typename PlayerLikeObject>
-    PlayerMessage(PlayerLikeObject player) {
+    PlayerMessage(PlayerLikeObject player)
+    {
         state = player->mState;
         id = player->mPlayerId;
         xVel = player->mVelocity.mX;
@@ -26,14 +24,16 @@ class PlayerMessage
         yLoc = player->mLocation.mY;
     }
 
-
     template <typename PlayerLikeObject>
-    bool copyToPlayer(PlayerLikeObject player) {
+    bool copyToPlayer(PlayerLikeObject player)
+    {
         player->mState = state;
-        if(hasId) {
+        if (hasId)
+        {
             player->mPlayerId = id;
         }
-        if (hasPosition) {
+        if (hasPosition)
+        {
             player->mVelocity.mX = xVel;
             player->mVelocity.mY = yVel;
             player->mLocation.mX = xLoc;
@@ -60,10 +60,6 @@ class PlayerMessage
 
         if (hasPosition)
         {
-            // TRACE("Writting message with x={}, y={}, mX={}, mY={}",
-            // dataContainer->GetLocation().mX,
-            //       dataContainer->GetLocation().mY, dataContainer->mVelocity.mX,
-            //       dataContainer->mVelocity.mY);
             stream.serialize(xVel);
             stream.serialize(yVel);
             stream.serialize(xLoc);
