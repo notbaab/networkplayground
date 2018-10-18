@@ -1,11 +1,3 @@
-//
-//  ReplicationManagerServer.h
-//  networkplayground
-//
-//  Created by Erik Parreira on 7/18/16.
-//  Copyright © 2016 Erik Parreira. All rights reserved.
-//
-
 #ifndef ReplicationManagerServer_h
 #define ReplicationManagerServer_h
 

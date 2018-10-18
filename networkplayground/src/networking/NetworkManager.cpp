@@ -78,13 +78,6 @@ void NetworkManager::ProcessQueuedPackets()
 void NetworkManager::ProcessPacket(InputMemoryBitStream& inInputStream,
                                    const SocketAddress& inFromAddress)
 {
-
-    // For now, just output the packet data
-    // for(int i = 0 ; i < readByteCount ; i ++ )
-    // {
-    //     std::cout << packetMem[i] ;//Looping 5 times to print out
-    //     [0],[1],[2],[3],[4]
-    // }
 }
 
 void NetworkManager::ReadIncomingPacketsIntoQueue()
